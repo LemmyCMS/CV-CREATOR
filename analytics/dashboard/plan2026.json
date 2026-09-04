@@ -1,0 +1,329 @@
+{
+  "book": {
+    "fin_m": 53.0,
+    "new_m": 11.714285714285714,
+    "ext_m": 36.714285714285715,
+    "net": -4.571428571428569
+  },
+  "perm": [
+    {
+      "desk": "Perm Antwerp IT",
+      "n": 4,
+      "median_gp": 24914,
+      "total_gp": 104606,
+      "fee": 26,
+      "ttf": 68
+    },
+    {
+      "desk": "Perm Brussels Construction",
+      "n": 7,
+      "median_gp": 21997,
+      "total_gp": 152253,
+      "fee": 25,
+      "ttf": 122
+    },
+    {
+      "desk": "Perm Brussels Construction/Engineering/Sales",
+      "n": 4,
+      "median_gp": 20062,
+      "total_gp": 86467,
+      "fee": 25,
+      "ttf": 208
+    },
+    {
+      "desk": "Perm Brussels Engineering / Sales",
+      "n": 5,
+      "median_gp": 20001,
+      "total_gp": 105467,
+      "fee": 25,
+      "ttf": 57
+    },
+    {
+      "desk": "Perm Antwerp Construction",
+      "n": 4,
+      "median_gp": 17519,
+      "total_gp": 86077,
+      "fee": 25,
+      "ttf": 58
+    },
+    {
+      "desk": "Perm Canada Legal",
+      "n": 3,
+      "median_gp": 16839,
+      "total_gp": 59703,
+      "fee": 25,
+      "ttf": 55
+    },
+    {
+      "desk": "Perm Brussels IT",
+      "n": 3,
+      "median_gp": 16000,
+      "total_gp": 51345,
+      "fee": 25,
+      "ttf": 80
+    },
+    {
+      "desk": "Perm Antwerp Engineering",
+      "n": 2,
+      "median_gp": 15567,
+      "total_gp": 31134,
+      "fee": 26,
+      "ttf": 64
+    },
+    {
+      "desk": "Perm Brussels Finance/Support",
+      "n": 6,
+      "median_gp": 12732,
+      "total_gp": 72364,
+      "fee": 25,
+      "ttf": 22
+    },
+    {
+      "desk": "Perm Antwerp Supply Chain",
+      "n": 4,
+      "median_gp": 11504,
+      "total_gp": 46120,
+      "fee": 25,
+      "ttf": 57
+    },
+    {
+      "desk": "Perm Middle-East",
+      "n": 6,
+      "median_gp": 7026,
+      "total_gp": 37689,
+      "fee": 16,
+      "ttf": 76
+    },
+    {
+      "desk": "Perm France IT Infra",
+      "n": 2,
+      "median_gp": 5758,
+      "total_gp": 11517,
+      "fee": 18,
+      "ttf": 84
+    },
+    {
+      "desk": "Perm Africa",
+      "n": 2,
+      "median_gp": 5364,
+      "total_gp": 10727,
+      "fee": 57,
+      "ttf": 230
+    }
+  ],
+  "freelance": [
+    {
+      "desk": "Contract Luxembourg IT",
+      "n": 6,
+      "weekly_gp": 838,
+      "margin": 19.0
+    },
+    {
+      "desk": "Contract Brussels IT Infrastructure",
+      "n": 6,
+      "weekly_gp": 825,
+      "margin": 27.2
+    },
+    {
+      "desk": "Contract Brussels Construction/Engineering",
+      "n": 11,
+      "weekly_gp": 698,
+      "margin": 17.3
+    },
+    {
+      "desk": "Contract Brussels IT Data",
+      "n": 11,
+      "weekly_gp": 600,
+      "margin": 15.6
+    },
+    {
+      "desk": "Contract Brussels Finance/Support",
+      "n": 8,
+      "weekly_gp": 600,
+      "margin": 16.9
+    },
+    {
+      "desk": "Contract Brussels IT Dev",
+      "n": 26,
+      "weekly_gp": 500,
+      "margin": 14.6
+    },
+    {
+      "desk": "Contract France IT",
+      "n": 6,
+      "weekly_gp": 500,
+      "margin": 13.2
+    },
+    {
+      "desk": "Contract Antwerp IT",
+      "n": 2,
+      "weekly_gp": 488,
+      "margin": 14.7
+    }
+  ],
+  "targets": [
+    {
+      "metric": "Extension rate (of contractors finishing)",
+      "today": "69%",
+      "plan": "78%",
+      "commit": "80%",
+      "why": "The cheapest number on the page. 208 finishers had no activity logged at all; converting one in five turns the book from \u22124.6 to +1.4 a month. Nothing else stabilises revenue this cheaply."
+    },
+    {
+      "metric": "New contract placements / month",
+      "today": "11.7",
+      "plan": "14",
+      "commit": "16",
+      "why": "Holds the book flat alongside an 80% extension rate, and gives headroom to rebuild toward the Oct\u2013May run-rate."
+    },
+    {
+      "metric": "CVs sent per head per working day",
+      "today": "1.24",
+      "plan": "1.5",
+      "commit": "1.7",
+      "why": "The earliest reliably-logged stage, so it is the only safe anchor. +39% CVs at today's unchanged conversion is what funds the placement target."
+    },
+    {
+      "metric": "CVs per job taken",
+      "today": "1.99",
+      "plan": "2.6",
+      "commit": "3.0",
+      "why": "Below 2.0 means steps are being skipped. Getting to 3.0 on the SAME jobs is worth about +129 placements a year with no new BD at all."
+    },
+    {
+      "metric": "A-graded share of jobs taken",
+      "today": "6.7%",
+      "plan": "11%",
+      "commit": "15%",
+      "why": "A-jobs fill at 32% against 5.6% for everything else \u2014 a 5.7\u00d7 gap. This is a qualification discipline, not more calls."
+    },
+    {
+      "metric": "Contract book margin (median fee %)",
+      "today": "15.6%",
+      "plan": "17.5%",
+      "commit": "19.4%",
+      "why": "Restoring the 2022\u201325 level is worth roughly \u20ac1.5M a year on the same volume. Start with UCB, Electrabel, Belfius and AG Insurance, all running 11\u201312.6%."
+    },
+    {
+      "metric": "New candidates actually sent somewhere",
+      "today": "15%",
+      "plan": "30%",
+      "commit": "40%",
+      "why": "85% of new candidates are never sent to a job or contact. This is sourcing effort already paid for and thrown away."
+    },
+    {
+      "metric": "Reference checks per placement",
+      "today": "33%",
+      "plan": "70%",
+      "commit": "90%",
+      "why": "Was 110% three years ago. Either the checks stopped or the logging did, and one of those is a compliance exposure, not a KPI."
+    }
+  ],
+  "yoy": [
+    [
+      "Volume, 3-year average \u2192 last 12 months",
+      "\u221265% / yr"
+    ],
+    [
+      "CV\u2192placement conversion over the same span",
+      "3.26% \u2192 3.68%"
+    ],
+    [
+      "Average perm fee",
+      "\u20ac14,261 \u2192 \u20ac16,410"
+    ],
+    [
+      "Contract margin (median, sampled)",
+      "19.4% \u2192 15.6%"
+    ],
+    [
+      "New organisations opened per year",
+      "9,851 \u2192 688"
+    ],
+    [
+      "LinkedIn InMails per year",
+      "45,257 \u2192 11"
+    ],
+    [
+      "Client call \u2192 A-job ratio, unchanged in 4 years",
+      "88 : 1"
+    ],
+    [
+      "Contract run-rate, Oct\u2013May vs today",
+      "\u20ac160.8k \u2192 \u20ac112.9k / wk"
+    ]
+  ],
+  "crm": [
+    {
+      "what": "Stage-entry event log with timestamps",
+      "why": "Every ratio, cohort and forecast in this analysis comes from stage entries. Storing only current status makes all of it impossible to reproduce \u2014 and you will not find out until Cube19 is gone.",
+      "effort": "Core \u00b7 do first"
+    },
+    {
+      "what": "Extension / end-date alerting on every live assignment",
+      "why": "56% of finishers had no logged activity. This one screen is worth more than the rest of the CRM combined and is a few days of work.",
+      "effort": "Days"
+    },
+    {
+      "what": "Mandatory owner on every placement \u2014 no placeholders",
+      "why": "36% of contract placements sit on Ghost_* owners holding 14% of GP. Every leaderboard and commission number is wrong by that margin.",
+      "effort": "Days"
+    },
+    {
+      "what": "Job qualification grade, required before a CV can be sent",
+      "why": "A-jobs fill 5.7\u00d7 better, but 16% of placements carry no grade at all. Make the grade a gate, not a field.",
+      "effort": "Days"
+    },
+    {
+      "what": "Margin floor warning at submission",
+      "why": "26% of contract placements are below 12%. Catch it when the rate is agreed, not in a quarterly review.",
+      "effort": "Days"
+    },
+    {
+      "what": "Stable desk taxonomy with a historical crosswalk",
+      "why": "Retired [deleted] groups, compound desks later split, and 'Gentis Consultancy' as a catch-all all break year-on-year comparison permanently.",
+      "effort": "Weeks \u00b7 design once"
+    },
+    {
+      "what": "Headcount by month, per desk",
+      "why": "Without it you cannot separate 'the business shrank' from 'the team shrank'. Cube19 never captured it and that is why the last four years are ambiguous.",
+      "effort": "Days"
+    },
+    {
+      "what": "Retainers and spec sends as their own record types",
+      "why": "12% of 'placements' are retainer bookings that never needed a CV. They inflate placement counts and flatter every conversion ratio.",
+      "effort": "Days"
+    },
+    {
+      "what": "Reporting layer (the dashboards)",
+      "why": "Genuinely the easy part, and the part to build LAST. It is arithmetic over the model above \u2014 the engine in this repo already does it.",
+      "effort": "Weeks"
+    }
+  ],
+  "predict": [
+    {
+      "q": "Contract run-rate 12 months out, unchanged",
+      "a": "\u2248 \u20ac4.3M",
+      "band": "if the \u22124.6/month drift continues",
+      "note": "197 contractors out today falling to roughly 142 at \u20ac573 a week. This is the do-nothing case and it is the most likely one, because nothing in the current process stops the drift."
+    },
+    {
+      "q": "Contract run-rate with an 80% extension rate",
+      "a": "\u2248 \u20ac6.4M",
+      "band": "book stabilises, then grows slowly",
+      "note": "The single highest-confidence forecast here: it depends on one ratio you already measure, moved by an amount other agencies routinely achieve."
+    },
+    {
+      "q": "Perm placements next 12 months",
+      "a": "130 \u2013 190",
+      "band": "wide, and honestly so",
+      "note": "The March separation means we do not yet know which desks and which heads sit on the perm side. Confirm the split and this band roughly halves."
+    },
+    {
+      "q": "GP from repricing the four low-margin accounts",
+      "a": "\u2248 \u20ac400k",
+      "band": "high confidence, needs no new placements",
+      "note": "Four named accounts at 11\u201312.6% against a 15.6% book median. The only uncertainty is commercial appetite, not the arithmetic."
+    }
+  ]
+}

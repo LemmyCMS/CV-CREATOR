@@ -1,0 +1,135 @@
+{
+  "cases": {
+    "conservative": {
+      "2": {
+        "placements": 6.0,
+        "perm_gp": 103972,
+        "free_gp": 64508,
+        "still_out": 5.7,
+        "run_rate": 151300
+      },
+      "3": {
+        "placements": 9.0,
+        "perm_gp": 155958,
+        "free_gp": 96761,
+        "still_out": 8.6,
+        "run_rate": 226950
+      },
+      "5": {
+        "placements": 15.0,
+        "perm_gp": 259930,
+        "free_gp": 161269,
+        "still_out": 14.4,
+        "run_rate": 378250
+      },
+      "8": {
+        "placements": 23.9,
+        "perm_gp": 415888,
+        "free_gp": 258031,
+        "still_out": 23.0,
+        "run_rate": 605201
+      },
+      "12": {
+        "placements": 35.9,
+        "perm_gp": 623832,
+        "free_gp": 387046,
+        "still_out": 34.4,
+        "run_rate": 907801
+      }
+    },
+    "planning": {
+      "2": {
+        "placements": 8.7,
+        "perm_gp": 151232,
+        "free_gp": 93829,
+        "still_out": 8.3,
+        "run_rate": 220073
+      },
+      "3": {
+        "placements": 13.1,
+        "perm_gp": 226848,
+        "free_gp": 140744,
+        "still_out": 12.5,
+        "run_rate": 330109
+      },
+      "5": {
+        "placements": 21.8,
+        "perm_gp": 378080,
+        "free_gp": 234573,
+        "still_out": 20.9,
+        "run_rate": 550182
+      },
+      "8": {
+        "placements": 34.8,
+        "perm_gp": 604928,
+        "free_gp": 375317,
+        "still_out": 33.4,
+        "run_rate": 880292
+      },
+      "12": {
+        "placements": 52.2,
+        "perm_gp": 907393,
+        "free_gp": 562976,
+        "still_out": 50.1,
+        "run_rate": 1320438
+      }
+    },
+    "benchmark": {
+      "2": {
+        "placements": 12.5,
+        "perm_gp": 218123,
+        "free_gp": 135331,
+        "still_out": 12.0,
+        "run_rate": 317413
+      },
+      "3": {
+        "placements": 18.8,
+        "perm_gp": 327185,
+        "free_gp": 202996,
+        "still_out": 18.1,
+        "run_rate": 476119
+      },
+      "5": {
+        "placements": 31.4,
+        "perm_gp": 545308,
+        "free_gp": 338327,
+        "still_out": 30.1,
+        "run_rate": 793532
+      },
+      "8": {
+        "placements": 50.2,
+        "perm_gp": 872493,
+        "free_gp": 541323,
+        "still_out": 48.2,
+        "run_rate": 1269651
+      },
+      "12": {
+        "placements": 75.3,
+        "perm_gp": 1308739,
+        "free_gp": 811984,
+        "still_out": 72.3,
+        "run_rate": 1904477
+      }
+    }
+  },
+  "wk_gp": 573,
+  "perm_fee": 17382,
+  "tenure_months": 9,
+  "case_params": {
+    "conservative": {
+      "cv_day": 1.1,
+      "cv2p": 0.02392,
+      "pct_of_gentis": 0.65
+    },
+    "planning": {
+      "cv_day": 1.3,
+      "cv2p": 0.02944,
+      "pct_of_gentis": 0.8
+    },
+    "benchmark": {
+      "cv_day": 1.5,
+      "cv2p": 0.0368,
+      "pct_of_gentis": 1.0
+    }
+  }
+}

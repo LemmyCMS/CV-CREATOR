@@ -1,0 +1,642 @@
+{
+  "cases": {
+    "low": [
+      {
+        "month": "Sep",
+        "rate": 0.08,
+        "cvs": 2,
+        "plc": 0.05,
+        "perm_gp": 790,
+        "out": 0.0,
+        "free_gp": 140
+      },
+      {
+        "month": "Oct",
+        "rate": 0.24,
+        "cvs": 6,
+        "plc": 0.14,
+        "perm_gp": 2479,
+        "out": 0.2,
+        "free_gp": 581
+      },
+      {
+        "month": "Nov",
+        "rate": 0.56,
+        "cvs": 13,
+        "plc": 0.32,
+        "perm_gp": 5532,
+        "out": 0.5,
+        "free_gp": 1563
+      },
+      {
+        "month": "Dec",
+        "rate": 0.8,
+        "cvs": 12,
+        "plc": 0.29,
+        "perm_gp": 5029,
+        "out": 0.8,
+        "free_gp": 2456
+      },
+      {
+        "month": "Jan",
+        "rate": 1.04,
+        "cvs": 26,
+        "plc": 0.62,
+        "perm_gp": 10741,
+        "out": 1.4,
+        "free_gp": 4364
+      },
+      {
+        "month": "Feb",
+        "rate": 1.2,
+        "cvs": 29,
+        "plc": 0.68,
+        "perm_gp": 11855,
+        "out": 2.1,
+        "free_gp": 6470
+      },
+      {
+        "month": "Mar",
+        "rate": 1.36,
+        "cvs": 32,
+        "plc": 0.77,
+        "perm_gp": 13435,
+        "out": 2.9,
+        "free_gp": 8856
+      },
+      {
+        "month": "Apr",
+        "rate": 1.44,
+        "cvs": 33,
+        "plc": 0.78,
+        "perm_gp": 13579,
+        "out": 3.6,
+        "free_gp": 11268
+      },
+      {
+        "month": "May",
+        "rate": 1.52,
+        "cvs": 33,
+        "plc": 0.79,
+        "perm_gp": 13651,
+        "out": 4.4,
+        "free_gp": 13692
+      },
+      {
+        "month": "Jun",
+        "rate": 1.6,
+        "cvs": 26,
+        "plc": 0.62,
+        "perm_gp": 10777,
+        "out": 5.1,
+        "free_gp": 15607
+      },
+      {
+        "month": "Jul",
+        "rate": 1.6,
+        "cvs": 21,
+        "plc": 0.5,
+        "perm_gp": 8622,
+        "out": 5.6,
+        "free_gp": 17138
+      },
+      {
+        "month": "Aug",
+        "rate": 1.6,
+        "cvs": 16,
+        "plc": 0.37,
+        "perm_gp": 6466,
+        "out": 5.9,
+        "free_gp": 18286
+      }
+    ],
+    "base": [
+      {
+        "month": "Sep",
+        "rate": 0.11,
+        "cvs": 3,
+        "plc": 0.08,
+        "perm_gp": 1337,
+        "out": 0.1,
+        "free_gp": 238
+      },
+      {
+        "month": "Oct",
+        "rate": 0.33,
+        "cvs": 8,
+        "plc": 0.24,
+        "perm_gp": 4195,
+        "out": 0.3,
+        "free_gp": 983
+      },
+      {
+        "month": "Nov",
+        "rate": 0.77,
+        "cvs": 18,
+        "plc": 0.54,
+        "perm_gp": 9362,
+        "out": 0.9,
+        "free_gp": 2645
+      },
+      {
+        "month": "Dec",
+        "rate": 1.1,
+        "cvs": 17,
+        "plc": 0.49,
+        "perm_gp": 8511,
+        "out": 1.3,
+        "free_gp": 4157
+      },
+      {
+        "month": "Jan",
+        "rate": 1.43,
+        "cvs": 36,
+        "plc": 1.05,
+        "perm_gp": 18177,
+        "out": 2.4,
+        "free_gp": 7386
+      },
+      {
+        "month": "Feb",
+        "rate": 1.65,
+        "cvs": 39,
+        "plc": 1.15,
+        "perm_gp": 20062,
+        "out": 3.5,
+        "free_gp": 10949
+      },
+      {
+        "month": "Mar",
+        "rate": 1.87,
+        "cvs": 44,
+        "plc": 1.31,
+        "perm_gp": 22737,
+        "out": 4.9,
+        "free_gp": 14987
+      },
+      {
+        "month": "Apr",
+        "rate": 1.98,
+        "cvs": 45,
+        "plc": 1.32,
+        "perm_gp": 22980,
+        "out": 6.2,
+        "free_gp": 19069
+      },
+      {
+        "month": "May",
+        "rate": 2.09,
+        "cvs": 45,
+        "plc": 1.33,
+        "perm_gp": 23101,
+        "out": 7.5,
+        "free_gp": 23172
+      },
+      {
+        "month": "Jun",
+        "rate": 2.2,
+        "cvs": 36,
+        "plc": 1.05,
+        "perm_gp": 18238,
+        "out": 8.6,
+        "free_gp": 26411
+      },
+      {
+        "month": "Jul",
+        "rate": 2.2,
+        "cvs": 29,
+        "plc": 0.84,
+        "perm_gp": 14590,
+        "out": 9.4,
+        "free_gp": 29003
+      },
+      {
+        "month": "Aug",
+        "rate": 2.2,
+        "cvs": 21,
+        "plc": 0.63,
+        "perm_gp": 10943,
+        "out": 10.0,
+        "free_gp": 30946
+      }
+    ],
+    "high": [
+      {
+        "month": "Sep",
+        "rate": 0.14,
+        "cvs": 3,
+        "plc": 0.12,
+        "perm_gp": 2128,
+        "out": 0.1,
+        "free_gp": 378
+      },
+      {
+        "month": "Oct",
+        "rate": 0.42,
+        "cvs": 10,
+        "plc": 0.38,
+        "perm_gp": 6673,
+        "out": 0.5,
+        "free_gp": 1563
+      },
+      {
+        "month": "Nov",
+        "rate": 0.98,
+        "cvs": 23,
+        "plc": 0.86,
+        "perm_gp": 14894,
+        "out": 1.4,
+        "free_gp": 4209
+      },
+      {
+        "month": "Dec",
+        "rate": 1.4,
+        "cvs": 21,
+        "plc": 0.78,
+        "perm_gp": 13540,
+        "out": 2.1,
+        "free_gp": 6614
+      },
+      {
+        "month": "Jan",
+        "rate": 1.82,
+        "cvs": 45,
+        "plc": 1.66,
+        "perm_gp": 28918,
+        "out": 3.8,
+        "free_gp": 11750
+      },
+      {
+        "month": "Feb",
+        "rate": 2.1,
+        "cvs": 50,
+        "plc": 1.84,
+        "perm_gp": 31916,
+        "out": 5.6,
+        "free_gp": 17419
+      },
+      {
+        "month": "Mar",
+        "rate": 2.38,
+        "cvs": 57,
+        "plc": 2.08,
+        "perm_gp": 36172,
+        "out": 7.7,
+        "free_gp": 23843
+      },
+      {
+        "month": "Apr",
+        "rate": 2.52,
+        "cvs": 57,
+        "plc": 2.1,
+        "perm_gp": 36559,
+        "out": 9.8,
+        "free_gp": 30337
+      },
+      {
+        "month": "May",
+        "rate": 2.66,
+        "cvs": 57,
+        "plc": 2.11,
+        "perm_gp": 36752,
+        "out": 11.9,
+        "free_gp": 36864
+      },
+      {
+        "month": "Jun",
+        "rate": 2.8,
+        "cvs": 45,
+        "plc": 1.67,
+        "perm_gp": 29015,
+        "out": 13.6,
+        "free_gp": 42018
+      },
+      {
+        "month": "Jul",
+        "rate": 2.8,
+        "cvs": 36,
+        "plc": 1.34,
+        "perm_gp": 23212,
+        "out": 14.9,
+        "free_gp": 46141
+      },
+      {
+        "month": "Aug",
+        "rate": 2.8,
+        "cvs": 27,
+        "plc": 1.0,
+        "perm_gp": 17409,
+        "out": 15.9,
+        "free_gp": 49233
+      }
+    ]
+  },
+  "case_params": {
+    "low": {
+      "cv_day_steady": 1.6,
+      "cv2p": 0.02392
+    },
+    "base": {
+      "cv_day_steady": 2.2,
+      "cv2p": 0.02944
+    },
+    "high": {
+      "cv_day_steady": 2.8,
+      "cv2p": 0.0368
+    }
+  },
+  "months": [
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug"
+  ],
+  "season": [
+    1.1,
+    1.15,
+    1.1,
+    0.7,
+    1.15,
+    1.1,
+    1.1,
+    1.05,
+    1.0,
+    0.75,
+    0.6,
+    0.45
+  ],
+  "ramp": [
+    0.05,
+    0.15,
+    0.35,
+    0.5,
+    0.65,
+    0.75,
+    0.85,
+    0.9,
+    0.95,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "perm_fee": 17382,
+  "zig_wk": 713,
+  "gentis_wk": 573,
+  "recruiters": 2,
+  "days_per_rec_month": 10.8,
+  "daily_targets": {
+    "note": "Per day actually worked. A half-timer works ~2.5 days/week, ~11 days/month.",
+    "phases": [
+      {
+        "phase": "Sep\u2013Oct \u00b7 land the desk",
+        "cvs": 0.0,
+        "calls": 20,
+        "contacts": 6,
+        "meetings": 0.5,
+        "jobs_live": 2,
+        "candidates": 3,
+        "scored_on": "Contacts added, calls made, meetings booked, jobs opened. NO CV target \u2014 you cannot send CVs to jobs you have not won."
+      },
+      {
+        "phase": "Nov\u2013Feb \u00b7 ramping",
+        "cvs": 1.2,
+        "calls": 18,
+        "contacts": 4,
+        "meetings": 0.4,
+        "jobs_live": 5,
+        "candidates": 5,
+        "scored_on": "CVs sent and first interviews start to count. Calls stay high \u2014 the job book is still thin."
+      },
+      {
+        "phase": "Mar onward \u00b7 steady",
+        "cvs": 2.2,
+        "calls": 15,
+        "contacts": 3,
+        "meetings": 0.3,
+        "jobs_live": 7,
+        "candidates": 9,
+        "scored_on": "CVs sent is the anchor metric. Calls ease only because delivery now takes real time."
+      }
+    ],
+    "weekly_steady": {
+      "cvs": 6,
+      "calls": 38,
+      "first_interviews": 1.6,
+      "placement_every_months": 1.4
+    }
+  },
+  "perm": [
+    {
+      "desk": "Perm Antwerp IT",
+      "n": 4,
+      "median_gp": 24914,
+      "total_gp": 104606,
+      "fee": 26,
+      "ttf": 68
+    },
+    {
+      "desk": "Perm Brussels Construction",
+      "n": 7,
+      "median_gp": 21997,
+      "total_gp": 152253,
+      "fee": 25,
+      "ttf": 122
+    },
+    {
+      "desk": "Perm Brussels Construction/Engineering/Sales",
+      "n": 4,
+      "median_gp": 20062,
+      "total_gp": 86467,
+      "fee": 25,
+      "ttf": 208
+    },
+    {
+      "desk": "Perm Brussels Engineering / Sales",
+      "n": 5,
+      "median_gp": 20001,
+      "total_gp": 105467,
+      "fee": 25,
+      "ttf": 57
+    },
+    {
+      "desk": "Perm Antwerp Construction",
+      "n": 4,
+      "median_gp": 17519,
+      "total_gp": 86077,
+      "fee": 25,
+      "ttf": 58
+    },
+    {
+      "desk": "Perm Canada Legal",
+      "n": 3,
+      "median_gp": 16839,
+      "total_gp": 59703,
+      "fee": 25,
+      "ttf": 55
+    },
+    {
+      "desk": "Perm Brussels IT",
+      "n": 3,
+      "median_gp": 16000,
+      "total_gp": 51345,
+      "fee": 25,
+      "ttf": 80
+    },
+    {
+      "desk": "Perm Antwerp Engineering",
+      "n": 2,
+      "median_gp": 15567,
+      "total_gp": 31134,
+      "fee": 26,
+      "ttf": 64
+    },
+    {
+      "desk": "Perm Brussels Finance/Support",
+      "n": 6,
+      "median_gp": 12732,
+      "total_gp": 72364,
+      "fee": 25,
+      "ttf": 22
+    },
+    {
+      "desk": "Perm Antwerp Supply Chain",
+      "n": 4,
+      "median_gp": 11504,
+      "total_gp": 46120,
+      "fee": 25,
+      "ttf": 57
+    },
+    {
+      "desk": "Perm Middle-East",
+      "n": 6,
+      "median_gp": 7026,
+      "total_gp": 37689,
+      "fee": 16,
+      "ttf": 76
+    },
+    {
+      "desk": "Perm France IT Infra",
+      "n": 2,
+      "median_gp": 5758,
+      "total_gp": 11517,
+      "fee": 18,
+      "ttf": 84
+    },
+    {
+      "desk": "Perm Africa",
+      "n": 2,
+      "median_gp": 5364,
+      "total_gp": 10727,
+      "fee": 57,
+      "ttf": 230
+    }
+  ],
+  "freelance": [
+    {
+      "desk": "Contract Luxembourg IT",
+      "n": 6,
+      "weekly_gp": 838,
+      "margin": 19.0
+    },
+    {
+      "desk": "Contract Brussels IT Infrastructure",
+      "n": 6,
+      "weekly_gp": 825,
+      "margin": 27.2
+    },
+    {
+      "desk": "Contract Brussels Construction/Engineering",
+      "n": 11,
+      "weekly_gp": 698,
+      "margin": 17.3
+    },
+    {
+      "desk": "Contract Brussels IT Data",
+      "n": 11,
+      "weekly_gp": 600,
+      "margin": 15.6
+    },
+    {
+      "desk": "Contract Brussels Finance/Support",
+      "n": 8,
+      "weekly_gp": 600,
+      "margin": 16.9
+    },
+    {
+      "desk": "Contract Brussels IT Dev",
+      "n": 26,
+      "weekly_gp": 500,
+      "margin": 14.6
+    },
+    {
+      "desk": "Contract France IT",
+      "n": 6,
+      "weekly_gp": 500,
+      "margin": 13.2
+    },
+    {
+      "desk": "Contract Antwerp IT",
+      "n": 2,
+      "weekly_gp": 488,
+      "margin": 14.7
+    }
+  ],
+  "crm_levers": [
+    {
+      "lever": "CVs sent per recruiter per day",
+      "from": "1.24",
+      "to": "2.2",
+      "why": "85% of Gentis's new candidates are never sent to a job or contact, and CVs-per-job sits at 1.99 \u2014 below the level where Cube19's own guidance says steps are being skipped. Matching and auto-shortlisting attack throughput, which is process, not market."
+    },
+    {
+      "lever": "Extension rate on finishers",
+      "from": "69%",
+      "to": "90%",
+      "why": "56% of Gentis's finishing contractors had no extension, CV, interview or placement activity logged at all. End-date alerting is a screen and a reminder \u2014 the cheapest software on the whole list and the one that decides whether the book compounds."
+    },
+    {
+      "lever": "Contractor GP per week",
+      "from": "\u20ac573",
+      "to": "\u20ac713",
+      "why": "Gentis's contract margin drifted from 19.4% to 15.6%, with four named accounts running at 11\u201312.6%. A margin floor warning at submission holds the old level; that is a validation rule, not a negotiation skill."
+    },
+    {
+      "lever": "Placements with a real owner",
+      "from": "64%",
+      "to": "100%",
+      "why": "36% of Gentis's contract placements sit on Ghost_* placeholder owners holding 14% of GP. Make owner a required field and every leaderboard, commission and coaching number becomes trustworthy."
+    },
+    {
+      "lever": "CV \u2192 placement conversion",
+      "from": "3.68%",
+      "to": "3.68%",
+      "why": "UNCHANGED, deliberately. Whether a client likes your candidate is a market and relationship question. Claiming the CRM improves it would be the one dishonest number in this plan \u2014 and it is the assumption that, if wrong, breaks every forecast here."
+    }
+  ],
+  "unknowns": [
+    {
+      "q": "How much of your own time goes on the desk",
+      "a": "This models 1.0 FTE \u2014 the two half-timers only. Every hour you spend selling rather than building adds roughly 0.1 FTE, which is about \u20ac17k of year-one billing at base-case rates. If you plan to run a desk yourself, tell me the split and I will re-run it."
+    },
+    {
+      "q": "Whether Gentis's conversion transfers to a new name",
+      "a": "Their 3.68% CV\u2192placement is earned through accounts that have known them for years. I have assumed 80% of it. If cold conversion is really 50%, year-one billing falls to about \u20ac109k; if you inherit warm relationships it could exceed the high case. This single assumption drives the whole range."
+    },
+    {
+      "q": "Market-by-market trend, year on year",
+      "a": "Genuinely not in the data. Cube19 gave three overlapping windows, not five annual points, and the desk rankings rest on 65 perm and 80 contract rows. Export Cube19 Trends at monthly grain by Group, plus Slice & Dice one file per year, and the rankings stop being a hypothesis."
+    },
+    {
+      "q": "Whether the sourcing pipeline will actually deliver 2.2 CVs a day",
+      "a": "It is the load-bearing assumption and it is currently buggy. The gap between the low and base case \u2014 \u20ac103k against \u20ac174k \u2014 is almost entirely this one number. Measure CVs sent per recruiter per day from week one; it is the earliest honest signal of whether the plan is working."
+    }
+  ]
+}

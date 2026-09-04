@@ -1,0 +1,498 @@
+<title>The Zig Year One</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#eef0f3; --surface:#ffffff; --surface-2:#f6f7f9; --line:#dcdfe5; --line-soft:#e9ebef;
+  --ink:#11151b; --ink-2:#525b68; --ink-3:#828b99;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --good:#0f7a53; --warn:#b26a00; --crit:#b3261e; --neutral:#5f6875;
+  --good-bg:#e4f4ec; --warn-bg:#fbf0dc; --crit-bg:#fbe6e4; --neutral-bg:#eceef1;
+  --seq-1:#cde2fb; --seq-2:#9ec5f4; --seq-3:#6da7ec; --seq-4:#3987e5; --seq-5:#256abf; --seq-6:#0d366b;
+  --focus:#2a78d6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+    --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+    --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+    --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+    --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+    --focus:#6da7ec;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+  --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+  --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+  --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+  --focus:#6da7ec;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1240px; margin:0 auto; padding:0 24px 96px}
+h1,h2,h3{font-family:Archivo,"Public Sans",Arial,sans-serif; margin:0; text-wrap:balance; letter-spacing:-0.015em}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--focus); outline-offset:2px; border-radius:3px}
+
+.mast{border-bottom:1px solid var(--line); background:var(--surface); margin-bottom:28px}
+.mast-in{max-width:1240px; margin:0 auto; padding:26px 24px 22px; display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between}
+.mast h1{font-size:27px; font-weight:700}
+.eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-bottom:7px}
+.mast p{margin:8px 0 0; color:var(--ink-2); max-width:60ch}
+.mast-meta{display:flex; gap:26px; flex-wrap:wrap}
+.mast-meta div{min-width:88px}
+.mast-meta .k{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.mast-meta .v{font-size:19px; font-weight:600; margin-top:2px}
+
+.banner{display:flex; gap:12px; padding:13px 16px; border-radius:6px; margin-bottom:26px; font-size:13.5px; align-items:flex-start}
+.banner.synthetic{background:var(--warn-bg); border-left:3px solid var(--warn); color:var(--ink)}
+.banner.real{background:var(--good-bg); border-left:3px solid var(--good); color:var(--ink)}
+.banner b{font-weight:600}
+code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--surface-2); padding:1px 5px; border-radius:3px}
+
+section{margin:0 0 40px}
+.sec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; padding-bottom:9px; border-bottom:1px solid var(--line)}
+.sec-head h2{font-size:16px; font-weight:600}
+.sec-head .hint{font-size:12.5px; color:var(--ink-3)}
+.lede{color:var(--ink-2); margin:12px 0 18px; max-width:74ch; font-size:13.5px}
+
+.grid{display:grid; gap:14px}
+.g-ratios{grid-template-columns:repeat(auto-fit,minmax(214px,1fr))}
+.g-2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+
+.panel{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:18px}
+.panel h3{font-size:13px; font-weight:600; margin-bottom:3px}
+.panel .sub{font-size:12px; color:var(--ink-3); margin-bottom:14px}
+
+.rc{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:15px 16px 17px; display:flex; flex-direction:column; gap:2px}
+.rc .lab{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.rc .val{font-size:30px; font-weight:600; letter-spacing:-0.02em; line-height:1.15; margin-top:4px}
+.rc .raw{font-size:11.5px; color:var(--ink-3); margin-top:1px}
+.rc .meter{margin-top:12px}
+.rc .cap{font-size:11.5px; color:var(--ink-2); margin-top:9px; line-height:1.45}
+.rc.unmeasured .val{color:var(--ink-3)}
+
+.chip{display:inline-flex; align-items:center; gap:5px; padding:2px 8px; border-radius:11px; font-size:11.5px; font-weight:600; white-space:nowrap}
+.chip .dot{width:6px; height:6px; border-radius:50%; flex:none}
+.chip.good{background:var(--good-bg); color:var(--good)} .chip.good .dot{background:var(--good)}
+.chip.warn{background:var(--warn-bg); color:var(--warn)} .chip.warn .dot{background:var(--warn)}
+.chip.crit{background:var(--crit-bg); color:var(--crit)} .chip.crit .dot{background:var(--crit)}
+.chip.neutral{background:var(--neutral-bg); color:var(--neutral)} .chip.neutral .dot{background:var(--neutral)}
+
+.tw{overflow-x:auto; border:1px solid var(--line-soft); border-radius:7px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:13px}
+th,td{padding:8px 12px; text-align:left; border-bottom:1px solid var(--line-soft); white-space:nowrap}
+th{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:none}
+td.n,th.n{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+td.wrap-cell{white-space:normal; min-width:260px; color:var(--ink-2)}
+tbody tr:hover{background:var(--surface-2)}
+.heat{border-radius:3px; padding:2px 7px; display:inline-block; min-width:52px; text-align:right}
+
+.chart{width:100%; display:block; overflow:visible}
+.chart text{font-family:"Public Sans",Arial,sans-serif; font-size:11px; fill:var(--ink-3)}
+.chart text.val{font-family:"IBM Plex Mono",monospace; fill:var(--ink-2); font-size:11px}
+.chart .grid-line{stroke:var(--line-soft); stroke-width:1}
+.chart .axis{stroke:var(--line); stroke-width:1}
+.legend{display:flex; flex-wrap:wrap; gap:14px; margin:0 0 12px; font-size:12px; color:var(--ink-2)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:11px; height:3px; border-radius:2px; display:inline-block}
+
+.toggles{display:flex; gap:6px; flex-wrap:wrap; margin-left:auto}
+.tg{background:var(--surface-2); border:1px solid var(--line); color:var(--ink-2); font:inherit; font-size:12px; font-weight:500;
+    padding:4px 11px; border-radius:5px; cursor:pointer}
+.tg[aria-pressed="true"]{background:var(--s1); border-color:var(--s1); color:#fff}
+
+.tip{position:fixed; pointer-events:none; opacity:0; transition:opacity .1s; background:var(--surface);
+     border:1px solid var(--line); border-radius:6px; padding:8px 11px; font-size:12px; z-index:60;
+     box-shadow:0 6px 20px rgba(0,0,0,.13); max-width:250px; left:0; top:0}
+.tip .t{font-weight:600; margin-bottom:3px}
+.tip .r{display:flex; justify-content:space-between; gap:14px; color:var(--ink-2)}
+.tip .r b{color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:500}
+
+.goal{display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; margin-bottom:18px}
+.goal label{font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:600; display:block; margin-bottom:5px}
+.goal input{font:inherit; font-family:"IBM Plex Mono",monospace; font-size:17px; padding:7px 11px; width:172px;
+  border:1px solid var(--line); border-radius:5px; background:var(--surface); color:var(--ink)}
+.chain{display:flex; flex-direction:column; gap:1px}
+.step{display:grid; grid-template-columns:1fr auto auto; gap:16px; align-items:center; padding:9px 14px; background:var(--surface); border:1px solid var(--line-soft)}
+.step:first-child{border-radius:7px 7px 0 0} .step:last-child{border-radius:0 0 7px 7px}
+.step.anchor{border-left:3px solid var(--s1); background:var(--surface-2)}
+.step .sn{font-size:13px}
+.step .sn small{display:block; color:var(--ink-3); font-size:11.5px}
+.step .p50,.step .p80{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; min-width:84px}
+.step .p50{color:var(--ink-2); font-size:13px} .step .p80{font-size:16px; font-weight:600}
+.step-head{display:grid; grid-template-columns:1fr auto auto; gap:16px; padding:0 14px 6px; font-size:11px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.step-head span:not(:first-child){text-align:right; min-width:84px}
+
+.callout{border-left:3px solid var(--s1); background:var(--surface-2); padding:12px 15px; border-radius:0 6px 6px 0; font-size:13px; margin-top:12px}
+.callout b{font-weight:600}
+
+.reasons{display:flex; flex-direction:column; gap:9px; margin-top:16px}
+.reason{display:grid; grid-template-columns:150px 1fr; gap:14px; align-items:start; font-size:13px; padding-bottom:9px; border-bottom:1px solid var(--line-soft)}
+.reason:last-child{border-bottom:none; padding-bottom:0}
+.reason .m{font-weight:600; margin-bottom:4px}
+.reason p{margin:0; color:var(--ink-2)}
+
+footer{border-top:1px solid var(--line); margin-top:52px; padding-top:20px; font-size:12.5px; color:var(--ink-3); max-width:78ch}
+footer p{margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+@media (max-width:640px){
+  .reason{grid-template-columns:1fr}
+  .mast h1{font-size:22px}
+}
+</style>
+<div class="mast">
+  <div class="mast-in">
+    <div>
+      <div class="eyebrow">The Zig · year one · benchmarked on four years of Gentis data</div>
+      <h1>Starting the desk in September</h1>
+      <p>What two half-time recruiters and the Zig CRM should produce between September 2026 and August 2027 — and the daily numbers that get you there.</p>
+    </div>
+    <div class="mast-meta">
+      <div><div class="k">Capacity</div><div class="v num">1.0 FTE</div></div>
+      <div><div class="k">Placements</div><div class="v num">6–16</div></div>
+      <div><div class="k">Billed yr 1</div><div class="v num">€102–277k</div></div>
+      <div><div class="k">Exit run-rate</div><div class="v num">€328k</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="banner synthetic">
+    <div><b>Where these numbers come from.</b> Every conversion rate is Gentis's own, measured over
+    2022–2026 — not an industry benchmark and not a guess. What is <em>assumed</em> is
+    clearly separated: your ramp, your seasonality, and how much of Gentis's conversion a new
+    name can achieve cold. Those assumptions are stated on every line so you can argue with them.</div>
+  </div>
+
+  <section id="answer">
+    <div class="sec-head"><h2>The short answer</h2></div>
+    <p class="lede" style="font-size:15px;max-width:70ch">Two half-time recruiters is <b>one full-time
+    desk</b>. Starting cold in September, at Gentis's measured conversion rates and with the CRM
+    doing what it is built to do, expect <b>around 10 placements and roughly €170,000 billed</b> in
+    year one — with a realistic range of €100k to €277k depending on how fast the sourcing works
+    and how well you convert cold relationships. That is a real desk, not a hobby, and the timing
+    is right: September starts Gentis's strong season, which runs through May.</p>
+    <div class="grid g-ratios" id="caseCards"></div>
+    <div class="callout">
+      <b>The number that matters more than the billing.</b> If you weight toward freelance you bill
+      slightly less in year one but end it with <b>10 contractors out and about €328,000 a year
+      already running</b> before you place anything in year two. Perm pays now; freelance pays
+      every year after. See the next section — this is the single biggest strategic choice you make.
+    </div>
+  </section>
+
+  <section id="compound">
+    <div class="sec-head"><h2>Perm banks. Freelance compounds.</h2>
+      <span class="hint">The one structural lesson in Gentis's whole dataset.</span></div>
+    <p class="lede">Gentis's €8.18M of contract GP is not 197 clever placements — it is 197 contractors
+    <em>out</em>, each generating about €713 a week for as long as they stay. A perm fee of €17,382 is
+    earned once. A contractor at €713/week is worth <b>€32,800 a year, every year, for doing nothing
+    further</b>. On the same placement count, the difference after three years is not marginal.</p>
+    <div class="panel">
+      <h3>The same 10 placements, three years out</h3>
+      <div class="sub">Cumulative GP, placing at the same rate each year. Contractors stay ~12 months, so the freelance book fills in year one and then holds — it does not stack forever.</div>
+      <svg class="chart" id="compoundChart" role="img" aria-label="Cumulative GP, perm against freelance, over three years"></svg>
+    </div>
+    <div class="callout" style="border-left-color:var(--warn)">
+      <b>The catch, and Gentis proved it.</b> A freelance book only compounds if contractors get
+      extended. Gentis extends 69% of finishers, and <b>56% of their finishers had no extension
+      conversation logged at all</b> — so their book drains by 4.6 heads a month and their run-rate
+      has fallen from €160,753 to €112,877 a week. Build end-date alerting into the CRM before you
+      place your first contractor, not after.
+    </div>
+  </section>
+
+  <section id="curve">
+    <div class="sec-head"><h2>Month by month</h2>
+      <span class="hint">Base case. Seasonality is Gentis's real pattern: strong Oct–May, dead Jun–Aug.</span></div>
+    <p class="lede">The first two months produce almost nothing, and that is correct rather than
+    pessimistic — you cannot send CVs to jobs you have not won. Months one and two are pure business
+    development, and the plan scores them that way.</p>
+    <div class="panel"><svg class="chart" id="curveChart" role="img" aria-label="CVs sent and placements by month"></svg></div>
+    <div class="tw" style="margin-top:16px"><table id="monthTable"></table></div>
+  </section>
+
+  <section id="daily">
+    <div class="sec-head"><h2>Daily targets</h2>
+      <span class="hint">Per day actually worked — a half-timer works about 2.5 days a week.</span></div>
+    <p class="lede">Three phases, because a desk with no clients has a different job from a desk with a
+    live book. <b>Calls do not ramp — in month one they are the entire job.</b> Only CV output ramps,
+    because CV output is limited by how many live jobs you have won.</p>
+    <div class="tw"><table id="dailyTable"></table></div>
+    <div class="grid g-2" style="margin-top:16px">
+      <div class="panel">
+        <h3>The two numbers to run the business on</h3>
+        <div class="sub">Everything else is diagnostic.</div>
+        <div id="anchors"></div>
+      </div>
+      <div class="panel">
+        <h3>What a steady week looks like, per recruiter</h3>
+        <div class="sub">Once the desk is running, from March.</div>
+        <div id="weekly"></div>
+      </div>
+    </div>
+    <div class="callout">
+      <b>On the call target.</b> Gentis logs 3.6 client calls per head per day. Do not copy that —
+      it is a mature desk with an existing client base, and it is almost certainly under-logged. A
+      startup desk at 15–20 calls a day is not aggressive, it is simply what winning a client base
+      from zero costs. It is also the only input entirely within your control, which makes it the
+      right thing to hold people to in months one and two when there is no output yet.
+    </div>
+  </section>
+
+  <section id="crm">
+    <div class="sec-head"><h2>What the CRM is actually worth</h2>
+      <span class="hint">Each uplift traced to a leak measured in Gentis's data.</span></div>
+    <p class="lede">The honest framing: <b>the CRM buys you throughput and retention, not conversion.</b>
+    Whether a client likes your candidate is a market and relationship question that no software
+    changes. How many candidates you can put in front of them, and whether you notice a contract
+    ending, are pure process — and that is where all the value is.</p>
+    <div class="tw"><table id="crmValueTable"></table></div>
+    <div class="callout" style="border-left-color:var(--crit)">
+      <b>The sourcing bugs are the critical path.</b> The entire difference between the low case
+      (€103k) and the base case (€174k) is CVs per day — 1.6 against 2.2. That is the sourcing and
+      matching pipeline working. Nothing else on your build list moves year-one revenue by 70%.
+      Fix sourcing before you build a single dashboard.
+    </div>
+  </section>
+
+  <section id="markets">
+    <div class="sec-head"><h2>Which desks to open first</h2>
+      <span class="hint">From Gentis's placement data. Directional — small samples.</span></div>
+    <p class="lede">With one FTE you can credibly run <b>one perm desk and one freelance desk</b>, not
+    six. These rankings say where Gentis actually made money, which is the best available guide to
+    where a similar team can. Perm fees are uniform at 25%, so in perm <em>what</em> you place decides
+    what you earn. In freelance the weekly rate and the margin decide it.</p>
+    <div class="grid g-2">
+      <div class="panel">
+        <h3>Perm — by GP per placement</h3>
+        <div class="sub">Median billing value. Retainers and €0 rows excluded.</div>
+        <svg class="chart" id="permChart" role="img" aria-label="Perm desks by median GP per placement"></svg>
+      </div>
+      <div class="panel">
+        <h3>Freelance — by weekly GP per contractor</h3>
+        <div class="sub">The unit that compounds. Margin direct-labelled.</div>
+        <svg class="chart" id="freeChart" role="img" aria-label="Freelance desks by weekly GP per contractor"></svg>
+      </div>
+    </div>
+    <div class="callout">
+      <b>If it were my call.</b> Perm: <b>Antwerp IT</b> (€24.9k median, 68-day fill) or <b>Brussels
+      Construction</b> (€22.0k, deepest sample at n=7). Freelance: <b>Brussels IT Infrastructure</b> —
+      €825 a week at a 27.2% margin, the best margin in the entire book, while Gentis's biggest
+      contract desk (Brussels IT Dev) runs €500 a week at 14.6%. Going where the big agency is
+      weakest and the margin is highest is the whole opportunity.
+    </div>
+  </section>
+
+  <section id="honest">
+    <div class="sec-head"><h2>What I cannot tell you</h2></div>
+    <div class="grid g-2" id="unknowns"></div>
+  </section>
+
+  <footer>
+    <p>Conversion rates, fee sizes, contractor economics and seasonality are computed from Gentis's
+    Cube19 output, Sep 2022 – Sep 2026. Assumed for The Zig: a 12-month new-desk ramp, 2.5 working
+    days per week per half-time recruiter, 12-month average assignment tenure, and cold-relationship
+    conversion at 65–100% of Gentis's measured rate. Desk rankings rest on single-page samples — 65
+    perm and 80 contract placements — and are a starting hypothesis, not a verdict.</p>
+    <p>Freelance GP assumes a 19.4% margin, the level Gentis held in 2022–25 before drifting to 15.6%.
+    Holding that margin is a validation rule in the CRM, not a negotiation skill.</p>
+  </footer>
+</div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+const D = /*__ZIG_DATA__*/null;
+const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $=s=>document.querySelector(s);
+const el=(t,c,x)=>{const n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n;};
+const eur=v=>"€"+Math.round(v).toLocaleString("en-GB");
+const eurK=v=>"€"+Math.round(v/1000)+"k";
+const SVGNS="http://www.w3.org/2000/svg";
+const svg=(t,a)=>{const n=document.createElementNS(SVGNS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+const tip=$("#tip");
+function showTip(e,t,rows){tip.innerHTML="";tip.appendChild(el("div","t",t));
+ rows.forEach(p=>{const r=el("div","r");r.appendChild(el("span",null,p[0]));r.appendChild(el("b",null,p[1]));tip.appendChild(r);});
+ tip.style.opacity=1;moveTip(e);}
+function moveTip(e){const pad=14,w=tip.offsetWidth,h=tip.offsetHeight;let x=e.clientX+pad,y=e.clientY+pad;
+ if(x+w>innerWidth-8)x=e.clientX-w-pad;if(y+h>innerHeight-8)y=e.clientY-h-pad;
+ tip.style.left=x+"px";tip.style.top=y+"px";}
+function hover(n,t,r){n.addEventListener("mouseenter",e=>showTip(e,t,r));
+ n.addEventListener("mousemove",moveTip);n.addEventListener("mouseleave",()=>tip.style.opacity=0);}
+function chip(c,t){const s=el("span","chip "+c);s.appendChild(el("span","dot"));s.appendChild(el("span",null,t));return s;}
+function table(sel,head,rows,align,wrap){
+ const host=$(sel);host.innerHTML="";const ws={};(wrap||[]).forEach(i=>ws[i]=true);
+ const th=el("thead"),tr=el("tr");
+ head.forEach((h,i)=>tr.appendChild(el("th",align&&align[i]?"n":null,h)));
+ th.appendChild(tr);host.appendChild(th);const tb=el("tbody");
+ rows.forEach(r=>{const t=el("tr");
+  r.forEach((c,i)=>{const cls=ws[i]?"wrap-cell":(align&&align[i]?"n":null);
+   if(c&&c.nodeType){const td=el("td",cls);td.appendChild(c);t.appendChild(td);}
+   else t.appendChild(el("td",cls,String(c)));});
+  tb.appendChild(t);});
+ host.appendChild(tb);}
+
+const sum=(a,k)=>a.reduce((s,x)=>s+x[k],0);
+
+/* --- case cards --- */
+[["low","Low","If the sourcing stays buggy","crit"],
+ ["base","Base","Sourcing works, cold conversion at 80% of Gentis","good"],
+ ["high","High","Sourcing works and you convert like an established name","good"]]
+.forEach(([k,label,note,tone])=>{
+  const rows=D.cases[k], plc=sum(rows,"plc"), perm=sum(rows,"perm_gp"), free=sum(rows,"free_gp");
+  const p=D.case_params[k];
+  const card=el("div","rc");
+  card.appendChild(el("div","lab",label+" case"));
+  card.appendChild(el("div","val num",eurK(perm)));
+  card.appendChild(el("div","raw",plc.toFixed(1)+" placements · "+Math.round(sum(rows,"cvs"))+" CVs"));
+  const w=el("div");w.style.margin="10px 0 8px";
+  w.appendChild(chip(tone,p.cv_day_steady+" CVs/day · "+(p.cv2p*100).toFixed(2)+"% conv"));
+  card.appendChild(w);
+  card.appendChild(el("div","cap",note+". All-freelance instead: "+eurK(free)+" billed plus "+
+    eurK(rows[rows.length-1].out*D.zig_wk*46)+"/yr running into year two."));
+  $("#caseCards").appendChild(card);
+});
+
+/* --- compounding chart --- */
+(function(){
+  // Contractors stay ~12 months, so the book PLATEAUS at one year's placements - it does
+  // not accumulate forever. Year 1 bills a partial year as the book fills; years 2+ bill
+  // a full book. Letting it compound without attrition would overstate freelance ~2.4x.
+  const plcYr=sum(D.cases.base,"plc"), fee=D.perm_fee, wk=D.zig_wk;
+  const yr1Free=sum(D.cases.base,"free_gp");        // modelled month by month as the book fills
+  const fullYear=plcYr*wk*46;                        // a steady book of one year's placements
+  const perm=[], free=[];
+  let cp=0, cf=0;
+  for(let y=1;y<=3;y++){
+    cp+=plcYr*fee;               perm.push(cp);
+    cf+=(y===1?yr1Free:fullYear); free.push(cf);
+  }
+  const w=760,h=280,pad={t:20,r:150,b:44,l:76};
+  const nice=v=>{const m=Math.pow(10,Math.floor(Math.log10(v)));const n=v/m;
+    return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*m;};
+  const max=nice(Math.max(...perm,...free)*1.06);
+  const X=i=>pad.l+(i/2)*(w-pad.l-pad.r), Y=v=>h-pad.b-(v/max)*(h-pad.t-pad.b);
+  const s=$("#compoundChart");s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("height",h);
+  for(let i=0;i<=4;i++){const v=max*i/4;
+    s.appendChild(svg("line",{x1:pad.l,y1:Y(v),x2:w-pad.r,y2:Y(v),class:"grid-line"}));
+    const t=svg("text",{x:pad.l-10,y:Y(v)+4,"text-anchor":"end",class:"val"});t.textContent=eurK(v);s.appendChild(t);}
+  ["Year 1","Year 2","Year 3"].forEach((l,i)=>{
+    const t=svg("text",{x:X(i),y:h-16,"text-anchor":"middle"});t.textContent=l;s.appendChild(t);});
+  s.appendChild(svg("line",{x1:pad.l,y1:h-pad.b,x2:w-pad.r,y2:h-pad.b,class:"axis"}));
+  [["All perm",perm,"--s2"],["All freelance",free,"--s1"]].forEach(([name,ser,col])=>{
+    const c=cssv(col);
+    s.appendChild(svg("path",{d:ser.map((v,i)=>(i?"L":"M")+X(i)+" "+Y(v)).join(" "),
+      fill:"none",stroke:c,"stroke-width":2.5,"stroke-linejoin":"round"}));
+    ser.forEach((v,i)=>{const dot=svg("circle",{cx:X(i),cy:Y(v),r:5,fill:c,stroke:cssv("--surface"),"stroke-width":2});
+      s.appendChild(dot);hover(dot,name+" · year "+(i+1),[["Cumulative GP",eur(v)]]);});
+    const lab=svg("text",{x:w-pad.r+12,y:Y(ser[2])+4,fill:c,"font-size":"12","font-weight":"600"});
+    lab.textContent=name;s.appendChild(lab);
+    const val=svg("text",{x:w-pad.r+12,y:Y(ser[2])+20,fill:cssv("--ink-3"),"font-size":"11"});
+    val.textContent=eurK(ser[2])+" cumulative";s.appendChild(val);
+  });
+})();
+
+/* --- month curve --- */
+(function(){
+  const rows=D.cases.base;
+  const w=880,h=300,pad={t:18,r:24,b:52,l:70};
+  const max=Math.max(...rows.map(r=>r.cvs))*1.12;
+  const bw=(w-pad.l-pad.r)/rows.length;
+  const Y=v=>h-pad.b-(v/max)*(h-pad.t-pad.b);
+  const s=$("#curveChart");s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("height",h);
+  for(let i=0;i<=4;i++){const v=max*i/4;
+    s.appendChild(svg("line",{x1:pad.l,y1:Y(v),x2:w-pad.r,y2:Y(v),class:"grid-line"}));
+    const t=svg("text",{x:pad.l-10,y:Y(v)+4,"text-anchor":"end",class:"val"});t.textContent=Math.round(v);s.appendChild(t);}
+  rows.forEach((r,i)=>{
+    const x=pad.l+i*bw;
+    const bar=svg("rect",{x:x+4,y:Y(r.cvs),width:Math.max(bw-8,2),height:Math.max(Y(0)-Y(r.cvs),1),
+      rx:4,fill:cssv(i<2?"--ink-3":"--s1"),opacity:i<2?0.45:0.88});
+    s.appendChild(bar);
+    const t=svg("text",{x:x+bw/2,y:h-32,"text-anchor":"middle"});t.textContent=r.month;s.appendChild(t);
+    if(r.plc>=0.5){const p=svg("text",{x:x+bw/2,y:Y(r.cvs)-7,"text-anchor":"middle",class:"val",
+      fill:cssv("--ink-2")});p.textContent=r.plc.toFixed(1);s.appendChild(p);}
+    hover(bar,r.month,[["CVs sent",r.cvs],["Placements",r.plc.toFixed(2)],
+      ["Perm GP",eur(r.perm_gp)],["Contractors out",r.out.toFixed(1)]]);
+  });
+  const n=svg("text",{x:pad.l,y:h-10,fill:cssv("--ink-3"),"font-size":"10.5"});
+  n.textContent="bars = CVs sent · number above bar = placements · grey months are BD-only, no CV target";
+  s.appendChild(n);
+})();
+table("#monthTable",["Month","CVs/rec/day","CVs sent","Placements","Perm GP","Contractors out","Freelance GP that month","Phase"],
+  D.cases.base.map((r,i)=>[r.month,r.rate.toFixed(1),r.cvs,r.plc.toFixed(1),eur(r.perm_gp),
+    r.out.toFixed(1),eur(r.free_gp),
+    i<2?chip("neutral","BD only"):i<6?chip("warn","ramping"):chip("good","steady")]),
+  [0,1,1,1,1,1,1,0]);
+
+/* --- daily targets --- */
+table("#dailyTable",
+  ["Phase","CVs sent","Client calls","New contacts","Meetings","Live jobs","Candidates matched","How the phase is scored"],
+  D.daily_targets.phases.map(p=>[p.phase,p.cvs||"—",p.calls,p.contacts,p.meetings,p.jobs_live,p.candidates,p.scored_on]),
+  [0,1,1,1,1,1,1,0],[7]);
+$("#anchors").innerHTML =
+  "<div style='display:flex;flex-direction:column;gap:14px'>"+
+  "<div><div class='num' style='font-size:28px;font-weight:600'>2.2</div>"+
+  "<div style='font-size:12.5px;color:var(--ink-2)'><b>CVs sent per recruiter per day worked</b> — the earliest "+
+  "reliably-measured stage and the only safe anchor. Everything downstream follows from it.</div></div>"+
+  "<div><div class='num' style='font-size:28px;font-weight:600'>90%</div>"+
+  "<div style='font-size:12.5px;color:var(--ink-2)'><b>extension rate on contractors finishing</b> — Gentis runs 69% "+
+  "and their book drains 4.6 heads a month. This is the number that decides whether year two starts at "+
+  "€328k or at zero.</div></div></div>";
+const wk=D.daily_targets.weekly_steady;
+$("#weekly").innerHTML = [["CVs sent",wk.cvs],["Client calls",wk.calls],
+  ["First interviews",wk.first_interviews],["A placement every",wk.placement_every_months+" months"]]
+  .map(p=>"<div style='display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line-soft)'>"+
+    "<span style='font-size:13px'>"+p[0]+"</span><span class='num' style='font-weight:600'>"+p[1]+"</span></div>").join("");
+
+/* --- CRM value --- */
+table("#crmValueTable",["What the CRM changes","Gentis today","The Zig target","The measured leak it closes"],
+  D.crm_levers.map(l=>[l.lever,l.from,l.to,l.why]),[0,1,1,0],[3]);
+
+/* --- desk rankings --- */
+function deskChart(sel,rows,valKey,fmt,labelFn,extraKey){
+  const w=430,rowH=30,h=rows.length*rowH+26,labelW=160,barW=w-labelW-(extraKey?120:96);
+  const max=Math.max(...rows.map(r=>r[valKey]));
+  const s=$(sel);s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("height",h);
+  rows.forEach((r,i)=>{
+    const y=i*rowH+16,bw=Math.max(r[valKey]/max*barW,2);
+    const t=svg("text",{x:labelW-10,y:y+4,"text-anchor":"end",fill:cssv("--ink-2"),"font-size":"11"});
+    t.textContent=labelFn(r);s.appendChild(t);
+    const bar=svg("rect",{x:labelW,y:y-6,width:bw,height:12,rx:4,fill:cssv("--s1"),opacity:0.88});
+    s.appendChild(bar);
+    const v=svg("text",{x:labelW+bw+8,y:y+4,class:"val"});v.textContent=fmt(r[valKey]);s.appendChild(v);
+    if(extraKey){const m=svg("text",{x:w-6,y:y+4,"text-anchor":"end",class:"val",
+      fill:r[extraKey]>=20?cssv("--good"):r[extraKey]<15?cssv("--crit"):cssv("--ink-2")});
+      m.textContent=r[extraKey].toFixed(1)+"%";s.appendChild(m);}
+    hover(bar,labelFn(r),[[valKey==="median_gp"?"Median GP":"Weekly GP",fmt(r[valKey])],
+      ["Placements sampled",r.n]].concat(extraKey?[["Median margin",r[extraKey].toFixed(1)+"%"]]:[]));
+  });
+}
+deskChart("#permChart",D.perm.slice(0,8),"median_gp",eur,r=>r.desk.replace(/^Perm /,""));
+deskChart("#freeChart",D.freelance.slice(0,8),"weekly_gp",v=>eur(v)+"/wk",
+  r=>r.desk.replace(/^Contract /,""),"margin");
+
+/* --- unknowns --- */
+D.unknowns.forEach(u=>{
+  const card=el("div","panel");
+  card.appendChild(el("h3",null,u.q));
+  const p=el("p");p.style.cssText="font-size:13px;color:var(--ink-2);margin:8px 0 0";p.textContent=u.a;
+  card.appendChild(p);
+  $("#unknowns").appendChild(card);
+});
+</script>

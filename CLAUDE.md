@@ -154,6 +154,57 @@ headcount by month per desk, the desk crosswalk, a job-level export including jo
 never filled, and the Cube19 status→metric map. Pasting pages into chat does not scale —
 ask for the exported files.
 
+## THE ZIG — the actual operating context (2026-09-04)
+
+**This is The Zig's business, not Gentis's.** Gentis is the benchmark being mined; The Zig is
+the company being built. Never write a plan that reads as Gentis's turnaround — the Gentis
+numbers are *coefficients*, and the failures in them are *design lessons for the CRM*.
+
+**Capacity: 2 half-time recruiters ≈ 1.0 FTE**, starting September 2026, on the Zig CRM whose
+sourcing pipeline still has bugs. Year-one plan artifact:
+https://claude.ai/code/artifact/56e7da4c-9fb5-44e5-b800-39acf57ee2a2
+
+**Year one (Sep 2026 – Aug 2027), computed in `dashboard/zig_year1.json`:**
+low €103k / base €174k / high €277k billed, 6–16 placements, 249–431 CVs. Base case ends the
+year with 10 contractors out and ~€328k/yr already running if weighted to freelance.
+Timing is favourable: September opens Gentis's strong season, which runs to May.
+
+**The strategic point: perm banks, freelance compounds.** A perm fee is earned once; a
+contractor at €713/wk is worth ~€32.8k a year for as long as they stay. Cumulative over three
+years at the same placement rate: perm €174k/€349k/€523k against freelance €170k/€499k/€828k.
+**The book plateaus at one year's placements** (12-month tenure) — it does not stack forever,
+and modelling it without attrition overstates freelance ~2.4×. That bug was made and fixed.
+
+**Where the CRM genuinely helps — throughput and retention, never conversion.** CVs/day
+1.24→2.2 (85% of Gentis candidates never sent anywhere), extension rate 69%→90% (56% of their
+finishers had no extension conversation), margin €573→€713/wk (a validation rule, not
+negotiation), owner attribution 64%→100%. **CV→placement stays at Gentis's rate — claiming
+software improves it would be the one dishonest number in the plan.** The sourcing pipeline is
+the critical path: the entire low-to-base gap (€103k→€174k) is CVs per day.
+
+**Daily targets, per day actually worked** (a half-timer works ~2.5 days/week, ~11 days/month):
+Sep–Oct no CV target at all (you cannot send CVs to jobs you have not won) — 20 calls, 6 new
+contacts, 2 live jobs; Nov–Feb 1.2 CVs, 18 calls; Mar+ 2.2 CVs, 15 calls, 7 live jobs.
+**BD activity does not ramp — in month one it is the entire job.** Anchor the system on two
+numbers only: **CVs sent per recruiter per day** and **extension rate on finishers**.
+
+**Desks to open first** (from Gentis placement data, directional — 65 perm / 80 contract rows):
+perm **Antwerp IT** (€24.9k median, 68-day fill) or **Brussels Construction** (€22.0k, n=7);
+freelance **Brussels IT Infrastructure** (€825/wk at 27.2% margin — the best margin in Gentis's
+book, while their biggest desk Brussels IT Dev runs €500/wk at 14.6%). Going where the big
+agency is weakest and the margin is highest is the opportunity.
+
+### REQUESTED, NOT YET BUILT — editable KPI targets
+
+The user wants to **modify the target on each KPI individually, with the system suggesting
+values from what it has measured, presented more intuitively.** Design agreed but deliberately
+NOT built yet: each KPI row shows the editable target, what Gentis actually measured, the
+benchmark band, and the delta from suggested; changing any one recalculates the whole
+downstream forecast live. Persist the team's chosen values with the artifact `db` capability
+(`db.doc("targets/current")`, `capabilities: {db: {}}`) so everyone opening the page sees the
+same targets and they can be read back here. The forecast maths already exists in
+`dashboard/zig_year1.json` and `oneview.py: scenario()` — this is a UI layer over it.
+
 ## Access constraints discovered (do not re-litigate these)
 
 - `app.cube19.io` is **blocked by the container's egress proxy** (403 on CONNECT), and

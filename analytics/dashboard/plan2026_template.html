@@ -1,0 +1,486 @@
+<title>Gentis 2026 Operating Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#eef0f3; --surface:#ffffff; --surface-2:#f6f7f9; --line:#dcdfe5; --line-soft:#e9ebef;
+  --ink:#11151b; --ink-2:#525b68; --ink-3:#828b99;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --good:#0f7a53; --warn:#b26a00; --crit:#b3261e; --neutral:#5f6875;
+  --good-bg:#e4f4ec; --warn-bg:#fbf0dc; --crit-bg:#fbe6e4; --neutral-bg:#eceef1;
+  --seq-1:#cde2fb; --seq-2:#9ec5f4; --seq-3:#6da7ec; --seq-4:#3987e5; --seq-5:#256abf; --seq-6:#0d366b;
+  --focus:#2a78d6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+    --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+    --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+    --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+    --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+    --focus:#6da7ec;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+  --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+  --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+  --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+  --focus:#6da7ec;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1240px; margin:0 auto; padding:0 24px 96px}
+h1,h2,h3{font-family:Archivo,"Public Sans",Arial,sans-serif; margin:0; text-wrap:balance; letter-spacing:-0.015em}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--focus); outline-offset:2px; border-radius:3px}
+
+.mast{border-bottom:1px solid var(--line); background:var(--surface); margin-bottom:28px}
+.mast-in{max-width:1240px; margin:0 auto; padding:26px 24px 22px; display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between}
+.mast h1{font-size:27px; font-weight:700}
+.eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-bottom:7px}
+.mast p{margin:8px 0 0; color:var(--ink-2); max-width:60ch}
+.mast-meta{display:flex; gap:26px; flex-wrap:wrap}
+.mast-meta div{min-width:88px}
+.mast-meta .k{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.mast-meta .v{font-size:19px; font-weight:600; margin-top:2px}
+
+.banner{display:flex; gap:12px; padding:13px 16px; border-radius:6px; margin-bottom:26px; font-size:13.5px; align-items:flex-start}
+.banner.synthetic{background:var(--warn-bg); border-left:3px solid var(--warn); color:var(--ink)}
+.banner.real{background:var(--good-bg); border-left:3px solid var(--good); color:var(--ink)}
+.banner b{font-weight:600}
+code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--surface-2); padding:1px 5px; border-radius:3px}
+
+section{margin:0 0 40px}
+.sec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; padding-bottom:9px; border-bottom:1px solid var(--line)}
+.sec-head h2{font-size:16px; font-weight:600}
+.sec-head .hint{font-size:12.5px; color:var(--ink-3)}
+.lede{color:var(--ink-2); margin:12px 0 18px; max-width:74ch; font-size:13.5px}
+
+.grid{display:grid; gap:14px}
+.g-ratios{grid-template-columns:repeat(auto-fit,minmax(214px,1fr))}
+.g-2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+
+.panel{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:18px}
+.panel h3{font-size:13px; font-weight:600; margin-bottom:3px}
+.panel .sub{font-size:12px; color:var(--ink-3); margin-bottom:14px}
+
+.rc{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:15px 16px 17px; display:flex; flex-direction:column; gap:2px}
+.rc .lab{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.rc .val{font-size:30px; font-weight:600; letter-spacing:-0.02em; line-height:1.15; margin-top:4px}
+.rc .raw{font-size:11.5px; color:var(--ink-3); margin-top:1px}
+.rc .meter{margin-top:12px}
+.rc .cap{font-size:11.5px; color:var(--ink-2); margin-top:9px; line-height:1.45}
+.rc.unmeasured .val{color:var(--ink-3)}
+
+.chip{display:inline-flex; align-items:center; gap:5px; padding:2px 8px; border-radius:11px; font-size:11.5px; font-weight:600; white-space:nowrap}
+.chip .dot{width:6px; height:6px; border-radius:50%; flex:none}
+.chip.good{background:var(--good-bg); color:var(--good)} .chip.good .dot{background:var(--good)}
+.chip.warn{background:var(--warn-bg); color:var(--warn)} .chip.warn .dot{background:var(--warn)}
+.chip.crit{background:var(--crit-bg); color:var(--crit)} .chip.crit .dot{background:var(--crit)}
+.chip.neutral{background:var(--neutral-bg); color:var(--neutral)} .chip.neutral .dot{background:var(--neutral)}
+
+.tw{overflow-x:auto; border:1px solid var(--line-soft); border-radius:7px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:13px}
+th,td{padding:8px 12px; text-align:left; border-bottom:1px solid var(--line-soft); white-space:nowrap}
+th{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:none}
+td.n,th.n{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+td.wrap-cell{white-space:normal; min-width:260px; color:var(--ink-2)}
+tbody tr:hover{background:var(--surface-2)}
+.heat{border-radius:3px; padding:2px 7px; display:inline-block; min-width:52px; text-align:right}
+
+.chart{width:100%; display:block; overflow:visible}
+.chart text{font-family:"Public Sans",Arial,sans-serif; font-size:11px; fill:var(--ink-3)}
+.chart text.val{font-family:"IBM Plex Mono",monospace; fill:var(--ink-2); font-size:11px}
+.chart .grid-line{stroke:var(--line-soft); stroke-width:1}
+.chart .axis{stroke:var(--line); stroke-width:1}
+.legend{display:flex; flex-wrap:wrap; gap:14px; margin:0 0 12px; font-size:12px; color:var(--ink-2)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:11px; height:3px; border-radius:2px; display:inline-block}
+
+.toggles{display:flex; gap:6px; flex-wrap:wrap; margin-left:auto}
+.tg{background:var(--surface-2); border:1px solid var(--line); color:var(--ink-2); font:inherit; font-size:12px; font-weight:500;
+    padding:4px 11px; border-radius:5px; cursor:pointer}
+.tg[aria-pressed="true"]{background:var(--s1); border-color:var(--s1); color:#fff}
+
+.tip{position:fixed; pointer-events:none; opacity:0; transition:opacity .1s; background:var(--surface);
+     border:1px solid var(--line); border-radius:6px; padding:8px 11px; font-size:12px; z-index:60;
+     box-shadow:0 6px 20px rgba(0,0,0,.13); max-width:250px; left:0; top:0}
+.tip .t{font-weight:600; margin-bottom:3px}
+.tip .r{display:flex; justify-content:space-between; gap:14px; color:var(--ink-2)}
+.tip .r b{color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:500}
+
+.goal{display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; margin-bottom:18px}
+.goal label{font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:600; display:block; margin-bottom:5px}
+.goal input{font:inherit; font-family:"IBM Plex Mono",monospace; font-size:17px; padding:7px 11px; width:172px;
+  border:1px solid var(--line); border-radius:5px; background:var(--surface); color:var(--ink)}
+.chain{display:flex; flex-direction:column; gap:1px}
+.step{display:grid; grid-template-columns:1fr auto auto; gap:16px; align-items:center; padding:9px 14px; background:var(--surface); border:1px solid var(--line-soft)}
+.step:first-child{border-radius:7px 7px 0 0} .step:last-child{border-radius:0 0 7px 7px}
+.step.anchor{border-left:3px solid var(--s1); background:var(--surface-2)}
+.step .sn{font-size:13px}
+.step .sn small{display:block; color:var(--ink-3); font-size:11.5px}
+.step .p50,.step .p80{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; min-width:84px}
+.step .p50{color:var(--ink-2); font-size:13px} .step .p80{font-size:16px; font-weight:600}
+.step-head{display:grid; grid-template-columns:1fr auto auto; gap:16px; padding:0 14px 6px; font-size:11px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.step-head span:not(:first-child){text-align:right; min-width:84px}
+
+.callout{border-left:3px solid var(--s1); background:var(--surface-2); padding:12px 15px; border-radius:0 6px 6px 0; font-size:13px; margin-top:12px}
+.callout b{font-weight:600}
+
+.reasons{display:flex; flex-direction:column; gap:9px; margin-top:16px}
+.reason{display:grid; grid-template-columns:150px 1fr; gap:14px; align-items:start; font-size:13px; padding-bottom:9px; border-bottom:1px solid var(--line-soft)}
+.reason:last-child{border-bottom:none; padding-bottom:0}
+.reason .m{font-weight:600; margin-bottom:4px}
+.reason p{margin:0; color:var(--ink-2)}
+
+footer{border-top:1px solid var(--line); margin-top:52px; padding-top:20px; font-size:12.5px; color:var(--ink-3); max-width:78ch}
+footer p{margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+@media (max-width:640px){
+  .reason{grid-template-columns:1fr}
+  .mast h1{font-size:22px}
+}
+</style>
+<div class="mast">
+  <div class="mast-in">
+    <div>
+      <div class="eyebrow">Gentis · from four years of Cube19 data</div>
+      <h1>The 2026 operating plan</h1>
+      <p>What the numbers say to do next year: the targets to set, the desks to work, and the one thing that is quietly costing more than everything else combined.</p>
+    </div>
+    <div class="mast-meta">
+      <div><div class="k">Contract book</div><div class="v num">−30%</div></div>
+      <div><div class="k">Net drift</div><div class="v num">−4.6/mo</div></div>
+      <div><div class="k">Heads</div><div class="v num">28</div></div>
+      <div><div class="k">Evidence</div><div class="v num">4 yrs</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="banner synthetic">
+    <div><b>What this is built on.</b> Three Cube19 OneView windows (complete, company-wide) plus
+    single pages of the Slice &amp; Dice exports — 65 usable perm placements and 80 current contract
+    rows. The funnel arithmetic and the book maths are solid. <b>The desk rankings are directional,
+    not final</b>: they rest on tens of rows, not the 1,493 perm and 2,136 contract placements that
+    exist. Treat them as a starting hypothesis to confirm against the full export.</div>
+  </div>
+
+  <section id="verdict">
+    <div class="sec-head"><h2>Is there still good business here?</h2></div>
+    <p class="lede" style="font-size:15px;max-width:70ch"><b>Yes — but not the business you were running in 2022.</b>
+    Three facts settle it. Your conversion got <em>better</em> while volume fell, so the machine works.
+    Your fees went <em>up</em> (€14.3k → €16.4k perm), so the market still pays. And contract delivery
+    runs at a 38-day median fill, which is fast. What you have is not a broken business — it is a
+    <b>working business with the top of its funnel switched off and a contractor book quietly leaking</b>.
+    Both are fixable, and one of them is nearly free.</p>
+    <div class="grid g-ratios" id="verdictCards"></div>
+  </section>
+
+  <section id="drain">
+    <div class="sec-head"><h2>The single most important number for 2026</h2>
+      <span class="hint">The contractor book is shrinking by about five heads a month.</span></div>
+    <p class="lede">Contract is the half of the business that did not cross the March separation, so it is
+    the clean read — and it is draining. Over Oct–May you finished 53 contractors a month and replaced
+    only 48.4 of them. That gap, not new business, is why the weekly run-rate has fallen from
+    €160,753 to €112,877.</p>
+    <div class="panel">
+      <h3>Where the book goes each month</h3>
+      <div class="sub">Oct 2025 – May 2026, per month. Replacement is running below attrition.</div>
+      <svg class="chart" id="flowChart" role="img" aria-label="Contractor book inflow against outflow per month"></svg>
+    </div>
+    <div class="callout" style="border-left-color:var(--crit)">
+      <b>What it costs.</b> Each contractor is worth about €573 a week. Drifting −4.6 a month burns
+      <b>€136,000 of annualised run-rate every month it continues</b>. Left alone for a year that is
+      roughly €1.6M of run-rate gone — and it compounds, because a smaller book generates fewer
+      extensions.
+    </div>
+    <div class="callout" style="border-left-color:var(--good)">
+      <b>And what fixes it.</b> 208 contractors finished with <em>no extension, CV, interview or placement
+      activity logged at all</em> — 56% of everyone who finished. Converting just <b>one in five</b> of
+      those into an extension adds 42 heads and turns the book positive (+1.4/month). One in three turns
+      it to +5.2/month. This needs no new clients, no new candidates, and no new BD — only a call
+      before the assignment ends.
+    </div>
+    <p class="lede" style="margin-top:14px"><b>One honest caveat.</b> The €112,877 is measured now, at the
+    end of the weak summer season, against an Oct–May average that covers the strong months. Some of
+    the −30% is seasonal. The <em>net −4.6/month</em> is not — that is computed inside the Oct–May window
+    itself, and it is the number to act on.</p>
+  </section>
+
+  <section id="targets">
+    <div class="sec-head"><h2>Targets to set — built from your ratios, not from ambition</h2>
+      <span class="hint">Your old targets assumed conversions 1.5–5.8× better than you have ever achieved.</span></div>
+    <p class="lede">The 2025 plan asked for a 35% call→meeting rate against an actual 10.7%, and for 38% of
+    jobs to be A-grade against an actual 6.7%. Every one of these is back-solved from what Gentis
+    actually converts at. Set them at the <b>commit</b> column; resource against <b>plan</b>.</p>
+    <div class="tw"><table id="targetTable"></table></div>
+    <div class="callout">
+      <b>Anchor the whole system on two numbers.</b> <b>Extension rate</b> (currently 69% of finishers —
+      target 80%) and <b>CVs sent per head per day</b> (currently 1.24 — target 1.7). Everything else on
+      this page follows from those two. Do not set a daily call target: the call→A-job ratio has not
+      moved in four years (88:1 then, 88:1 now), so calls buy jobs at a fixed and expensive rate.
+    </div>
+  </section>
+
+  <section id="perm">
+    <div class="sec-head"><h2>Perm desks, ranked</h2>
+      <span class="hint">By median GP per placement. Retainers and €0 rows removed.</span></div>
+    <p class="lede">Fee percentage is remarkably uniform at 25% — so in perm, <b>what you place decides
+    what you earn, not how you negotiate</b>. The spread between the best and worst desk is 4.6× on
+    identical commission terms, which makes desk mix the entire perm strategy. The unassigned
+    "Gentis Consultancy" group is excluded: it is a data-quality artefact, not a desk.</p>
+    <div class="panel"><svg class="chart" id="permChart" role="img" aria-label="Perm desks by median GP per placement"></svg></div>
+    <div class="tw" style="margin-top:16px"><table id="permTable"></table></div>
+  </section>
+
+  <section id="freelance">
+    <div class="sec-head"><h2>Freelance desks, ranked</h2>
+      <span class="hint">By weekly GP per contractor — the only unit that matters when revenue accrues weekly.</span></div>
+    <p class="lede">Contract economics are a <em>rate</em>, not a fee: a contractor out at €838 a week earns
+    €38.5k a year, one at €488 earns €22.4k. Two desks stand out for opposite reasons — Luxembourg IT
+    has the highest weekly rate, Brussels IT Infrastructure the highest margin at 27.2%. Your largest
+    desk, Brussels IT Dev, is the worst on both.</p>
+    <div class="panel"><svg class="chart" id="freeChart" role="img" aria-label="Freelance desks by weekly GP with margin"></svg></div>
+    <div class="callout" style="border-left-color:var(--crit)">
+      <b>The margin drag has names.</b> Your book median margin is 15.6%. Five accounts with three or more
+      placements sit below it — <b>UCB at 11.0%, Electrabel at 11.9%, Belfius at 12.1%, AG Insurance at
+      12.6%</b>. They carry 21% of sampled GP. Repricing just those to the book median is worth roughly
+      <b>€400,000 a year</b>. Repricing the whole book back to its 2022–25 level of 19.4% is worth about
+      <b>€1.5M a year</b> — more than any activity lever, and it requires zero extra placements.
+    </div>
+  </section>
+
+  <section id="yoy">
+    <div class="sec-head"><h2>Year by year — what I can and cannot tell you</h2></div>
+    <div class="grid g-2">
+      <div class="panel">
+        <h3>What the data supports</h3>
+        <div class="sub">Three windows, not five years.</div>
+        <div id="yoyKnown"></div>
+      </div>
+      <div class="panel" style="border-color:var(--warn)">
+        <h3>What I cannot answer yet</h3>
+        <div class="sub">And exactly what would answer it.</div>
+        <p style="font-size:13px;color:var(--ink-2);margin:0 0 12px"><b>You asked how each market changed
+        year by year. I do not have that.</b> What exists here is a three-year block average, a
+        twelve-month figure and a seven-month figure — company-wide, with no per-market or per-year
+        split. Nothing on this page should be read as a 2023-vs-2024-vs-2025 market trend, because that
+        comparison is not in the data.</p>
+        <p style="font-size:13px;color:var(--ink-2);margin:0"><b>Two exports close this gap.</b> The Cube19
+        <b>Trends</b> module at monthly grain by Group, and <b>Slice &amp; Dice</b> exported one file per
+        year. With those, every market gets a real curve, and the desk rankings below stop being a
+        hypothesis. Without them, market strategy for 2026 rests on 65 perm and 80 contract rows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="crm">
+    <div class="sec-head"><h2>What to build into the CRM — in this order</h2>
+      <span class="hint">Sized against what one team can realistically ship.</span></div>
+    <p class="lede">You asked what your current capacity can cover. The honest answer: <b>not all of it, and
+    you should not try.</b> Cube19 is a reporting layer over a data model. Rebuilding the reporting is
+    weeks of work; rebuilding the <em>data model that makes reporting possible</em> is the part that
+    cannot be retrofitted. Build in the order below and you can stop at any line and still have
+    something that works.</p>
+    <div class="tw"><table id="crmTable"></table></div>
+    <div class="callout">
+      <b>The one thing you must not get wrong.</b> Record a timestamped row every time a submission
+      <em>enters</em> a stage — not the submission's current status. Every ratio on every page I have
+      built for you comes from stage-entry events. A CRM that stores only "this candidate is at
+      interview" can never reproduce any of it, and you will not discover that until you try, a year
+      from now, with no Cube19 left to check against.
+    </div>
+  </section>
+
+  <section id="predict">
+    <div class="sec-head"><h2>What the system can predict — and how well</h2></div>
+    <div class="grid g-2" id="predictCards"></div>
+    <div class="callout" style="margin-top:14px">
+      <b>The limit is not the model, it is the logging.</b> Forecasts inherit the quality of the inputs.
+      Right now 36% of contract placements have a placeholder owner, 56% of finishers have no logged
+      activity, and 85% of new candidates are never sent anywhere. Fix those three and the same engine
+      goes from directional to dependable — because the maths was never the hard part.
+    </div>
+  </section>
+
+  <footer>
+    <p>Every figure computed from Gentis's own Cube19 output, Sep 2022 – Sep 2026. Perm and total revenue
+    figures spanning March 2026 cross the freelance/perm separation and are excluded from performance
+    conclusions throughout. Desk rankings come from single-page Slice &amp; Dice samples (65 perm, 80
+    contract rows) and are directional.</p>
+    <p>Targets are back-solved from measured conversion rates and set at the 80th percentile of a Monte
+    Carlo over those rates — the level a plan is hit at four years in five, rather than the median, which
+    is missed half the time by construction.</p>
+  </footer>
+</div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+const D = /*__PLAN_DATA__*/null;
+const cssv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $ = s => document.querySelector(s);
+const el = (t,c,x) => { const n=document.createElement(t); if(c)n.className=c; if(x!=null)n.textContent=x; return n; };
+const eur = v => "€" + Math.round(v).toLocaleString("en-GB");
+const eurK = v => "€" + Math.round(v/1000) + "k";
+const num = v => Math.round(v).toLocaleString("en-GB");
+const pct0 = v => Math.round(v*100) + "%";
+const SVGNS="http://www.w3.org/2000/svg";
+const svg=(t,a)=>{const n=document.createElementNS(SVGNS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+const tip=$("#tip");
+function showTip(e,t,rows){tip.innerHTML="";tip.appendChild(el("div","t",t));
+  rows.forEach(p=>{const r=el("div","r");r.appendChild(el("span",null,p[0]));r.appendChild(el("b",null,p[1]));tip.appendChild(r);});
+  tip.style.opacity=1;moveTip(e);}
+function moveTip(e){const pad=14,w=tip.offsetWidth,h=tip.offsetHeight;let x=e.clientX+pad,y=e.clientY+pad;
+  if(x+w>innerWidth-8)x=e.clientX-w-pad;if(y+h>innerHeight-8)y=e.clientY-h-pad;
+  tip.style.left=x+"px";tip.style.top=y+"px";}
+function hover(n,t,r){n.addEventListener("mouseenter",e=>showTip(e,t,r));
+  n.addEventListener("mousemove",moveTip);n.addEventListener("mouseleave",()=>tip.style.opacity=0);}
+function chip(c,t){const s=el("span","chip "+c);s.appendChild(el("span","dot"));s.appendChild(el("span",null,t));return s;}
+function table(sel,head,rows,align,wrapCols){
+  const host=$(sel);host.innerHTML="";const ws={};(wrapCols||[]).forEach(i=>ws[i]=true);
+  const th=el("thead"),tr=el("tr");
+  head.forEach((h,i)=>tr.appendChild(el("th",align&&align[i]?"n":null,h)));
+  th.appendChild(tr);host.appendChild(th);const tb=el("tbody");
+  rows.forEach(r=>{const t=el("tr");
+    r.forEach((c,i)=>{const cls=ws[i]?"wrap-cell":(align&&align[i]?"n":null);
+      if(c&&c.nodeType){const td=el("td",cls);td.appendChild(c);t.appendChild(td);}
+      else t.appendChild(el("td",cls,String(c)));});
+    tb.appendChild(t);});
+  host.appendChild(tb);
+}
+
+/* verdict cards */
+[["Conversion improved","CV→placement 3.26% → 3.68%","The delivery machine works. It was never the problem.","good"],
+ ["Fees rose","Avg perm deal €14,261 → €16,410","The market still pays, and pays more than it did.","good"],
+ ["Contract fills fast","38-day median time to fill","Reported as 578 days by Cube19. That metric is broken; the speed is real.","good"],
+ ["The funnel was switched off","New organisations −93% a year","This, not delivery, is what shrank the business.","crit"],
+ ["The book is leaking","−4.6 contractors per month","€136k of annualised run-rate lost every month it continues.","crit"]]
+.forEach(c=>{
+  const card=el("div","rc");
+  card.appendChild(el("div","lab",c[0]));
+  card.appendChild(el("div","val num",c[1]));
+  const w=el("div");w.style.margin="10px 0 8px";w.appendChild(chip(c[3],c[3]==="good"?"working":"acting against you"));
+  card.appendChild(w);
+  card.appendChild(el("div","cap",c[2]));
+  $("#verdictCards").appendChild(card);
+});
+
+/* book flow */
+(function(){
+  const rows=[{l:"Finishing",v:D.book.fin_m,c:"--crit"},
+              {l:"Extensions",v:D.book.ext_m,c:"--s1"},
+              {l:"New placements",v:D.book.new_m,c:"--s1"}];
+  const w=760,rowH=46,h=rows.length*rowH+66,labelW=160,barW=w-labelW-150;
+  const max=Math.max(...rows.map(r=>r.v));
+  const s=$("#flowChart");s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("height",h);
+  rows.forEach((r,i)=>{
+    const y=i*rowH+22,bw=Math.max(r.v/max*barW,2);
+    const t=svg("text",{x:labelW-12,y:y+5,"text-anchor":"end",fill:cssv("--ink-2")});
+    t.textContent=r.l;s.appendChild(t);
+    const bar=svg("rect",{x:labelW,y:y-9,width:bw,height:18,rx:4,fill:cssv(r.c),opacity:0.88});
+    s.appendChild(bar);
+    const v=svg("text",{x:labelW+bw+10,y:y+5,class:"val"});
+    v.textContent=r.v.toFixed(1)+" / month";s.appendChild(v);
+    hover(bar,r.l,[["Per month",r.v.toFixed(1)],["Over the 7-month window",Math.round(r.v*7)]]);
+  });
+  const y=rows.length*rowH+18;
+  s.appendChild(svg("line",{x1:labelW,y1:y-14,x2:w-150,y2:y-14,stroke:cssv("--line"),"stroke-width":1}));
+  const nt=svg("text",{x:labelW-12,y:y+8,"text-anchor":"end",fill:cssv("--crit"),"font-weight":"600"});
+  nt.textContent="Net";s.appendChild(nt);
+  const nv=svg("text",{x:labelW,y:y+8,class:"val",fill:cssv("--crit"),"font-weight":"600"});
+  nv.setAttribute("font-size","13");
+  nv.textContent=D.book.net.toFixed(1)+" contractors per month — the book shrinks";s.appendChild(nv);
+})();
+
+/* targets */
+table("#targetTable",
+ ["What to target","Today","Plan (p50)","Commit (p80)","Why this number"],
+ D.targets.map(t=>[t.metric,t.today,t.plan,t.commit,t.why]),
+ [0,1,1,1,0],[4]);
+
+/* perm desks */
+(function(){
+  const rows=D.perm;
+  const w=880,rowH=32,h=rows.length*rowH+34,labelW=300,barW=w-labelW-160;
+  const max=Math.max(...rows.map(r=>r.median_gp));
+  const s=$("#permChart");s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("height",h);
+  rows.forEach((r,i)=>{
+    const y=i*rowH+18,bw=Math.max(r.median_gp/max*barW,2);
+    const t=svg("text",{x:labelW-12,y:y+4,"text-anchor":"end",fill:cssv("--ink-2"),"font-size":"11.5"});
+    t.textContent=r.desk.replace(/^Perm /,"");s.appendChild(t);
+    const bar=svg("rect",{x:labelW,y:y-7,width:bw,height:14,rx:4,fill:cssv("--s1"),opacity:0.88});
+    s.appendChild(bar);
+    const v=svg("text",{x:labelW+bw+10,y:y+4,class:"val"});
+    v.textContent=eur(r.median_gp)+"  ·  n="+r.n;s.appendChild(v);
+    hover(bar,r.desk,[["Median GP per placement",eur(r.median_gp)],["Total GP in sample",eur(r.total_gp)],
+      ["Placements sampled",r.n],["Median fee",r.fee+"%"],["Median time to fill",r.ttf+" days"]]);
+  });
+  const n=svg("text",{x:labelW,y:h-4,fill:cssv("--ink-3"),"font-size":"10.5"});
+  n.textContent="median GP per placement · desks with a single sampled placement omitted";s.appendChild(n);
+})();
+table("#permTable",["Desk","Placements","Median GP","Total GP","Fee","Time to fill","Read"],
+  D.perm.map(r=>[r.desk,r.n,eur(r.median_gp),eur(r.total_gp),r.fee+"%",r.ttf+"d",
+    r.n>=6?chip("good","worth acting on"):r.n>=4?chip("warn","suggestive only"):chip("crit","too few rows")]),
+  [0,1,1,1,1,1,0]);
+
+/* freelance desks */
+(function(){
+  const rows=D.freelance;
+  const w=880,rowH=32,h=rows.length*rowH+34,labelW=290,barW=w-labelW-200;
+  const max=Math.max(...rows.map(r=>r.weekly_gp));
+  const s=$("#freeChart");s.setAttribute("viewBox",`0 0 ${w} ${h}`);s.setAttribute("height",h);
+  rows.forEach((r,i)=>{
+    const y=i*rowH+18,bw=Math.max(r.weekly_gp/max*barW,2);
+    const t=svg("text",{x:labelW-12,y:y+4,"text-anchor":"end",fill:cssv("--ink-2"),"font-size":"11.5"});
+    t.textContent=r.desk.replace(/^Contract /,"");s.appendChild(t);
+    const bar=svg("rect",{x:labelW,y:y-7,width:bw,height:14,rx:4,fill:cssv("--s1"),opacity:0.88});
+    s.appendChild(bar);
+    const v=svg("text",{x:labelW+bw+10,y:y+4,class:"val"});
+    v.textContent=eur(r.weekly_gp)+"/wk";s.appendChild(v);
+    const m=svg("text",{x:w-8,y:y+4,"text-anchor":"end",class:"val",
+      fill:r.margin>=20?cssv("--good"):r.margin<15?cssv("--crit"):cssv("--ink-2")});
+    m.textContent=r.margin.toFixed(1)+"% margin";s.appendChild(m);
+    hover(bar,r.desk,[["Weekly GP per contractor",eur(r.weekly_gp)],["Annualised per head out",eur(r.weekly_gp*46)],
+      ["Median margin",r.margin.toFixed(1)+"%"],["Rows sampled",r.n]]);
+  });
+  const n=svg("text",{x:labelW,y:h-4,fill:cssv("--ink-3"),"font-size":"10.5"});
+  n.textContent="bar = weekly GP per contractor · margin direct-labelled, not a second axis";s.appendChild(n);
+})();
+
+/* yoy known */
+$("#yoyKnown").innerHTML = D.yoy.map(y =>
+  "<div style='display:grid;grid-template-columns:1fr auto;gap:12px;padding:9px 0;border-bottom:1px solid var(--line-soft)'>"+
+  "<div style='font-size:13px'>"+y[0]+"</div><div class='num' style='font-weight:600;white-space:nowrap'>"+y[1]+"</div></div>").join("");
+
+/* crm build order */
+table("#crmTable",["#","Build this","Which finding it closes","Effort"],
+  D.crm.map((c,i)=>[i+1,c.what,c.why,c.effort]),[1,0,0,0],[1,2]);
+
+/* predictions */
+D.predict.forEach(p=>{
+  const card=el("div","panel");
+  card.appendChild(el("h3",null,p.q));
+  const n=el("div","num");n.style.cssText="font-size:26px;font-weight:600;margin:6px 0 2px";
+  n.textContent=p.a;card.appendChild(n);
+  card.appendChild(el("div","sub",p.band));
+  const t=el("p");t.style.cssText="font-size:12.5px;color:var(--ink-2);margin:8px 0 0";t.textContent=p.note;
+  card.appendChild(t);
+  $("#predictCards").appendChild(card);
+});
+</script>
