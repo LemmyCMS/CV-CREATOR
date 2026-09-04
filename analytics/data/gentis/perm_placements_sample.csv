@@ -1,0 +1,81 @@
+placement_id,date_approved,start_date,market,owner,client,job_title,priority,salary_eur,fee_pct,split,billing_eur,time_to_fill,job_id,source,job_created,period,is_retainer
+10042,07/08/2025,04/08/2025,Perm Canada Legal,Jonathan Amar,Ewelina Piwowar Avocate Inc.,Family Law Attorney,SPEC,47103,25.0,1,11776,70,78166,Linkedin,,recent,false
+10044,08/08/2025,15/09/2025,Perm Canada Legal,Jonathan Amar,"Goldwater, Dube Inc.",Family Lawyer,A,84196,20.0,1,16839,1,79466,Linkedin,,recent,false
+10051,12/08/2025,19/08/2025,Perm Brussels Construction,Gilles Bastenier,CIT Blaton,Ingenieur en techniques speciales,C,138583,23.0,1,31874,160,76162,Other,,recent,false
+10050,08/08/2025,18/08/2025,Perm Canada Legal,Jonathan Amar,IDC Dermo,Account Executive - GVA,A,0,0.0,1,0,49,78533,Linkedin,,recent,false
+10048,08/08/2025,18/08/2025,Perm Canada Legal,Jonathan Amar,IDC Dermo,Dermocosmetic Specialist,A,0,0.0,1,0,108,77375,Linkedin,,recent,false
+10058,14/08/2025,14/08/2025,Perm Middle-East,Lena Gast,MARCO,Finance Manager,A+,83075,2.78,1,2308,3,79480,Referral,,recent,true
+10055,11/08/2025,18/08/2025,Perm Canada Legal,Jonathan Amar,IDC Dermo,Account Executive - GTA,A,0,0.0,1,0,33,78849,Linkedin,,recent,false
+10054,21/08/2025,01/09/2025,Perm Brussels Construction,Gilles Bastenier,Gebruder Peters Industrietechnik,Project Manager - electricite,A,99000,25.0,1,24750,51,78676,VDAB,,recent,false
+10053,19/08/2025,02/02/2026,Perm Brussels Construction,Gilles Bastenier,CIT Blaton,Ingenieur en techniques speciales,C,102932,23.0,1,23674,167,76162,Social Network,,recent,false
+10062,18/08/2025,18/08/2025,Perm Antwerp Supply Chain,Maxim Gysels,Expeditors International,Air Agent Export,C,40000,25.0,1,10000,407,67436,Linkedin,,recent,false
+10061,20/08/2025,01/09/2025,Perm Brussels Engineering / Sales,Megan Kinet,Alysse Food SA,Responsable Qualite,C,100008,24.0,1,24002,86,78071,Linkedin,,recent,false
+10069,19/08/2025,17/11/2025,Perm Antwerp Construction,Maxim Miserez,Denys,Operationeel Manager,C,174000,25.0,1,43500,973,53523,LinkedIn,,recent,false
+10063,21/08/2025,06/10/2025,Perm Antwerp Supply Chain,Maxim Gysels,Scan Global Logistics,Airfreight Forwarder,C,44028,25.0,1,11007,30,79094,Linkedin,,recent,false
+10082,22/08/2025,05/08/2025,Perm Antwerp Supply Chain,Nicolas De Bie,Molenbergnatie,Douanedeclarant,C,48000,25.0,1,12000,84,78168,Linkedin,,recent,false
+10084,04/09/2025,01/09/2025,Perm Antwerp IT,Indy Willemaerts,Facilicom Services Group Belgium NV,IT Process & Planning Manager,C,74760,25.0,1,18690,38,79178,Linkedin,,recent,false
+10083,21/08/2025,01/09/2025,Perm Brussels Finance/Support,Alicia de Waroux,Engel & Volkers Belgium,Responsable financier,SPEC,40000,25.0,1,10000,7,79566,Linkedin,,recent,false
+10087,01/09/2025,25/08/2025,Perm Brussels Finance/Support,Margaux Seclin,Comeos,Social Affairs Advisor,B,16667,30.0,1,5000,74,78493,Referral,,recent,true
+10098,27/08/2025,11/06/2025,Perm Antwerp IT,Michelle Amelin,Azelis,ERP Technical Architect,C,103338,26.5,1,27385,77,78341,Linkedin,,recent,false
+10097,29/08/2025,01/10/2025,Perm Luxembourg IT,Cindy Jax,SMBC Nikko Bank (Luxembourg),ICT Security risk officer,A,101160,30.0,1,30348,70,78527,Linkedin,,recent,false
+10095,27/08/2025,13/10/2025,Perm Brussels Finance/Support,Alicia de Waroux,Alysse Food SA,Controleur de gestion,C,56012,24.0,1,13443,16,79484,Linkedin,,recent,false
+10092,28/08/2025,31/08/2025,Perm Middle-East,Yassin Harti,QFC,Head of Islamic Finance & Capital Markets,C,75324,18.0,0.2,2712,204,75030,Ad Response,,recent,false
+10092,28/08/2025,31/08/2025,Perm Middle-East,Lena Gast,QFC,Head of Islamic Finance & Capital Markets,C,75324,18.0,0.8,10847,204,75030,Ad Response,,recent,false
+10091,28/08/2025,18/06/2025,Perm Middle-East,Anton Guerin Porojenko,Maison Yeya,Content and Media Executive,C,28276,8.33,1,2356,59,78657,Linkedin,,recent,false
+10090,26/08/2025,04/08/2025,Perm Canada Legal,Jonathan Amar,Trivium Avocats Notaires Conseils,Civil and Commercial Litigation Attorney,SPEC,103627,30.0,1,31088,55,78711,Linkedin,,recent,false
+10102,29/08/2025,03/11/2025,Perm Antwerp Construction Civil Works,Daan Mullie,Stadsbader,Werfleider,C,66984,21.0,1,14067,452,66472,Wiggli Intelligence,,recent,false
+10105,29/08/2025,22/09/2025,Perm Brussels Engineering / Sales,Megan Kinet,CAF Belgium,conseiller en prevention 2,A,67671,25.0,1,16918,52,78811,LinkedIn,,recent,false
+10107,29/08/2025,01/10/2025,Perm Brussels IT,Jonathan Lecocq,Luminus,Lead Solution Architect,C,80000,25.0,1,20000,94,78102,LinkedIn,,recent,false
+10109,29/08/2025,06/12/2024,Perm Africa,Faycal Lahlou Nabil,INWI,Manager systeme Analytique et BigData,C,63761,14.0,1,8927,266,73034,LinkedIn,,recent,false
+10119,02/09/2025,15/09/2025,Perm Middle-East,Yassin Hadmoun,HAYAH Insurance Company P.J.S.C,Legal Advisor,A,6982,100.0,1,6982,15,79592,Linkedin,,recent,false
+10126,04/09/2025,16/05/2025,Perm Antwerp Engineering,Ewan Verhoeven,Van der Spek N.V.,Field Service Engineer,C,63236,24.0,1,15177,111,77910,Stepstone,,recent,false
+10127,04/09/2025,10/11/2025,Perm Antwerp Construction Real Estate,Charlotte Riemens,Beneens Bouw & Interieur,HA CALC - Schrijnwerkerij,C,69613,25.0,1,17403,14,79684,Linkedin,,recent,false
+10129,04/09/2025,15/09/2025,Perm Brussels IT,Jonathan Lecocq,Fondation Roi Baudoin,Digital Finance Project Manager,A+,64000,25.0,1,16000,80,78415,Linkedin,,recent,false
+10031,31/07/2025,15/08/2025,Perm Middle-East,Yassin Harti,Rakia Group,Backend Engineer,C,86021,15.0,0.8,10323,22,78830,Linkedin,,recent,false
+10031,31/07/2025,15/08/2025,Perm Middle-East,Anton Guerin Porojenko,Rakia Group,Backend Engineer,C,86021,15.0,0.2,2581,22,78830,Linkedin,,recent,false
+10033,01/08/2025,25/08/2025,Perm Antwerp Engineering,Ewan Verhoeven,Blommaert Aluminium Constructions,service technieker,C,58024,27.5,1,15957,17,78966,VDAB,,recent,false
+10034,04/08/2025,05/10/2025,Perm Middle-East,Lena Gast,Dalkia Middle East,Senior Accountant - KSA,C,46656,17.68,1,8247,131,76801,Linkedin,,recent,false
+10037,06/08/2025,11/08/2025,Perm Antwerp Supply Chain,Maxim Gysels,Scan Global Logistics,Airfreight Forwarder,C,52452,25.0,1,13113,15,79094,Linkedin,,recent,false
+10038,07/08/2025,14/09/2025,Perm Middle-East,Yassin Harti,CYBERNAS CONSULTANCY,Event Manager,C,62836,11.25,1,7069,92,77682,Linkedin,,recent,false
+10041,07/08/2025,07/08/2025,Perm Canada Legal,Jonathan Amar,IDC Dermo,Retainer,A+,32093,100.0,1,32093,0,79451,Referral,,recent,true
+10093,27/08/2025,15/09/2025,Perm Canada Finance,Antoine Francois,Gastronomia Aliments Fins,VP Finance & Performance,A,94206,25.0,1,23552,50,78798,Indeed,,recent,false
+5920,06/09/2022,01/10/2022,Perm Brussels Finance/Support,Juste Rema,Euroclear SA/NV,Tax Accountant Associate,B,0,25.0,1,17600,48,50284,Referral,20/07/2022,prior,false
+5921,03/04/2023,01/10/2022,Perm Brussels Finance/Support,Juste Rema,Euroclear SA/NV,Tax Accountant Associate,B,0,25.0,1,4400,257,50284,Referral,20/07/2022,prior,false
+5928,08/09/2022,12/09/2022,Perm Brussels Construction/Engineering/Sales,Ornella Scarpino (Wiggli),ACH construct,Gestionnaire de chantier Senior,,0,25.0,1,19140,157,48284,Linkedin,04/04/2022,prior,false
+5929,13/09/2022,12/09/2022,[deleted] Perm Antwerp Engineering/IT Sales,Samuel Vissers,Groupe Atlantic Belgium,Account Manager Flemish Brabant,,0,30.0,1,25601,118,49180,Linkedin,18/05/2022,prior,false
+5931,27/09/2022,24/10/2022,Perm Brussels Engineering / Sales,Timothy Lemner,INDUSTEEL BELGIUM,Ingenieur Electricite Maintenance,C,0,30.0,1,25417,57,50470,Other,01/08/2022,prior,false
+5932,19/09/2022,01/12/2022,Perm Brussels Construction,Thibaut Meulemans,SLRB,Architecte-direction developpement,,0,26.0,1,14833,122,49224,Social Network,20/05/2022,prior,false
+5933,19/09/2022,15/11/2022,Perm Brussels Construction,Thibaut Meulemans,SLRB,Architecte-direction developpement,,0,26.0,1,17082,122,49224,Linkedin,20/05/2022,prior,false
+5934,07/09/2022,12/10/2022,Perm Brussels Finance/Support,Angelique Cornet,Renta Solutions,Legal & Compliance Officer,C,0,25.0,0.8,14901,7,51061,Linkedin,31/08/2022,prior,false
+5934,07/09/2022,12/10/2022,Perm Brussels Finance/Support,Julie Gysels,Renta Solutions,Legal & Compliance Officer,C,0,25.0,0.2,3725,7,51061,Linkedin,31/08/2022,prior,false
+5936,08/09/2022,14/11/2022,Perm Antwerp IT,Julie Gysels,D-Finite NV,Salesforce Developer,A,0,26.0,1,22443,59,50126,Linkedin,11/07/2022,prior,false
+5938,13/09/2022,01/11/2022,[deleted] Construction Brussels,Eva Marlair,Assar Architects,Architecte Polyvalent REVIT,A,0,30.0,1,15454,69,50061,Linkedin,06/07/2022,prior,false
+5939,15/09/2022,08/09/2022,Perm Antwerp IT,Tom Verhulst,Renta Solutions,Account manager,A+,0,25.0,1,2500,14,51077,Referral,01/09/2022,prior,true
+5940,29/09/2022,03/10/2022,Perm Antwerp IT,Tom Verhulst,Proximus,Solution sales cyber security,,0,30.0,1,36088,178,48302,Linkedin,04/04/2022,prior,false
+5944,19/09/2022,14/04/2022,Perm France IT Infra,Harrys Leidzen,CFAO Infrastructure,Ingenieur d'Affaires ICT,C,0,15.0,1,6517,158,48567,Linkedin,14/04/2022,prior,false
+5945,15/09/2022,02/01/2023,Perm Antwerp Construction,Demy Jordens,VK Engineering,Project Manager Bouwprojecten,,0,23.0,1,19850,91,49708,Other,16/06/2022,prior,false
+5946,15/09/2022,05/10/2020,Perm Brussels Construction/Engineering/Sales,Ornella Scarpino (Wiggli),Wood Shapers,Division Unit Manager,,0,22.0,1,20985,612,41249,Other,11/01/2021,prior,false
+5948,12/09/2022,12/09/2022,Perm Africa,Achraf Sila,Wavestone,Consultant Cybersecurite,A+,0,100.0,1,1800,195,47592,Linkedin,01/03/2022,prior,false
+5949,12/09/2022,12/09/2022,Perm Africa,Achraf Sila,Wavestone,Consultant Cybersecurite,A+,0,100.0,1,1000,195,47592,Referral,01/03/2022,prior,true
+5951,21/09/2022,24/10/2022,Perm Brussels Life Sciences,Antoine Vandernoot,Telix Pharmaceuticals Belgium,Senior QC - Scientist,C,0,25.0,1,21183,76,50105,Job Board,07/07/2022,prior,false
+5955,28/09/2022,14/11/2022,Perm Brussels Construction/Engineering/Sales,Ornella Scarpino (Wiggli),DHERTE,Deviseur,,0,25.0,1,18176,259,46469,LinkedIn,12/01/2022,prior,false
+5956,28/09/2022,05/12/2022,Perm Brussels Construction/Engineering/Sales,Ornella Scarpino (Wiggli),Wycor,Project Manager Namur,C,0,30.0,1,28166,58,50479,Job Board,01/08/2022,prior,false
+5961,19/09/2022,02/11/2022,Perm Brussels Construction,Thibaut Meulemans,Burco,Project Manager,,0,24.0,1,18043,111,49411,Linkedin,31/05/2022,prior,false
+5963,22/09/2022,21/11/2022,Perm France IT Dev,David Dilubenzi Nlunda,Manymore,DEVELOPPEUR PHP SQL,B,0,23.0,1,10000,71,50199,Ad Response,13/07/2022,prior,false
+5967,27/09/2022,10/10/2022,Gentis Consultancy,Saida El Masmoudi,Rexel Belgium SA,Data Specialist,,0,24.0,1,15106,215,47521,Linkedin,24/02/2022,prior,false
+5968,20/09/2022,03/10/2022,Perm Antwerp Construction,Maxim Miserez,Wegenbouw Ivan Vuylsteke,Werfleider wegenis,C,0,28.0,1,15188,11,51229,Linkedin,09/09/2022,prior,false
+5978,21/09/2022,17/10/2022,Perm Brussels Engineering / Sales,Timothy Lemner,Solarec,Informaticien Industriel 4.0,B,0,30.0,1,20001,40,50727,Linkedin,12/08/2022,prior,false
+5979,19/09/2022,19/09/2022,Perm Antwerp Construction,Maxim Miserez,ETEC NV,Bouwkundig Ingenieur,A+,0,25.0,1,5798,0,51379,Referral,19/09/2022,prior,true
+5981,20/09/2022,01/11/2022,Perm Brussels Finance/Support,Ameylia Bauwens,D'Ieteren Automotive,Business Manager,A,0,22.0,1,12020,27,50925,Linkedin,24/08/2022,prior,false
+5982,21/09/2022,20/09/2022,Perm Brussels IT,Julimar Abellanosa,Aware,UX Designer,C,0,28.0,1,15345,16,51112,Linkedin,05/09/2022,prior,false
+5984,21/09/2022,02/01/2023,Perm Brussels Engineering / Sales,Timothy Lemner,Vesuvius,Mechatronics Design Engineer,,0,23.0,1,19129,103,49583,Other,10/06/2022,prior,false
+5986,28/09/2022,21/11/2022,Perm France IT Infra,Rabea Ben Makhlouf,YATEO,Chef de projet,C,0,20.0,1,5000,9,51398,Linkedin,19/09/2022,prior,false
+5987,27/09/2022,03/10/2022,[deleted] Construction Antwerp,Vanety Boey,Antonissen Development,Admin/ sales profile,C,0,24.0,1,10077,85,50020,Linkedin,04/07/2022,prior,false
+5991,26/09/2022,17/10/2022,Gentis Consultancy,Saida El Masmoudi,Magotteaux Intl sa,Account Manager,,0,30.0,1,25892,111,49511,LinkedIn,07/06/2022,prior,false
+5992,29/09/2022,10/10/2022,[deleted] IT Permanent Brussels,Lindsay Alexiadis,Equans,Technicien Support / Maintenance IT,C,0,22.0,1,14694,50,50658,Other,10/08/2022,prior,false
+5993,26/09/2022,03/10/2022,[deleted] Support Brussels,Celia Leonora,Fnac Vanden Borre,Talent Acquisition Specialist,C,0,25.0,1,10000,49,50597,Linkedin,08/08/2022,prior,false
+5999,26/09/2022,14/11/2022,Perm Antwerp Construction,Maxim Miserez,Square group,Projectleider Bodemsanering,C,0,25.0,1,7539,24,51092,Linkedin,02/09/2022,prior,false
+6000,27/09/2022,26/12/2022,Perm Brussels Construction,Thibaut Meulemans,Banimmo,Technical Property Manager,C,0,30.0,1,21997,84,50039,Linkedin,05/07/2022,prior,false
+6001,22/09/2022,21/09/2022,Perm Brussels IT,Maxence Couvreur,DKV Belgium,IAM Engineer,A,0,10.0,1,5000,1,51475,Referral,21/09/2022,prior,true
+6003,22/09/2022,21/09/2022,Perm Brussels IT,Maxence Couvreur,DKV Belgium,IT Security Engineer,A,0,10.0,1,5000,1,51477,Referral,21/09/2022,prior,true
+6004,22/09/2022,21/09/2022,Perm Brussels IT,Maxence Couvreur,DKV Belgium,IAM Engineer,A,0,10.0,1,5000,1,51478,Referral,21/09/2022,prior,true

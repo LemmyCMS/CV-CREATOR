@@ -15,6 +15,113 @@ mutale@thezig.io's OneDrive): **Bullhorn** is today's CRM and the source of trut
 **Cube19** reads it for analytics → **Wiggli** is the intended replacement CRM.
 HubSpot portal "The Zig" (id 149249094) exists but was empty as of 2026-09-04.
 
+## REAL DATA IS NOW IN (2026-09-04)
+
+The user pasted Cube19 OneView screens and Slice & Dice pages directly. They live in
+`analytics/data/gentis/` and drive `scripts/analyse_gentis.py` and the real dashboard:
+https://claude.ai/code/artifact/70e3ae0c-697e-405b-a55f-a7d72744d9b9
+
+Three windows: **Sep 2022–Sep 2025** (3y), **Sep 2025–Sep 2026** (12m, adjacent — these two
+compare cleanly), and **Oct 2025–May 2026** (7m, NESTED in the 12m and covering only the
+strong season — the engine refuses to trend against it, and so should you).
+
+### STRUCTURAL BREAK — read before any number
+
+**Gentis Consultancy (freelance/contract) was separated from Perm in March** (reported by the
+user 2026-09-04; **exact date and year still to be confirmed** — assumed 2026-03-01 because it
+falls inside both the 12-month and Oct–May windows).
+
+Every perm and total figure in the two most recent windows therefore **spans two different
+organisations**. `oneview.py` records this as a first-class `structural_break` and flags the
+ten affected metrics (`perm_placements`, `perm_billing`, `perm_jobs_added`,
+`perm_first_interviews`, `total_placements`, `total_billing`, `total_jobs_added`, the perm
+share metrics, `avg_deal_perm`). Those are scope changes, not performance.
+
+**What survives the filter — and this is the real finding:** the top-of-funnel collapse is
+not perm-specific. New organisations −93%, new client contacts −84%, CVs sent −87%, spec CVs
+−90%, reference checks −85%, LinkedIn InMails 45,257/yr → 11. None of that is explained by a
+perm carve-out.
+
+### The findings that matter
+
+**Volume collapsed ~65%/yr; conversion did not.** CV→placement went 3.26%→3.68%, CV→interview
+27.5%→29.7%, meeting→job 1.47→1.59, GP per CV €796→€1,474, avg perm fee €14.3k→€16.4k.
+A business that got *better* at converting and shrank anyway does not have a delivery
+problem. What died is the top of the funnel: new organisations −93%, new client contacts
+−84%, LinkedIn InMails 45,257/yr → 11.
+
+**Perm vs contract — do NOT read as performance.** Perm GP −70%/yr and contract GP −17%/yr
+straddle the March separation. The perm fall is at least partly perm leaving the entity.
+Re-derive this once the break date is confirmed and the pre/post scopes are known.
+
+**The recovered funnel placement count.** Cube19's ratio block divides by a number that
+appears nowhere on the screen — 257 for the 12m window, 2,086 for the 3y — recovered from
+four independent published ratios that agree to 0.3%. The metric list shows 606 and 3,629
+total placements. **So every OneView ratio describes new-business delivery only**, excluding
+extensions and spec placements. Anyone building a target from a screen ratio and measuring
+it against total placements is comparing two different funnels.
+
+**The targets were never arithmetic.** Calls landed at 93–99% of target; everything
+downstream at 7–32%. The target set implies a 35.1% call→meeting rate (actual 10.7%), 58.2%
+CV→interview (actual 35.5%), and 38.4% of jobs being A-jobs (actual 6.7%). The *fee*
+assumption was correct — 819 perm placements × €16,410 = the €13.5M perm target almost
+exactly. The plan priced deals right and then asked for 6.3x more of them than the funnel
+has ever produced.
+
+**A-jobs: corrected.** Cube19 shows "Total A jobs to total placements 1 : 1.1", which reads
+as a 110% fill rate implying every placement comes from an A-job. **The row-level export
+disproves that** — only 29% of placements carry an A/A+ priority and 16% carry none at all.
+Splitting the funnel on that share: A-jobs fill at **32%**, everything else at **5.6%** — a
+**5.7x** advantage, still the biggest structural lever, but 5.7x not 15x. Never quote the
+naive ratio.
+
+**Most recent window (Oct 2025–May 2026), against rebased targets:** client calls 140%,
+total jobs 120%, contract placements 163% — but perm placements 17%, A-jobs 13%, reference
+checks 10%. **The activity engine restarted; the qualification and perm engine did not.**
+
+**Levers priced at Gentis's own conversions** (`scenario()` in `oneview.py`): CVs per job
+1.99→3.00 = +129 placements; A-jobs 6.7%→15% of jobs = +77; client calls 20.5k→61.6k
+(3.3→10.0 per head per day) = +514 but at the blended 7.3% fill rate, so the most expensive.
+
+### Data quality — fix before quoting anything externally
+
+- **Billing contradiction**: contract €7.45M + perm €2.12M = €9.56M, but "Total Billing"
+  says €4.67M. Two revenue definitions in play. (Same fault in the 3y window: €18.5M gap.)
+- **Live Jobs 16,812** against 3,501 added in a year, and identical on every window — a
+  stale "as of now" snapshot. Any report using live jobs as a denominator is meaningless.
+- **Contract time-to-fill 578 days** — measuring through extensions, not to first start.
+- **Reference checks 33% of placements**, down from 110%. Compliance exposure.
+- **~12% of perm "placements" are retainer bookings** (candidate field literally reads
+  "Candidate Retainer"), median €5,000 against €15,400 for real placements. They inflate
+  placement counts and flatter CV→placement, because a retainer needs no CV.
+- **4% of placements have €0 billing value.**
+- **`Ghost_*` owners** (Ghost_Bxl-IT, Ghost_Paris-IT, Ghost_Antwerp-IT, …) appear as
+  placement *owner*, not just job owner — unattributable placements that break per-consultant
+  analysis.
+- **Desk taxonomy churn is real**: `[deleted]` groups still carry history, compound groups
+  ("Perm Brussels Construction/Engineering/Sales") were later split, and "Gentis Consultancy"
+  is used as an unassigned catch-all. A crosswalk is mandatory for any year-by-year market view.
+- **Source field** has "Linkedin" and "LinkedIn" as separate values.
+- **Job Type "Opportunity"** exists alongside "Contract" — matches the internal note that
+  some job-board postings are opportunities, not confirmed roles. Qualify before counting.
+- **Contract Type** distinguishes "Original" from "Contract Extension 1" — that is the
+  extension flag, and it resolves the extensions/placements partition.
+
+### The unresolved confound — get this first
+
+OneView shows **today's** 28 users on every period. Historical headcount is simply not in
+this data. If per-head output were unchanged, the prior period needed roughly **56–85 heads**.
+Until headcount by month exists, "the business shrank" and "the team shrank" are
+indistinguishable, and every per-head conclusion is unsafe. This is the single highest-value
+missing field.
+
+### Still needed
+
+Full Slice & Dice exports (1,493 perm + 2,136 contract placements, not single pages),
+headcount by month per desk, the desk crosswalk, a job-level export including jobs that
+never filled, and the Cube19 status→metric map. Pasting pages into chat does not scale —
+ask for the exported files.
+
 ## Access constraints discovered (do not re-litigate these)
 
 - `app.cube19.io` is **blocked by the container's egress proxy** (403 on CONNECT), and

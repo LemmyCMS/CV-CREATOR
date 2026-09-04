@@ -1,0 +1,652 @@
+<title>Gentis Funnel Reality Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#eef0f3; --surface:#ffffff; --surface-2:#f6f7f9; --line:#dcdfe5; --line-soft:#e9ebef;
+  --ink:#11151b; --ink-2:#525b68; --ink-3:#828b99;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --good:#0f7a53; --warn:#b26a00; --crit:#b3261e; --neutral:#5f6875;
+  --good-bg:#e4f4ec; --warn-bg:#fbf0dc; --crit-bg:#fbe6e4; --neutral-bg:#eceef1;
+  --seq-1:#cde2fb; --seq-2:#9ec5f4; --seq-3:#6da7ec; --seq-4:#3987e5; --seq-5:#256abf; --seq-6:#0d366b;
+  --focus:#2a78d6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+    --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+    --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+    --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+    --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+    --focus:#6da7ec;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+  --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+  --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+  --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+  --focus:#6da7ec;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1240px; margin:0 auto; padding:0 24px 96px}
+h1,h2,h3{font-family:Archivo,"Public Sans",Arial,sans-serif; margin:0; text-wrap:balance; letter-spacing:-0.015em}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--focus); outline-offset:2px; border-radius:3px}
+
+.mast{border-bottom:1px solid var(--line); background:var(--surface); margin-bottom:28px}
+.mast-in{max-width:1240px; margin:0 auto; padding:26px 24px 22px; display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between}
+.mast h1{font-size:27px; font-weight:700}
+.eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-bottom:7px}
+.mast p{margin:8px 0 0; color:var(--ink-2); max-width:60ch}
+.mast-meta{display:flex; gap:26px; flex-wrap:wrap}
+.mast-meta div{min-width:88px}
+.mast-meta .k{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.mast-meta .v{font-size:19px; font-weight:600; margin-top:2px}
+
+.banner{display:flex; gap:12px; padding:13px 16px; border-radius:6px; margin-bottom:26px; font-size:13.5px; align-items:flex-start}
+.banner.synthetic{background:var(--warn-bg); border-left:3px solid var(--warn); color:var(--ink)}
+.banner.real{background:var(--good-bg); border-left:3px solid var(--good); color:var(--ink)}
+.banner b{font-weight:600}
+code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--surface-2); padding:1px 5px; border-radius:3px}
+
+section{margin:0 0 40px}
+.sec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; padding-bottom:9px; border-bottom:1px solid var(--line)}
+.sec-head h2{font-size:16px; font-weight:600}
+.sec-head .hint{font-size:12.5px; color:var(--ink-3)}
+.lede{color:var(--ink-2); margin:12px 0 18px; max-width:74ch; font-size:13.5px}
+
+.grid{display:grid; gap:14px}
+.g-ratios{grid-template-columns:repeat(auto-fit,minmax(214px,1fr))}
+.g-2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+
+.panel{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:18px}
+.panel h3{font-size:13px; font-weight:600; margin-bottom:3px}
+.panel .sub{font-size:12px; color:var(--ink-3); margin-bottom:14px}
+
+.rc{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:15px 16px 17px; display:flex; flex-direction:column; gap:2px}
+.rc .lab{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.rc .val{font-size:30px; font-weight:600; letter-spacing:-0.02em; line-height:1.15; margin-top:4px}
+.rc .raw{font-size:11.5px; color:var(--ink-3); margin-top:1px}
+.rc .meter{margin-top:12px}
+.rc .cap{font-size:11.5px; color:var(--ink-2); margin-top:9px; line-height:1.45}
+.rc.unmeasured .val{color:var(--ink-3)}
+
+.chip{display:inline-flex; align-items:center; gap:5px; padding:2px 8px; border-radius:11px; font-size:11.5px; font-weight:600; white-space:nowrap}
+.chip .dot{width:6px; height:6px; border-radius:50%; flex:none}
+.chip.good{background:var(--good-bg); color:var(--good)} .chip.good .dot{background:var(--good)}
+.chip.warn{background:var(--warn-bg); color:var(--warn)} .chip.warn .dot{background:var(--warn)}
+.chip.crit{background:var(--crit-bg); color:var(--crit)} .chip.crit .dot{background:var(--crit)}
+.chip.neutral{background:var(--neutral-bg); color:var(--neutral)} .chip.neutral .dot{background:var(--neutral)}
+
+.tw{overflow-x:auto; border:1px solid var(--line-soft); border-radius:7px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:13px}
+th,td{padding:8px 12px; text-align:left; border-bottom:1px solid var(--line-soft); white-space:nowrap}
+th{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:none}
+td.n,th.n{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+td.wrap-cell{white-space:normal; min-width:260px; color:var(--ink-2)}
+tbody tr:hover{background:var(--surface-2)}
+.heat{border-radius:3px; padding:2px 7px; display:inline-block; min-width:52px; text-align:right}
+
+.chart{width:100%; display:block; overflow:visible}
+.chart text{font-family:"Public Sans",Arial,sans-serif; font-size:11px; fill:var(--ink-3)}
+.chart text.val{font-family:"IBM Plex Mono",monospace; fill:var(--ink-2); font-size:11px}
+.chart .grid-line{stroke:var(--line-soft); stroke-width:1}
+.chart .axis{stroke:var(--line); stroke-width:1}
+.legend{display:flex; flex-wrap:wrap; gap:14px; margin:0 0 12px; font-size:12px; color:var(--ink-2)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:11px; height:3px; border-radius:2px; display:inline-block}
+
+.toggles{display:flex; gap:6px; flex-wrap:wrap; margin-left:auto}
+.tg{background:var(--surface-2); border:1px solid var(--line); color:var(--ink-2); font:inherit; font-size:12px; font-weight:500;
+    padding:4px 11px; border-radius:5px; cursor:pointer}
+.tg[aria-pressed="true"]{background:var(--s1); border-color:var(--s1); color:#fff}
+
+.tip{position:fixed; pointer-events:none; opacity:0; transition:opacity .1s; background:var(--surface);
+     border:1px solid var(--line); border-radius:6px; padding:8px 11px; font-size:12px; z-index:60;
+     box-shadow:0 6px 20px rgba(0,0,0,.13); max-width:250px; left:0; top:0}
+.tip .t{font-weight:600; margin-bottom:3px}
+.tip .r{display:flex; justify-content:space-between; gap:14px; color:var(--ink-2)}
+.tip .r b{color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:500}
+
+.goal{display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; margin-bottom:18px}
+.goal label{font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:600; display:block; margin-bottom:5px}
+.goal input{font:inherit; font-family:"IBM Plex Mono",monospace; font-size:17px; padding:7px 11px; width:172px;
+  border:1px solid var(--line); border-radius:5px; background:var(--surface); color:var(--ink)}
+.chain{display:flex; flex-direction:column; gap:1px}
+.step{display:grid; grid-template-columns:1fr auto auto; gap:16px; align-items:center; padding:9px 14px; background:var(--surface); border:1px solid var(--line-soft)}
+.step:first-child{border-radius:7px 7px 0 0} .step:last-child{border-radius:0 0 7px 7px}
+.step.anchor{border-left:3px solid var(--s1); background:var(--surface-2)}
+.step .sn{font-size:13px}
+.step .sn small{display:block; color:var(--ink-3); font-size:11.5px}
+.step .p50,.step .p80{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; min-width:84px}
+.step .p50{color:var(--ink-2); font-size:13px} .step .p80{font-size:16px; font-weight:600}
+.step-head{display:grid; grid-template-columns:1fr auto auto; gap:16px; padding:0 14px 6px; font-size:11px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.step-head span:not(:first-child){text-align:right; min-width:84px}
+
+.callout{border-left:3px solid var(--s1); background:var(--surface-2); padding:12px 15px; border-radius:0 6px 6px 0; font-size:13px; margin-top:12px}
+.callout b{font-weight:600}
+
+.reasons{display:flex; flex-direction:column; gap:9px; margin-top:16px}
+.reason{display:grid; grid-template-columns:150px 1fr; gap:14px; align-items:start; font-size:13px; padding-bottom:9px; border-bottom:1px solid var(--line-soft)}
+.reason:last-child{border-bottom:none; padding-bottom:0}
+.reason .m{font-weight:600; margin-bottom:4px}
+.reason p{margin:0; color:var(--ink-2)}
+
+footer{border-top:1px solid var(--line); margin-top:52px; padding-top:20px; font-size:12.5px; color:var(--ink-3); max-width:78ch}
+footer p{margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+@media (max-width:640px){
+  .reason{grid-template-columns:1fr}
+  .mast h1{font-size:22px}
+}
+</style>
+<div class="mast">
+  <div class="mast-in">
+    <div>
+      <div class="eyebrow">Cube19 OneView · company-wide</div>
+      <h1>Gentis funnel reality check</h1>
+      <p>Four years of Cube19 output, reconciled: what the ratios actually say, which targets were ever arithmetic, and where the next placement comes from.</p>
+    </div>
+    <div class="mast-meta" id="mastMeta"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="banner" id="breakBanner" style="background:var(--crit-bg);border-left:3px solid var(--crit)"></div>
+
+  <div class="banner synthetic">
+    <div><b>Read the scope before the numbers.</b> The period totals below are complete and
+    company-wide, and the two periods are adjacent — Sep 2022→Sep 2025 and Sep 2025→Sep 2026 —
+    so they compare cleanly. There is <b>no market, consultant or monthly breakdown</b> in this
+    data, so nothing here ranks a desk or a person. The row-level detail is a single page of
+    each Slice &amp; Dice export, enough to establish structure and settle the A-job question,
+    nowhere near enough to rank anything.</div>
+  </div>
+
+  <section id="headline">
+    <div class="sec-head"><h2>The shape of it</h2>
+      <span class="hint">Everything annualised. Volume collapsed; conversion did not.</span></div>
+    <div class="grid g-ratios" id="headlineCards"></div>
+    <div class="callout" id="headlineNote"></div>
+  </section>
+
+  <section id="funnel">
+    <div class="sec-head"><h2>The funnel, per year</h2>
+      <span class="hint">Prior 3-year average against the last 12 months.</span></div>
+    <div class="grid g-2">
+      <div class="panel">
+        <h3>Stage volumes</h3><div class="sub">Bars are the last 12 months; the tick is the prior annual rate.</div>
+        <svg class="chart" id="funnelChart" role="img" aria-label="Funnel volume, prior vs recent"></svg>
+      </div>
+      <div class="panel">
+        <h3>The recovered placement count</h3>
+        <div class="sub">Cube19's ratio block divides by a number that appears nowhere on the screen.</div>
+        <div id="recovered"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ratios">
+    <div class="sec-head"><h2>Ratios — the part headcount cannot distort</h2>
+      <span class="hint">A ratio is a rate, so it compares across periods even when headcount does not.</span></div>
+    <p class="lede">This is the most important table on the page. Volume fell by roughly two thirds, but every
+    delivery conversion held or improved. <b>That rules out a delivery problem.</b> What broke is upstream:
+    job intake, job quality, and the top of the BD funnel.</p>
+    <div class="tw"><table id="ratioTable"></table></div>
+  </section>
+
+  <section id="attainment">
+    <div class="sec-head"><h2>Target attainment</h2>
+      <span class="hint">Last 12 months. Sorted worst first.</span></div>
+    <p class="lede">The pattern, not any single row, is the finding: <b>calls land at 93–99% of target and
+    everything downstream lands at 7–32%.</b> A team hitting its dialling numbers and missing everything they
+    were supposed to produce is not a motivation problem — it is a plan whose conversion assumptions were never true.</p>
+    <div class="panel"><svg class="chart" id="attainChart" role="img" aria-label="Target attainment by metric"></svg></div>
+  </section>
+
+  <section id="current">
+    <div class="sec-head"><h2>The most recent window</h2>
+      <span class="hint" id="curHint"></span></div>
+    <div class="banner synthetic" id="curGuards"></div>
+    <p class="lede">Targets were <b>rebased downward</b> between the two windows — client calls from 22,125 a year
+    to roughly 18,900. Against the new numbers the activity engine is working and the qualification engine is not.
+    That split is the whole management picture in one table.</p>
+    <div class="grid g-2" id="curCards"></div>
+  </section>
+
+  <section id="arithmetic">
+    <div class="sec-head"><h2>Were the targets ever arithmetic?</h2>
+      <span class="hint">The ratio each target pair implies, against the ratio achieved.</span></div>
+    <div class="tw"><table id="linkTable"></table></div>
+    <div class="callout" id="feeCheck"></div>
+  </section>
+
+  <section id="levers">
+    <div class="sec-head"><h2>Where the next placement comes from</h2>
+      <span class="hint">Three levers, priced at Gentis's own measured conversions.</span></div>
+    <div class="panel" id="aJobPanel" style="margin-bottom:14px"></div>
+    <div class="grid" id="leverCards" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"></div>
+  </section>
+
+  <section id="leaks">
+    <div class="sec-head"><h2>Money already on the floor</h2>
+      <span class="hint">Cube19's own actionable-insight counters, last 12 months.</span></div>
+    <div class="grid g-2" id="leakCards"></div>
+  </section>
+
+  <section id="quality">
+    <div class="sec-head"><h2>What does not add up</h2>
+      <span class="hint">Fix these before any of the above is quoted externally.</span></div>
+    <div class="reasons" id="findings"></div>
+    <div class="panel" style="margin-top:18px">
+      <h3>From the row-level export</h3>
+      <div class="sub">A single page of each Slice &amp; Dice file — structural findings only.</div>
+      <div id="rowSample"></div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="sec-head"><h2>What is still missing</h2></div>
+    <div class="callout" id="headcountNote"></div>
+    <div class="tw" style="margin-top:14px"><table id="needTable"></table></div>
+  </section>
+
+  <footer>
+    <p id="footProv"></p>
+    <p>Flow metrics from the 3-year snapshot are divided by three to compare with the 12-month
+    snapshot. Stock metrics — Live Jobs, Contractors Out, Current Contractor Weekly GP — are
+    identical on both views because they are "as of now" figures, and are excluded from every
+    comparison. Benchmark bands are industry reference points, not Gentis history.</p>
+  </footer>
+</div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+const DATA = /*__DASHBOARD_DATA__*/null;
+const SERIES = ["--s1","--s2","--s3","--s4","--s5"];
+const cssv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $ = s => document.querySelector(s);
+const el = (t,c,x) => { const n=document.createElement(t); if(c)n.className=c; if(x!=null)n.textContent=x; return n; };
+const eur = v => "€" + Math.round(v).toLocaleString("en-GB");
+const eurM = v => "€" + (v/1e6).toFixed(2) + "M";
+const pct = v => (v*100).toFixed(1) + "%";
+const pct0 = v => Math.round(v*100) + "%";
+const num = v => Math.round(v).toLocaleString("en-GB");
+const sgn = v => (v>=0?"+":"") + Math.round(v*100) + "%";
+const SVGNS = "http://www.w3.org/2000/svg";
+const svg = (t,a) => { const n=document.createElementNS(SVGNS,t); for(const k in a) n.setAttribute(k,a[k]); return n; };
+
+const tip = $("#tip");
+function showTip(e,title,rows){ tip.innerHTML=""; tip.appendChild(el("div","t",title));
+  rows.forEach(p=>{const r=el("div","r");r.appendChild(el("span",null,p[0]));r.appendChild(el("b",null,p[1]));tip.appendChild(r);});
+  tip.style.opacity=1; moveTip(e); }
+function moveTip(e){ const pad=14,w=tip.offsetWidth,h=tip.offsetHeight;
+  let x=e.clientX+pad,y=e.clientY+pad;
+  if(x+w>innerWidth-8)x=e.clientX-w-pad; if(y+h>innerHeight-8)y=e.clientY-h-pad;
+  tip.style.left=x+"px"; tip.style.top=y+"px"; }
+function hover(n,t,r){ n.addEventListener("mouseenter",e=>showTip(e,t,r));
+  n.addEventListener("mousemove",moveTip); n.addEventListener("mouseleave",()=>tip.style.opacity=0); }
+
+function table(sel,head,rows,align,wrapCols){
+  const host=$(sel); host.innerHTML="";
+  const ws={}; (wrapCols||[]).forEach(i=>ws[i]=true);
+  const th=el("thead"),tr=el("tr");
+  head.forEach((h,i)=>tr.appendChild(el("th",align&&align[i]?"n":null,h)));
+  th.appendChild(tr); host.appendChild(th);
+  const tb=el("tbody");
+  rows.forEach(r=>{ const t=el("tr");
+    r.forEach((c,i)=>{ const cell = (c && c.nodeType) ? el("td", ws[i]?"wrap-cell":(align&&align[i]?"n":null)) : el("td", ws[i]?"wrap-cell":(align&&align[i]?"n":null), String(c));
+      if(c && c.nodeType) cell.appendChild(c); t.appendChild(cell); });
+    tb.appendChild(t); });
+  host.appendChild(tb);
+}
+function chip(cls,text){ const c=el("span","chip "+cls); c.appendChild(el("span","dot")); c.appendChild(el("span",null,text)); return c; }
+
+/* ---------------- masthead + headline ---------------- */
+function masthead(){
+  const g=DATA.gp.recent, gp=DATA.gp.prior;
+  [["Period","12 months"],["Placements","606"],["GP","€10.29M"],["Heads today",DATA.active_users],
+   ["Funnel placements",num(DATA.funnel.recovered_placements_recent)]].forEach(p=>{
+    const b=el("div"); b.appendChild(el("div","k",p[0])); b.appendChild(el("div","v num",String(p[1])));
+    $("#mastMeta").appendChild(b); });
+
+  const cards=[
+    ["Total GP per year", eurM(g.total_gp), eurM(gp.total_gp), (g.total_gp-gp.total_gp)/gp.total_gp,
+     "Spans the March separation — treat as a scope change, not a decline."],
+    ["Perm GP per year", eurM(g.perm_gp), eurM(gp.perm_gp), (g.perm_gp-gp.perm_gp)/gp.perm_gp,
+     "NOT a performance number — perm was separated out of this entity in March, so this " +
+     "window mixes two different organisations."],
+    ["Contract GP per year", eurM(g.contract_gp), eurM(gp.contract_gp), (g.contract_gp-gp.contract_gp)/gp.contract_gp,
+     "The resilient half, and now the majority of revenue."],
+    ["GP per CV sent", eur(g.gp_per_cv_sent), eur(gp.gp_per_cv_sent), (g.gp_per_cv_sent-gp.gp_per_cv_sent)/gp.gp_per_cv_sent,
+     "Nearly doubled. Each unit of delivery effort earns far more than it used to."],
+    ["GP per placement", eur(g.gp_per_placement), eur(gp.gp_per_placement), (g.gp_per_placement-gp.gp_per_placement)/gp.gp_per_placement,
+     "Deal size up. The fee side of the business is healthy."],
+  ];
+  cards.forEach(c=>{
+    const card=el("div","rc");
+    card.appendChild(el("div","lab",c[0]));
+    card.appendChild(el("div","val num",c[1]));
+    card.appendChild(el("div","raw","prior annual rate "+c[2]));
+    const good = c[3] >= 0;
+    const w=el("div"); w.style.marginTop="10px";
+    w.appendChild(chip(good?"good":"crit", sgn(c[3]) + " vs prior"));
+    card.appendChild(w);
+    card.appendChild(el("div","cap",c[4]));
+    $("#headlineCards").appendChild(card);
+  });
+
+  $("#headlineNote").innerHTML =
+    "<b>The one-line read, after the structural break is accounted for.</b> Perm and total figures " +
+    "cross the March separation and cannot be read as performance. What survives that filter is the " +
+    "part that matters: <b>the top of the funnel collapsed while delivery conversion improved</b>. " +
+    "New organisations −93%, new client contacts −84%, CVs sent −87%, LinkedIn InMails from 45,257 " +
+    "a year to 11 — none of which is perm-specific — against CV→placement rising 3.26%→3.68% and " +
+    "GP per CV nearly doubling. Gentis got <b>better at converting and stopped feeding the funnel</b>.";
+
+  const br = DATA.structural_break;
+  $("#breakBanner").innerHTML = "<div><b>Structural break, " + br.date + ".</b> " + br.what + " " +
+    br.implication + " Every affected figure on this page carries a <b>scope</b> flag. " +
+    "<i>" + br.confidence + " — please confirm the exact date and which side of the business " +
+    "kept which desks.</i></div>";
+}
+
+/* ---------------- funnel ---------------- */
+function funnel(){
+  const rec=DATA.funnel.recent, pri=Object.fromEntries(DATA.funnel.prior.map(r=>[r.label,r.value]));
+  const w=470,rowH=44,h=rec.length*rowH+24,labelW=150,barW=w-labelW-92;
+  const max=Math.max(...rec.map(r=>r.value), ...Object.values(pri));
+  const scale=v=>Math.max(Math.sqrt(v/max)*barW,2);   // sqrt: calls dwarf placements by 80x
+  const s=$("#funnelChart"); s.setAttribute("viewBox",`0 0 ${w} ${h}`); s.setAttribute("height",h);
+  rec.forEach((r,i)=>{
+    const y=i*rowH+10;
+    const t=svg("text",{x:labelW-10,y:y+16,"text-anchor":"end",fill:cssv("--ink-2")});
+    t.textContent=r.label; s.appendChild(t);
+    const bw=scale(r.value);
+    const bar=svg("rect",{x:labelW,y:y+4,width:bw,height:16,rx:4,fill:cssv("--s1"),opacity:0.88});
+    s.appendChild(bar);
+    const p=pri[r.label]||0, px=labelW+scale(p);
+    s.appendChild(svg("line",{x1:px,y1:y,x2:px,y2:y+24,stroke:cssv("--ink-2"),"stroke-width":1.6}));
+    const v=svg("text",{x:labelW+Math.max(bw,scale(p))+10,y:y+17,class:"val"});
+    const chg=p?(r.value-p)/p:0;
+    v.textContent=num(r.value)+"  ("+sgn(chg)+")"; s.appendChild(v);
+    hover(bar,r.label,[["Last 12 months",num(r.value)],["Prior annual rate",num(p)],["Change",sgn(chg)]]);
+  });
+  const key=svg("text",{x:labelW,y:h-2,fill:cssv("--ink-3"),"font-size":"10.5"});
+  key.textContent="bar = last 12 months · tick = prior annual rate · bar length is square-root scaled"; s.appendChild(key);
+
+  const f=DATA.funnel;
+  $("#recovered").innerHTML =
+    "<div style='font-family:\"IBM Plex Mono\",monospace;font-size:30px;font-weight:600;letter-spacing:-.02em'>"+
+    num(f.recovered_placements_recent)+"</div>"+
+    "<div style='color:var(--ink-3);font-size:12px;margin-bottom:12px'>funnel placements, recovered from four independent published ratios (they agree to "+
+    (f.recovery_spread_recent*100).toFixed(1)+"%)</div>"+
+    "<p style='font-size:13px;color:var(--ink-2);margin:0 0 10px'>The metric list reports <b>"+num(f.total_placements_recent)+
+    " total placements</b>. Cube19's ratios divide by <b>"+num(f.recovered_placements_recent)+"</b> — so every conversion "+
+    "ratio on the OneView screen describes <b>new-business delivery only</b>, with extensions and spec placements excluded.</p>"+
+    "<p style='font-size:13px;color:var(--ink-2);margin:0'>This matters the moment anyone builds a target from a screen ratio "+
+    "and measures it against total placements. They are not the same funnel.</p>";
+}
+
+/* ---------------- ratios ---------------- */
+function ratios(){
+  const rows=DATA.ratios.filter(r=>!r.ratio.startsWith("placements_per_a_job"));
+  const order=["cvs_per_job","cv_to_first_interview","first_interview_to_placement","cv_to_placement",
+    "job_fill_rate","further_per_first_interview","client_call_to_meeting","meeting_to_job",
+    "client_calls_per_a_job","candidate_calls_per_cv","spec_share_of_cvs","a_job_share_of_jobs",
+    "perm_share_of_placements","extensions_per_contract_placement","ref_checks_per_placement"];
+  rows.sort((a,b)=>{const i=order.indexOf(a.ratio),j=order.indexOf(b.ratio);
+    return (i<0?99:i)-(j<0?99:j);});
+  const LABEL={cvs_per_job:"CVs per job",cv_to_first_interview:"CV → 1st interview",
+    first_interview_to_placement:"1st interview → placement",cv_to_placement:"CV → placement",
+    job_fill_rate:"Job fill rate",further_per_first_interview:"1st → further interview",
+    client_call_to_meeting:"Client call → meeting",meeting_to_job:"Meeting → jobs",
+    client_calls_per_a_job:"Client calls per A-job",candidate_calls_per_cv:"Candidate calls per CV",
+    spec_share_of_cvs:"Spec share of all CVs",a_job_share_of_jobs:"A-jobs as share of jobs",
+    perm_share_of_placements:"Perm share of placements",
+    extensions_per_contract_placement:"Extensions per contract placement",
+    ref_checks_per_placement:"Reference checks per placement"};
+  table("#ratioTable",["Ratio","Prior 3y","Last 12m","Change","Benchmark","Verdict"],
+    rows.map(r=>{
+      const f = r.recent<=1.5 ? pct : (v=>v.toFixed(2));
+      const b=r.benchmark;
+      let bt="—", verdict=el("span");
+      if(b){ bt = b[1]<=1 ? pct0(b[0])+"–"+pct0(b[1]) : b[0].toFixed(1)+"–"+b[1].toFixed(1);
+        verdict = r.recent<b[0] ? chip("crit","below benchmark")
+                : r.recent>b[1] ? chip("good","above benchmark") : chip("good","in band"); }
+      else { verdict = chip("neutral","context"); }
+      const dir = el("span");
+      dir.appendChild(chip(r.change>=0.03?"good":r.change<=-0.03?"crit":"neutral", sgn(r.change)));
+      if (r.structural_break) verdict = chip("crit","scope change, not performance");
+      return [LABEL[r.ratio]||r.ratio, f(r.prior), f(r.recent), dir, bt, verdict];
+    }),[0,1,1,0,1,0]);
+}
+
+/* ---------------- attainment ---------------- */
+function attainment(){
+  const rows=DATA.attainment;
+  const w=900,rowH=25,h=rows.length*rowH+40,labelW=250,plotW=w-labelW-70;
+  const max=Math.max(1.3,...rows.map(r=>r.attainment));
+  const X=v=>labelW+(v/max)*plotW;
+  const s=$("#attainChart"); s.setAttribute("viewBox",`0 0 ${w} ${h}`); s.setAttribute("height",h);
+  [0.25,0.5,0.75,1.0].forEach(g=>{
+    s.appendChild(svg("line",{x1:X(g),y1:14,x2:X(g),y2:h-24,
+      stroke: g===1?cssv("--ink-2"):cssv("--line-soft"),"stroke-width":g===1?1.6:1}));
+    const t=svg("text",{x:X(g),y:h-8,"text-anchor":"middle"}); t.textContent=pct0(g); s.appendChild(t); });
+  const NICE={reference_checks:"Reference checks",total_a_jobs_added:"A-jobs added",
+    unique_cv_sends_by_candidate:"Unique CV sends",perm_billing:"Perm billing",
+    perm_placements:"Perm placements",candidate_meetings:"Candidate meetings",
+    contract_jobs_added:"Contract jobs added",client_meetings:"Client meetings",
+    perm_jobs_added:"Perm jobs added",total_interviews:"Total interviews",
+    total_cvs_sent:"Total CVs sent",cvs_sent:"CVs sent (to jobs)",contract_gp_value:"Contract GP",
+    contract_placements_excl_extensions:"Contract placements (excl ext)",
+    total_jobs_added:"Total jobs added",client_calls:"Client calls",candidate_calls:"Candidate calls",
+    contract_placements:"Contract placements"};
+  rows.forEach((r,i)=>{
+    const y=22+i*rowH;
+    const t=svg("text",{x:labelW-12,y:y+4,"text-anchor":"end",fill:cssv("--ink-2"),"font-size":"11.5"});
+    t.textContent=NICE[r.metric]||r.metric; s.appendChild(t);
+    const good=r.attainment>=0.9;
+    const bar=svg("rect",{x:labelW,y:y-6,width:Math.max((r.attainment/max)*plotW,2),height:12,rx:4,
+      fill: good?cssv("--good"):r.attainment<0.35?cssv("--crit"):cssv("--warn"),opacity:0.85});
+    s.appendChild(bar);
+    const v=svg("text",{x:X(r.attainment)+8,y:y+4,class:"val"}); v.textContent=pct0(r.attainment); s.appendChild(v);
+    hover(bar,NICE[r.metric]||r.metric,[["Actual",num(r.actual)],["Target",num(r.target)],["Attainment",pct0(r.attainment)]]);
+  });
+}
+
+/* ---------------- targets as arithmetic ---------------- */
+function arithmetic(){
+  table("#linkTable",["Funnel link","Targets imply","Actually achieved","Gap","Verdict"],
+    DATA.target_links.map(l=>{
+      const f = l.actual<=1.5 ? pct : (v=>v.toFixed(2));
+      const bad = l.factor && l.factor>1.15;
+      return [l.link, f(l.implied_by_targets), f(l.actual),
+        l.factor?l.factor.toFixed(1)+"x":"—",
+        bad?chip("crit","target assumed better than reality"):
+            (l.factor&&l.factor<0.85?chip("neutral","target assumed worse than reality"):chip("good","consistent"))];
+    }),[0,1,1,1,0]);
+  const fc=DATA.fee_check;
+  $("#feeCheck").innerHTML =
+    "<b>The fee assumption was right; the volume assumption was fantasy.</b> The perm revenue target of "+
+    eur(fc.target_perm_billing)+" divided by the "+num(fc.target_perm_placements)+"-placement target implies a "+
+    eur(fc.actual_avg_perm_fee)+" average fee — which is almost exactly what Gentis actually achieves ("+
+    eur(fc.actual_avg_perm_fee)+"). So the plan priced deals correctly and then asked for "+
+    (fc.target_perm_placements/129).toFixed(1)+"x as many of them as the funnel has ever produced.";
+}
+
+/* ---------------- levers ---------------- */
+function levers(){
+  const e=DATA.scenarios.a_job_economics;
+  $("#aJobPanel").innerHTML =
+    "<h3>Job quality is the biggest single lever — but not the one the aggregates suggested</h3>"+
+    "<div class='sub'>Corrected using the row-level export.</div>"+
+    "<p style='font-size:13.5px;color:var(--ink-2);margin:0 0 12px'>Cube19 reports \"Total A jobs to total placements 1 : 1.1\", "+
+    "which reads as though every placement comes from an A-job. It does not: in the row-level export only <b>"+
+    pct0(DATA.row_sample.a_share_of_placements)+"</b> of placements carry an A or A+ priority, and <b>"+
+    pct0(DATA.row_sample.blank_priority_share)+"</b> carry no priority at all. Splitting the funnel on that share gives "+
+    "the real picture.</p>"+
+    "<div style='display:flex;gap:28px;flex-wrap:wrap'>"+
+      "<div><div class='k' style='font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600'>A-jobs fill at</div>"+
+      "<div class='num' style='font-size:28px;font-weight:600'>"+pct0(e.a_fill_rate)+"</div>"+
+      "<div style='font-size:11.5px;color:var(--ink-3)'>"+num(e.a_jobs)+" jobs</div></div>"+
+      "<div><div class='k' style='font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600'>Everything else fills at</div>"+
+      "<div class='num' style='font-size:28px;font-weight:600'>"+pct0(e.non_a_fill_rate)+"</div>"+
+      "<div style='font-size:11.5px;color:var(--ink-3)'>"+num(e.non_a_jobs)+" jobs</div></div>"+
+      "<div><div class='k' style='font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600'>Advantage</div>"+
+      "<div class='num' style='font-size:28px;font-weight:600;color:var(--s1)'>"+e.advantage.toFixed(1)+"×</div>"+
+      "<div style='font-size:11.5px;color:var(--ink-3)'>still the biggest structural gap</div></div>"+
+    "</div>";
+
+  DATA.scenarios.levers.forEach((l,i)=>{
+    const card=el("div","panel");
+    card.appendChild(el("h3",null,l.lever));
+    const v=el("div"); v.style.cssText="display:flex;gap:22px;margin:10px 0 12px;align-items:baseline";
+    const p=el("div"); p.innerHTML="<div class='num' style='font-size:26px;font-weight:600'>"+
+      (l.delta_placements>=0?"+":"")+num(l.delta_placements)+"</div><div style='font-size:11.5px;color:var(--ink-3)'>placements</div>";
+    const g=el("div"); g.innerHTML="<div class='num' style='font-size:26px;font-weight:600'>"+
+      (l.delta_gp>=0?"+":"")+eurM(l.delta_gp)+"</div><div style='font-size:11.5px;color:var(--ink-3)'>GP at current mix</div>";
+    v.appendChild(p); v.appendChild(g); card.appendChild(v);
+    const req=el("p"); req.style.cssText="font-size:13px;margin:0 0 8px"; req.innerHTML="<b>Needs:</b> "+l.requires;
+    card.appendChild(req);
+    const cav=el("p"); cav.style.cssText="font-size:12.5px;color:var(--ink-3);margin:0"; cav.textContent=l.caveat;
+    card.appendChild(cav);
+    $("#leverCards").appendChild(card);
+  });
+}
+
+/* ---------------- leaks ---------------- */
+function leaks(){
+  const L=DATA.leaks;
+  const items=[
+    ["Contractors finishing with no extension, CV, interview or placement activity",
+     num(L.finishers_no_ext_cv_int_or_placement), eur(L.weekly_gp_finishing_no_action)+" of weekly GP attached",
+     "The fastest money on this page. These are billing contractors walking out with no conversation logged. "+
+     "Note the weekly GP attached exceeds the entire current contractor book of €112,877/week, so the counter's "+
+     "window needs checking — but the direction is not in doubt."],
+    ["New candidates never sent to a job or contact",
+     num(L.new_candidates_not_sent), pct0(L.new_candidates_not_sent/11876)+" of all new candidates",
+     "Sourcing effort that produced nothing. Either the sourcing is aimed at jobs that do not exist, or the "+
+     "candidates are added and abandoned."],
+    ["New client contacts never called",
+     num(L.new_contacts_with_no_call), pct0(L.new_contacts_with_no_call/5568)+" of all new contacts",
+     "BD data captured and left cold, in a year when new organisations fell 93%."],
+    ["Reference checks against placements",
+     "33%", "202 checks, 606 placements",
+     "Down from 110% in the prior period. Either the checks stopped or the logging did; one of those is a compliance problem."],
+  ];
+  items.forEach(it=>{
+    const card=el("div","panel");
+    card.appendChild(el("h3",null,it[0]));
+    const n=el("div","num"); n.style.cssText="font-size:32px;font-weight:600;letter-spacing:-.02em;margin:6px 0 2px";
+    n.textContent=it[1]; card.appendChild(n);
+    card.appendChild(el("div","sub",it[2]));
+    const p=el("p"); p.style.cssText="font-size:12.5px;color:var(--ink-2);margin:8px 0 0"; p.textContent=it[3];
+    card.appendChild(p);
+    $("#leakCards").appendChild(card);
+  });
+}
+
+/* ---------------- findings + row sample ---------------- */
+function findings(){
+  const seen=new Set();
+  DATA.findings.forEach(f=>{
+    const k=f.subject+f.severity; if(seen.has(k))return; seen.add(k);
+    const r=el("div","reason");
+    const left=el("div"); left.appendChild(el("div","m",f.subject));
+    left.appendChild(chip(f.severity==="fail"?"crit":f.severity==="warn"?"warn":"neutral",f.severity));
+    r.appendChild(left);
+    const right=el("div"); right.appendChild(el("p",null,f.detail)); r.appendChild(right);
+    $("#findings").appendChild(r);
+  });
+
+  const rs=DATA.row_sample;
+  const mix=rs.priority_mix.map(p=>p.priority+" "+pct0(p.share)).join(" · ");
+  $("#rowSample").innerHTML =
+    "<div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;font-size:13px'>"+
+    [["Placements in sample",num(rs.unique_placements)+" (from "+rs.split_rows+" split rows)"],
+     ["Job priority mix",mix],
+     ["Retainers booked as placements",pct0(rs.retainer_share)+" — median €5,000 against €15,400 for real placements"],
+     ["Zero-value placements",pct0(rs.zero_value_share)],
+     ["Fee %",rs.fee_median.toFixed(0)+"% median, "+rs.fee_min.toFixed(2)+"%–"+rs.fee_max.toFixed(0)+"% range"],
+     ["Time to fill",rs.ttf_median.toFixed(0)+"d median · "+rs.ttf_p90+"d p90 · "+rs.ttf_max+"d max"],
+     ["Distinct desk groups",rs.distinct_groups+" across only "+rs.unique_placements+" placements"],
+     ["Source field","'Linkedin' and 'LinkedIn' both present — needs normalising before any source analysis"]]
+    .map(p=>"<div><div style='font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:3px'>"+
+      p[0]+"</div><div style='color:var(--ink-2)'>"+p[1]+"</div></div>").join("")+"</div>"+
+    "<p style='font-size:12.5px;color:var(--ink-2);margin:16px 0 0'><b>Retired and merged desks are the "+
+    "biggest structural problem.</b> The sample alone contains "+rs.retired_groups.length+
+    " retired groups still carrying history ("+rs.retired_groups.join(", ")+") and compound groups that were "+
+    "later split apart. Any year-by-year market comparison needs an explicit crosswalk mapping old desks onto "+
+    "current ones, or the series simply breaks at each reorganisation.</p>";
+}
+
+/* ---------------- what's missing ---------------- */
+function missing(){
+  $("#headcountNote").innerHTML = "<b>The one number that would change the whole reading.</b> "+DATA.headcount.note;
+  table("#needTable",["Still needed","Why it matters","Where it comes from"],
+    [["Headcount by month, per desk","Separates \"the business shrank\" from \"the team shrank\". Every per-head and productivity conclusion depends on it.","Cube19 Trends, or HR"],
+     ["The FULL Slice &amp; Dice exports","1,493 perm + 2,136 contract placements, not one page. This is what makes market, consultant and client ranking possible.","Slice &amp; Dice → export, one file per year"],
+     ["The desk crosswalk","Maps retired and merged groups onto current desks so the year-by-year series survives the reorganisations.","Admin, or reconstructed from the group names"],
+     ["Job-level export with priority","The A-job finding rests on placement rows. The fill-rate comparison needs the JOBS, including the ones that never filled.","Jobs Pipeline → export"],
+     ["The status→metric map","Which Bullhorn statuses Cube19 counts as CV sent, interview, placement.","Cube19 metric config screenshots"]],
+    [0,0,0],[1]);
+  $("#footProv").textContent = "Generated "+DATA.generated_at+" from "+DATA.source+
+    ". "+DATA.note;
+}
+
+function current(){
+  const c = DATA.current_window;
+  $("#curHint").textContent = c.label + " · " + c.months + " months · nested inside the 12-month window";
+  $("#curGuards").innerHTML = "<div><b>Do not read this as a trend.</b> " +
+    c.guards.join(" ") + "</div>";
+  const NICE={reference_checks:"Reference checks",total_a_jobs_added:"A-jobs added",
+    perm_placements:"Perm placements",unique_cv_sends_by_candidate:"Unique CV sends",
+    contract_placements_excl_extensions:"Contract placements (excl ext)",
+    candidate_calls:"Candidate calls",total_jobs_added:"Total jobs added",
+    client_calls:"Client calls",contract_placements:"Contract placements",
+    cvs_sent:"CVs sent (to jobs)",client_meetings:"Client meetings",
+    total_interviews:"Total interviews",contract_gp_value:"Contract GP",
+    perm_billing:"Perm billing",candidate_meetings:"Candidate meetings",
+    perm_jobs_added:"Perm jobs added",contract_jobs_added:"Contract jobs added",
+    total_cvs_sent:"Total CVs sent"};
+  const beating = c.attainment.filter(r=>r.attainment>=0.95);
+  const missing_ = c.attainment.filter(r=>r.attainment<0.4);
+  [["Beating the rebased target","good",beating,
+    "Raw activity and contract delivery. The dialling has restarted and contract is converting it."],
+   ["Still missing badly","crit",missing_,
+    "Qualification, perm, and compliance. None of these have responded, and they are the ones that carry fee income."]]
+  .forEach(g=>{
+    const card=el("div","panel");
+    card.appendChild(el("h3",null,g[0]));
+    card.appendChild(el("div","sub",g[3]));
+    g[2].forEach(r=>{
+      const row=el("div");
+      row.style.cssText="display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line-soft)";
+      row.appendChild(el("div",null,NICE[r.metric]||r.metric));
+      const v=el("div","num"); v.style.cssText="color:var(--ink-3);font-size:12px";
+      v.textContent=num(r.actual)+" / "+num(r.target); row.appendChild(v);
+      const w=el("div"); w.appendChild(chip(g[1],pct0(r.attainment))); row.appendChild(w);
+      card.appendChild(row);
+    });
+    $("#curCards").appendChild(card);
+  });
+}
+if (DATA) { masthead(); funnel(); ratios(); attainment(); current(); arithmetic(); levers(); leaks(); findings(); missing(); }
+</script>

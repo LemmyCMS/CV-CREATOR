@@ -1,0 +1,1173 @@
+{
+  "generated_at": "2026-09-04T19:10:35",
+  "company": "Gentis Consultancy",
+  "source": "Cube19 OneView, company-wide aggregate",
+  "periods": {
+    "prior": {
+      "label": "Sep 2022 \u2013 Sep 2025",
+      "years": 3.0,
+      "start": "2022-09-04",
+      "end": "2025-09-04"
+    },
+    "recent": {
+      "label": "Sep 2025 \u2013 Sep 2026",
+      "years": 1.0,
+      "start": "2025-09-04",
+      "end": "2026-09-04"
+    }
+  },
+  "active_users": 28,
+  "findings": [
+    {
+      "severity": "warn",
+      "subject": "funnel placements",
+      "detail": "4 independent published ratios agree on 257 placements (spread 0.3%), but the metric list reports 606 total placements. Cube19's ratios are therefore NOT computed over all placements - extensions and spec placements appear to be excluded. Every ratio on the screen is a ratio of new-business delivery, not of total output. [VERIFY] the exact definition before any target is built on it."
+    },
+    {
+      "severity": "fail",
+      "subject": "billing",
+      "detail": "Contract billing (7,445,772) + perm billing (2,116,879) = 9,562,651, but 'Total Billing' reports 4,673,685 - a 4,888,966 gap. Two different revenue definitions are in play (likely invoiced vs contract value). Resolve this before quoting any revenue number externally."
+    },
+    {
+      "severity": "warn",
+      "subject": "extensions",
+      "detail": "contract placements excl extensions (115) + extensions (321) = 436, but contract placements is 477. The extension definition does not partition contract placements cleanly."
+    },
+    {
+      "severity": "fail",
+      "subject": "live jobs",
+      "detail": "16,812 jobs are marked live against 3,501 added in this period. Live jobs cannot exceed recent intake by this margin - the job pipeline is not being closed down. Any report using live jobs as a denominator is meaningless, and consultants cannot see real priorities in a list this polluted."
+    },
+    {
+      "severity": "warn",
+      "subject": "time to fill",
+      "detail": "Average contract time-to-fill reads 578 days. That is almost certainly measuring from original job creation through successive extensions rather than to first start - unusable as a speed metric until redefined."
+    },
+    {
+      "severity": "warn",
+      "subject": "reference checks",
+      "detail": "202 reference checks against 606 placements (33%). Either they are not being done or not being logged; both are a problem, and one of them is a compliance problem."
+    },
+    {
+      "severity": "fail",
+      "subject": "billing",
+      "detail": "Contract billing (30,141,240) + perm billing (21,291,776) = 51,433,016, but 'Total Billing' reports 32,963,294 - a 18,469,722 gap. Two different revenue definitions are in play (likely invoiced vs contract value). Resolve this before quoting any revenue number externally."
+    },
+    {
+      "severity": "warn",
+      "subject": "time to fill",
+      "detail": "Average contract time-to-fill reads 409 days. That is almost certainly measuring from original job creation through successive extensions rather than to first start - unusable as a speed metric until redefined."
+    }
+  ],
+  "funnel": {
+    "recent": [
+      {
+        "label": "Client calls",
+        "value": 20525.0
+      },
+      {
+        "label": "Client meetings",
+        "value": 2197.0
+      },
+      {
+        "label": "Jobs added",
+        "value": 3501.0
+      },
+      {
+        "label": "A-jobs (qualified)",
+        "value": 233.0
+      },
+      {
+        "label": "CVs sent (to jobs)",
+        "value": 6984.0
+      },
+      {
+        "label": "1st interviews",
+        "value": 2077.0
+      },
+      {
+        "label": "Placements (funnel)",
+        "value": 257.0
+      }
+    ],
+    "prior": [
+      {
+        "label": "Client calls",
+        "value": 53233.333333333336
+      },
+      {
+        "label": "Client meetings",
+        "value": 6115.666666666667
+      },
+      {
+        "label": "Jobs added",
+        "value": 8998.333333333334
+      },
+      {
+        "label": "A-jobs (qualified)",
+        "value": 605.3333333333334
+      },
+      {
+        "label": "CVs sent (to jobs)",
+        "value": 21306.666666666668
+      },
+      {
+        "label": "1st interviews",
+        "value": 5866.666666666667
+      },
+      {
+        "label": "Placements (funnel)",
+        "value": 695.3333333333334
+      }
+    ],
+    "recovered_placements_recent": 257,
+    "recovered_placements_prior": 2086,
+    "recovery_spread_recent": 0.002937462913546163,
+    "total_placements_recent": 606.0
+  },
+  "ratios": [
+    {
+      "ratio": "a_job_share_of_jobs",
+      "prior": 0.06727171698462678,
+      "recent": 0.0665524135961154,
+      "change": -0.010692508244969555,
+      "benchmark": null,
+      "structural_break": false
+    },
+    {
+      "ratio": "candidate_calls_per_cv",
+      "prior": 3.871260951188986,
+      "recent": 4.453035509736541,
+      "change": 0.15028037786212098,
+      "benchmark": null,
+      "structural_break": false
+    },
+    {
+      "ratio": "client_call_to_meeting",
+      "prior": 0.11488415779586725,
+      "recent": 0.10704019488428745,
+      "change": -0.06827715032317508,
+      "benchmark": [
+        0.1,
+        0.2
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "client_calls_per_a_job",
+      "prior": 87.94052863436123,
+      "recent": 88.0901287553648,
+      "change": 0.001701151031574755,
+      "benchmark": null,
+      "structural_break": false
+    },
+    {
+      "ratio": "cv_to_first_interview",
+      "prior": 0.2753441802252816,
+      "recent": 0.29739404352806414,
+      "change": 0.08008109444965107,
+      "benchmark": [
+        0.25,
+        0.4
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "cv_to_placement",
+      "prior": 0.03263454317897372,
+      "recent": 0.03679839633447881,
+      "change": 0.12759036131346374,
+      "benchmark": [
+        0.08,
+        0.12
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "cvs_per_job",
+      "prior": 2.3678458973884053,
+      "recent": 1.9948586118251928,
+      "change": -0.15752177368239867,
+      "benchmark": [
+        3.0,
+        5.0
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "extensions_per_contract_placement",
+      "prior": 0.5908239700374532,
+      "recent": 0.6729559748427673,
+      "change": 0.13901264838680724,
+      "benchmark": null,
+      "structural_break": false
+    },
+    {
+      "ratio": "first_interview_to_placement",
+      "prior": 0.11852272727272728,
+      "recent": 0.12373615792007703,
+      "change": 0.04398675905721743,
+      "benchmark": [
+        0.2,
+        0.33
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "further_per_first_interview",
+      "prior": 0.2171590909090909,
+      "recent": 0.19114106884930188,
+      "change": -0.11981088128003324,
+      "benchmark": [
+        0.5,
+        0.7
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "job_fill_rate",
+      "prior": 0.07727356917947768,
+      "recent": 0.07340759782919166,
+      "change": -0.05002967238780971,
+      "benchmark": [
+        0.15,
+        0.25
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "meeting_to_job",
+      "prior": 1.4713577151577915,
+      "recent": 1.5935366408739189,
+      "change": 0.08303822004496351,
+      "benchmark": [
+        0.35,
+        1.0
+      ],
+      "structural_break": false
+    },
+    {
+      "ratio": "perm_share_of_placements",
+      "prior": 0.41140810140534584,
+      "recent": 0.21287128712871287,
+      "change": -0.48257876691888885,
+      "benchmark": null,
+      "structural_break": true
+    },
+    {
+      "ratio": "placements_per_a_job_naive",
+      "prior": 1.1486784140969164,
+      "recent": 1.1030042918454936,
+      "change": -0.03976232311053869,
+      "benchmark": null,
+      "structural_break": false
+    },
+    {
+      "ratio": "ref_checks_per_placement",
+      "prior": 1.1019564618352162,
+      "recent": 0.3333333333333333,
+      "change": -0.6975077102608986,
+      "benchmark": null,
+      "structural_break": false
+    },
+    {
+      "ratio": "spec_share_of_cvs",
+      "prior": 0.8913898597685408,
+      "recent": 0.7193490054249548,
+      "change": -0.19300292959161355,
+      "benchmark": null,
+      "structural_break": false
+    }
+  ],
+  "flow": [
+    {
+      "metric": "linkedin_inmails",
+      "section": "activity",
+      "prior_total": 135771,
+      "prior_per_year": 45257.0,
+      "recent_per_year": 11.0,
+      "change": -0.9997569436772212,
+      "structural_break": false
+    },
+    {
+      "metric": "new_organisations",
+      "section": "activity",
+      "prior_total": 29552,
+      "prior_per_year": 9850.666666666666,
+      "recent_per_year": 688.0,
+      "change": -0.9301570113697888,
+      "structural_break": false
+    },
+    {
+      "metric": "spec_cvs_sent",
+      "section": "activity",
+      "prior_total": 524607,
+      "prior_per_year": 174869.0,
+      "recent_per_year": 17901.0,
+      "change": -0.8976319416248735,
+      "structural_break": false
+    },
+    {
+      "metric": "total_cvs_sent",
+      "section": "activity",
+      "prior_total": 588527,
+      "prior_per_year": 196175.66666666666,
+      "recent_per_year": 24885.0,
+      "change": -0.8731494052099564,
+      "structural_break": false
+    },
+    {
+      "metric": "reference_checks",
+      "section": "activity",
+      "prior_total": 3999,
+      "prior_per_year": 1333.0,
+      "recent_per_year": 202.0,
+      "change": -0.8484621155288822,
+      "structural_break": false
+    },
+    {
+      "metric": "new_client_contacts",
+      "section": "activity",
+      "prior_total": 106924,
+      "prior_per_year": 35641.333333333336,
+      "recent_per_year": 5568.0,
+      "change": -0.8437768882570799,
+      "structural_break": false
+    },
+    {
+      "metric": "candidate_call_backs",
+      "section": "activity",
+      "prior_total": 185556,
+      "prior_per_year": 61852.0,
+      "recent_per_year": 14183.0,
+      "change": -0.7706945612106318,
+      "structural_break": false
+    },
+    {
+      "metric": "candidate_meetings",
+      "section": "activity",
+      "prior_total": 20220,
+      "prior_per_year": 6740.0,
+      "recent_per_year": 1648.0,
+      "change": -0.7554896142433234,
+      "structural_break": false
+    },
+    {
+      "metric": "perm_placements",
+      "section": "revenue",
+      "prior_total": 1493,
+      "prior_per_year": 497.6666666666667,
+      "recent_per_year": 129.0,
+      "change": -0.7407903549899532,
+      "structural_break": true
+    },
+    {
+      "metric": "perm_first_interviews",
+      "section": "activity",
+      "prior_total": 13397,
+      "prior_per_year": 4465.666666666667,
+      "recent_per_year": 1224.0,
+      "change": -0.7259087855490035,
+      "structural_break": true
+    },
+    {
+      "metric": "perm_billing",
+      "section": "revenue",
+      "prior_total": 21291776,
+      "prior_per_year": 7097258.666666667,
+      "recent_per_year": 2116879.0,
+      "change": -0.701732866248452,
+      "structural_break": true
+    },
+    {
+      "metric": "further_interviews",
+      "section": "activity",
+      "prior_total": 3822,
+      "prior_per_year": 1274.0,
+      "recent_per_year": 397.0,
+      "change": -0.6883830455259027,
+      "structural_break": false
+    },
+    {
+      "metric": "perm_jobs_added",
+      "section": "activity",
+      "prior_total": 20187,
+      "prior_per_year": 6729.0,
+      "recent_per_year": 2168.0,
+      "change": -0.6778124535592213,
+      "structural_break": true
+    },
+    {
+      "metric": "new_business_placements",
+      "section": "revenue",
+      "prior_total": 871,
+      "prior_per_year": 290.3333333333333,
+      "recent_per_year": 94.0,
+      "change": -0.6762342135476463,
+      "structural_break": false
+    },
+    {
+      "metric": "cvs_sent",
+      "section": "activity",
+      "prior_total": 63920,
+      "prior_per_year": 21306.666666666668,
+      "recent_per_year": 6984.0,
+      "change": -0.672215269086358,
+      "structural_break": false
+    },
+    {
+      "metric": "client_call_backs",
+      "section": "activity",
+      "prior_total": 260194,
+      "prior_per_year": 86731.33333333333,
+      "recent_per_year": 29112.0,
+      "change": -0.6643427596331968,
+      "structural_break": false
+    },
+    {
+      "metric": "total_interviews",
+      "section": "activity",
+      "prior_total": 21477,
+      "prior_per_year": 7159.0,
+      "recent_per_year": 2476.0,
+      "change": -0.6541416398938399,
+      "structural_break": false
+    },
+    {
+      "metric": "total_first_interviews",
+      "section": "activity",
+      "prior_total": 17600,
+      "prior_per_year": 5866.666666666667,
+      "recent_per_year": 2077.0,
+      "change": -0.6459659090909091,
+      "structural_break": false
+    },
+    {
+      "metric": "client_meetings",
+      "section": "activity",
+      "prior_total": 18347,
+      "prior_per_year": 6115.666666666667,
+      "recent_per_year": 2197.0,
+      "change": -0.6407587071455824,
+      "structural_break": false
+    },
+    {
+      "metric": "new_candidates",
+      "section": "activity",
+      "prior_total": 96955,
+      "prior_per_year": 32318.333333333332,
+      "recent_per_year": 11876.0,
+      "change": -0.6325305554123046,
+      "structural_break": false
+    },
+    {
+      "metric": "candidate_calls",
+      "section": "activity",
+      "prior_total": 247451,
+      "prior_per_year": 82483.66666666667,
+      "recent_per_year": 31100.0,
+      "change": -0.6229556558672222,
+      "structural_break": false
+    },
+    {
+      "metric": "total_a_jobs_added",
+      "section": "activity",
+      "prior_total": 1816,
+      "prior_per_year": 605.3333333333334,
+      "recent_per_year": 233.0,
+      "change": -0.6150881057268722,
+      "structural_break": false
+    },
+    {
+      "metric": "client_calls",
+      "section": "activity",
+      "prior_total": 159700,
+      "prior_per_year": 53233.333333333336,
+      "recent_per_year": 20525.0,
+      "change": -0.6144333124608642,
+      "structural_break": false
+    },
+    {
+      "metric": "total_jobs_added",
+      "section": "activity",
+      "prior_total": 26995,
+      "prior_per_year": 8998.333333333334,
+      "recent_per_year": 3501.0,
+      "change": -0.6109279496203001,
+      "structural_break": true
+    },
+    {
+      "metric": "shortlists",
+      "section": "activity",
+      "prior_total": 57670,
+      "prior_per_year": 19223.333333333332,
+      "recent_per_year": 8000.0,
+      "change": -0.5838390844459858,
+      "structural_break": false
+    },
+    {
+      "metric": "unique_cv_sends_by_candidate",
+      "section": "activity",
+      "prior_total": 28175,
+      "prior_per_year": 9391.666666666666,
+      "recent_per_year": 3920.0,
+      "change": -0.5826086956521739,
+      "structural_break": false
+    },
+    {
+      "metric": "total_billing",
+      "section": "revenue",
+      "prior_total": 32963294,
+      "prior_per_year": 10987764.666666666,
+      "recent_per_year": 4673685.0,
+      "change": -0.5746464233823233,
+      "structural_break": true
+    },
+    {
+      "metric": "total_demos",
+      "section": "activity",
+      "prior_total": 35,
+      "prior_per_year": 11.666666666666666,
+      "recent_per_year": 5.0,
+      "change": -0.5714285714285714,
+      "structural_break": false
+    },
+    {
+      "metric": "total_placements",
+      "section": "revenue",
+      "prior_total": 3629,
+      "prior_per_year": 1209.6666666666667,
+      "recent_per_year": 606.0,
+      "change": -0.49903554698263985,
+      "structural_break": true
+    },
+    {
+      "metric": "contract_jobs_added",
+      "section": "activity",
+      "prior_total": 6622,
+      "prior_per_year": 2207.3333333333335,
+      "recent_per_year": 1325.0,
+      "change": -0.39972817879794625,
+      "structural_break": false
+    },
+    {
+      "metric": "contract_first_interviews",
+      "section": "activity",
+      "prior_total": 3955,
+      "prior_per_year": 1318.3333333333333,
+      "recent_per_year": 835.0,
+      "change": -0.3666245259165613,
+      "structural_break": false
+    },
+    {
+      "metric": "contract_placements",
+      "section": "revenue",
+      "prior_total": 2136,
+      "prior_per_year": 712.0,
+      "recent_per_year": 477.0,
+      "change": -0.3300561797752809,
+      "structural_break": false
+    },
+    {
+      "metric": "contract_billing",
+      "section": "revenue",
+      "prior_total": 30141240,
+      "prior_per_year": 10047080.0,
+      "recent_per_year": 7445772.0,
+      "change": -0.2589118430429538,
+      "structural_break": false
+    },
+    {
+      "metric": "extensions",
+      "section": "revenue",
+      "prior_total": 1262,
+      "prior_per_year": 420.6666666666667,
+      "recent_per_year": 321.0,
+      "change": -0.23692551505546755,
+      "structural_break": false
+    },
+    {
+      "metric": "contract_gp_value",
+      "section": "revenue",
+      "prior_total": 29580771,
+      "prior_per_year": 9860257.0,
+      "recent_per_year": 8177739.0,
+      "change": -0.17063632317088692,
+      "structural_break": false
+    }
+  ],
+  "gp": {
+    "prior": {
+      "perm_gp": 7097258.666666667,
+      "contract_gp": 9860257.0,
+      "total_gp": 16957515.666666668,
+      "gp_per_placement": 14018.337558556075,
+      "gp_per_funnel_placement": 24387.606423777564,
+      "gp_per_cv_sent": 795.8783948685857,
+      "gp_per_job": 1884.51739210965,
+      "perm_share_of_gp": 0.4185317475848025
+    },
+    "recent": {
+      "perm_gp": 2116879.0,
+      "contract_gp": 8177739.0,
+      "total_gp": 10294618.0,
+      "gp_per_placement": 16987.818481848186,
+      "gp_per_funnel_placement": 40056.879377431906,
+      "gp_per_cv_sent": 1474.02892325315,
+      "gp_per_job": 2940.4792916309625,
+      "perm_share_of_gp": 0.20562967950826344
+    }
+  },
+  "headcount": {
+    "current_headcount": 28,
+    "by_metric": {
+      "cvs_sent": 85.42191676212295,
+      "client_calls": 72.62038164839628,
+      "total_jobs_added": 71.96610492240313,
+      "total_placements": 55.8921892189219
+    },
+    "range": [
+      55.8921892189219,
+      85.42191676212295
+    ],
+    "note": "If per-head productivity were unchanged, the prior period would have needed roughly 56-85 heads against today's 28. This is a HYPOTHESIS generated from the output gap, not a measurement. Get headcount by month (docs/06 item 2.5) - until then, 'the business shrank' and 'the team shrank' are indistinguishable."
+  },
+  "attainment": [
+    {
+      "metric": "reference_checks",
+      "actual": 202.0,
+      "target": 2882.0,
+      "attainment": 0.07009021512838307
+    },
+    {
+      "metric": "total_a_jobs_added",
+      "actual": 233.0,
+      "target": 1700.0,
+      "attainment": 0.13705882352941176
+    },
+    {
+      "metric": "unique_cv_sends_by_candidate",
+      "actual": 3920.0,
+      "target": 25970.96,
+      "attainment": 0.15093781669988326
+    },
+    {
+      "metric": "perm_billing",
+      "actual": 2116879.0,
+      "target": 13519437.0,
+      "attainment": 0.15658041085586627
+    },
+    {
+      "metric": "perm_placements",
+      "actual": 129.0,
+      "target": 819.09,
+      "attainment": 0.15749185071237592
+    },
+    {
+      "metric": "candidate_meetings",
+      "actual": 1648.0,
+      "target": 7950.87,
+      "attainment": 0.20727291478794144
+    },
+    {
+      "metric": "contract_jobs_added",
+      "actual": 1325.0,
+      "target": 5483.18,
+      "attainment": 0.2416480947187581
+    },
+    {
+      "metric": "client_meetings",
+      "actual": 2197.0,
+      "target": 7757.22,
+      "attainment": 0.28322001954308373
+    },
+    {
+      "metric": "perm_jobs_added",
+      "actual": 2168.0,
+      "target": 6938.18,
+      "attainment": 0.31247387643445396
+    },
+    {
+      "metric": "total_interviews",
+      "actual": 2476.0,
+      "target": 7725.71,
+      "attainment": 0.32048834346616684
+    },
+    {
+      "metric": "total_cvs_sent",
+      "actual": 24885.0,
+      "target": 58472.78,
+      "attainment": 0.42558263862262063
+    },
+    {
+      "metric": "cvs_sent",
+      "actual": 6984.0,
+      "target": 13275.0,
+      "attainment": 0.5261016949152543
+    },
+    {
+      "metric": "contract_gp_value",
+      "actual": 8177739.0,
+      "target": 14631773.0,
+      "attainment": 0.5589028069257226
+    },
+    {
+      "metric": "contract_placements_excl_extensions",
+      "actual": 115.0,
+      "target": 163.64,
+      "attainment": 0.7027621608408703
+    },
+    {
+      "metric": "total_jobs_added",
+      "actual": 3501.0,
+      "target": 4425.0,
+      "attainment": 0.7911864406779661
+    },
+    {
+      "metric": "client_calls",
+      "actual": 20525.0,
+      "target": 22125.0,
+      "attainment": 0.927683615819209
+    },
+    {
+      "metric": "candidate_calls",
+      "actual": 31100.0,
+      "target": 31440.0,
+      "attainment": 0.9891857506361323
+    },
+    {
+      "metric": "contract_placements",
+      "actual": 477.0,
+      "target": 374.55,
+      "attainment": 1.2735282338806568
+    }
+  ],
+  "target_links": [
+    {
+      "link": "client call \u2192 meeting",
+      "implied_by_targets": 0.35060881355932205,
+      "actual": 0.10704019488428745,
+      "factor": 3.2754874366431883,
+      "verdict": "targets assume better than reality"
+    },
+    {
+      "link": "meeting \u2192 jobs",
+      "implied_by_targets": 0.5704363161029338,
+      "actual": 1.5935366408739189,
+      "factor": 0.35796874792292077,
+      "verdict": "targets assume worse than reality"
+    },
+    {
+      "link": "CVs per job",
+      "implied_by_targets": 3.0,
+      "actual": 1.9948586118251928,
+      "factor": 1.5038659793814433,
+      "verdict": "targets assume better than reality"
+    },
+    {
+      "link": "CV \u2192 interview",
+      "implied_by_targets": 0.5819743879472693,
+      "actual": 0.354524627720504,
+      "factor": 1.6415626516250923,
+      "verdict": "targets assume better than reality"
+    },
+    {
+      "link": "job \u2192 A job",
+      "implied_by_targets": 0.384180790960452,
+      "actual": 0.0665524135961154,
+      "factor": 5.7726049319851604,
+      "verdict": "targets assume better than reality"
+    }
+  ],
+  "fee_check": {
+    "target_perm_placements": 819.09,
+    "actual_avg_perm_fee": 16410.0,
+    "implied_billing": 13441266.9,
+    "target_perm_billing": 13519437,
+    "consistent": true
+  },
+  "scenarios": {
+    "baseline_placements": 257,
+    "baseline_gp": 10294618.0,
+    "gp_per_funnel_placement": 40056.879377431906,
+    "levers": [
+      {
+        "lever": "CVs per job 1.99 \u2192 3.00",
+        "requires": "3,519 more CVs on the SAME jobs",
+        "placements": 386.4935567010309,
+        "delta_placements": 129.4935567010309,
+        "delta_gp": 5187107.780927834,
+        "caveat": "Ceiling, not forecast: extra CVs land in the weaker jobs, which convert below the average CV."
+      },
+      {
+        "lever": "A-jobs 6.7% \u2192 15.0% of jobs",
+        "requires": "292 more jobs qualified to A standard, out of the same job intake - a qualification change, not more BD",
+        "placements": 334.13807980560614,
+        "delta_placements": 77.13807980560614,
+        "delta_gp": 3089910.758179881,
+        "caveat": "A-jobs fill at 32% against 6% for the rest (5.7x). Reclassifying a job does not improve it, so the real gain is smaller - this sizes the prize, it does not promise it."
+      },
+      {
+        "lever": "Client calls 20,525 \u2192 61,600",
+        "requires": "10.0 client calls per head per working day (currently 3.3)",
+        "placements": 771.3130328867235,
+        "delta_placements": 514.3130328867235,
+        "delta_gp": 20601775.12058465,
+        "caveat": "Buys more jobs of the CURRENT quality mix, so it inherits the 7.3% blended fill rate. The call\u2192meeting\u2192job chain has barely moved in four years, so this lever is real but the most expensive of the three."
+      }
+    ],
+    "a_job_economics": {
+      "a_jobs": 233.0,
+      "non_a_jobs": 3268.0,
+      "a_share_of_placements": 0.29,
+      "a_fill_rate": 0.3198712446351931,
+      "non_a_fill_rate": 0.055835373317013465,
+      "advantage": 5.72882790304056
+    }
+  },
+  "leaks": {
+    "finishers_no_ext_cv_int_or_placement": 342,
+    "weekly_gp_finishing_no_action": 207440,
+    "new_contacts_with_no_call": 2270,
+    "new_candidates_not_sent": 10104,
+    "live_jobs_60d_under_3_interviews": 0,
+    "live_jobs_14d_no_cv_sent": 0,
+    "live_jobs_30d_no_interviews": 0,
+    "live_jobs_14d_no_activity": 0,
+    "pending_starters_no_call_30d": 0
+  },
+  "live": {
+    "live_jobs": 16812,
+    "perm_starters": 136,
+    "contractors_out": 197,
+    "contractors_finishing": 554,
+    "biggest_deal_perm": 66000,
+    "biggest_deal_contract": 101690,
+    "cm_ref_passed": 270
+  },
+  "benchmarks": {
+    "cvs_per_job": [
+      3.0,
+      5.0
+    ],
+    "cv_to_first_interview": [
+      0.25,
+      0.4
+    ],
+    "first_interview_to_placement": [
+      0.2,
+      0.33
+    ],
+    "cv_to_placement": [
+      0.08,
+      0.12
+    ],
+    "job_fill_rate": [
+      0.15,
+      0.25
+    ],
+    "further_per_first_interview": [
+      0.5,
+      0.7
+    ],
+    "client_call_to_meeting": [
+      0.1,
+      0.2
+    ],
+    "meeting_to_job": [
+      0.35,
+      1.0
+    ]
+  },
+  "note": "Adjacent periods, no overlap: 2022-09-04\u21922025-09-04\u21922026-09-04.",
+  "structural_break": {
+    "date": "2026-03-01",
+    "what": "Gentis Consultancy (freelance/contract) was separated from the Perm business.",
+    "reported_by": "mutale@thezig.io, 2026-09-04",
+    "confidence": "unconfirmed month/year - stated as 'March'; assumed March 2026 because it falls inside both the 12-month and the Oct-May windows",
+    "affects": [
+      "perm_placements",
+      "perm_billing",
+      "perm_jobs_added",
+      "perm_first_interviews",
+      "perm_share_of_placements",
+      "perm_share_of_gp",
+      "total_placements",
+      "total_billing",
+      "total_jobs_added",
+      "avg_deal_perm"
+    ],
+    "implication": "Any perm figure spanning this date mixes two different organisations. A fall in perm across the break is not evidence of a performance decline - part or all of it may be perm simply leaving the reporting entity.",
+    "spans_this_window": true
+  },
+  "guards": [
+    "STRUCTURAL BREAK (2026-03-01): Gentis Consultancy (freelance/contract) was separated from the Perm business. Any perm figure spanning this date mixes two different organisations. A fall in perm across the break is not evidence of a performance decline - part or all of it may be perm simply leaving the reporting entity. Affected metrics are flagged and must not be read as performance. (unconfirmed month/year - stated as 'March'; assumed March 2026 because it falls inside both the 12-month and the Oct-May windows)"
+  ],
+  "broken_metrics": [
+    "avg_deal_perm",
+    "perm_billing",
+    "perm_first_interviews",
+    "perm_jobs_added",
+    "perm_placements",
+    "perm_share_of_gp",
+    "perm_share_of_placements",
+    "total_billing",
+    "total_jobs_added",
+    "total_placements"
+  ],
+  "row_sample": {
+    "split_rows": 80,
+    "unique_placements": 77,
+    "priority_mix": [
+      {
+        "priority": "C",
+        "n": 35,
+        "share": 0.45454545454545453
+      },
+      {
+        "priority": "A",
+        "n": 15,
+        "share": 0.19480519480519481
+      },
+      {
+        "priority": "(blank)",
+        "n": 12,
+        "share": 0.15584415584415584
+      },
+      {
+        "priority": "A+",
+        "n": 7,
+        "share": 0.09090909090909091
+      },
+      {
+        "priority": "B",
+        "n": 5,
+        "share": 0.06493506493506493
+      },
+      {
+        "priority": "SPEC",
+        "n": 3,
+        "share": 0.03896103896103896
+      }
+    ],
+    "a_share_of_placements": 0.2857142857142857,
+    "blank_priority_share": 0.15584415584415584,
+    "retainer_share": 0.11688311688311688,
+    "zero_value_share": 0.03896103896103896,
+    "fee_median": 25.0,
+    "fee_min": 2.78,
+    "fee_max": 100.0,
+    "ttf_median": 70,
+    "ttf_p90": 215,
+    "ttf_max": 973,
+    "distinct_groups": 25,
+    "retired_groups": [
+      "[deleted] Construction Antwerp",
+      "[deleted] Construction Brussels",
+      "[deleted] IT Permanent Brussels",
+      "[deleted] Perm Antwerp Engineering/IT Sales",
+      "[deleted] Support Brussels"
+    ],
+    "compound_groups": [
+      "Perm Brussels Construction/Engineering/Sales",
+      "Perm Brussels Engineering / Sales",
+      "Perm Brussels Finance/Support",
+      "[deleted] Perm Antwerp Engineering/IT Sales"
+    ],
+    "sources": [
+      {
+        "source": "Linkedin",
+        "n": 43
+      },
+      {
+        "source": "Referral",
+        "n": 11
+      },
+      {
+        "source": "Other",
+        "n": 6
+      },
+      {
+        "source": "LinkedIn",
+        "n": 6
+      },
+      {
+        "source": "VDAB",
+        "n": 2
+      },
+      {
+        "source": "Social Network",
+        "n": 2
+      },
+      {
+        "source": "Ad Response",
+        "n": 2
+      },
+      {
+        "source": "Job Board",
+        "n": 2
+      },
+      {
+        "source": "Wiggli Intelligence",
+        "n": 1
+      },
+      {
+        "source": "Stepstone",
+        "n": 1
+      },
+      {
+        "source": "Indeed",
+        "n": 1
+      }
+    ]
+  },
+  "current_window": {
+    "label": "Oct 2025 \u2013 May 2026",
+    "months": 7,
+    "guards": [
+      "STRUCTURAL BREAK (2026-03-01): Gentis Consultancy (freelance/contract) was separated from the Perm business. Any perm figure spanning this date mixes two different organisations. A fall in perm across the break is not evidence of a performance decline - part or all of it may be perm simply leaving the reporting entity. Affected metrics are flagged and must not be read as performance. (unconfirmed month/year - stated as 'March'; assumed March 2026 because it falls inside both the 12-month and the Oct-May windows)",
+      "The recent snapshot (Oct 2025 \u2013 May 2026) covers 7 months of a seasonal year, so annualising it projects the strong months across the weak ones. Treat every annualised figure from it as an upper bound, and compare it only against the SAME months of another year.",
+      "The recent snapshot is nested inside 2025-09-04..2026-09-04 - it is a sub-period of the other window, not an independent one. Differences between them are arithmetic, not trend."
+    ],
+    "comparable": false,
+    "attainment": [
+      {
+        "metric": "reference_checks",
+        "actual": 168.0,
+        "target": 1661.0,
+        "attainment": 0.10114388922335943
+      },
+      {
+        "metric": "total_a_jobs_added",
+        "actual": 163.0,
+        "target": 1257.7,
+        "attainment": 0.1296016538125149
+      },
+      {
+        "metric": "perm_placements",
+        "actual": 82.0,
+        "target": 473.61,
+        "attainment": 0.17313823610143367
+      },
+      {
+        "metric": "unique_cv_sends_by_candidate",
+        "actual": 3008.0,
+        "target": 17203.22,
+        "attainment": 0.1748509871989081
+      },
+      {
+        "metric": "perm_billing",
+        "actual": 1425297.0,
+        "target": 7817075.0,
+        "attainment": 0.18233124282420216
+      },
+      {
+        "metric": "candidate_meetings",
+        "actual": 1290.0,
+        "target": 5245.17,
+        "attainment": 0.24594055102122525
+      },
+      {
+        "metric": "contract_jobs_added",
+        "actual": 1012.0,
+        "target": 3420.52,
+        "attainment": 0.2958614479669758
+      },
+      {
+        "metric": "client_meetings",
+        "actual": 1641.0,
+        "target": 5101.64,
+        "attainment": 0.32166126970934833
+      },
+      {
+        "metric": "total_interviews",
+        "actual": 1780.0,
+        "target": 5430.77,
+        "attainment": 0.3277619932348451
+      },
+      {
+        "metric": "perm_jobs_added",
+        "actual": 1619.0,
+        "target": 4011.73,
+        "attainment": 0.403566541118171
+      },
+      {
+        "metric": "total_cvs_sent",
+        "actual": 17645.0,
+        "target": 38167.09,
+        "attainment": 0.4623092826830655
+      },
+      {
+        "metric": "contract_gp_value",
+        "actual": 4876177.0,
+        "target": 8885690.0,
+        "attainment": 0.5487674001681355
+      },
+      {
+        "metric": "cvs_sent",
+        "actual": 5261.0,
+        "target": 6600.0,
+        "attainment": 0.7971212121212121
+      },
+      {
+        "metric": "contract_placements_excl_extensions",
+        "actual": 82.0,
+        "target": 81.9,
+        "attainment": 1.0012210012210012
+      },
+      {
+        "metric": "candidate_calls",
+        "actual": 20141.0,
+        "target": 18120.0,
+        "attainment": 1.1115342163355408
+      },
+      {
+        "metric": "total_jobs_added",
+        "actual": 2637.0,
+        "target": 2200.0,
+        "attainment": 1.1986363636363637
+      },
+      {
+        "metric": "client_calls",
+        "actual": 15369.0,
+        "target": 11000.0,
+        "attainment": 1.397181818181818
+      },
+      {
+        "metric": "contract_placements",
+        "actual": 372.0,
+        "target": 228.64,
+        "attainment": 1.6270118964310707
+      }
+    ],
+    "ratios": {
+      "cvs_per_job": 1.995070155479712,
+      "cv_to_first_interview": 0.28568713172400684,
+      "first_interview_to_placement": 0.11709913506320692,
+      "cv_to_placement": 0.03345371602356966,
+      "job_fill_rate": 0.06674251042851725,
+      "placements_per_a_job_naive": 1.0797546012269938,
+      "further_per_first_interview": 0.18363273453093812,
+      "client_call_to_meeting": 0.10677337497560023,
+      "meeting_to_job": 1.606946983546618,
+      "client_calls_per_a_job": 94.28834355828221,
+      "candidate_calls_per_cv": 3.8283596274472536,
+      "spec_share_of_cvs": 0.7018418815528479,
+      "a_job_share_of_jobs": 0.06181266590822905,
+      "ref_checks_per_placement": 0.3700440528634361,
+      "perm_share_of_placements": 0.18061674008810572,
+      "extensions_per_contract_placement": 0.6908602150537635
+    },
+    "funnel_placements": 176,
+    "raw": {
+      "total_jobs_added": 2637.0,
+      "client_calls": 15369.0,
+      "cvs_sent": 5261.0,
+      "total_placements": 454.0,
+      "perm_placements": 82.0,
+      "contract_placements": 372.0,
+      "avg_deal_perm": 17382.0,
+      "linkedin_inmails": 5.0
+    }
+  }
+}
