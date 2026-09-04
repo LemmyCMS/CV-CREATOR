@@ -1,0 +1,840 @@
+<title>Cube19 Desk Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#eef0f3; --surface:#ffffff; --surface-2:#f6f7f9; --line:#dcdfe5; --line-soft:#e9ebef;
+  --ink:#11151b; --ink-2:#525b68; --ink-3:#828b99;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --good:#0f7a53; --warn:#b26a00; --crit:#b3261e; --neutral:#5f6875;
+  --good-bg:#e4f4ec; --warn-bg:#fbf0dc; --crit-bg:#fbe6e4; --neutral-bg:#eceef1;
+  --seq-1:#cde2fb; --seq-2:#9ec5f4; --seq-3:#6da7ec; --seq-4:#3987e5; --seq-5:#256abf; --seq-6:#0d366b;
+  --focus:#2a78d6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+    --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+    --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+    --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+    --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+    --focus:#6da7ec;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+  --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+  --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+  --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#6da7ec; --seq-5:#9ec5f4; --seq-6:#cde2fb;
+  --focus:#6da7ec;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1240px; margin:0 auto; padding:0 24px 96px}
+h1,h2,h3{font-family:Archivo,"Public Sans",Arial,sans-serif; margin:0; text-wrap:balance; letter-spacing:-0.015em}
+.num{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--focus); outline-offset:2px; border-radius:3px}
+
+.mast{border-bottom:1px solid var(--line); background:var(--surface); margin-bottom:28px}
+.mast-in{max-width:1240px; margin:0 auto; padding:26px 24px 22px; display:flex; flex-wrap:wrap; gap:20px; align-items:flex-end; justify-content:space-between}
+.mast h1{font-size:27px; font-weight:700}
+.eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-bottom:7px}
+.mast p{margin:8px 0 0; color:var(--ink-2); max-width:60ch}
+.mast-meta{display:flex; gap:26px; flex-wrap:wrap}
+.mast-meta div{min-width:88px}
+.mast-meta .k{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.mast-meta .v{font-size:19px; font-weight:600; margin-top:2px}
+
+.banner{display:flex; gap:12px; padding:13px 16px; border-radius:6px; margin-bottom:26px; font-size:13.5px; align-items:flex-start}
+.banner.synthetic{background:var(--warn-bg); border-left:3px solid var(--warn); color:var(--ink)}
+.banner.real{background:var(--good-bg); border-left:3px solid var(--good); color:var(--ink)}
+.banner b{font-weight:600}
+code{font-family:"IBM Plex Mono",monospace; font-size:.92em; background:var(--surface-2); padding:1px 5px; border-radius:3px}
+
+section{margin:0 0 40px}
+.sec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; padding-bottom:9px; border-bottom:1px solid var(--line)}
+.sec-head h2{font-size:16px; font-weight:600}
+.sec-head .hint{font-size:12.5px; color:var(--ink-3)}
+.lede{color:var(--ink-2); margin:12px 0 18px; max-width:74ch; font-size:13.5px}
+
+.grid{display:grid; gap:14px}
+.g-ratios{grid-template-columns:repeat(auto-fit,minmax(214px,1fr))}
+.g-2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+
+.panel{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:18px}
+.panel h3{font-size:13px; font-weight:600; margin-bottom:3px}
+.panel .sub{font-size:12px; color:var(--ink-3); margin-bottom:14px}
+
+.rc{background:var(--surface); border:1px solid var(--line-soft); border-radius:7px; padding:15px 16px 17px; display:flex; flex-direction:column; gap:2px}
+.rc .lab{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.rc .val{font-size:30px; font-weight:600; letter-spacing:-0.02em; line-height:1.15; margin-top:4px}
+.rc .raw{font-size:11.5px; color:var(--ink-3); margin-top:1px}
+.rc .meter{margin-top:12px}
+.rc .cap{font-size:11.5px; color:var(--ink-2); margin-top:9px; line-height:1.45}
+.rc.unmeasured .val{color:var(--ink-3)}
+
+.chip{display:inline-flex; align-items:center; gap:5px; padding:2px 8px; border-radius:11px; font-size:11.5px; font-weight:600; white-space:nowrap}
+.chip .dot{width:6px; height:6px; border-radius:50%; flex:none}
+.chip.good{background:var(--good-bg); color:var(--good)} .chip.good .dot{background:var(--good)}
+.chip.warn{background:var(--warn-bg); color:var(--warn)} .chip.warn .dot{background:var(--warn)}
+.chip.crit{background:var(--crit-bg); color:var(--crit)} .chip.crit .dot{background:var(--crit)}
+.chip.neutral{background:var(--neutral-bg); color:var(--neutral)} .chip.neutral .dot{background:var(--neutral)}
+
+.tw{overflow-x:auto; border:1px solid var(--line-soft); border-radius:7px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:13px}
+th,td{padding:8px 12px; text-align:left; border-bottom:1px solid var(--line-soft); white-space:nowrap}
+th{font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:none}
+td.n,th.n{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+td.wrap-cell{white-space:normal; min-width:260px; color:var(--ink-2)}
+tbody tr:hover{background:var(--surface-2)}
+.heat{border-radius:3px; padding:2px 7px; display:inline-block; min-width:52px; text-align:right}
+
+.chart{width:100%; display:block; overflow:visible}
+.chart text{font-family:"Public Sans",Arial,sans-serif; font-size:11px; fill:var(--ink-3)}
+.chart text.val{font-family:"IBM Plex Mono",monospace; fill:var(--ink-2); font-size:11px}
+.chart .grid-line{stroke:var(--line-soft); stroke-width:1}
+.chart .axis{stroke:var(--line); stroke-width:1}
+.legend{display:flex; flex-wrap:wrap; gap:14px; margin:0 0 12px; font-size:12px; color:var(--ink-2)}
+.legend span{display:inline-flex; align-items:center; gap:6px}
+.legend i{width:11px; height:3px; border-radius:2px; display:inline-block}
+
+.toggles{display:flex; gap:6px; flex-wrap:wrap; margin-left:auto}
+.tg{background:var(--surface-2); border:1px solid var(--line); color:var(--ink-2); font:inherit; font-size:12px; font-weight:500;
+    padding:4px 11px; border-radius:5px; cursor:pointer}
+.tg[aria-pressed="true"]{background:var(--s1); border-color:var(--s1); color:#fff}
+
+.tip{position:fixed; pointer-events:none; opacity:0; transition:opacity .1s; background:var(--surface);
+     border:1px solid var(--line); border-radius:6px; padding:8px 11px; font-size:12px; z-index:60;
+     box-shadow:0 6px 20px rgba(0,0,0,.13); max-width:250px; left:0; top:0}
+.tip .t{font-weight:600; margin-bottom:3px}
+.tip .r{display:flex; justify-content:space-between; gap:14px; color:var(--ink-2)}
+.tip .r b{color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:500}
+
+.goal{display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; margin-bottom:18px}
+.goal label{font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:600; display:block; margin-bottom:5px}
+.goal input{font:inherit; font-family:"IBM Plex Mono",monospace; font-size:17px; padding:7px 11px; width:172px;
+  border:1px solid var(--line); border-radius:5px; background:var(--surface); color:var(--ink)}
+.chain{display:flex; flex-direction:column; gap:1px}
+.step{display:grid; grid-template-columns:1fr auto auto; gap:16px; align-items:center; padding:9px 14px; background:var(--surface); border:1px solid var(--line-soft)}
+.step:first-child{border-radius:7px 7px 0 0} .step:last-child{border-radius:0 0 7px 7px}
+.step.anchor{border-left:3px solid var(--s1); background:var(--surface-2)}
+.step .sn{font-size:13px}
+.step .sn small{display:block; color:var(--ink-3); font-size:11.5px}
+.step .p50,.step .p80{text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; min-width:84px}
+.step .p50{color:var(--ink-2); font-size:13px} .step .p80{font-size:16px; font-weight:600}
+.step-head{display:grid; grid-template-columns:1fr auto auto; gap:16px; padding:0 14px 6px; font-size:11px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.step-head span:not(:first-child){text-align:right; min-width:84px}
+
+.callout{border-left:3px solid var(--s1); background:var(--surface-2); padding:12px 15px; border-radius:0 6px 6px 0; font-size:13px; margin-top:12px}
+.callout b{font-weight:600}
+
+.reasons{display:flex; flex-direction:column; gap:9px; margin-top:16px}
+.reason{display:grid; grid-template-columns:150px 1fr; gap:14px; align-items:start; font-size:13px; padding-bottom:9px; border-bottom:1px solid var(--line-soft)}
+.reason:last-child{border-bottom:none; padding-bottom:0}
+.reason .m{font-weight:600; margin-bottom:4px}
+.reason p{margin:0; color:var(--ink-2)}
+
+footer{border-top:1px solid var(--line); margin-top:52px; padding-top:20px; font-size:12.5px; color:var(--ink-3); max-width:78ch}
+footer p{margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+@media (max-width:640px){
+  .reason{grid-template-columns:1fr}
+  .mast h1{font-size:22px}
+}
+</style>
+
+<div class="mast">
+  <div class="mast-in">
+    <div>
+      <div class="eyebrow">Cube19 replica · Bullhorn funnel</div>
+      <h1>Desk economics console</h1>
+      <p>Conversion ratios, market ranking and back-solved targets, rebuilt from the Cube19 metric model.</p>
+    </div>
+    <div class="mast-meta" id="mastMeta"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div id="provenance"></div>
+
+  <section id="quality">
+    <div class="sec-head"><h2>Can these numbers be trusted?</h2>
+      <span class="hint">Read this first — a ratio built on badly logged activity measures logging habits, not performance.</span></div>
+    <div id="qualityChips" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px"></div>
+    <div id="qualityDetail" class="reasons"></div>
+  </section>
+
+  <section id="ratios">
+    <div class="sec-head"><h2>The ratio set</h2>
+      <span class="hint">Shrunk estimate with a 90% credible interval.</span></div>
+    <p class="lede">Each ratio is a Beta-Binomial posterior, not a raw percentage — so a desk with three CVs and one placement cannot post a 33% conversion rate. The bar shows the credible interval, the dot the estimate, the notch the benchmark. Where the interval is wide, the honest reading is “not yet known”.</p>
+    <div class="grid g-ratios" id="ratioCards"></div>
+  </section>
+
+  <section id="funnel">
+    <div class="sec-head"><h2>The funnel</h2><span class="hint">Stage entries, not current status.</span></div>
+    <div class="grid g-2">
+      <div class="panel">
+        <h3>Volume by stage</h3><div class="sub">Every submission entering each stage, across the whole history.</div>
+        <svg class="chart" id="funnelChart" role="img" aria-label="Funnel volume by stage"></svg>
+      </div>
+      <div class="panel">
+        <h3>Where the drop-off is</h3><div class="sub">Conversion between consecutive stages, against benchmark.</div>
+        <div id="funnelSteps"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="markets">
+    <div class="sec-head"><h2>Markets, best first</h2>
+      <span class="hint">Ranked on GP per CV sent — conversion and fee size in one comparable number.</span></div>
+    <p class="lede">The bar is each market's credible range for GP per CV; the dot is the estimate. The vertical rule is what the <em>rest</em> of the business earns per CV — each market is measured against its peers, not against an average it helps set. A range that crosses the rule means the market has not been shown to be better or worse than the alternatives.</p>
+    <div class="panel">
+      <svg class="chart" id="marketChart" role="img" aria-label="GP per CV by market with credible intervals"></svg>
+    </div>
+    <div class="reasons" id="marketReasons"></div>
+    <div class="tw" style="margin-top:18px"><table id="marketTable"></table></div>
+  </section>
+
+  <section id="evolution">
+    <div class="sec-head"><h2>Year by year</h2>
+      <span class="hint">Complete years only.</span>
+      <div class="toggles" id="evoToggles"></div></div>
+    <p class="lede">GP per head is on the toggle for a reason: a rising GP line and a rising headcount line look identical on a revenue chart, and confusing the two drives more bad strategy than any other mistake in this business. Partial years at the edge of the data are excluded — one would read as a collapse.</p>
+    <div class="panel">
+      <div class="legend" id="evoLegend"></div>
+      <svg class="chart" id="evoChart" role="img" aria-label="Yearly evolution by market"></svg>
+    </div>
+    <div class="tw" style="margin-top:18px"><table id="evoTable"></table></div>
+  </section>
+
+  <section id="people">
+    <div class="sec-head"><h2>Consultant matrix</h2>
+      <span class="hint">Cube19's OnPoint, with the small-sample problem fixed.</span>
+      <div class="toggles" id="peopleToggles"></div></div>
+    <p class="lede">Conversion columns show the <b>shrunk</b> estimate by default. Switch to raw to see what a naive leaderboard would have shown — the gap is made entirely of people whose numbers rest on too few CVs to mean anything.</p>
+    <div class="tw"><table id="peopleTable"></table></div>
+  </section>
+
+  <section id="ramp">
+    <div class="grid g-2">
+      <div class="panel">
+        <h3>Ramp curve</h3><div class="sub">Mean GP by months since start, pooled across every hire in the history — including their zero months.</div>
+        <svg class="chart" id="rampChart" role="img" aria-label="GP by consultant tenure"></svg>
+        <p style="font-size:12.5px;color:var(--ink-2);margin:12px 0 0">Target new starters against this curve, not the desk average. Targeting them at desk average guarantees failure and early attrition.</p>
+      </div>
+      <div class="panel">
+        <h3>Seasonality</h3><div class="sub">Placements by month, indexed so 1.00 is an average month.</div>
+        <svg class="chart" id="seasonChart" role="img" aria-label="Placement seasonality by month"></svg>
+        <p style="font-size:12.5px;color:var(--ink-2);margin:12px 0 0">Pro-rate monthly targets by this index. A flat monthly target in a business with an August collapse sets people up to fail twice a year.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="clients">
+    <div class="sec-head"><h2>Accounts, in order of attack</h2>
+      <span class="hint">Farm · Grow · Qualify · Deprioritise</span></div>
+    <div class="grid g-2">
+      <div class="panel">
+        <h3>What each tier is worth</h3><div class="sub">GP earned per CV sent, by tier.</div>
+        <div id="tierSummary"></div>
+      </div>
+      <div class="panel">
+        <h3>Dormant accounts worth reopening</h3><div class="sub">Placed before, gone quiet. Confirm the hiring manager is still in post before calling — if they moved, this is a cold account and a warm lead elsewhere.</div>
+        <div class="tw" style="border:none"><table id="dormantTable"></table></div>
+      </div>
+    </div>
+    <div class="tw" style="margin-top:18px"><table id="clientTable"></table></div>
+  </section>
+
+  <section id="target">
+    <div class="sec-head"><h2>Target back-solver</h2>
+      <span class="hint">Set the target at p80. Plan capacity at p50.</span></div>
+    <p class="lede">Walk the ratio chain backwards from a revenue goal to the activity that produces it. Each ratio is uncertain, and eight uncertain numbers multiply — which is why the band widens as you go up the funnel. Targeting the median means missing half the time by construction, so the commitment goes at p80 and the resourcing plan at p50.</p>
+    <div class="goal">
+      <div><label for="goalInput">GP goal (EUR)</label>
+        <input id="goalInput" type="number" min="0" step="50000" inputmode="numeric"></div>
+      <div><label for="daysInput">Working days</label>
+        <input id="daysInput" type="number" min="1" step="1" value="220" style="width:112px"></div>
+      <div id="goalDerived" style="font-size:12.5px;color:var(--ink-2);padding-bottom:9px"></div>
+    </div>
+    <div class="step-head"><span>Stage</span><span>p50 · plan</span><span>p80 · target</span></div>
+    <div class="chain" id="chain"></div>
+    <div id="targetNotes"></div>
+    <div class="panel" style="margin-top:22px">
+      <h3>Where the money actually is</h3>
+      <div class="sub">Elasticity is flat across a multiplicative chain — a 10% gain is worth the same wherever you get it. What separates these is <em>headroom</em>: how far each can realistically move.</div>
+      <div class="tw" style="border:none"><table id="potentialTable"></table></div>
+    </div>
+  </section>
+
+  <footer>
+    <p id="footProv"></p>
+    <p>Proportions are Beta-Binomial posteriors with a 90% credible interval; counts-per-count use a Gamma-Poisson posterior; money-per-effort uses a bootstrap over the actual fee distribution, because fees are skewed enough that a normal assumption would badly understate the spread. Markets are compared against a leave-one-out peer baseline. Trend and momentum use complete years only.</p>
+    <p>Benchmark notches are industry reference points, not this firm's history. They exist so the system produces sane output before enough data exists to replace them — and every one of them should be replaced by a measured value.</p>
+  </footer>
+</div>
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+const DATA = /*__DASHBOARD_DATA__*/null;
+const SERIES = ["--s1","--s2","--s3","--s4","--s5"];
+const SEQ = ["--seq-1","--seq-2","--seq-3","--seq-4","--seq-5","--seq-6"];
+const cssv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $ = s => document.querySelector(s);
+const el = (t,c,x) => { const n=document.createElement(t); if(c)n.className=c; if(x!=null)n.textContent=x; return n; };
+const eur0 = v => "€" + Math.round(v).toLocaleString("en-GB");
+const pct = v => (v*100).toFixed(1) + "%";
+const num = v => Math.round(v).toLocaleString("en-GB");
+const SVGNS = "http://www.w3.org/2000/svg";
+function svg(tag, attrs){ const n=document.createElementNS(SVGNS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); return n; }
+
+const tip = $("#tip");
+function showTip(evt, title, rows){
+  tip.innerHTML = "";
+  tip.appendChild(el("div","t",title));
+  rows.forEach(function(p){ const r=el("div","r"); r.appendChild(el("span",null,p[0])); r.appendChild(el("b",null,p[1])); tip.appendChild(r); });
+  tip.style.opacity = 1;
+  moveTip(evt);
+}
+function moveTip(evt){
+  const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = evt.clientX + pad, y = evt.clientY + pad;
+  if (x + w > innerWidth - 8) x = evt.clientX - w - pad;
+  if (y + h > innerHeight - 8) y = evt.clientY - h - pad;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+function hideTip(){ tip.style.opacity = 0; }
+function hoverable(node, title, rows){
+  node.addEventListener("mouseenter", e => showTip(e, title, rows));
+  node.addEventListener("mousemove", moveTip);
+  node.addEventListener("mouseleave", hideTip);
+}
+
+function masthead(){
+  const d = DATA.dataset, f = DATA.firm.metrics;
+  const items = [["Placements", num(d.placements)], ["GP", eur0(d.total_gp)],
+    ["CVs sent", num(f.cvs_sent)], ["Markets", d.markets],
+    ["Period", DATA.years[0] + "–" + DATA.years[DATA.years.length-1]]];
+  const wrap = $("#mastMeta");
+  items.forEach(function(p){ const b=el("div"); b.appendChild(el("div","k",p[0])); b.appendChild(el("div","v num",String(p[1]))); wrap.appendChild(b); });
+
+  const synth = DATA.provenance.source.indexOf("synthetic") >= 0;
+  const b = el("div", "banner " + (synth ? "synthetic" : "real"));
+  b.innerHTML = synth
+    ? "<div><b>This is synthetic sample data.</b> Not one number on this page is Gentis's. The dataset exists so the engine, the ratios and this console can be verified end to end before the Cube19 export lands. Replace <code>data/sample</code> with a real export and every figure recomputes — the layout does not change.</div>"
+    : "<div><b>Computed from the loaded export.</b> Check the data-quality strip below before acting on any ratio.</div>";
+  $("#provenance").appendChild(b);
+  $("#footProv").textContent = "Generated " + DATA.generated_at + " from " + DATA.provenance.source +
+    ". Data horizon " + DATA.horizon + (DATA.partial_years.length ? "; partial years excluded from trend: " + DATA.partial_years.join(", ") + "." : ".");
+}
+
+function quality(){
+  const chips = $("#qualityChips"), detail = $("#qualityDetail");
+  const cls = s => s === "ok" ? "good" : s === "warn" ? "warn" : "crit";
+  DATA.quality.forEach(function(q){
+    const c = el("span", "chip " + cls(q.severity));
+    c.appendChild(el("span","dot")); c.appendChild(el("span",null,q.metric));
+    chips.appendChild(c);
+    if (q.severity !== "ok") {
+      const r = el("div","reason");
+      const left = el("div"); left.appendChild(el("div","m",q.metric));
+      const chip = el("span","chip " + cls(q.severity));
+      chip.appendChild(el("span","dot")); chip.appendChild(el("span",null,q.severity === "warn" ? "warning" : "fails check"));
+      left.appendChild(chip); r.appendChild(left);
+      const right = el("div"); right.appendChild(el("p",null,q.detail)); r.appendChild(right);
+      detail.appendChild(r);
+    }
+  });
+  if (!detail.children.length) {
+    const r = el("div","reason");
+    const left = el("div"); left.appendChild(el("div","m","All bands"));
+    const chip = el("span","chip good"); chip.appendChild(el("span","dot")); chip.appendChild(el("span",null,"clear"));
+    left.appendChild(chip); r.appendChild(left);
+    const right = el("div"); right.appendChild(el("p",null,"Every band passes its coverage and funnel-integrity checks.")); r.appendChild(right);
+    detail.appendChild(r);
+  }
+}
+
+function ratioCards(){
+  const host = $("#ratioCards");
+  Object.keys(DATA.firm.ratios).forEach(function(key){
+    const r = DATA.firm.ratios[key];
+    const money = r.kind === "monetary", rate = r.kind === "rate";
+    const fmt = v => money ? eur0(v) : rate ? v.toFixed(2) : pct(v);
+    const card = el("div", "rc" + (r.measured ? "" : " unmeasured"));
+    card.appendChild(el("div","lab",r.label));
+    card.appendChild(el("div","val num",fmt(r.value)));
+    card.appendChild(el("div","raw", r.measured
+      ? "raw " + fmt(r.raw) + " · n=" + num(r.denominator)
+      : "not enough data · n=" + num(r.denominator)));
+
+    const lo = r.lo, hi = r.hi, bm = r.prior;
+    const min = Math.min(lo, bm) * 0.85, max = Math.max(hi, bm) * 1.15;
+    const X = v => ((v - min) / (max - min)) * 100;
+    const meter = el("div","meter");
+    const fill = r.measured ? cssv("--s1") : cssv("--ink-3");
+    meter.innerHTML =
+      '<svg class="chart" viewBox="0 0 100 16" height="16" preserveAspectRatio="none" aria-hidden="true">' +
+        '<line x1="0" y1="11" x2="100" y2="11" stroke="' + cssv("--line-soft") + '" stroke-width="1.2" vector-effect="non-scaling-stroke"/>' +
+        '<rect x="' + X(lo) + '" y="7.5" width="' + Math.max(X(hi)-X(lo),0.6) + '" height="7" rx="2.5" fill="' + fill + '" opacity="' + (r.measured?0.32:0.22) + '"/>' +
+        '<line x1="' + X(bm) + '" y1="3.5" x2="' + X(bm) + '" y2="15" stroke="' + cssv("--ink-3") + '" stroke-width="1.4" vector-effect="non-scaling-stroke"/>' +
+        '<circle cx="' + X(r.value) + '" cy="11" r="3.2" fill="' + fill + '"/>' +
+      '</svg>';
+    card.appendChild(meter);
+    const delta = r.vs_prior;
+    card.appendChild(el("div","cap",
+      (r.measured
+        ? (delta >= 1.08 ? "Above the " + fmt(bm) + " benchmark."
+          : delta <= 0.92 ? "Below the " + fmt(bm) + " benchmark."
+          : "At the " + fmt(bm) + " benchmark.")
+        : "Interval too wide to judge against the " + fmt(bm) + " benchmark.")
+      + (r.note ? " " + r.note : "")));
+    hoverable(card, r.label, [
+      ["Estimate", fmt(r.value)],
+      ["90% range", fmt(lo) + " – " + fmt(hi)],
+      ["Raw", r.raw != null ? fmt(r.raw) : "—"],
+      ["Numerator", num(r.numerator)],
+      ["Denominator", num(r.denominator)],
+      ["Benchmark", fmt(bm)]]);
+    host.appendChild(card);
+  });
+}
+
+function funnel(){
+  const rows = DATA.firm.funnel.filter(r => r.metric !== "jobs_taken");
+  const w = 470, rowH = 40, h = rows.length * rowH + 20, labelW = 136, barW = w - labelW - 80;
+  const max = Math.max.apply(null, rows.map(r => r.value)) || 1;
+  const s = $("#funnelChart");
+  s.setAttribute("viewBox", "0 0 " + w + " " + h); s.setAttribute("height", h);
+  rows.forEach(function(r, i){
+    const y = i * rowH + 8, bw = Math.max((r.value / max) * barW, 2);
+    const t = svg("text", {x: labelW - 10, y: y + 16, "text-anchor": "end", fill: cssv("--ink-2")});
+    t.textContent = r.label; s.appendChild(t);
+    const bar = svg("rect", {x: labelW, y: y + 3, width: bw, height: 17, rx: 4, fill: cssv("--s1"), opacity: 0.88});
+    s.appendChild(bar);
+    const v = svg("text", {x: labelW + bw + 8, y: y + 16, class: "val"});
+    v.textContent = num(r.value); s.appendChild(v);
+    hoverable(bar, r.label, [["Count", num(r.value)], ["Share of CVs sent", pct(r.pct_of_cvs)]]);
+  });
+  const steps = [["cv_to_interview","CV sent → 1st interview"],
+    ["first_to_further_interview","1st → further interview"],
+    ["interview_to_offer","1st interview → offer"],
+    ["offer_to_placement","Offer → placement"]];
+  const host = $("#funnelSteps");
+  steps.forEach(function(p){
+    const r = DATA.firm.all_ratios[p[0]]; if (!r) return;
+    const row = el("div");
+    row.style.cssText = "display:grid;grid-template-columns:1fr 70px 104px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-soft)";
+    row.appendChild(el("div",null,p[1]));
+    row.appendChild(el("div","num",pct(r.value)));
+    const good = r.value >= r.prior * 1.05, bad = r.value <= r.prior * 0.9;
+    const chip = el("span","chip " + (good ? "good" : bad ? "crit" : "neutral"));
+    chip.appendChild(el("span","dot"));
+    chip.appendChild(el("span",null, good ? "above bench" : bad ? "below bench" : "at bench"));
+    const cw = el("div"); cw.appendChild(chip); row.appendChild(cw);
+    host.appendChild(row);
+  });
+}
+
+const TIER_CLS = {"Attack":"good","Hold":"neutral","Test":"warn","Exit or fix":"crit"};
+function markets(){
+  const rows = DATA.markets;
+  const w = 900, rowH = 46, h = rows.length * rowH + 60, labelW = 150, plotW = w - labelW - 130;
+  const peers = rows.map(r => r.peer_gp_per_cv);
+  const max = Math.max.apply(null, rows.map(r => r.gp_per_cv_ub).concat(peers)) * 1.08;
+  const X = v => labelW + (v / max) * plotW;
+  const s = $("#marketChart");
+  s.setAttribute("viewBox", "0 0 " + w + " " + h); s.setAttribute("height", h);
+  const top = 34, bottom = h - 26;
+
+  const key = svg("g", {});
+  key.appendChild(svg("line", {x1: labelW + 2, y1: 8, x2: labelW + 2, y2: 20, stroke: cssv("--ink-2"), "stroke-width": 1.6}));
+  const kt = svg("text", {x: labelW + 10, y: 18, fill: cssv("--ink-2")});
+  kt.textContent = "vertical tick = what the rest of the business earns per CV";
+  key.appendChild(kt); s.appendChild(key);
+
+  const tickStep = max > 4000 ? 1000 : 500;
+  for (let g = tickStep; g <= max; g += tickStep) {
+    s.appendChild(svg("line", {x1: X(g), y1: top - 6, x2: X(g), y2: bottom, class: "grid-line"}));
+    const t = svg("text", {x: X(g), y: bottom + 15, "text-anchor": "middle"}); t.textContent = eur0(g); s.appendChild(t);
+  }
+  s.appendChild(svg("line", {x1: labelW, y1: top - 6, x2: labelW, y2: bottom, class: "axis"}));
+
+  rows.forEach(function(r, i){
+    const y = top + i * rowH + 8;
+    const t = svg("text", {x: labelW - 12, y: y + 4, "text-anchor": "end", fill: cssv("--ink"), "font-weight": "600", "font-size": "12"});
+    t.textContent = r.market; s.appendChild(t);
+    const colour = cssv(SERIES[i % SERIES.length]);
+    const band = svg("rect", {x: X(r.gp_per_cv_lb), y: y - 5,
+      width: Math.max(X(r.gp_per_cv_ub) - X(r.gp_per_cv_lb), 3), height: 10, rx: 4, fill: colour, opacity: 0.3});
+    s.appendChild(band);
+    const dot = svg("circle", {cx: X(r.gp_per_cv), cy: y, r: 5.5, fill: colour, stroke: cssv("--surface"), "stroke-width": 2});
+    s.appendChild(dot);
+    // This market's own leave-one-out peer baseline. It differs per row - a single
+    // averaged rule would not match any of the verdicts printed beneath the chart.
+    const tick = svg("line", {x1: X(r.peer_gp_per_cv), y1: y - 13, x2: X(r.peer_gp_per_cv), y2: y + 13,
+      stroke: cssv("--ink-2"), "stroke-width": 1.6});
+    s.appendChild(tick);
+    hoverable(tick, r.market + " · peer baseline",
+      [["Rest of the business earns", eur0(r.peer_gp_per_cv) + " per CV"],
+       ["This market", eur0(r.gp_per_cv) + " per CV"], ["Verdict", r.confidence]]);
+    const v = svg("text", {x: X(r.gp_per_cv_ub) + 12, y: y + 4, class: "val"});
+    v.textContent = eur0(r.gp_per_cv); s.appendChild(v);
+    const info = [["GP per CV", eur0(r.gp_per_cv)],
+      ["90% range", eur0(r.gp_per_cv_lb) + " – " + eur0(r.gp_per_cv_ub)],
+      ["Peers earn", eur0(r.peer_gp_per_cv)], ["Verdict", r.confidence],
+      ["CVs sent", num(r.cvs_sent)], ["GP", eur0(r.gp)],
+      ["Momentum", r.momentum == null ? "not measurable" : (r.momentum*100).toFixed(0) + "%"]];
+    hoverable(band, r.market, info); hoverable(dot, r.market, info);
+  });
+
+  const host = $("#marketReasons");
+  rows.forEach(function(r){
+    const row = el("div","reason");
+    const left = el("div");
+    left.appendChild(el("div","m",r.market));
+    const chip = el("span","chip " + (TIER_CLS[r.tier] || "neutral"));
+    chip.appendChild(el("span","dot")); chip.appendChild(el("span",null,r.tier));
+    left.appendChild(chip); row.appendChild(left);
+    const right = el("div"); right.appendChild(el("p",null,r.reason)); row.appendChild(right);
+    host.appendChild(row);
+  });
+
+  table("#marketTable",
+    ["Market","Tier","GP","GP/CV","90% range","Peers earn","CVs sent","Placements","Fill rate","Momentum","Heads"],
+    rows.map(r => [r.market, r.tier, eur0(r.gp), eur0(r.gp_per_cv),
+      eur0(r.gp_per_cv_lb) + "–" + eur0(r.gp_per_cv_ub), eur0(r.peer_gp_per_cv), num(r.cvs_sent),
+      num(r.placements), pct(r.fill_rate), r.momentum == null ? "n/a" : (r.momentum*100).toFixed(0)+"%",
+      num(r.active_consultants)]),
+    [0,0,1,1,1,1,1,1,1,1,1]);
+}
+
+const EVO = [{key:"gp",label:"GP",fmt:eur0},{key:"placements",label:"Placements",fmt:num},
+  {key:"cvs_sent",label:"CVs sent",fmt:num},{key:"gp_per_head",label:"GP per head",fmt:eur0}];
+let evoMetric = "gp";
+function evolution(){
+  const tg = $("#evoToggles");
+  EVO.forEach(function(m){
+    const b = el("button","tg",m.label);
+    b.setAttribute("aria-pressed", String(m.key === evoMetric));
+    b.onclick = function(){ evoMetric = m.key;
+      Array.prototype.forEach.call(tg.children, c => c.setAttribute("aria-pressed", String(c.textContent === m.label)));
+      drawEvo(); };
+    tg.appendChild(b);
+  });
+  drawEvo();
+}
+function niceCeil(v){
+  // Axis ticks should read as round numbers, not as whatever the data happened to hit.
+  if (v <= 0) return 1;
+  const mag = Math.pow(10, Math.floor(Math.log10(v)));
+  const n = v / mag;
+  const step = n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10;
+  return step * mag;
+}
+function drawEvo(){
+  const spec = EVO.filter(m => m.key === evoMetric)[0];
+  const years = DATA.years;
+  const names = Object.keys(DATA.yearly.by_market).sort();
+  const series = names.map(function(m, i){
+    return {name: m, colour: cssv(SERIES[i % SERIES.length]),
+      points: years.map(function(y){
+        const p = DATA.yearly.by_market[m].filter(q => q.year === y)[0];
+        return {year: y, v: p ? (p[evoMetric] || 0) : 0};
+      })};
+  });
+  const w = 900, h = 348, pad = {t: 18, r: 138, b: 42, l: 78};
+  const rawMax = Math.max.apply(null, [1].concat(series.map(s => Math.max.apply(null, s.points.map(p => p.v)))));
+  const max = niceCeil(rawMax * 1.06);
+  const X = i => pad.l + (i / Math.max(years.length - 1, 1)) * (w - pad.l - pad.r);
+  const Y = v => h - pad.b - (v / max) * (h - pad.t - pad.b);
+
+  const s = $("#evoChart"); s.innerHTML = "";
+  s.setAttribute("viewBox", "0 0 " + w + " " + h); s.setAttribute("height", h);
+  for (let i = 0; i <= 4; i++) {
+    const v = max * i / 4;
+    s.appendChild(svg("line", {x1: pad.l, y1: Y(v), x2: w - pad.r, y2: Y(v), class: "grid-line"}));
+    const t = svg("text", {x: pad.l - 10, y: Y(v) + 4, "text-anchor": "end", class: "val"});
+    t.textContent = spec.fmt(v); s.appendChild(t);
+  }
+  years.forEach(function(yr, i){
+    const t = svg("text", {x: X(i), y: h - 14, "text-anchor": "middle"});
+    t.textContent = yr; s.appendChild(t);
+  });
+  s.appendChild(svg("line", {x1: pad.l, y1: h - pad.b, x2: w - pad.r, y2: h - pad.b, class: "axis"}));
+
+  const placed = [];
+  series.forEach(function(ser){
+    const d = ser.points.map((p, i) => (i ? "L" : "M") + X(i) + " " + Y(p.v)).join(" ");
+    s.appendChild(svg("path", {d: d, fill: "none", stroke: ser.colour, "stroke-width": 2,
+      "stroke-linejoin": "round", "stroke-linecap": "round"}));
+    ser.points.forEach(function(p, i){
+      const c = svg("circle", {cx: X(i), cy: Y(p.v), r: 4.5, fill: ser.colour, stroke: cssv("--surface"), "stroke-width": 2});
+      s.appendChild(c);
+      hoverable(c, ser.name + " · " + p.year, [[spec.label, spec.fmt(p.v)]]);
+    });
+    const last = ser.points[ser.points.length - 1];
+    let ly = Y(last.v) + 4;
+    // Nudge colliding endpoint labels upward, and never let one drop into the x-axis band.
+    while (placed.some(v => Math.abs(v - ly) < 14)) ly -= 14;
+    if (ly < pad.t + 8) ly = pad.t + 8;
+    while (placed.some(v => Math.abs(v - ly) < 14)) ly += 14;
+    placed.push(ly);
+    const lab = svg("text", {x: w - pad.r + 12, y: ly, fill: cssv("--ink-2"), "font-size": "11.5"});
+    lab.textContent = ser.name; s.appendChild(lab);
+  });
+
+  const lg = $("#evoLegend"); lg.innerHTML = "";
+  series.forEach(function(ser){
+    const sp = el("span"); const i = el("i"); i.style.background = ser.colour;
+    sp.appendChild(i); sp.appendChild(el("span",null,ser.name)); lg.appendChild(sp);
+  });
+
+  table("#evoTable", ["Market"].concat(years.map(String)),
+    series.map(ser => [ser.name].concat(ser.points.map(p => spec.fmt(p.v)))),
+    [0].concat(years.map(() => 1)));
+}
+
+let peopleRaw = false;
+function people(){
+  const tg = $("#peopleToggles");
+  [["Shrunk", false], ["Raw", true]].forEach(function(p){
+    const b = el("button","tg",p[0]);
+    b.setAttribute("aria-pressed", String(p[1] === peopleRaw));
+    b.onclick = function(){ peopleRaw = p[1];
+      Array.prototype.forEach.call(tg.children, c => c.setAttribute("aria-pressed", String((c.textContent === "Raw") === peopleRaw)));
+      drawPeople(); };
+    tg.appendChild(b);
+  });
+  drawPeople();
+}
+function heatCell(v, min, max){
+  const t = max > min ? (v - min) / (max - min) : 0.5;
+  const idx = Math.min(SEQ.length - 1, Math.max(0, Math.round(t * (SEQ.length - 1))));
+  return {bg: cssv(SEQ[idx]), fg: idx >= 4 ? "#ffffff" : cssv("--ink")};
+}
+function drawPeople(){
+  const rows = DATA.consultants;
+  const gps = rows.map(r => r.gp);
+  const gmin = Math.min.apply(null, gps), gmax = Math.max.apply(null, gps);
+  const host = $("#peopleTable"); host.innerHTML = "";
+  const head = ["Consultant","Market","Tenure","GP","Placements","CVs sent","Avg fee","CV→interview","CV→placement","GP/CV",""];
+  const thead = el("thead"), tr = el("tr");
+  head.forEach(function(h,i){ tr.appendChild(el("th", (i >= 2 && i <= 9) ? "n" : null, h)); });
+  thead.appendChild(tr); host.appendChild(thead);
+  const tb = el("tbody");
+  rows.forEach(function(r){
+    const t = el("tr");
+    t.appendChild(el("td",null,r.name));
+    t.appendChild(el("td",null,r.market));
+    t.appendChild(el("td","n",Math.round(r.tenure_months) + "m"));
+    const gp = el("td","n");
+    const hc = heatCell(r.gp, gmin, gmax);
+    const sp = el("span","heat num",eur0(r.gp));
+    sp.style.background = hc.bg; sp.style.color = hc.fg; gp.appendChild(sp); t.appendChild(gp);
+    t.appendChild(el("td","n",num(r.placements)));
+    t.appendChild(el("td","n",num(r.cvs_sent)));
+    t.appendChild(el("td","n",eur0(r.avg_fee)));
+    const ci = peopleRaw ? r.cv_to_interview_raw : r.cv_to_interview;
+    const cp = peopleRaw ? r.cv_to_placement_raw : r.cv_to_placement;
+    t.appendChild(el("td","n", ci == null ? "—" : pct(ci)));
+    t.appendChild(el("td","n", cp == null ? "—" : pct(cp)));
+    t.appendChild(el("td","n",eur0(r.gp_per_cv)));
+    const flag = el("td");
+    if (!r.measured) {
+      const c = el("span","chip warn"); c.appendChild(el("span","dot"));
+      c.appendChild(el("span",null,"too few CVs to rank")); flag.appendChild(c);
+    }
+    t.appendChild(flag);
+    tb.appendChild(t);
+  });
+  host.appendChild(tb);
+}
+
+function ramp(){
+  const rows = DATA.ramp_curve;
+  const w = 460, h = 230, pad = {t: 12, r: 16, b: 42, l: 66};
+  const max = Math.max.apply(null, [1].concat(rows.map(r => r.mean_gp))) * 1.12;
+  const bw = (w - pad.l - pad.r) / Math.max(rows.length, 1);
+  const Y = v => h - pad.b - (v / max) * (h - pad.t - pad.b);
+  const s = $("#rampChart"); s.setAttribute("viewBox","0 0 " + w + " " + h); s.setAttribute("height", h);
+  for (let i = 0; i <= 3; i++) {
+    const v = max * i / 3;
+    s.appendChild(svg("line",{x1:pad.l,y1:Y(v),x2:w-pad.r,y2:Y(v),class:"grid-line"}));
+    const t = svg("text",{x:pad.l-8,y:Y(v)+4,"text-anchor":"end",class:"val"}); t.textContent = eur0(v); s.appendChild(t);
+  }
+  rows.forEach(function(r,i){
+    const x = pad.l + i * bw;
+    const rect = svg("rect",{x:x+2, y:Y(r.mean_gp), width:Math.max(bw-4,2),
+      height:Math.max(Y(0)-Y(r.mean_gp),1), rx:4, fill:cssv("--s1"), opacity:0.88});
+    s.appendChild(rect);
+    if (i % 2 === 0) { const t = svg("text",{x:x+bw/2,y:h-24,"text-anchor":"middle"}); t.textContent = r.months_since_start + "m"; s.appendChild(t); }
+    hoverable(rect, r.label + " tenure", [["Mean GP", eur0(r.mean_gp)], ["Median GP", eur0(r.median_gp)],
+      ["% of steady state", pct(r.pct_of_steady_state)], ["Consultants", num(r.consultants)]]);
+  });
+  const t = svg("text",{x:pad.l + (w-pad.l-pad.r)/2, y:h-6, "text-anchor":"middle"});
+  t.textContent = "Months since start"; s.appendChild(t);
+}
+
+function season(){
+  const rows = DATA.seasonality;
+  const M = ["J","F","M","A","M","J","J","A","S","O","N","D"];
+  const w = 460, h = 230, pad = {t: 12, r: 16, b: 42, l: 46};
+  const max = Math.max.apply(null, [1.2].concat(rows.map(r => r.index))) * 1.08;
+  const bw = (w - pad.l - pad.r) / 12;
+  const Y = v => h - pad.b - (v / max) * (h - pad.t - pad.b);
+  const s = $("#seasonChart"); s.setAttribute("viewBox","0 0 " + w + " " + h); s.setAttribute("height", h);
+  [0.5, 1.0, 1.5].forEach(function(v){
+    if (v > max) return;
+    s.appendChild(svg("line",{x1:pad.l,y1:Y(v),x2:w-pad.r,y2:Y(v), class: v === 1 ? "axis" : "grid-line"}));
+    const t = svg("text",{x:pad.l-8,y:Y(v)+4,"text-anchor":"end",class:"val"}); t.textContent = v.toFixed(1); s.appendChild(t);
+  });
+  rows.forEach(function(r,i){
+    const x = pad.l + i * bw;
+    const rect = svg("rect",{x:x+2, y:Y(r.index), width:Math.max(bw-4,2),
+      height:Math.max(Y(0)-Y(r.index),1), rx:4,
+      fill: r.index >= 1 ? cssv("--s1") : cssv("--s2"), opacity:0.85});
+    s.appendChild(rect);
+    const t = svg("text",{x:x+bw/2,y:h-24,"text-anchor":"middle"}); t.textContent = M[i]; s.appendChild(t);
+    hoverable(rect, "Month " + r.month, [["Index", r.index.toFixed(2)],
+      ["Reading", r.index >= 1.1 ? "busier than average" : r.index <= 0.9 ? "quieter than average" : "average"]]);
+  });
+  const t = svg("text",{x:pad.l + (w-pad.l-pad.r)/2, y:h-6, "text-anchor":"middle"});
+  t.textContent = "1.00 = an average month"; s.appendChild(t);
+}
+
+function clients(){
+  const host = $("#tierSummary");
+  const TC = {"Farm":"good","Grow":"good","Qualify":"warn","Deprioritise":"crit"};
+  DATA.client_tier_summary.forEach(function(t){
+    const row = el("div");
+    row.style.cssText = "display:grid;grid-template-columns:118px 1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line-soft)";
+    const c = el("span","chip " + (TC[t.tier]||"neutral"));
+    c.appendChild(el("span","dot")); c.appendChild(el("span",null,t.tier));
+    const cw = el("div"); cw.appendChild(c); row.appendChild(cw);
+    row.appendChild(el("div",null, t.clients + " accounts · " + num(t.cvs_sent) + " CVs"));
+    const v = el("div","num"); v.style.textAlign = "right";
+    v.innerHTML = "<div style='font-weight:600'>" + eur0(t.gp) + "</div><div style='font-size:11.5px;color:var(--ink-3)'>" + eur0(t.gp_per_cv) + "/CV</div>";
+    row.appendChild(v);
+    host.appendChild(row);
+  });
+
+  table("#dormantTable", ["Account","Market","Historical GP","Quiet for"],
+    DATA.dormant.slice(0,8).map(d => [d.name, d.market, eur0(d.historical_gp),
+      Math.round(d.days_since_last_job / 30) + " months"]), [0,0,1,1]);
+
+  table("#clientTable", ["Account","Market","Tier","GP","CVs","Placements","Fill","GP/CV","Contacts","What to do"],
+    DATA.clients.slice(0,25).map(c => [c.name, c.market, c.tier, eur0(c.gp), num(c.cvs_sent),
+      num(c.placements), pct(c.fill_rate), eur0(c.gp_per_cv), num(c.contacts_engaged),
+      c.action + (c.flag ? " " + c.flag : "")]),
+    [0,0,0,1,1,1,1,1,1,0], [9]);
+}
+
+const STAGE = {offers:"Offers", first_interviews:"1st interviews", cvs_sent:"CVs sent",
+  jobs_taken:"Jobs taken", client_meetings:"Client meetings", connects:"Connects", calls:"Calls"};
+function ratioLabel(id){ const r = DATA.firm.all_ratios[id]; return r ? r.label.toLowerCase() : id; }
+
+function targets(){
+  const base = DATA.target.plan;
+  const input = $("#goalInput"), days = $("#daysInput");
+  input.value = base.gp_goal;
+  function redraw(){
+    const goal = Math.max(Number(input.value) || 0, 0);
+    const k = base.gp_goal ? goal / base.gp_goal : 0;
+    const wd = Math.max(Number(days.value) || 220, 1);
+    $("#goalDerived").innerHTML = "at an average fee of <b>" + eur0(base.avg_fee) + "</b> that is <b>" +
+      (base.placements_needed * k).toFixed(1) + "</b> placements";
+    const host = $("#chain"); host.innerHTML = "";
+    base.steps.forEach(function(s){
+      const row = el("div","step" + (s.anchor ? " anchor" : ""));
+      const n = el("div","sn"); n.textContent = STAGE[s.to] || s.to;
+      const perDay = (s.p80 * k) / wd;
+      n.appendChild(el("small", null, "via " + ratioLabel(s.ratio) + " " +
+        (s.ratio === "cvs_per_job" ? s.ratio_used.toFixed(2) : pct(s.ratio_used)) +
+        (s.measured ? "" : " · not reliably measured") + " · " +
+        (perDay >= 1 ? perDay.toFixed(1) + " per working day" : (perDay * 5).toFixed(1) + " per week")));
+      row.appendChild(n);
+      row.appendChild(el("div","p50",num(s.p50 * k)));
+      row.appendChild(el("div","p80",num(s.p80 * k)));
+      host.appendChild(row);
+    });
+    const anchor = base.steps.filter(s => s.anchor)[0];
+    const notes = $("#targetNotes"); notes.innerHTML = "";
+    if (anchor) {
+      const c = el("div","callout");
+      c.innerHTML = "<b>Anchor the target at " + (STAGE[anchor.to] || anchor.to).toLowerCase() + ".</b> " +
+        "That is the earliest stage in this chain with both enough volume and trustworthy logging. " +
+        "Everything above it is indicative; everything below it follows from it.";
+      notes.appendChild(c);
+    }
+    base.warnings.forEach(function(wn){
+      const c = el("div","callout"); c.style.borderLeftColor = cssv("--warn");
+      c.textContent = wn; notes.appendChild(c);
+    });
+    const f = DATA.target.feasibility;
+    if (f.assessable) {
+      const c = el("div","callout");
+      c.style.borderLeftColor = f.feasible ? cssv("--good") : cssv("--crit");
+      c.innerHTML = "<b>Capacity check.</b> " + f.verdict + " (For the " + eur0(base.gp_goal) +
+        " goal this was computed on: " + num(f.jobs_needed) + " jobs against " +
+        num(f.job_days_available) + " job-days of carrying capacity.)";
+      notes.appendChild(c);
+    }
+  }
+  input.addEventListener("input", redraw);
+  days.addEventListener("input", redraw);
+  redraw();
+
+  table("#potentialTable", ["Input","Current","Achievable","Headroom","CVs saved","Note"],
+    DATA.target.improvement_potential.map(r => [r.label,
+      r.input === "avg_fee" ? eur0(r.current) : (r.current > 1 ? r.current.toFixed(2) : pct(r.current)),
+      r.input === "avg_fee" ? eur0(r.achievable) : (r.achievable > 1 ? r.achievable.toFixed(2) : pct(r.achievable)),
+      r.headroom_pct.toFixed(0) + "%",
+      r.activity_saved_pct ? Math.abs(r.activity_saved_pct).toFixed(1) + "%" : "—",
+      r.note || "—"]),
+    [0,1,1,1,1,0], [5]);
+}
+
+function table(sel, head, rows, align, wrapCols){
+  const host = $(sel); host.innerHTML = "";
+  const wrapSet = {}; (wrapCols || []).forEach(i => wrapSet[i] = true);
+  const thead = el("thead"), tr = el("tr");
+  head.forEach((h,i) => tr.appendChild(el("th", align && align[i] ? "n" : null, h)));
+  thead.appendChild(tr); host.appendChild(thead);
+  const tb = el("tbody");
+  rows.forEach(function(r){
+    const t = el("tr");
+    r.forEach(function(c,i){
+      const cls = wrapSet[i] ? "wrap-cell" : (align && align[i] ? "n" : null);
+      t.appendChild(el("td", cls, String(c)));
+    });
+    tb.appendChild(t);
+  });
+  host.appendChild(tb);
+}
+
+if (DATA) {
+  masthead(); quality(); ratioCards(); funnel(); markets();
+  evolution(); people(); ramp(); season(); clients(); targets();
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  if (mq.addEventListener) mq.addEventListener("change", function(){ drawEvo(); drawPeople(); });
+} else {
+  document.querySelector(".wrap").innerHTML =
+    "<div class='banner synthetic'><div><b>No data.</b> Run <code>python3 scripts/build_dashboard.py</code> to generate it.</div></div>";
+}
+</script>

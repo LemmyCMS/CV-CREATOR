@@ -1,0 +1,71 @@
+client_id,name,market,geo,date_added,industry
+C001,Atlas Labs,IT & Data,BE-BRU,2024-05-15,IT & Data
+C002,Meridian Industries,Engineering,LU,2017-12-15,Engineering
+C003,Atlas Systems,Public Sector,BE-VLG,2018-02-15,Public Sector
+C004,Ironclad Holdings,Engineering,BE-VLG,2018-12-15,Engineering
+C005,Meridian Solutions,IT & Data,NL,2016-09-15,IT & Data
+C006,Meridian Solutions,IT & Data,BE-VLG,2019-12-15,IT & Data
+C007,Quanta BV,Renewables,BE-WAL,2024-11-15,Renewables
+C008,Meridian Pharma,IT & Data,BE-VLG,2023-04-15,IT & Data
+C009,Quanta Industries,Engineering,FR,2019-10-15,Engineering
+C010,Orbit BV,Engineering,BE-VLG,2018-02-15,Engineering
+C011,Kestrel Solutions,Life Sciences,BE-VLG,2023-10-15,Life Sciences
+C012,Beacon NV,Life Sciences,LU,2016-09-15,Life Sciences
+C013,Aurora Solutions,IT & Data,BE-BRU,2022-08-15,IT & Data
+C014,Vantage Solutions,Engineering,BE-VLG,2022-02-15,Engineering
+C015,Nova Partners,Renewables,BE-WAL,2023-12-15,Renewables
+C016,Pivot Labs,Engineering,BE-WAL,2022-09-15,Engineering
+C017,Quanta Technologies,Renewables,BE-WAL,2020-11-15,Renewables
+C018,Kestrel Systems,Public Sector,BE-WAL,2022-05-15,Public Sector
+C019,Orbit Labs,Engineering,BE-VLG,2018-06-15,Engineering
+C020,Helix Group,Finance,BE-VLG,2021-09-15,Finance
+C021,Helix Systems,Life Sciences,BE-BRU,2023-03-15,Life Sciences
+C022,Beacon Group,Engineering,BE-VLG,2019-10-15,Engineering
+C023,Quanta Industries,Engineering,BE-VLG,2019-06-15,Engineering
+C024,Cobalt BV,Public Sector,BE-VLG,2023-06-15,Public Sector
+C025,Kestrel BV,Public Sector,NL,2024-12-15,Public Sector
+C026,Lumen Systems,Engineering,BE-BRU,2016-01-15,Engineering
+C027,Nova Industries,Renewables,NL,2020-06-15,Renewables
+C028,Pivot Industries,IT & Data,NL,2024-05-15,IT & Data
+C029,Verge Industries,Life Sciences,BE-BRU,2018-01-15,Life Sciences
+C030,Meridian BV,Finance,BE-BRU,2023-09-15,Finance
+C031,Beacon Solutions,Finance,BE-VLG,2023-12-15,Finance
+C032,Verge NV,IT & Data,NL,2017-02-15,IT & Data
+C033,Beacon Industries,Renewables,LU,2022-04-15,Renewables
+C034,Beacon Technologies,Life Sciences,BE-BRU,2024-07-15,Life Sciences
+C035,Meridian Industries,Renewables,BE-WAL,2022-08-15,Renewables
+C036,Pivot Industries,Public Sector,BE-VLG,2020-02-15,Public Sector
+C037,Vantage NV,IT & Data,BE-VLG,2017-03-15,IT & Data
+C038,Aurora Technologies,IT & Data,NL,2018-07-15,IT & Data
+C039,Helix Group,Life Sciences,BE-VLG,2024-09-15,Life Sciences
+C040,Meridian BV,IT & Data,NL,2017-11-15,IT & Data
+C041,Pivot Partners,Engineering,BE-WAL,2016-03-15,Engineering
+C042,Meridian NV,Renewables,BE-VLG,2021-11-15,Renewables
+C043,Verge Solutions,IT & Data,BE-BRU,2016-01-15,IT & Data
+C044,Kestrel Technologies,Life Sciences,BE-BRU,2019-09-15,Life Sciences
+C045,Cobalt Technologies,IT & Data,BE-VLG,2024-06-15,IT & Data
+C046,Vantage Labs,Engineering,BE-VLG,2017-01-15,Engineering
+C047,Pivot Partners,Finance,NL,2019-04-15,Finance
+C048,Beacon Technologies,Life Sciences,BE-VLG,2017-03-15,Life Sciences
+C049,Delta BV,IT & Data,BE-VLG,2024-11-15,IT & Data
+C050,Verge Labs,Public Sector,BE-VLG,2018-07-15,Public Sector
+C051,Lumen Group,Finance,BE-VLG,2019-03-15,Finance
+C052,Kestrel Solutions,IT & Data,BE-VLG,2020-08-15,IT & Data
+C053,Pivot Industries,Life Sciences,BE-WAL,2020-03-15,Life Sciences
+C054,Cobalt Group,IT & Data,BE-WAL,2024-01-15,IT & Data
+C055,Beacon NV,IT & Data,BE-VLG,2021-10-15,IT & Data
+C056,Delta Partners,Engineering,BE-VLG,2024-04-15,Engineering
+C057,Orbit Industries,Life Sciences,BE-VLG,2017-12-15,Life Sciences
+C058,Nova Partners,IT & Data,FR,2016-06-15,IT & Data
+C059,Meridian Systems,IT & Data,NL,2017-08-15,IT & Data
+C060,Orbit Labs,Engineering,BE-WAL,2019-07-15,Engineering
+C061,Lumen NV,Engineering,BE-WAL,2017-08-15,Engineering
+C062,Kestrel Industries,Renewables,BE-VLG,2018-08-15,Renewables
+C063,Pivot NV,Engineering,BE-BRU,2024-03-15,Engineering
+C064,Verge Group,Life Sciences,BE-VLG,2023-01-15,Life Sciences
+C065,Cobalt Industries,IT & Data,BE-BRU,2019-08-15,IT & Data
+C066,Lumen Partners,Life Sciences,BE-VLG,2016-05-15,Life Sciences
+C067,Vantage BV,Engineering,BE-VLG,2018-03-15,Engineering
+C068,Helix Systems,Engineering,LU,2022-01-15,Engineering
+C069,Aurora BV,Life Sciences,BE-VLG,2020-07-15,Life Sciences
+C070,Cobalt NV,Life Sciences,BE-VLG,2022-08-15,Life Sciences

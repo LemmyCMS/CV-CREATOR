@@ -1,0 +1,13 @@
+# Real exports contain candidate and client personal data (GDPR). Never commit them.
+analytics/data/raw/
+analytics/data/*.csv
+!analytics/data/sample/*.csv
+*.xlsx
+*.xls
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+analytics/dashboard/dashboard.json

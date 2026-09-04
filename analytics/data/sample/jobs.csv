@@ -1,0 +1,2521 @@
+job_id,client_id,consultant_id,market,date_opened,date_closed,exclusive,seniority,placement_type
+J00001,C005,U001,IT & Data,2019-01-25,,false,senior,contract
+J00002,C007,U002,Renewables,2019-07-01,,false,mid,perm
+J00003,C028,U003,IT & Data,2019-09-17,,false,mid,perm
+J00004,C008,U004,IT & Data,2019-10-02,,true,mid,contract
+J00005,C010,U007,Engineering,2019-10-14,,false,mid,perm
+J00006,C046,U007,Engineering,2019-05-27,,false,senior,perm
+J00007,C016,U007,Engineering,2019-04-19,,false,mid,contract
+J00008,C016,U007,Engineering,2019-10-21,,false,mid,perm
+J00009,C060,U007,Engineering,2019-08-08,,false,senior,perm
+J00010,C056,U007,Engineering,2019-09-23,,false,mid,contract
+J00011,C019,U007,Engineering,2019-09-17,,true,junior,perm
+J00012,C016,U007,Engineering,2019-12-19,,false,mid,perm
+J00013,C026,U007,Engineering,2019-09-23,,false,mid,perm
+J00014,C060,U007,Engineering,2019-10-07,,false,senior,contract
+J00015,C002,U007,Engineering,2019-09-10,,false,senior,perm
+J00016,C014,U007,Engineering,2019-01-24,,false,senior,contract
+J00017,C016,U007,Engineering,2019-01-22,,false,senior,perm
+J00018,C022,U007,Engineering,2019-07-04,,false,mid,perm
+J00019,C002,U007,Engineering,2019-09-20,,true,senior,perm
+J00020,C023,U007,Engineering,2019-09-30,,false,junior,contract
+J00021,C010,U007,Engineering,2019-08-05,,false,junior,perm
+J00022,C010,U007,Engineering,2019-11-22,,false,senior,contract
+J00023,C002,U007,Engineering,2019-12-18,,false,mid,perm
+J00024,C010,U007,Engineering,2019-06-11,,false,junior,perm
+J00025,C060,U007,Engineering,2019-06-24,,false,junior,contract
+J00026,C009,U007,Engineering,2019-04-02,,false,junior,perm
+J00027,C060,U007,Engineering,2019-04-15,,true,mid,perm
+J00028,C010,U007,Engineering,2019-09-11,,false,senior,perm
+J00029,C064,U010,Life Sciences,2019-08-28,,true,senior,perm
+J00030,C048,U011,Life Sciences,2019-02-20,,true,senior,perm
+J00031,C066,U011,Life Sciences,2019-10-10,,false,junior,perm
+J00032,C029,U011,Life Sciences,2019-06-20,,false,junior,contract
+J00033,C064,U011,Life Sciences,2019-06-06,,false,mid,perm
+J00034,C057,U011,Life Sciences,2019-03-13,,true,mid,contract
+J00035,C070,U011,Life Sciences,2019-07-23,,false,senior,perm
+J00036,C053,U011,Life Sciences,2019-11-18,,false,mid,perm
+J00037,C034,U011,Life Sciences,2019-04-29,,true,senior,contract
+J00038,C053,U011,Life Sciences,2019-06-03,,false,mid,perm
+J00039,C034,U011,Life Sciences,2019-03-18,,false,senior,perm
+J00040,C011,U011,Life Sciences,2019-05-28,,false,lead,perm
+J00041,C069,U011,Life Sciences,2019-04-11,,false,junior,contract
+J00042,C034,U011,Life Sciences,2019-06-03,,false,mid,contract
+J00043,C070,U011,Life Sciences,2019-05-13,,true,senior,perm
+J00044,C064,U011,Life Sciences,2019-11-14,,false,lead,contract
+J00045,C053,U011,Life Sciences,2019-07-24,,false,mid,perm
+J00046,C034,U011,Life Sciences,2019-01-14,,false,senior,perm
+J00047,C001,U014,IT & Data,2019-04-03,,false,senior,contract
+J00048,C052,U014,IT & Data,2019-01-07,,false,mid,perm
+J00049,C054,U014,IT & Data,2019-04-15,,false,senior,perm
+J00050,C038,U014,IT & Data,2019-04-24,,false,junior,perm
+J00051,C065,U014,IT & Data,2019-03-01,,false,mid,perm
+J00052,C005,U014,IT & Data,2019-11-01,,true,mid,perm
+J00053,C028,U014,IT & Data,2019-03-19,,false,mid,perm
+J00054,C065,U014,IT & Data,2019-01-24,,false,mid,contract
+J00055,C037,U014,IT & Data,2019-07-15,,true,senior,perm
+J00056,C040,U014,IT & Data,2019-02-13,,false,lead,perm
+J00057,C065,U014,IT & Data,2019-09-19,,true,mid,perm
+J00058,C065,U014,IT & Data,2019-01-22,,false,mid,perm
+J00059,C008,U014,IT & Data,2019-01-01,,false,mid,perm
+J00060,C001,U014,IT & Data,2019-03-25,,false,junior,perm
+J00061,C045,U014,IT & Data,2019-05-02,,false,lead,contract
+J00062,C065,U014,IT & Data,2019-11-04,,false,mid,contract
+J00063,C058,U014,IT & Data,2019-12-10,,false,lead,perm
+J00064,C037,U014,IT & Data,2019-02-20,,false,mid,perm
+J00065,C040,U014,IT & Data,2019-08-01,,true,mid,contract
+J00066,C038,U014,IT & Data,2019-03-19,,false,senior,contract
+J00067,C006,U014,IT & Data,2019-03-11,,false,mid,contract
+J00068,C008,U014,IT & Data,2019-11-28,,false,mid,perm
+J00069,C005,U014,IT & Data,2019-11-07,,false,senior,perm
+J00070,C038,U014,IT & Data,2019-11-25,,false,mid,perm
+J00071,C005,U014,IT & Data,2019-05-13,,false,lead,perm
+J00072,C065,U014,IT & Data,2019-10-03,,true,mid,contract
+J00073,C055,U014,IT & Data,2019-11-12,,false,senior,perm
+J00074,C043,U014,IT & Data,2019-11-15,,false,senior,contract
+J00075,C032,U014,IT & Data,2019-09-09,,false,mid,contract
+J00076,C059,U014,IT & Data,2019-01-11,,false,senior,perm
+J00077,C065,U014,IT & Data,2019-09-19,,false,senior,perm
+J00078,C005,U014,IT & Data,2019-07-11,,false,mid,perm
+J00079,C040,U014,IT & Data,2019-09-09,,true,junior,perm
+J00080,C040,U014,IT & Data,2019-03-22,,false,lead,perm
+J00081,C065,U014,IT & Data,2019-08-20,,false,mid,perm
+J00082,C065,U014,IT & Data,2019-11-27,,false,senior,perm
+J00083,C038,U014,IT & Data,2019-04-18,,false,junior,contract
+J00084,C019,U015,Engineering,2019-01-08,,true,mid,contract
+J00085,C002,U015,Engineering,2019-03-06,,true,junior,contract
+J00086,C009,U015,Engineering,2019-02-11,,true,junior,perm
+J00087,C063,U015,Engineering,2019-11-05,,false,senior,perm
+J00088,C009,U015,Engineering,2019-04-15,,false,senior,contract
+J00089,C002,U015,Engineering,2019-06-20,,false,mid,perm
+J00090,C063,U015,Engineering,2019-09-18,,true,senior,contract
+J00091,C009,U015,Engineering,2019-09-11,,false,junior,contract
+J00092,C068,U015,Engineering,2019-10-18,,true,mid,perm
+J00093,C022,U015,Engineering,2019-04-01,,false,senior,contract
+J00094,C022,U015,Engineering,2019-08-16,,false,senior,contract
+J00095,C067,U015,Engineering,2019-02-11,,false,mid,perm
+J00096,C016,U015,Engineering,2019-04-22,,true,mid,perm
+J00097,C067,U015,Engineering,2019-11-18,,false,lead,perm
+J00098,C023,U015,Engineering,2019-10-16,,false,mid,perm
+J00099,C010,U015,Engineering,2019-04-11,,true,lead,contract
+J00100,C002,U015,Engineering,2019-05-07,,true,senior,contract
+J00101,C023,U015,Engineering,2019-01-16,,false,mid,contract
+J00102,C010,U015,Engineering,2019-10-23,,false,senior,perm
+J00103,C068,U015,Engineering,2019-01-25,,false,junior,perm
+J00104,C046,U015,Engineering,2019-11-05,,false,lead,perm
+J00105,C046,U015,Engineering,2019-06-05,,false,mid,perm
+J00106,C023,U015,Engineering,2019-03-20,,false,junior,perm
+J00107,C068,U015,Engineering,2019-02-19,,false,senior,perm
+J00108,C046,U015,Engineering,2019-03-12,,true,mid,perm
+J00109,C019,U015,Engineering,2019-05-10,,false,junior,perm
+J00110,C016,U015,Engineering,2019-11-08,,true,mid,perm
+J00111,C067,U015,Engineering,2019-12-10,,true,mid,contract
+J00112,C059,U016,IT & Data,2019-04-08,,false,senior,perm
+J00113,C043,U016,IT & Data,2019-01-10,,false,senior,perm
+J00114,C065,U016,IT & Data,2019-07-17,,true,lead,perm
+J00115,C055,U016,IT & Data,2019-04-22,,false,mid,perm
+J00116,C001,U016,IT & Data,2019-09-30,,false,mid,perm
+J00117,C005,U016,IT & Data,2019-03-21,,true,lead,contract
+J00118,C065,U016,IT & Data,2019-09-20,,true,junior,perm
+J00119,C054,U016,IT & Data,2019-03-25,,false,mid,perm
+J00120,C032,U016,IT & Data,2019-02-06,,true,lead,perm
+J00121,C055,U016,IT & Data,2019-06-11,,false,senior,contract
+J00122,C038,U016,IT & Data,2019-07-17,,false,mid,contract
+J00123,C038,U016,IT & Data,2019-02-14,,false,mid,perm
+J00124,C008,U016,IT & Data,2019-04-09,,true,mid,perm
+J00125,C032,U016,IT & Data,2019-10-24,,false,mid,perm
+J00126,C045,U016,IT & Data,2019-09-17,,false,mid,contract
+J00127,C028,U016,IT & Data,2019-03-27,,false,mid,perm
+J00128,C055,U016,IT & Data,2019-05-06,,false,junior,perm
+J00129,C065,U016,IT & Data,2019-11-08,,false,mid,perm
+J00130,C028,U016,IT & Data,2019-08-20,,false,senior,perm
+J00131,C038,U016,IT & Data,2019-04-23,,false,mid,perm
+J00132,C032,U016,IT & Data,2019-04-22,,true,mid,perm
+J00133,C065,U016,IT & Data,2019-11-13,,true,junior,perm
+J00134,C032,U016,IT & Data,2019-09-30,,false,junior,perm
+J00135,C052,U016,IT & Data,2019-10-08,,false,mid,perm
+J00136,C054,U016,IT & Data,2019-09-04,,false,mid,perm
+J00137,C018,U017,Public Sector,2019-08-07,,true,mid,perm
+J00138,C018,U017,Public Sector,2019-07-08,,false,mid,perm
+J00139,C024,U017,Public Sector,2019-07-24,,false,senior,contract
+J00140,C050,U017,Public Sector,2019-04-03,,false,mid,contract
+J00141,C018,U017,Public Sector,2019-05-21,,false,senior,contract
+J00142,C003,U017,Public Sector,2019-01-21,,true,senior,contract
+J00143,C025,U021,Public Sector,2019-08-28,,false,mid,contract
+J00144,C036,U021,Public Sector,2019-11-07,,true,mid,perm
+J00145,C036,U021,Public Sector,2019-07-03,,true,mid,perm
+J00146,C024,U021,Public Sector,2019-06-11,,false,junior,contract
+J00147,C018,U021,Public Sector,2019-01-02,,false,junior,perm
+J00148,C036,U021,Public Sector,2019-04-08,,false,mid,perm
+J00149,C024,U021,Public Sector,2019-03-01,,false,mid,perm
+J00150,C036,U021,Public Sector,2019-12-24,,false,junior,contract
+J00151,C018,U021,Public Sector,2019-10-07,,false,senior,perm
+J00152,C018,U021,Public Sector,2019-11-15,,false,junior,perm
+J00153,C050,U021,Public Sector,2019-10-08,,false,junior,perm
+J00154,C050,U021,Public Sector,2019-03-18,,false,junior,contract
+J00155,C024,U021,Public Sector,2019-06-03,,false,mid,perm
+J00156,C018,U021,Public Sector,2019-03-18,,true,senior,contract
+J00157,C018,U021,Public Sector,2019-10-11,,false,mid,perm
+J00158,C003,U021,Public Sector,2019-10-28,,false,mid,perm
+J00159,C024,U021,Public Sector,2019-10-07,,true,mid,perm
+J00160,C036,U021,Public Sector,2019-12-02,,false,mid,contract
+J00161,C018,U021,Public Sector,2019-01-16,,true,junior,perm
+J00162,C018,U021,Public Sector,2019-07-22,,false,mid,perm
+J00163,C037,U001,IT & Data,2020-10-12,,false,mid,perm
+J00164,C032,U001,IT & Data,2020-04-21,,false,mid,contract
+J00165,C054,U001,IT & Data,2020-07-22,,true,mid,perm
+J00166,C032,U001,IT & Data,2020-06-26,,true,mid,perm
+J00167,C065,U001,IT & Data,2020-09-23,,false,mid,perm
+J00168,C013,U001,IT & Data,2020-04-15,,false,senior,contract
+J00169,C043,U001,IT & Data,2020-11-18,,false,junior,perm
+J00170,C055,U001,IT & Data,2020-12-21,,false,junior,perm
+J00171,C065,U001,IT & Data,2020-11-17,,true,junior,contract
+J00172,C007,U002,Renewables,2020-11-09,,true,mid,perm
+J00173,C017,U002,Renewables,2020-06-16,,false,junior,perm
+J00174,C015,U002,Renewables,2020-10-26,,false,senior,perm
+J00175,C033,U002,Renewables,2020-09-04,,false,lead,perm
+J00176,C007,U002,Renewables,2020-11-18,,true,mid,perm
+J00177,C015,U002,Renewables,2020-09-21,,false,senior,perm
+J00178,C042,U002,Renewables,2020-09-23,,false,junior,contract
+J00179,C017,U002,Renewables,2020-06-16,,false,mid,perm
+J00180,C062,U002,Renewables,2020-02-03,,true,mid,contract
+J00181,C035,U002,Renewables,2020-03-20,,false,mid,perm
+J00182,C035,U002,Renewables,2020-11-23,,false,mid,perm
+J00183,C042,U002,Renewables,2020-03-11,,true,junior,perm
+J00184,C062,U002,Renewables,2020-11-30,,false,senior,perm
+J00185,C059,U003,IT & Data,2020-09-15,,false,mid,perm
+J00186,C052,U003,IT & Data,2020-12-16,,true,mid,perm
+J00187,C058,U003,IT & Data,2020-11-26,,false,mid,contract
+J00188,C052,U003,IT & Data,2020-03-11,,false,senior,perm
+J00189,C052,U003,IT & Data,2020-12-21,,false,junior,perm
+J00190,C049,U003,IT & Data,2020-04-10,,false,mid,contract
+J00191,C049,U003,IT & Data,2020-11-03,,false,mid,perm
+J00192,C065,U003,IT & Data,2020-05-18,,true,junior,contract
+J00193,C028,U003,IT & Data,2020-06-18,,true,mid,contract
+J00194,C058,U003,IT & Data,2020-09-21,,false,mid,perm
+J00195,C013,U003,IT & Data,2020-01-13,,false,mid,contract
+J00196,C032,U003,IT & Data,2020-03-17,,false,senior,contract
+J00197,C049,U003,IT & Data,2020-01-28,,false,senior,perm
+J00198,C054,U003,IT & Data,2020-11-03,,false,mid,perm
+J00199,C054,U003,IT & Data,2020-09-01,,true,mid,perm
+J00200,C037,U003,IT & Data,2020-05-25,,false,junior,perm
+J00201,C054,U003,IT & Data,2020-11-10,,false,mid,contract
+J00202,C045,U004,IT & Data,2020-08-11,,true,senior,perm
+J00203,C065,U004,IT & Data,2020-01-03,,false,senior,perm
+J00204,C045,U004,IT & Data,2020-09-22,,false,mid,perm
+J00205,C065,U004,IT & Data,2020-09-24,,false,mid,perm
+J00206,C054,U004,IT & Data,2020-05-11,,false,mid,perm
+J00207,C054,U004,IT & Data,2020-05-08,,true,mid,perm
+J00208,C032,U004,IT & Data,2020-02-06,,true,mid,perm
+J00209,C065,U004,IT & Data,2020-04-06,,false,junior,perm
+J00210,C054,U004,IT & Data,2020-04-06,,false,lead,perm
+J00211,C008,U004,IT & Data,2020-09-07,,false,mid,perm
+J00212,C045,U004,IT & Data,2020-03-17,,false,mid,contract
+J00213,C008,U004,IT & Data,2020-10-23,,false,mid,contract
+J00214,C038,U004,IT & Data,2020-03-06,,false,mid,contract
+J00215,C045,U004,IT & Data,2020-11-16,,false,junior,contract
+J00216,C043,U004,IT & Data,2020-04-28,,true,mid,perm
+J00217,C055,U004,IT & Data,2020-11-27,,false,mid,contract
+J00218,C008,U004,IT & Data,2020-02-24,,false,junior,perm
+J00219,C005,U004,IT & Data,2020-01-13,,false,junior,perm
+J00220,C005,U004,IT & Data,2020-06-11,,false,mid,contract
+J00221,C019,U007,Engineering,2020-07-01,,false,junior,perm
+J00222,C067,U007,Engineering,2020-01-22,,false,junior,contract
+J00223,C014,U007,Engineering,2020-11-09,,false,junior,contract
+J00224,C061,U007,Engineering,2020-06-25,,false,junior,contract
+J00225,C056,U007,Engineering,2020-02-10,,false,mid,perm
+J00226,C026,U007,Engineering,2020-09-17,,true,mid,contract
+J00227,C002,U007,Engineering,2020-01-02,,false,senior,perm
+J00228,C009,U007,Engineering,2020-11-16,,false,mid,perm
+J00229,C068,U007,Engineering,2020-10-08,,false,senior,perm
+J00230,C061,U007,Engineering,2020-10-05,,true,junior,perm
+J00231,C067,U007,Engineering,2020-06-03,,false,mid,perm
+J00232,C061,U007,Engineering,2020-02-26,,false,mid,perm
+J00233,C056,U007,Engineering,2020-06-23,,false,senior,perm
+J00234,C019,U007,Engineering,2020-01-13,,false,senior,perm
+J00235,C060,U007,Engineering,2020-09-07,,true,senior,perm
+J00236,C060,U007,Engineering,2020-01-27,,false,senior,perm
+J00237,C022,U007,Engineering,2020-10-06,,true,junior,perm
+J00238,C046,U007,Engineering,2020-01-03,,false,mid,perm
+J00239,C019,U007,Engineering,2020-09-08,,false,lead,perm
+J00240,C016,U007,Engineering,2020-08-04,,false,mid,perm
+J00241,C061,U008,Engineering,2020-05-06,,true,senior,perm
+J00242,C064,U010,Life Sciences,2020-02-07,,false,mid,contract
+J00243,C048,U010,Life Sciences,2020-09-14,,false,mid,perm
+J00244,C048,U010,Life Sciences,2020-01-20,,true,mid,perm
+J00245,C021,U010,Life Sciences,2020-06-29,,false,mid,perm
+J00246,C064,U010,Life Sciences,2020-05-25,,false,mid,contract
+J00247,C070,U010,Life Sciences,2020-01-01,,false,mid,perm
+J00248,C012,U010,Life Sciences,2020-12-21,,false,mid,perm
+J00249,C029,U010,Life Sciences,2020-10-19,,false,senior,perm
+J00250,C034,U010,Life Sciences,2020-02-04,,false,mid,perm
+J00251,C021,U010,Life Sciences,2020-10-05,,false,senior,perm
+J00252,C039,U010,Life Sciences,2020-02-11,,true,mid,perm
+J00253,C048,U010,Life Sciences,2020-01-13,,false,mid,perm
+J00254,C039,U010,Life Sciences,2020-07-20,,false,senior,perm
+J00255,C053,U010,Life Sciences,2020-05-11,,false,junior,contract
+J00256,C012,U010,Life Sciences,2020-08-17,,false,junior,contract
+J00257,C069,U011,Life Sciences,2020-10-13,,false,junior,contract
+J00258,C066,U011,Life Sciences,2020-11-23,,false,junior,perm
+J00259,C012,U011,Life Sciences,2020-07-24,,false,junior,perm
+J00260,C069,U011,Life Sciences,2020-11-23,,false,mid,perm
+J00261,C069,U011,Life Sciences,2020-03-24,,false,junior,perm
+J00262,C029,U011,Life Sciences,2020-02-10,,false,mid,perm
+J00263,C069,U011,Life Sciences,2020-08-06,,false,mid,perm
+J00264,C064,U011,Life Sciences,2020-09-08,,false,mid,perm
+J00265,C044,U011,Life Sciences,2020-11-04,,false,senior,perm
+J00266,C012,U011,Life Sciences,2020-07-16,,false,junior,contract
+J00267,C044,U011,Life Sciences,2020-02-24,,false,lead,contract
+J00268,C012,U011,Life Sciences,2020-09-02,,false,senior,perm
+J00269,C011,U011,Life Sciences,2020-06-08,,false,junior,contract
+J00270,C066,U011,Life Sciences,2020-12-14,,true,senior,perm
+J00271,C069,U011,Life Sciences,2020-11-19,,true,senior,perm
+J00272,C070,U011,Life Sciences,2020-12-28,,false,mid,perm
+J00273,C039,U011,Life Sciences,2020-11-16,,true,junior,contract
+J00274,C052,U014,IT & Data,2020-06-29,,false,mid,perm
+J00275,C052,U014,IT & Data,2020-05-01,,false,mid,perm
+J00276,C006,U014,IT & Data,2020-10-19,,true,senior,perm
+J00277,C005,U014,IT & Data,2020-09-14,,false,junior,perm
+J00278,C005,U014,IT & Data,2020-06-01,,false,mid,perm
+J00279,C001,U014,IT & Data,2020-01-16,,false,mid,contract
+J00280,C058,U014,IT & Data,2020-03-24,,false,mid,perm
+J00281,C065,U014,IT & Data,2020-04-06,,false,mid,contract
+J00282,C052,U014,IT & Data,2020-09-23,,false,mid,perm
+J00283,C065,U014,IT & Data,2020-09-22,,false,junior,contract
+J00284,C028,U014,IT & Data,2020-04-20,,false,senior,perm
+J00285,C006,U014,IT & Data,2020-06-15,,false,mid,perm
+J00286,C028,U014,IT & Data,2020-04-09,,false,mid,perm
+J00287,C028,U014,IT & Data,2020-09-14,,false,mid,contract
+J00288,C038,U014,IT & Data,2020-10-20,,false,mid,contract
+J00289,C065,U014,IT & Data,2020-06-25,,false,mid,perm
+J00290,C028,U014,IT & Data,2020-07-14,,false,junior,perm
+J00291,C032,U014,IT & Data,2020-03-16,,false,lead,contract
+J00292,C019,U015,Engineering,2020-09-24,,true,junior,perm
+J00293,C067,U015,Engineering,2020-03-23,,true,mid,contract
+J00294,C060,U015,Engineering,2020-12-07,,false,mid,perm
+J00295,C016,U015,Engineering,2020-10-05,,false,senior,perm
+J00296,C063,U015,Engineering,2020-10-23,,false,junior,perm
+J00297,C063,U015,Engineering,2020-10-05,,false,junior,perm
+J00298,C056,U015,Engineering,2020-12-23,,false,junior,perm
+J00299,C023,U015,Engineering,2020-11-27,,false,senior,contract
+J00300,C063,U015,Engineering,2020-11-03,,false,senior,contract
+J00301,C002,U015,Engineering,2020-02-17,,true,mid,perm
+J00302,C023,U015,Engineering,2020-04-16,,false,lead,perm
+J00303,C010,U015,Engineering,2020-11-30,,false,junior,perm
+J00304,C019,U015,Engineering,2020-03-20,,false,mid,perm
+J00305,C046,U015,Engineering,2020-01-20,,false,mid,perm
+J00306,C009,U015,Engineering,2020-09-28,,false,senior,perm
+J00307,C004,U015,Engineering,2020-06-15,,false,junior,perm
+J00308,C010,U015,Engineering,2020-03-24,,false,mid,contract
+J00309,C026,U015,Engineering,2020-02-03,,false,junior,perm
+J00310,C056,U015,Engineering,2020-10-16,,false,senior,perm
+J00311,C002,U015,Engineering,2020-02-17,,false,senior,contract
+J00312,C014,U015,Engineering,2020-11-18,,false,junior,perm
+J00313,C016,U015,Engineering,2020-07-01,,false,junior,contract
+J00314,C019,U015,Engineering,2020-10-01,,false,senior,perm
+J00315,C006,U016,IT & Data,2020-01-13,,false,junior,perm
+J00316,C052,U016,IT & Data,2020-07-14,,false,mid,perm
+J00317,C059,U016,IT & Data,2020-01-17,,false,mid,perm
+J00318,C049,U016,IT & Data,2020-09-23,,true,lead,perm
+J00319,C028,U016,IT & Data,2020-07-06,,true,senior,perm
+J00320,C065,U016,IT & Data,2020-09-25,,false,senior,perm
+J00321,C058,U016,IT & Data,2020-09-11,,false,mid,contract
+J00322,C055,U016,IT & Data,2020-04-06,,false,senior,contract
+J00323,C049,U016,IT & Data,2020-07-21,,true,senior,contract
+J00324,C058,U016,IT & Data,2020-05-04,,false,senior,contract
+J00325,C013,U016,IT & Data,2020-06-19,,false,senior,perm
+J00326,C038,U016,IT & Data,2020-10-09,,true,mid,perm
+J00327,C005,U016,IT & Data,2020-09-14,,false,senior,perm
+J00328,C008,U016,IT & Data,2020-10-12,,false,lead,perm
+J00329,C045,U016,IT & Data,2020-09-10,,false,senior,perm
+J00330,C054,U016,IT & Data,2020-09-18,,false,mid,perm
+J00331,C058,U016,IT & Data,2020-02-28,,false,mid,contract
+J00332,C050,U017,Public Sector,2020-07-20,,true,junior,perm
+J00333,C024,U017,Public Sector,2020-08-10,,false,mid,contract
+J00334,C024,U017,Public Sector,2020-02-04,,false,senior,perm
+J00335,C018,U017,Public Sector,2020-01-28,,false,mid,perm
+J00336,C025,U017,Public Sector,2020-06-02,,true,lead,contract
+J00337,C050,U017,Public Sector,2020-12-02,,false,mid,perm
+J00338,C025,U017,Public Sector,2020-10-16,,false,junior,perm
+J00339,C025,U017,Public Sector,2020-05-08,,false,mid,contract
+J00340,C018,U017,Public Sector,2020-05-05,,false,mid,perm
+J00341,C050,U017,Public Sector,2020-09-14,,false,junior,perm
+J00342,C018,U017,Public Sector,2020-11-03,,true,mid,contract
+J00343,C037,U019,IT & Data,2020-06-16,,false,mid,perm
+J00344,C003,U021,Public Sector,2020-10-12,,false,junior,perm
+J00345,C018,U021,Public Sector,2020-05-11,,false,mid,perm
+J00346,C024,U021,Public Sector,2020-09-10,,false,junior,perm
+J00347,C003,U021,Public Sector,2020-12-09,,false,lead,perm
+J00348,C025,U021,Public Sector,2020-09-15,,false,lead,perm
+J00349,C025,U021,Public Sector,2020-03-26,,false,senior,perm
+J00350,C036,U021,Public Sector,2020-10-12,,false,lead,perm
+J00351,C025,U021,Public Sector,2020-01-17,,false,mid,perm
+J00352,C050,U021,Public Sector,2020-03-10,,true,mid,contract
+J00353,C018,U021,Public Sector,2020-01-08,,false,mid,contract
+J00354,C054,U001,IT & Data,2021-04-23,,false,senior,contract
+J00355,C032,U001,IT & Data,2021-09-20,,true,mid,perm
+J00356,C038,U001,IT & Data,2021-03-29,,false,mid,contract
+J00357,C058,U001,IT & Data,2021-04-02,,false,junior,perm
+J00358,C055,U001,IT & Data,2021-07-05,,false,senior,perm
+J00359,C005,U001,IT & Data,2021-07-13,,false,senior,contract
+J00360,C028,U001,IT & Data,2021-05-11,,true,senior,contract
+J00361,C040,U001,IT & Data,2021-09-02,,true,senior,perm
+J00362,C040,U001,IT & Data,2021-05-17,,false,junior,perm
+J00363,C065,U001,IT & Data,2021-11-08,,false,mid,perm
+J00364,C052,U001,IT & Data,2021-09-27,,false,junior,perm
+J00365,C006,U001,IT & Data,2021-06-14,,true,mid,contract
+J00366,C059,U001,IT & Data,2021-09-23,,false,mid,contract
+J00367,C052,U001,IT & Data,2021-11-05,,true,junior,perm
+J00368,C005,U001,IT & Data,2021-04-06,,false,mid,perm
+J00369,C006,U001,IT & Data,2021-07-07,,false,senior,contract
+J00370,C006,U001,IT & Data,2021-10-22,,false,junior,perm
+J00371,C037,U001,IT & Data,2021-07-05,,false,mid,perm
+J00372,C006,U001,IT & Data,2021-05-18,,false,mid,perm
+J00373,C054,U001,IT & Data,2021-12-27,,false,junior,perm
+J00374,C040,U001,IT & Data,2021-03-12,,false,junior,perm
+J00375,C043,U001,IT & Data,2021-02-09,,false,mid,contract
+J00376,C054,U001,IT & Data,2021-02-25,,false,mid,perm
+J00377,C006,U001,IT & Data,2021-01-06,,true,mid,perm
+J00378,C008,U001,IT & Data,2021-01-25,,false,senior,perm
+J00379,C065,U001,IT & Data,2021-08-19,,false,mid,contract
+J00380,C049,U001,IT & Data,2021-11-26,,false,junior,perm
+J00381,C006,U001,IT & Data,2021-06-02,,true,mid,perm
+J00382,C008,U001,IT & Data,2021-05-17,,true,senior,perm
+J00383,C006,U001,IT & Data,2021-12-20,,false,senior,perm
+J00384,C052,U001,IT & Data,2021-07-26,,false,senior,contract
+J00385,C049,U001,IT & Data,2021-12-03,,true,mid,perm
+J00386,C043,U001,IT & Data,2021-05-05,,false,lead,perm
+J00387,C001,U001,IT & Data,2021-07-19,,true,mid,perm
+J00388,C058,U001,IT & Data,2021-11-11,,false,senior,perm
+J00389,C052,U001,IT & Data,2021-02-15,,false,mid,contract
+J00390,C045,U001,IT & Data,2021-05-24,,false,mid,perm
+J00391,C038,U001,IT & Data,2021-04-26,,true,mid,perm
+J00392,C049,U001,IT & Data,2021-01-13,,false,mid,perm
+J00393,C005,U001,IT & Data,2021-06-08,,false,junior,perm
+J00394,C049,U001,IT & Data,2021-04-16,,false,mid,perm
+J00395,C043,U001,IT & Data,2021-10-20,,false,senior,contract
+J00396,C040,U001,IT & Data,2021-12-15,,false,senior,perm
+J00397,C028,U001,IT & Data,2021-06-07,,false,mid,perm
+J00398,C006,U003,IT & Data,2021-01-01,,false,senior,perm
+J00399,C028,U003,IT & Data,2021-09-13,,false,junior,perm
+J00400,C005,U003,IT & Data,2021-12-13,,true,junior,contract
+J00401,C043,U003,IT & Data,2021-02-15,,false,senior,contract
+J00402,C006,U003,IT & Data,2021-11-08,,false,senior,perm
+J00403,C055,U003,IT & Data,2021-09-20,,false,senior,perm
+J00404,C045,U003,IT & Data,2021-03-25,,false,mid,perm
+J00405,C058,U003,IT & Data,2021-07-21,,true,senior,perm
+J00406,C038,U003,IT & Data,2021-10-13,,false,mid,perm
+J00407,C013,U003,IT & Data,2021-09-22,,false,lead,perm
+J00408,C005,U003,IT & Data,2021-04-28,,false,mid,perm
+J00409,C059,U003,IT & Data,2021-05-27,,false,mid,perm
+J00410,C028,U003,IT & Data,2021-09-07,,false,mid,contract
+J00411,C058,U003,IT & Data,2021-02-11,,true,senior,perm
+J00412,C043,U003,IT & Data,2021-01-22,,false,junior,contract
+J00413,C005,U003,IT & Data,2021-07-07,,false,senior,perm
+J00414,C001,U003,IT & Data,2021-07-12,,false,mid,perm
+J00415,C008,U003,IT & Data,2021-03-12,,false,mid,perm
+J00416,C028,U003,IT & Data,2021-03-24,,false,senior,perm
+J00417,C052,U003,IT & Data,2021-04-02,,false,mid,perm
+J00418,C049,U003,IT & Data,2021-06-23,,false,junior,perm
+J00419,C045,U003,IT & Data,2021-03-15,,false,senior,contract
+J00420,C049,U003,IT & Data,2021-05-03,,false,lead,perm
+J00421,C038,U003,IT & Data,2021-06-01,,false,senior,perm
+J00422,C028,U003,IT & Data,2021-04-19,,false,senior,contract
+J00423,C001,U003,IT & Data,2021-03-05,,false,senior,perm
+J00424,C008,U003,IT & Data,2021-06-04,,false,mid,contract
+J00425,C005,U003,IT & Data,2021-09-07,,false,mid,perm
+J00426,C065,U003,IT & Data,2021-05-24,,true,senior,perm
+J00427,C001,U003,IT & Data,2021-07-23,,true,mid,perm
+J00428,C052,U003,IT & Data,2021-01-27,,false,mid,perm
+J00429,C038,U003,IT & Data,2021-01-25,,false,mid,perm
+J00430,C058,U003,IT & Data,2021-05-19,,true,senior,perm
+J00431,C058,U003,IT & Data,2021-11-22,,false,junior,perm
+J00432,C008,U003,IT & Data,2021-06-21,,true,senior,contract
+J00433,C058,U003,IT & Data,2021-10-21,,false,junior,perm
+J00434,C055,U003,IT & Data,2021-09-28,,false,lead,perm
+J00435,C001,U003,IT & Data,2021-01-28,,false,mid,perm
+J00436,C054,U003,IT & Data,2021-04-15,,true,senior,perm
+J00437,C043,U003,IT & Data,2021-10-11,,true,junior,perm
+J00438,C040,U003,IT & Data,2021-10-13,,false,junior,perm
+J00439,C049,U003,IT & Data,2021-05-26,,false,junior,perm
+J00440,C058,U003,IT & Data,2021-10-11,,false,mid,perm
+J00441,C045,U003,IT & Data,2021-04-08,,false,senior,perm
+J00442,C032,U003,IT & Data,2021-03-15,,true,senior,perm
+J00443,C055,U003,IT & Data,2021-09-06,,false,senior,perm
+J00444,C065,U003,IT & Data,2021-08-30,,false,senior,contract
+J00445,C038,U003,IT & Data,2021-06-16,,false,mid,perm
+J00446,C005,U004,IT & Data,2021-01-25,,true,mid,perm
+J00447,C008,U004,IT & Data,2021-04-13,,false,mid,perm
+J00448,C001,U004,IT & Data,2021-11-16,,true,junior,perm
+J00449,C038,U004,IT & Data,2021-06-21,,false,mid,perm
+J00450,C032,U004,IT & Data,2021-12-24,,false,senior,perm
+J00451,C040,U004,IT & Data,2021-09-24,,false,mid,perm
+J00452,C065,U004,IT & Data,2021-11-15,,false,mid,perm
+J00453,C052,U004,IT & Data,2021-05-11,,false,mid,contract
+J00454,C065,U004,IT & Data,2021-09-09,,false,mid,perm
+J00455,C040,U004,IT & Data,2021-02-26,,false,mid,perm
+J00456,C008,U004,IT & Data,2021-04-19,,false,lead,perm
+J00457,C037,U004,IT & Data,2021-01-27,,false,mid,perm
+J00458,C043,U004,IT & Data,2021-01-25,,false,junior,perm
+J00459,C065,U004,IT & Data,2021-07-20,,false,senior,perm
+J00460,C038,U004,IT & Data,2021-01-18,,false,senior,perm
+J00461,C065,U004,IT & Data,2021-02-08,,false,mid,perm
+J00462,C006,U004,IT & Data,2021-07-20,,true,mid,perm
+J00463,C006,U004,IT & Data,2021-07-05,,true,mid,perm
+J00464,C049,U004,IT & Data,2021-11-12,,false,senior,perm
+J00465,C038,U004,IT & Data,2021-02-19,,false,junior,perm
+J00466,C049,U004,IT & Data,2021-05-07,,true,junior,perm
+J00467,C054,U004,IT & Data,2021-11-15,,false,senior,perm
+J00468,C043,U004,IT & Data,2021-12-20,,false,junior,perm
+J00469,C028,U004,IT & Data,2021-02-15,,false,mid,perm
+J00470,C002,U007,Engineering,2021-10-11,,false,junior,perm
+J00471,C061,U007,Engineering,2021-01-20,,false,mid,perm
+J00472,C061,U007,Engineering,2021-12-02,,false,senior,perm
+J00473,C009,U007,Engineering,2021-10-11,,false,senior,contract
+J00474,C002,U007,Engineering,2021-07-02,,false,senior,perm
+J00475,C026,U007,Engineering,2021-01-11,,true,lead,contract
+J00476,C023,U007,Engineering,2021-11-22,,true,mid,contract
+J00477,C016,U007,Engineering,2021-10-22,,false,mid,contract
+J00478,C019,U007,Engineering,2021-01-05,,false,mid,perm
+J00479,C002,U007,Engineering,2021-10-11,,false,senior,perm
+J00480,C009,U007,Engineering,2021-04-06,,false,junior,contract
+J00481,C046,U007,Engineering,2021-09-06,,true,mid,perm
+J00482,C016,U007,Engineering,2021-05-03,,true,mid,perm
+J00483,C046,U007,Engineering,2021-08-25,,true,mid,perm
+J00484,C067,U007,Engineering,2021-01-18,,false,mid,contract
+J00485,C068,U007,Engineering,2021-03-12,,false,junior,perm
+J00486,C060,U007,Engineering,2021-03-03,,false,senior,perm
+J00487,C023,U007,Engineering,2021-02-11,,false,mid,contract
+J00488,C014,U007,Engineering,2021-05-10,,true,junior,perm
+J00489,C046,U007,Engineering,2021-02-22,,true,senior,perm
+J00490,C014,U007,Engineering,2021-11-08,,false,senior,contract
+J00491,C019,U007,Engineering,2021-04-20,,false,junior,perm
+J00492,C046,U007,Engineering,2021-03-15,,false,mid,perm
+J00493,C063,U007,Engineering,2021-01-06,,false,senior,contract
+J00494,C019,U007,Engineering,2021-01-04,,false,mid,perm
+J00495,C009,U007,Engineering,2021-01-22,,false,senior,contract
+J00496,C014,U007,Engineering,2021-03-03,,false,senior,contract
+J00497,C060,U008,Engineering,2021-10-18,,false,junior,contract
+J00498,C023,U008,Engineering,2021-04-15,,true,mid,contract
+J00499,C063,U008,Engineering,2021-09-01,,true,mid,contract
+J00500,C009,U008,Engineering,2021-08-13,,false,junior,perm
+J00501,C061,U008,Engineering,2021-01-15,,false,mid,perm
+J00502,C068,U008,Engineering,2021-12-22,,false,mid,contract
+J00503,C063,U008,Engineering,2021-11-22,,false,senior,perm
+J00504,C046,U008,Engineering,2021-02-19,,true,mid,perm
+J00505,C060,U008,Engineering,2021-05-14,,false,mid,perm
+J00506,C023,U008,Engineering,2021-03-02,,false,lead,perm
+J00507,C026,U008,Engineering,2021-04-09,,false,senior,perm
+J00508,C019,U008,Engineering,2021-09-13,,true,junior,perm
+J00509,C002,U008,Engineering,2021-02-22,,false,senior,perm
+J00510,C061,U008,Engineering,2021-06-08,,false,senior,perm
+J00511,C057,U010,Life Sciences,2021-12-01,,false,junior,contract
+J00512,C039,U010,Life Sciences,2021-03-09,,false,lead,perm
+J00513,C064,U010,Life Sciences,2021-02-22,,false,mid,contract
+J00514,C011,U010,Life Sciences,2021-03-02,,false,senior,perm
+J00515,C053,U010,Life Sciences,2021-06-07,,false,junior,perm
+J00516,C070,U010,Life Sciences,2021-01-04,,true,junior,perm
+J00517,C011,U010,Life Sciences,2021-09-15,,false,senior,perm
+J00518,C011,U010,Life Sciences,2021-12-20,,false,mid,perm
+J00519,C034,U010,Life Sciences,2021-10-21,,false,senior,perm
+J00520,C070,U010,Life Sciences,2021-06-21,,true,mid,perm
+J00521,C070,U010,Life Sciences,2021-07-19,,false,senior,perm
+J00522,C029,U010,Life Sciences,2021-09-14,,false,mid,contract
+J00523,C039,U010,Life Sciences,2021-01-27,,true,junior,perm
+J00524,C039,U010,Life Sciences,2021-01-21,,false,senior,perm
+J00525,C053,U010,Life Sciences,2021-03-16,,false,mid,perm
+J00526,C011,U010,Life Sciences,2021-03-12,,true,junior,perm
+J00527,C064,U010,Life Sciences,2021-05-06,,false,mid,perm
+J00528,C044,U010,Life Sciences,2021-12-22,,false,senior,contract
+J00529,C070,U010,Life Sciences,2021-01-18,,true,junior,perm
+J00530,C021,U010,Life Sciences,2021-01-12,,true,mid,contract
+J00531,C070,U010,Life Sciences,2021-10-06,,false,senior,perm
+J00532,C053,U010,Life Sciences,2021-06-21,,true,mid,contract
+J00533,C021,U010,Life Sciences,2021-04-06,,false,senior,perm
+J00534,C070,U010,Life Sciences,2021-10-13,,false,mid,perm
+J00535,C048,U010,Life Sciences,2021-03-02,,false,mid,perm
+J00536,C053,U010,Life Sciences,2021-10-12,,false,senior,perm
+J00537,C039,U010,Life Sciences,2021-09-17,,false,junior,perm
+J00538,C012,U010,Life Sciences,2021-10-05,,true,mid,perm
+J00539,C006,U014,IT & Data,2021-10-08,,false,senior,perm
+J00540,C065,U014,IT & Data,2021-10-13,,false,mid,perm
+J00541,C055,U014,IT & Data,2021-11-09,,false,junior,contract
+J00542,C040,U014,IT & Data,2021-10-06,,false,junior,perm
+J00543,C038,U014,IT & Data,2021-09-20,,false,junior,perm
+J00544,C001,U014,IT & Data,2021-10-07,,false,mid,perm
+J00545,C058,U014,IT & Data,2021-01-04,,false,mid,perm
+J00546,C049,U014,IT & Data,2021-05-17,,true,mid,perm
+J00547,C038,U014,IT & Data,2021-01-18,,false,mid,perm
+J00548,C005,U014,IT & Data,2021-06-07,,true,senior,contract
+J00549,C054,U014,IT & Data,2021-03-01,,false,mid,perm
+J00550,C052,U014,IT & Data,2021-06-07,,false,senior,perm
+J00551,C028,U014,IT & Data,2021-02-02,,false,junior,perm
+J00552,C005,U014,IT & Data,2021-03-01,,true,mid,perm
+J00553,C001,U014,IT & Data,2021-07-08,,false,mid,perm
+J00554,C032,U014,IT & Data,2021-01-12,,false,senior,perm
+J00555,C055,U014,IT & Data,2021-05-24,,false,mid,perm
+J00556,C032,U014,IT & Data,2021-11-05,,false,mid,perm
+J00557,C049,U014,IT & Data,2021-02-18,,true,lead,perm
+J00558,C059,U014,IT & Data,2021-01-18,,false,senior,perm
+J00559,C054,U014,IT & Data,2021-11-05,,false,junior,contract
+J00560,C005,U014,IT & Data,2021-02-08,,false,lead,contract
+J00561,C006,U014,IT & Data,2021-02-08,,false,senior,contract
+J00562,C001,U014,IT & Data,2021-06-16,,false,mid,perm
+J00563,C040,U014,IT & Data,2021-10-08,,false,mid,contract
+J00564,C040,U014,IT & Data,2021-07-14,,false,senior,contract
+J00565,C065,U014,IT & Data,2021-11-09,,true,mid,perm
+J00566,C059,U014,IT & Data,2021-09-03,,false,junior,perm
+J00567,C001,U014,IT & Data,2021-09-21,,false,senior,perm
+J00568,C023,U015,Engineering,2021-05-12,,true,mid,perm
+J00569,C046,U015,Engineering,2021-10-11,,true,senior,contract
+J00570,C046,U015,Engineering,2021-07-12,,false,senior,perm
+J00571,C016,U015,Engineering,2021-05-21,,true,mid,perm
+J00572,C068,U015,Engineering,2021-10-27,,false,mid,perm
+J00573,C068,U015,Engineering,2021-09-08,,false,mid,perm
+J00574,C002,U015,Engineering,2021-08-18,,false,mid,contract
+J00575,C067,U015,Engineering,2021-05-03,,false,lead,perm
+J00576,C016,U015,Engineering,2021-10-11,,false,junior,perm
+J00577,C002,U015,Engineering,2021-09-28,,false,mid,perm
+J00578,C046,U015,Engineering,2021-12-13,,false,mid,contract
+J00579,C060,U015,Engineering,2021-06-10,,false,senior,perm
+J00580,C016,U015,Engineering,2021-09-08,,true,junior,contract
+J00581,C016,U015,Engineering,2021-02-19,,false,mid,contract
+J00582,C060,U015,Engineering,2021-03-11,,false,mid,perm
+J00583,C068,U015,Engineering,2021-01-14,,false,senior,perm
+J00584,C019,U015,Engineering,2021-10-26,,false,senior,contract
+J00585,C014,U015,Engineering,2021-05-27,,false,mid,perm
+J00586,C026,U015,Engineering,2021-12-28,,false,mid,perm
+J00587,C002,U015,Engineering,2021-11-03,,false,mid,perm
+J00588,C009,U015,Engineering,2021-09-20,,false,senior,perm
+J00589,C022,U015,Engineering,2021-09-10,,false,senior,perm
+J00590,C002,U015,Engineering,2021-03-01,,false,mid,perm
+J00591,C004,U015,Engineering,2021-10-18,,false,senior,contract
+J00592,C014,U015,Engineering,2021-11-22,,false,mid,perm
+J00593,C067,U015,Engineering,2021-04-05,,false,senior,contract
+J00594,C010,U015,Engineering,2021-02-03,,false,mid,perm
+J00595,C041,U015,Engineering,2021-12-13,,false,junior,perm
+J00596,C060,U015,Engineering,2021-05-26,,false,junior,contract
+J00597,C023,U015,Engineering,2021-05-28,,false,senior,contract
+J00598,C014,U015,Engineering,2021-11-29,,false,senior,perm
+J00599,C019,U015,Engineering,2021-12-28,,false,senior,perm
+J00600,C002,U015,Engineering,2021-02-26,,false,junior,contract
+J00601,C014,U015,Engineering,2021-04-13,,false,senior,contract
+J00602,C019,U015,Engineering,2021-09-13,,true,mid,perm
+J00603,C043,U016,IT & Data,2021-05-13,,false,junior,perm
+J00604,C049,U016,IT & Data,2021-11-18,,false,senior,perm
+J00605,C013,U016,IT & Data,2021-10-19,,false,mid,perm
+J00606,C037,U016,IT & Data,2021-11-02,,false,junior,perm
+J00607,C037,U016,IT & Data,2021-08-03,,false,mid,contract
+J00608,C058,U016,IT & Data,2021-12-14,,true,mid,contract
+J00609,C028,U016,IT & Data,2021-01-15,,true,mid,perm
+J00610,C054,U016,IT & Data,2021-09-13,,false,mid,perm
+J00611,C032,U016,IT & Data,2021-04-05,,true,senior,perm
+J00612,C055,U016,IT & Data,2021-05-19,,false,mid,perm
+J00613,C032,U016,IT & Data,2021-12-02,,false,senior,perm
+J00614,C059,U016,IT & Data,2021-12-09,,true,mid,perm
+J00615,C040,U016,IT & Data,2021-11-15,,false,junior,perm
+J00616,C001,U016,IT & Data,2021-05-19,,true,mid,perm
+J00617,C001,U016,IT & Data,2021-04-12,,false,senior,contract
+J00618,C028,U016,IT & Data,2021-10-27,,false,mid,perm
+J00619,C013,U016,IT & Data,2021-01-20,,false,mid,perm
+J00620,C032,U016,IT & Data,2021-11-01,,true,mid,contract
+J00621,C055,U016,IT & Data,2021-02-15,,false,junior,contract
+J00622,C001,U016,IT & Data,2021-02-22,,true,senior,contract
+J00623,C059,U016,IT & Data,2021-02-11,,false,mid,perm
+J00624,C055,U016,IT & Data,2021-09-09,,true,mid,perm
+J00625,C032,U016,IT & Data,2021-09-10,,false,senior,contract
+J00626,C008,U016,IT & Data,2021-03-10,,true,mid,perm
+J00627,C038,U016,IT & Data,2021-04-28,,true,mid,perm
+J00628,C065,U016,IT & Data,2021-02-15,,false,mid,contract
+J00629,C037,U016,IT & Data,2021-05-24,,false,junior,perm
+J00630,C045,U016,IT & Data,2021-03-09,,true,junior,perm
+J00631,C054,U016,IT & Data,2021-12-13,,false,junior,contract
+J00632,C008,U016,IT & Data,2021-05-17,,true,mid,perm
+J00633,C059,U016,IT & Data,2021-01-04,,true,mid,perm
+J00634,C038,U016,IT & Data,2021-06-22,,false,junior,perm
+J00635,C049,U016,IT & Data,2021-11-15,,false,mid,perm
+J00636,C006,U016,IT & Data,2021-09-20,,false,junior,contract
+J00637,C050,U017,Public Sector,2021-07-09,,false,senior,contract
+J00638,C018,U017,Public Sector,2021-10-11,,false,senior,perm
+J00639,C036,U017,Public Sector,2021-12-10,,false,mid,perm
+J00640,C018,U017,Public Sector,2021-11-08,,true,mid,perm
+J00641,C036,U017,Public Sector,2021-09-01,,false,junior,perm
+J00642,C025,U017,Public Sector,2021-09-06,,false,junior,perm
+J00643,C018,U017,Public Sector,2021-01-08,,false,senior,contract
+J00644,C018,U017,Public Sector,2021-04-01,,false,senior,perm
+J00645,C024,U017,Public Sector,2021-04-06,,false,mid,perm
+J00646,C050,U017,Public Sector,2021-01-11,,false,senior,perm
+J00647,C025,U017,Public Sector,2021-12-27,,true,mid,contract
+J00648,C018,U017,Public Sector,2021-07-28,,false,lead,perm
+J00649,C025,U017,Public Sector,2021-10-28,,false,senior,perm
+J00650,C050,U017,Public Sector,2021-12-21,,false,mid,contract
+J00651,C024,U017,Public Sector,2021-11-08,,false,mid,perm
+J00652,C025,U017,Public Sector,2021-12-06,,false,mid,contract
+J00653,C018,U017,Public Sector,2021-03-15,,true,junior,perm
+J00654,C024,U017,Public Sector,2021-04-05,,false,senior,perm
+J00655,C054,U018,IT & Data,2021-09-17,,false,senior,perm
+J00656,C001,U018,IT & Data,2021-09-10,,false,mid,perm
+J00657,C054,U018,IT & Data,2021-09-06,,false,senior,perm
+J00658,C045,U018,IT & Data,2021-01-01,,true,mid,contract
+J00659,C045,U018,IT & Data,2021-01-08,,false,mid,perm
+J00660,C058,U018,IT & Data,2021-10-06,,true,mid,contract
+J00661,C038,U018,IT & Data,2021-03-08,,false,mid,perm
+J00662,C049,U018,IT & Data,2021-11-29,,false,senior,perm
+J00663,C038,U018,IT & Data,2021-11-09,,true,mid,contract
+J00664,C045,U018,IT & Data,2021-03-25,,false,senior,perm
+J00665,C045,U018,IT & Data,2021-04-23,,false,mid,perm
+J00666,C054,U018,IT & Data,2021-10-11,,false,mid,perm
+J00667,C001,U018,IT & Data,2021-12-27,,false,mid,perm
+J00668,C043,U018,IT & Data,2021-09-13,,true,junior,contract
+J00669,C059,U019,IT & Data,2021-11-01,,false,lead,perm
+J00670,C005,U019,IT & Data,2021-02-04,,true,senior,perm
+J00671,C032,U019,IT & Data,2021-07-12,,false,mid,contract
+J00672,C065,U019,IT & Data,2021-07-12,,false,junior,contract
+J00673,C005,U019,IT & Data,2021-11-11,,false,mid,perm
+J00674,C006,U019,IT & Data,2021-09-15,,false,mid,perm
+J00675,C043,U019,IT & Data,2021-01-27,,true,mid,perm
+J00676,C037,U019,IT & Data,2021-06-17,,false,mid,perm
+J00677,C049,U019,IT & Data,2021-03-03,,false,junior,perm
+J00678,C013,U019,IT & Data,2021-05-28,,false,mid,perm
+J00679,C065,U019,IT & Data,2021-11-04,,false,senior,contract
+J00680,C054,U019,IT & Data,2021-10-04,,true,mid,contract
+J00681,C006,U019,IT & Data,2021-11-09,,false,mid,perm
+J00682,C005,U019,IT & Data,2021-03-08,,false,mid,perm
+J00683,C028,U019,IT & Data,2021-10-22,,true,mid,contract
+J00684,C032,U019,IT & Data,2021-11-15,,true,lead,contract
+J00685,C050,U021,Public Sector,2021-11-22,,false,mid,contract
+J00686,C003,U021,Public Sector,2021-06-24,,false,mid,perm
+J00687,C036,U021,Public Sector,2021-11-23,,false,junior,contract
+J00688,C036,U021,Public Sector,2021-09-24,,false,senior,perm
+J00689,C003,U021,Public Sector,2021-11-08,,false,senior,contract
+J00690,C036,U021,Public Sector,2021-05-10,,false,mid,perm
+J00691,C018,U021,Public Sector,2021-06-28,,false,junior,perm
+J00692,C003,U021,Public Sector,2021-08-11,,false,senior,contract
+J00693,C024,U021,Public Sector,2021-06-03,,false,senior,perm
+J00694,C003,U021,Public Sector,2021-12-27,,false,mid,perm
+J00695,C018,U021,Public Sector,2021-11-08,,false,senior,perm
+J00696,C018,U021,Public Sector,2021-09-06,,false,mid,perm
+J00697,C018,U021,Public Sector,2021-04-08,,false,mid,contract
+J00698,C059,U001,IT & Data,2022-09-05,,false,lead,perm
+J00699,C055,U001,IT & Data,2022-12-08,,false,mid,perm
+J00700,C052,U001,IT & Data,2022-09-02,,false,lead,perm
+J00701,C038,U001,IT & Data,2022-09-16,,false,junior,contract
+J00702,C058,U001,IT & Data,2022-10-10,,false,junior,perm
+J00703,C037,U001,IT & Data,2022-10-11,,false,senior,perm
+J00704,C065,U001,IT & Data,2022-12-19,,true,mid,perm
+J00705,C028,U001,IT & Data,2022-11-18,,false,mid,perm
+J00706,C043,U001,IT & Data,2022-12-12,,true,junior,contract
+J00707,C001,U001,IT & Data,2022-03-21,,false,mid,perm
+J00708,C049,U001,IT & Data,2022-08-15,,false,junior,contract
+J00709,C028,U001,IT & Data,2022-10-03,,false,mid,perm
+J00710,C055,U001,IT & Data,2022-01-28,,false,senior,contract
+J00711,C008,U001,IT & Data,2022-10-06,,false,senior,perm
+J00712,C040,U001,IT & Data,2022-03-14,,false,senior,contract
+J00713,C040,U001,IT & Data,2022-04-19,,true,mid,perm
+J00714,C052,U001,IT & Data,2022-08-08,,false,senior,contract
+J00715,C052,U001,IT & Data,2022-01-03,,false,mid,perm
+J00716,C001,U001,IT & Data,2022-06-24,,false,senior,contract
+J00717,C054,U001,IT & Data,2022-01-17,,false,senior,contract
+J00718,C045,U001,IT & Data,2022-11-18,,false,senior,perm
+J00719,C055,U001,IT & Data,2022-11-03,,false,senior,perm
+J00720,C037,U001,IT & Data,2022-03-17,,false,mid,perm
+J00721,C054,U001,IT & Data,2022-04-25,,true,lead,perm
+J00722,C045,U001,IT & Data,2022-01-17,,false,mid,contract
+J00723,C008,U001,IT & Data,2022-06-16,,false,senior,contract
+J00724,C054,U001,IT & Data,2022-10-19,,false,mid,perm
+J00725,C054,U001,IT & Data,2022-01-18,,false,lead,perm
+J00726,C055,U001,IT & Data,2022-11-14,,false,lead,perm
+J00727,C005,U001,IT & Data,2022-06-06,,false,mid,perm
+J00728,C008,U001,IT & Data,2022-10-11,,true,mid,perm
+J00729,C054,U001,IT & Data,2022-06-22,,true,mid,contract
+J00730,C032,U004,IT & Data,2022-10-03,,false,senior,perm
+J00731,C052,U004,IT & Data,2022-09-12,,true,senior,perm
+J00732,C038,U004,IT & Data,2022-10-21,,false,senior,perm
+J00733,C040,U004,IT & Data,2022-01-21,,false,senior,perm
+J00734,C013,U004,IT & Data,2022-06-01,,false,senior,perm
+J00735,C055,U004,IT & Data,2022-06-06,,false,junior,perm
+J00736,C055,U004,IT & Data,2022-07-11,,false,senior,perm
+J00737,C052,U004,IT & Data,2022-11-28,,false,senior,contract
+J00738,C065,U004,IT & Data,2022-05-10,,true,mid,perm
+J00739,C058,U004,IT & Data,2022-02-23,,true,senior,perm
+J00740,C045,U004,IT & Data,2022-11-21,,false,junior,perm
+J00741,C054,U004,IT & Data,2022-01-12,,false,mid,contract
+J00742,C054,U004,IT & Data,2022-06-20,,false,junior,perm
+J00743,C059,U004,IT & Data,2022-08-03,,false,mid,perm
+J00744,C054,U004,IT & Data,2022-06-23,,false,lead,perm
+J00745,C043,U004,IT & Data,2022-04-11,,false,senior,perm
+J00746,C040,U004,IT & Data,2022-07-01,,false,mid,perm
+J00747,C043,U004,IT & Data,2022-05-04,,false,lead,contract
+J00748,C043,U004,IT & Data,2022-12-28,,false,mid,contract
+J00749,C052,U004,IT & Data,2022-07-21,,false,senior,perm
+J00750,C045,U004,IT & Data,2022-03-28,,false,mid,perm
+J00751,C013,U004,IT & Data,2022-11-11,,false,mid,contract
+J00752,C043,U004,IT & Data,2022-05-04,,true,mid,contract
+J00753,C058,U004,IT & Data,2022-05-16,,true,senior,perm
+J00754,C045,U004,IT & Data,2022-02-14,,true,lead,perm
+J00755,C054,U004,IT & Data,2022-02-25,,false,senior,perm
+J00756,C008,U004,IT & Data,2022-11-15,,true,junior,perm
+J00757,C052,U004,IT & Data,2022-10-10,,true,junior,perm
+J00758,C006,U004,IT & Data,2022-04-19,,false,junior,perm
+J00759,C005,U004,IT & Data,2022-04-25,,false,senior,contract
+J00760,C006,U004,IT & Data,2022-09-08,,true,lead,perm
+J00761,C008,U004,IT & Data,2022-09-12,,false,junior,perm
+J00762,C032,U004,IT & Data,2022-03-07,,false,senior,perm
+J00763,C055,U004,IT & Data,2022-05-02,,false,senior,contract
+J00764,C045,U004,IT & Data,2022-06-24,,false,junior,perm
+J00765,C055,U004,IT & Data,2022-09-23,,false,mid,contract
+J00766,C052,U004,IT & Data,2022-09-12,,false,senior,perm
+J00767,C065,U004,IT & Data,2022-03-21,,false,mid,contract
+J00768,C067,U005,Engineering,2022-05-16,,false,mid,perm
+J00769,C026,U007,Engineering,2022-05-10,,true,senior,perm
+J00770,C056,U007,Engineering,2022-03-15,,false,junior,contract
+J00771,C026,U007,Engineering,2022-04-13,,true,mid,perm
+J00772,C022,U007,Engineering,2022-06-24,,true,senior,perm
+J00773,C010,U007,Engineering,2022-04-11,,true,mid,perm
+J00774,C056,U007,Engineering,2022-10-26,,true,junior,perm
+J00775,C002,U007,Engineering,2022-04-01,,false,mid,perm
+J00776,C046,U007,Engineering,2022-03-10,,false,mid,perm
+J00777,C019,U007,Engineering,2022-07-19,,false,mid,contract
+J00778,C063,U007,Engineering,2022-07-28,,false,mid,contract
+J00779,C010,U007,Engineering,2022-10-25,,true,senior,perm
+J00780,C002,U007,Engineering,2022-01-17,,false,mid,perm
+J00781,C004,U007,Engineering,2022-08-03,,false,mid,contract
+J00782,C067,U007,Engineering,2022-09-23,,false,mid,perm
+J00783,C067,U007,Engineering,2022-09-26,,false,junior,perm
+J00784,C056,U007,Engineering,2022-11-28,,false,mid,perm
+J00785,C002,U007,Engineering,2022-11-25,,true,mid,contract
+J00786,C016,U007,Engineering,2022-05-17,,false,mid,contract
+J00787,C002,U007,Engineering,2022-01-03,,false,mid,contract
+J00788,C019,U007,Engineering,2022-05-19,,false,senior,perm
+J00789,C026,U007,Engineering,2022-11-07,,false,junior,perm
+J00790,C026,U007,Engineering,2022-05-20,,false,junior,perm
+J00791,C041,U007,Engineering,2022-01-21,,false,mid,perm
+J00792,C010,U007,Engineering,2022-10-10,,true,junior,contract
+J00793,C023,U007,Engineering,2022-06-21,,true,senior,perm
+J00794,C068,U007,Engineering,2022-03-16,,true,mid,perm
+J00795,C067,U007,Engineering,2022-12-05,,false,mid,contract
+J00796,C009,U007,Engineering,2022-02-04,,false,senior,contract
+J00797,C026,U007,Engineering,2022-08-22,,false,senior,perm
+J00798,C014,U007,Engineering,2022-05-02,,false,senior,perm
+J00799,C026,U007,Engineering,2022-12-26,,true,senior,contract
+J00800,C068,U007,Engineering,2022-02-17,,false,senior,perm
+J00801,C067,U007,Engineering,2022-01-25,,false,mid,perm
+J00802,C063,U007,Engineering,2022-10-18,,false,mid,perm
+J00803,C019,U007,Engineering,2022-10-17,,false,junior,perm
+J00804,C026,U007,Engineering,2022-11-03,,true,mid,perm
+J00805,C046,U007,Engineering,2022-04-06,,true,mid,contract
+J00806,C010,U007,Engineering,2022-12-14,,false,senior,perm
+J00807,C010,U007,Engineering,2022-03-18,,false,mid,perm
+J00808,C014,U007,Engineering,2022-04-07,,false,senior,perm
+J00809,C060,U007,Engineering,2022-11-03,,false,senior,perm
+J00810,C010,U007,Engineering,2022-10-27,,false,mid,contract
+J00811,C019,U007,Engineering,2022-03-21,,false,senior,perm
+J00812,C016,U007,Engineering,2022-11-25,,false,senior,perm
+J00813,C060,U008,Engineering,2022-12-13,,false,senior,perm
+J00814,C010,U008,Engineering,2022-02-04,,false,mid,contract
+J00815,C019,U008,Engineering,2022-10-04,,false,mid,perm
+J00816,C067,U008,Engineering,2022-03-28,,false,senior,perm
+J00817,C014,U008,Engineering,2022-05-23,,false,junior,perm
+J00818,C019,U008,Engineering,2022-09-01,,false,mid,contract
+J00819,C002,U008,Engineering,2022-01-26,,false,senior,perm
+J00820,C068,U008,Engineering,2022-04-07,,false,lead,perm
+J00821,C016,U008,Engineering,2022-12-06,,true,senior,perm
+J00822,C019,U008,Engineering,2022-05-10,,false,lead,perm
+J00823,C010,U008,Engineering,2022-08-02,,false,mid,perm
+J00824,C022,U008,Engineering,2022-11-07,,false,mid,contract
+J00825,C046,U008,Engineering,2022-05-06,,true,senior,perm
+J00826,C046,U008,Engineering,2022-01-25,,false,mid,perm
+J00827,C002,U008,Engineering,2022-09-09,,false,senior,perm
+J00828,C016,U008,Engineering,2022-11-28,,true,junior,perm
+J00829,C026,U008,Engineering,2022-06-21,,false,mid,perm
+J00830,C056,U008,Engineering,2022-09-05,,false,mid,perm
+J00831,C016,U008,Engineering,2022-03-28,,true,senior,contract
+J00832,C067,U008,Engineering,2022-03-04,,false,lead,perm
+J00833,C026,U008,Engineering,2022-11-10,,false,junior,contract
+J00834,C056,U008,Engineering,2022-09-19,,false,junior,contract
+J00835,C019,U008,Engineering,2022-10-21,,false,senior,contract
+J00836,C019,U008,Engineering,2022-05-09,,false,mid,perm
+J00837,C016,U009,Engineering,2022-04-12,,false,mid,perm
+J00838,C066,U010,Life Sciences,2022-12-19,,true,senior,perm
+J00839,C012,U010,Life Sciences,2022-12-19,,false,mid,perm
+J00840,C066,U010,Life Sciences,2022-06-06,,true,mid,contract
+J00841,C064,U010,Life Sciences,2022-11-11,,false,mid,perm
+J00842,C021,U010,Life Sciences,2022-09-26,,false,mid,perm
+J00843,C039,U010,Life Sciences,2022-11-21,,true,junior,perm
+J00844,C011,U010,Life Sciences,2022-09-19,,false,lead,contract
+J00845,C029,U010,Life Sciences,2022-09-12,,false,senior,perm
+J00846,C021,U010,Life Sciences,2022-01-04,,false,senior,perm
+J00847,C048,U010,Life Sciences,2022-11-14,,true,mid,perm
+J00848,C070,U010,Life Sciences,2022-09-26,,false,mid,contract
+J00849,C057,U010,Life Sciences,2022-12-23,,false,senior,perm
+J00850,C034,U010,Life Sciences,2022-02-07,,false,junior,perm
+J00851,C021,U010,Life Sciences,2022-02-25,,false,senior,perm
+J00852,C070,U010,Life Sciences,2022-07-20,,false,mid,contract
+J00853,C021,U010,Life Sciences,2022-09-21,,false,junior,perm
+J00854,C066,U010,Life Sciences,2022-05-09,,true,mid,perm
+J00855,C053,U010,Life Sciences,2022-12-13,,false,lead,perm
+J00856,C012,U010,Life Sciences,2022-04-18,,false,senior,perm
+J00857,C012,U010,Life Sciences,2022-04-25,,false,mid,perm
+J00858,C021,U010,Life Sciences,2022-01-19,,false,senior,perm
+J00859,C021,U010,Life Sciences,2022-06-10,,false,senior,contract
+J00860,C012,U010,Life Sciences,2022-04-05,,true,senior,perm
+J00861,C066,U010,Life Sciences,2022-02-22,,true,mid,contract
+J00862,C048,U010,Life Sciences,2022-11-03,,false,mid,perm
+J00863,C048,U010,Life Sciences,2022-10-13,,false,junior,perm
+J00864,C048,U010,Life Sciences,2022-10-05,,false,senior,contract
+J00865,C039,U010,Life Sciences,2022-04-19,,false,mid,perm
+J00866,C012,U010,Life Sciences,2022-05-09,,true,mid,perm
+J00867,C070,U010,Life Sciences,2022-08-11,,false,mid,contract
+J00868,C048,U010,Life Sciences,2022-12-12,,true,mid,perm
+J00869,C070,U010,Life Sciences,2022-02-10,,false,senior,perm
+J00870,C039,U010,Life Sciences,2022-08-11,,true,junior,perm
+J00871,C029,U010,Life Sciences,2022-10-20,,true,junior,contract
+J00872,C064,U010,Life Sciences,2022-02-15,,false,lead,contract
+J00873,C021,U010,Life Sciences,2022-11-28,,false,mid,perm
+J00874,C044,U010,Life Sciences,2022-10-24,,false,senior,contract
+J00875,C066,U010,Life Sciences,2022-03-01,,false,mid,contract
+J00876,C021,U010,Life Sciences,2022-09-20,,false,mid,perm
+J00877,C034,U010,Life Sciences,2022-07-08,,false,senior,perm
+J00878,C048,U010,Life Sciences,2022-03-15,,false,mid,perm
+J00879,C038,U013,IT & Data,2022-10-06,,false,mid,contract
+J00880,C028,U013,IT & Data,2022-01-17,,true,junior,perm
+J00881,C049,U014,IT & Data,2022-12-22,,false,mid,perm
+J00882,C058,U014,IT & Data,2022-09-22,,false,junior,perm
+J00883,C055,U014,IT & Data,2022-11-28,,false,senior,perm
+J00884,C006,U014,IT & Data,2022-06-03,,true,mid,perm
+J00885,C045,U014,IT & Data,2022-06-06,,false,mid,perm
+J00886,C001,U014,IT & Data,2022-03-28,,false,mid,perm
+J00887,C052,U014,IT & Data,2022-08-29,,false,senior,contract
+J00888,C040,U014,IT & Data,2022-09-28,,false,senior,perm
+J00889,C038,U014,IT & Data,2022-04-25,,false,mid,contract
+J00890,C055,U014,IT & Data,2022-02-18,,true,junior,contract
+J00891,C005,U014,IT & Data,2022-07-26,,false,junior,contract
+J00892,C038,U014,IT & Data,2022-10-07,,false,senior,perm
+J00893,C055,U014,IT & Data,2022-04-14,,false,senior,perm
+J00894,C049,U014,IT & Data,2022-02-22,,false,mid,perm
+J00895,C037,U014,IT & Data,2022-10-26,,false,mid,contract
+J00896,C028,U014,IT & Data,2022-07-22,,false,senior,perm
+J00897,C045,U014,IT & Data,2022-10-25,,false,junior,perm
+J00898,C055,U014,IT & Data,2022-12-02,,false,mid,perm
+J00899,C043,U014,IT & Data,2022-05-04,,false,senior,contract
+J00900,C054,U014,IT & Data,2022-12-19,,false,mid,perm
+J00901,C045,U014,IT & Data,2022-07-11,,false,senior,perm
+J00902,C040,U014,IT & Data,2022-07-11,,false,mid,contract
+J00903,C065,U014,IT & Data,2022-01-17,,false,junior,contract
+J00904,C049,U014,IT & Data,2022-08-09,,false,junior,perm
+J00905,C052,U014,IT & Data,2022-10-03,,false,mid,perm
+J00906,C032,U014,IT & Data,2022-06-09,,false,mid,contract
+J00907,C032,U014,IT & Data,2022-06-28,,false,mid,perm
+J00908,C005,U014,IT & Data,2022-07-04,,false,lead,contract
+J00909,C065,U014,IT & Data,2022-01-24,,false,lead,perm
+J00910,C058,U014,IT & Data,2022-12-05,,false,mid,contract
+J00911,C006,U014,IT & Data,2022-02-14,,false,senior,perm
+J00912,C054,U014,IT & Data,2022-05-26,,true,mid,perm
+J00913,C006,U014,IT & Data,2022-11-15,,false,mid,perm
+J00914,C045,U014,IT & Data,2022-04-25,,true,mid,contract
+J00915,C055,U014,IT & Data,2022-11-28,,false,senior,contract
+J00916,C032,U014,IT & Data,2022-10-10,,true,senior,perm
+J00917,C054,U014,IT & Data,2022-01-03,,true,mid,contract
+J00918,C004,U015,Engineering,2022-05-05,,false,senior,perm
+J00919,C019,U015,Engineering,2022-05-25,,false,mid,contract
+J00920,C026,U015,Engineering,2022-11-07,,false,mid,perm
+J00921,C026,U015,Engineering,2022-01-11,,false,lead,perm
+J00922,C023,U015,Engineering,2022-09-28,,false,senior,perm
+J00923,C002,U015,Engineering,2022-11-21,,true,senior,perm
+J00924,C056,U015,Engineering,2022-03-28,,false,mid,perm
+J00925,C046,U015,Engineering,2022-11-09,,false,senior,contract
+J00926,C019,U015,Engineering,2022-01-12,,false,junior,perm
+J00927,C014,U015,Engineering,2022-09-05,,false,junior,perm
+J00928,C046,U015,Engineering,2022-01-14,,false,mid,perm
+J00929,C056,U015,Engineering,2022-12-13,,false,lead,perm
+J00930,C016,U015,Engineering,2022-05-10,,false,mid,contract
+J00931,C026,U015,Engineering,2022-01-25,,false,junior,contract
+J00932,C068,U015,Engineering,2022-06-02,,false,mid,perm
+J00933,C067,U015,Engineering,2022-11-28,,false,senior,perm
+J00934,C022,U015,Engineering,2022-10-12,,false,junior,contract
+J00935,C056,U015,Engineering,2022-01-19,,false,mid,contract
+J00936,C063,U015,Engineering,2022-06-06,,false,lead,perm
+J00937,C067,U015,Engineering,2022-01-13,,false,mid,perm
+J00938,C010,U015,Engineering,2022-10-14,,true,junior,perm
+J00939,C002,U015,Engineering,2022-10-05,,false,junior,perm
+J00940,C067,U015,Engineering,2022-05-03,,true,senior,perm
+J00941,C019,U015,Engineering,2022-12-12,,false,junior,perm
+J00942,C006,U016,IT & Data,2022-06-13,,true,junior,contract
+J00943,C006,U016,IT & Data,2022-03-16,,false,mid,perm
+J00944,C065,U016,IT & Data,2022-09-07,,false,senior,contract
+J00945,C055,U016,IT & Data,2022-09-01,,true,senior,perm
+J00946,C054,U016,IT & Data,2022-04-11,,false,junior,perm
+J00947,C013,U016,IT & Data,2022-01-24,,true,senior,contract
+J00948,C065,U016,IT & Data,2022-06-06,,false,senior,contract
+J00949,C052,U016,IT & Data,2022-02-14,,false,junior,perm
+J00950,C054,U016,IT & Data,2022-05-11,,false,junior,contract
+J00951,C054,U016,IT & Data,2022-08-12,,false,senior,perm
+J00952,C065,U016,IT & Data,2022-06-06,,false,mid,perm
+J00953,C001,U016,IT & Data,2022-01-03,,false,mid,perm
+J00954,C054,U016,IT & Data,2022-03-07,,false,mid,perm
+J00955,C005,U016,IT & Data,2022-05-09,,false,senior,perm
+J00956,C008,U016,IT & Data,2022-05-04,,false,junior,perm
+J00957,C040,U016,IT & Data,2022-05-02,,true,senior,perm
+J00958,C005,U016,IT & Data,2022-09-08,,false,mid,perm
+J00959,C006,U016,IT & Data,2022-04-12,,false,mid,contract
+J00960,C008,U016,IT & Data,2022-05-23,,true,senior,perm
+J00961,C043,U016,IT & Data,2022-11-15,,false,mid,contract
+J00962,C028,U016,IT & Data,2022-06-08,,true,senior,perm
+J00963,C043,U016,IT & Data,2022-11-10,,false,mid,contract
+J00964,C006,U016,IT & Data,2022-10-24,,false,junior,perm
+J00965,C043,U018,IT & Data,2022-08-16,,false,mid,perm
+J00966,C058,U018,IT & Data,2022-09-15,,false,senior,perm
+J00967,C052,U018,IT & Data,2022-12-01,,false,junior,contract
+J00968,C005,U018,IT & Data,2022-02-10,,true,mid,contract
+J00969,C040,U018,IT & Data,2022-09-05,,false,lead,perm
+J00970,C032,U018,IT & Data,2022-09-21,,false,mid,perm
+J00971,C006,U018,IT & Data,2022-10-17,,true,senior,contract
+J00972,C032,U018,IT & Data,2022-02-28,,false,junior,perm
+J00973,C065,U018,IT & Data,2022-04-15,,true,mid,perm
+J00974,C059,U018,IT & Data,2022-10-19,,false,mid,perm
+J00975,C065,U018,IT & Data,2022-07-06,,false,mid,perm
+J00976,C059,U018,IT & Data,2022-07-08,,true,senior,perm
+J00977,C005,U018,IT & Data,2022-01-03,,false,junior,perm
+J00978,C058,U018,IT & Data,2022-11-16,,false,mid,perm
+J00979,C043,U018,IT & Data,2022-05-23,,false,senior,perm
+J00980,C045,U018,IT & Data,2022-06-27,,false,lead,perm
+J00981,C065,U018,IT & Data,2022-08-19,,false,mid,perm
+J00982,C028,U018,IT & Data,2022-08-03,,false,senior,perm
+J00983,C040,U018,IT & Data,2022-02-28,,false,senior,perm
+J00984,C043,U018,IT & Data,2022-07-19,,true,junior,perm
+J00985,C008,U018,IT & Data,2022-12-22,,true,mid,contract
+J00986,C040,U018,IT & Data,2022-03-25,,true,mid,perm
+J00987,C038,U018,IT & Data,2022-01-25,,false,junior,perm
+J00988,C045,U018,IT & Data,2022-11-21,,false,mid,perm
+J00989,C043,U018,IT & Data,2022-06-16,,false,mid,perm
+J00990,C040,U018,IT & Data,2022-09-28,,true,mid,contract
+J00991,C043,U018,IT & Data,2022-09-22,,false,mid,perm
+J00992,C037,U018,IT & Data,2022-04-11,,false,senior,perm
+J00993,C043,U018,IT & Data,2022-07-14,,false,junior,perm
+J00994,C045,U019,IT & Data,2022-04-22,,true,lead,perm
+J00995,C005,U019,IT & Data,2022-05-02,,false,senior,perm
+J00996,C045,U019,IT & Data,2022-08-19,,false,mid,perm
+J00997,C054,U019,IT & Data,2022-12-27,,false,mid,perm
+J00998,C052,U019,IT & Data,2022-07-04,,false,mid,perm
+J00999,C028,U019,IT & Data,2022-03-23,,false,lead,perm
+J01000,C008,U019,IT & Data,2022-05-25,,true,lead,perm
+J01001,C058,U019,IT & Data,2022-01-21,,false,lead,contract
+J01002,C049,U019,IT & Data,2022-09-15,,true,mid,perm
+J01003,C040,U019,IT & Data,2022-02-25,,false,mid,perm
+J01004,C032,U019,IT & Data,2022-03-10,,true,senior,perm
+J01005,C040,U019,IT & Data,2022-06-15,,false,mid,perm
+J01006,C049,U019,IT & Data,2022-06-27,,true,mid,contract
+J01007,C040,U019,IT & Data,2022-12-26,,false,senior,contract
+J01008,C055,U019,IT & Data,2022-10-24,,true,mid,perm
+J01009,C049,U019,IT & Data,2022-09-12,,true,senior,perm
+J01010,C049,U019,IT & Data,2022-06-23,,false,mid,contract
+J01011,C059,U019,IT & Data,2022-06-13,,true,mid,perm
+J01012,C008,U019,IT & Data,2022-09-06,,true,mid,perm
+J01013,C040,U019,IT & Data,2022-09-19,,false,junior,perm
+J01014,C058,U019,IT & Data,2022-09-13,,false,lead,perm
+J01015,C040,U019,IT & Data,2022-09-19,,false,mid,perm
+J01016,C028,U019,IT & Data,2022-11-14,,false,mid,perm
+J01017,C043,U019,IT & Data,2022-01-03,,false,mid,contract
+J01018,C065,U019,IT & Data,2022-08-03,,false,junior,perm
+J01019,C065,U019,IT & Data,2022-07-11,,true,senior,contract
+J01020,C045,U019,IT & Data,2022-11-28,,true,mid,perm
+J01021,C005,U019,IT & Data,2022-11-28,,false,mid,contract
+J01022,C008,U019,IT & Data,2022-06-02,,true,junior,contract
+J01023,C038,U019,IT & Data,2022-10-06,,false,mid,perm
+J01024,C045,U019,IT & Data,2022-07-12,,true,senior,perm
+J01025,C040,U019,IT & Data,2022-04-11,,false,senior,contract
+J01026,C005,U019,IT & Data,2022-10-17,,false,junior,perm
+J01027,C006,U019,IT & Data,2022-10-04,,true,junior,perm
+J01028,C005,U019,IT & Data,2022-10-28,,false,senior,perm
+J01029,C037,U019,IT & Data,2022-05-23,,false,mid,perm
+J01030,C065,U019,IT & Data,2022-12-28,,false,mid,perm
+J01031,C036,U021,Public Sector,2022-03-22,,false,mid,contract
+J01032,C025,U021,Public Sector,2022-08-22,,false,mid,perm
+J01033,C025,U021,Public Sector,2022-12-23,,false,mid,contract
+J01034,C036,U021,Public Sector,2022-09-12,,false,junior,perm
+J01035,C036,U021,Public Sector,2022-02-10,,false,mid,perm
+J01036,C036,U021,Public Sector,2022-10-05,,false,senior,perm
+J01037,C003,U021,Public Sector,2022-06-27,,true,mid,perm
+J01038,C036,U021,Public Sector,2022-09-19,,false,senior,contract
+J01039,C018,U021,Public Sector,2022-12-15,,false,senior,perm
+J01040,C024,U021,Public Sector,2022-05-02,,false,senior,contract
+J01041,C003,U021,Public Sector,2022-06-27,,false,mid,perm
+J01042,C036,U021,Public Sector,2022-02-09,,false,senior,perm
+J01043,C003,U021,Public Sector,2022-03-07,,false,mid,perm
+J01044,C003,U021,Public Sector,2022-06-27,,false,senior,contract
+J01045,C003,U021,Public Sector,2022-01-03,,false,senior,contract
+J01046,C003,U021,Public Sector,2022-11-23,,false,mid,perm
+J01047,C018,U021,Public Sector,2022-07-27,,false,mid,contract
+J01048,C005,U001,IT & Data,2023-04-20,,false,senior,perm
+J01049,C006,U001,IT & Data,2023-12-18,,false,senior,contract
+J01050,C001,U001,IT & Data,2023-07-26,,true,junior,perm
+J01051,C040,U001,IT & Data,2023-07-11,,false,junior,perm
+J01052,C059,U001,IT & Data,2023-05-23,,false,senior,contract
+J01053,C028,U001,IT & Data,2023-08-09,,false,mid,perm
+J01054,C055,U001,IT & Data,2023-05-19,,false,mid,perm
+J01055,C054,U001,IT & Data,2023-06-14,,true,lead,perm
+J01056,C028,U001,IT & Data,2023-06-23,,true,senior,perm
+J01057,C054,U001,IT & Data,2023-09-22,,false,lead,contract
+J01058,C005,U001,IT & Data,2023-10-05,,false,mid,perm
+J01059,C038,U001,IT & Data,2023-10-11,,false,mid,perm
+J01060,C038,U001,IT & Data,2023-10-02,,false,mid,contract
+J01061,C001,U001,IT & Data,2023-09-01,,false,mid,contract
+J01062,C049,U001,IT & Data,2023-05-02,,true,lead,perm
+J01063,C006,U001,IT & Data,2023-03-23,,true,senior,perm
+J01064,C065,U001,IT & Data,2023-06-21,,true,junior,perm
+J01065,C055,U001,IT & Data,2023-01-12,,false,mid,contract
+J01066,C052,U001,IT & Data,2023-05-12,,true,mid,perm
+J01067,C054,U001,IT & Data,2023-07-03,,false,junior,contract
+J01068,C006,U001,IT & Data,2023-10-23,,false,junior,contract
+J01069,C038,U001,IT & Data,2023-02-28,,false,mid,perm
+J01070,C043,U001,IT & Data,2023-01-25,,true,mid,contract
+J01071,C006,U001,IT & Data,2023-02-15,,false,senior,contract
+J01072,C058,U001,IT & Data,2023-11-09,,false,mid,perm
+J01073,C045,U004,IT & Data,2023-06-19,,false,mid,perm
+J01074,C045,U004,IT & Data,2023-06-09,,false,mid,perm
+J01075,C013,U004,IT & Data,2023-03-17,,false,junior,perm
+J01076,C001,U004,IT & Data,2023-10-23,,false,senior,perm
+J01077,C052,U004,IT & Data,2023-11-20,,true,junior,perm
+J01078,C040,U004,IT & Data,2023-07-19,,true,mid,perm
+J01079,C028,U004,IT & Data,2023-06-27,,false,mid,contract
+J01080,C028,U004,IT & Data,2023-08-21,,false,lead,perm
+J01081,C006,U004,IT & Data,2023-09-11,,true,senior,perm
+J01082,C006,U004,IT & Data,2023-02-02,,true,mid,perm
+J01083,C058,U004,IT & Data,2023-03-27,,true,mid,perm
+J01084,C001,U004,IT & Data,2023-01-23,,false,senior,perm
+J01085,C008,U004,IT & Data,2023-05-03,,false,senior,perm
+J01086,C055,U004,IT & Data,2023-12-11,,false,mid,perm
+J01087,C038,U004,IT & Data,2023-09-11,,false,junior,perm
+J01088,C037,U004,IT & Data,2023-04-04,,false,lead,perm
+J01089,C028,U004,IT & Data,2023-09-28,,true,senior,perm
+J01090,C065,U004,IT & Data,2023-09-11,,false,senior,perm
+J01091,C065,U004,IT & Data,2023-03-24,,false,mid,perm
+J01092,C043,U004,IT & Data,2023-09-13,,false,junior,contract
+J01093,C054,U004,IT & Data,2023-05-26,,false,mid,contract
+J01094,C008,U004,IT & Data,2023-03-20,,false,mid,contract
+J01095,C005,U004,IT & Data,2023-08-08,,false,junior,contract
+J01096,C052,U004,IT & Data,2023-11-06,,false,junior,contract
+J01097,C052,U004,IT & Data,2023-04-07,,true,mid,contract
+J01098,C055,U004,IT & Data,2023-09-22,,false,junior,perm
+J01099,C028,U004,IT & Data,2023-02-20,,false,mid,perm
+J01100,C058,U004,IT & Data,2023-05-18,,false,mid,perm
+J01101,C006,U004,IT & Data,2023-07-03,,false,mid,perm
+J01102,C052,U004,IT & Data,2023-06-22,,false,lead,perm
+J01103,C006,U004,IT & Data,2023-06-28,,true,mid,perm
+J01104,C055,U004,IT & Data,2023-01-20,,false,lead,perm
+J01105,C037,U004,IT & Data,2023-03-13,,false,mid,perm
+J01106,C005,U004,IT & Data,2023-07-27,,false,mid,perm
+J01107,C052,U004,IT & Data,2023-01-13,,true,junior,contract
+J01108,C054,U004,IT & Data,2023-11-20,,false,mid,contract
+J01109,C054,U004,IT & Data,2023-10-25,,false,junior,perm
+J01110,C008,U004,IT & Data,2023-04-24,,false,mid,perm
+J01111,C055,U004,IT & Data,2023-09-18,,true,mid,perm
+J01112,C049,U004,IT & Data,2023-11-27,,false,senior,contract
+J01113,C052,U004,IT & Data,2023-10-02,,false,senior,contract
+J01114,C065,U004,IT & Data,2023-12-01,,false,lead,contract
+J01115,C054,U004,IT & Data,2023-11-24,,false,junior,perm
+J01116,C067,U005,Engineering,2023-06-26,,false,senior,contract
+J01117,C067,U005,Engineering,2023-04-17,,false,mid,perm
+J01118,C002,U005,Engineering,2023-03-27,,false,junior,contract
+J01119,C014,U005,Engineering,2023-08-07,,true,mid,perm
+J01120,C056,U005,Engineering,2023-07-27,,false,mid,perm
+J01121,C010,U005,Engineering,2023-07-05,,true,mid,perm
+J01122,C014,U005,Engineering,2023-06-01,,false,lead,contract
+J01123,C063,U005,Engineering,2023-03-22,,false,mid,perm
+J01124,C002,U005,Engineering,2023-11-20,,false,mid,contract
+J01125,C067,U005,Engineering,2023-04-13,,false,mid,perm
+J01126,C060,U005,Engineering,2023-03-14,,false,mid,perm
+J01127,C002,U005,Engineering,2023-02-06,,false,mid,perm
+J01128,C046,U005,Engineering,2023-01-11,,false,mid,perm
+J01129,C019,U005,Engineering,2023-01-16,,false,senior,contract
+J01130,C046,U005,Engineering,2023-11-17,,false,mid,perm
+J01131,C026,U005,Engineering,2023-05-22,,true,mid,perm
+J01132,C002,U005,Engineering,2023-04-06,,true,junior,contract
+J01133,C023,U005,Engineering,2023-05-02,,false,mid,contract
+J01134,C041,U005,Engineering,2023-09-07,,true,mid,perm
+J01135,C067,U005,Engineering,2023-05-11,,false,senior,perm
+J01136,C002,U007,Engineering,2023-11-02,,true,junior,contract
+J01137,C046,U007,Engineering,2023-03-03,,false,mid,contract
+J01138,C014,U007,Engineering,2023-12-21,,false,mid,contract
+J01139,C063,U007,Engineering,2023-03-10,,true,junior,perm
+J01140,C002,U007,Engineering,2023-05-08,,false,mid,perm
+J01141,C004,U007,Engineering,2023-05-29,,false,mid,contract
+J01142,C068,U007,Engineering,2023-12-04,,false,junior,perm
+J01143,C023,U007,Engineering,2023-02-03,,false,mid,perm
+J01144,C019,U007,Engineering,2023-07-12,,false,mid,perm
+J01145,C002,U007,Engineering,2023-09-19,,false,mid,contract
+J01146,C010,U007,Engineering,2023-11-06,,true,mid,perm
+J01147,C014,U007,Engineering,2023-09-11,,false,mid,perm
+J01148,C019,U007,Engineering,2023-11-28,,false,senior,perm
+J01149,C009,U007,Engineering,2023-09-25,,false,junior,contract
+J01150,C046,U007,Engineering,2023-11-27,,false,mid,perm
+J01151,C004,U007,Engineering,2023-06-02,,false,mid,perm
+J01152,C023,U008,Engineering,2023-07-06,,false,mid,perm
+J01153,C060,U008,Engineering,2023-11-03,,true,mid,perm
+J01154,C067,U008,Engineering,2023-06-05,,false,mid,perm
+J01155,C019,U008,Engineering,2023-09-22,,false,senior,perm
+J01156,C004,U008,Engineering,2023-09-20,,false,junior,perm
+J01157,C022,U008,Engineering,2023-07-13,,false,mid,perm
+J01158,C046,U008,Engineering,2023-09-26,,false,mid,perm
+J01159,C060,U008,Engineering,2023-06-05,,false,mid,perm
+J01160,C061,U008,Engineering,2023-03-13,,false,senior,perm
+J01161,C061,U008,Engineering,2023-09-11,,false,senior,perm
+J01162,C022,U008,Engineering,2023-07-04,,false,junior,perm
+J01163,C046,U008,Engineering,2023-10-23,,false,mid,perm
+J01164,C060,U008,Engineering,2023-05-10,,true,lead,contract
+J01165,C067,U008,Engineering,2023-10-04,,false,senior,perm
+J01166,C060,U008,Engineering,2023-03-10,,false,mid,contract
+J01167,C002,U008,Engineering,2023-05-01,,false,mid,perm
+J01168,C023,U008,Engineering,2023-10-11,,false,junior,perm
+J01169,C060,U008,Engineering,2023-07-20,,false,lead,perm
+J01170,C002,U008,Engineering,2023-09-08,,false,mid,perm
+J01171,C002,U008,Engineering,2023-03-06,,false,junior,perm
+J01172,C002,U008,Engineering,2023-09-11,,false,junior,perm
+J01173,C068,U008,Engineering,2023-04-24,,true,mid,perm
+J01174,C009,U008,Engineering,2023-02-15,,false,senior,perm
+J01175,C016,U008,Engineering,2023-10-11,,false,lead,contract
+J01176,C004,U008,Engineering,2023-07-04,,false,mid,perm
+J01177,C026,U008,Engineering,2023-03-13,,false,senior,perm
+J01178,C023,U008,Engineering,2023-11-13,,false,mid,contract
+J01179,C009,U008,Engineering,2023-08-28,,false,mid,contract
+J01180,C002,U008,Engineering,2023-01-19,,false,mid,contract
+J01181,C004,U009,Engineering,2023-05-10,,false,lead,contract
+J01182,C068,U009,Engineering,2023-06-19,,false,mid,perm
+J01183,C023,U009,Engineering,2023-02-01,,false,senior,perm
+J01184,C068,U009,Engineering,2023-08-15,,false,mid,contract
+J01185,C019,U009,Engineering,2023-03-13,,false,mid,contract
+J01186,C002,U009,Engineering,2023-06-12,,true,junior,perm
+J01187,C056,U009,Engineering,2023-12-11,,false,mid,perm
+J01188,C067,U009,Engineering,2023-07-27,,false,junior,contract
+J01189,C041,U009,Engineering,2023-09-14,,false,junior,perm
+J01190,C023,U009,Engineering,2023-04-10,,false,senior,contract
+J01191,C026,U009,Engineering,2023-06-27,,false,junior,contract
+J01192,C060,U009,Engineering,2023-11-23,,false,mid,perm
+J01193,C014,U009,Engineering,2023-02-27,,false,mid,perm
+J01194,C014,U009,Engineering,2023-01-16,,true,senior,contract
+J01195,C063,U009,Engineering,2023-03-09,,false,junior,perm
+J01196,C004,U009,Engineering,2023-02-27,,false,mid,perm
+J01197,C067,U009,Engineering,2023-03-09,,true,senior,perm
+J01198,C026,U009,Engineering,2023-10-05,,true,mid,contract
+J01199,C056,U009,Engineering,2023-11-06,,true,mid,perm
+J01200,C002,U009,Engineering,2023-06-26,,false,mid,contract
+J01201,C022,U009,Engineering,2023-10-23,,false,senior,perm
+J01202,C014,U009,Engineering,2023-09-18,,false,senior,perm
+J01203,C014,U009,Engineering,2023-12-26,,false,lead,perm
+J01204,C002,U009,Engineering,2023-03-22,,false,junior,contract
+J01205,C014,U009,Engineering,2023-03-14,,true,senior,perm
+J01206,C004,U009,Engineering,2023-10-02,,false,mid,perm
+J01207,C056,U009,Engineering,2023-05-11,,true,mid,perm
+J01208,C060,U009,Engineering,2023-04-03,,false,mid,contract
+J01209,C067,U009,Engineering,2023-04-17,,false,mid,perm
+J01210,C046,U009,Engineering,2023-09-04,,false,mid,perm
+J01211,C016,U009,Engineering,2023-04-24,,true,mid,perm
+J01212,C023,U009,Engineering,2023-09-19,,false,senior,contract
+J01213,C009,U009,Engineering,2023-02-28,,false,senior,contract
+J01214,C014,U009,Engineering,2023-10-13,,false,senior,perm
+J01215,C056,U009,Engineering,2023-01-30,,false,mid,perm
+J01216,C010,U009,Engineering,2023-08-21,,false,mid,contract
+J01217,C067,U009,Engineering,2023-10-23,,true,junior,contract
+J01218,C054,U012,IT & Data,2023-02-06,,true,junior,contract
+J01219,C038,U012,IT & Data,2023-02-27,,false,mid,perm
+J01220,C049,U012,IT & Data,2023-09-28,,false,mid,perm
+J01221,C054,U012,IT & Data,2023-04-21,,false,senior,perm
+J01222,C038,U012,IT & Data,2023-05-26,,false,lead,perm
+J01223,C001,U012,IT & Data,2023-02-06,,false,junior,perm
+J01224,C065,U012,IT & Data,2023-09-13,,true,mid,perm
+J01225,C006,U012,IT & Data,2023-09-07,,false,senior,perm
+J01226,C013,U012,IT & Data,2023-01-16,,true,senior,perm
+J01227,C052,U012,IT & Data,2023-08-21,,false,mid,perm
+J01228,C059,U012,IT & Data,2023-07-06,,true,mid,perm
+J01229,C001,U013,IT & Data,2023-12-20,,false,junior,perm
+J01230,C054,U013,IT & Data,2023-09-28,,false,mid,perm
+J01231,C054,U013,IT & Data,2023-06-13,,true,mid,perm
+J01232,C054,U013,IT & Data,2023-02-02,,false,mid,perm
+J01233,C052,U013,IT & Data,2023-04-17,,true,senior,contract
+J01234,C038,U013,IT & Data,2023-11-28,,false,mid,perm
+J01235,C006,U013,IT & Data,2023-09-25,,true,senior,perm
+J01236,C001,U013,IT & Data,2023-01-05,,true,senior,perm
+J01237,C049,U013,IT & Data,2023-09-21,,false,junior,perm
+J01238,C043,U013,IT & Data,2023-09-01,,false,mid,perm
+J01239,C052,U013,IT & Data,2023-07-10,,true,senior,perm
+J01240,C045,U013,IT & Data,2023-10-09,,false,mid,perm
+J01241,C008,U013,IT & Data,2023-04-05,,true,senior,perm
+J01242,C045,U013,IT & Data,2023-11-01,,true,senior,perm
+J01243,C005,U013,IT & Data,2023-08-21,,false,junior,contract
+J01244,C037,U013,IT & Data,2023-06-28,,false,mid,perm
+J01245,C045,U013,IT & Data,2023-02-20,,false,mid,perm
+J01246,C005,U013,IT & Data,2023-11-02,,false,senior,perm
+J01247,C037,U013,IT & Data,2023-02-20,,false,senior,contract
+J01248,C049,U013,IT & Data,2023-08-21,,true,mid,perm
+J01249,C054,U013,IT & Data,2023-06-26,,false,mid,perm
+J01250,C043,U013,IT & Data,2023-10-27,,false,senior,contract
+J01251,C058,U013,IT & Data,2023-08-21,,false,mid,contract
+J01252,C008,U013,IT & Data,2023-04-28,,false,lead,perm
+J01253,C058,U013,IT & Data,2023-04-17,,false,mid,contract
+J01254,C038,U013,IT & Data,2023-04-10,,true,lead,perm
+J01255,C049,U013,IT & Data,2023-04-21,,true,senior,perm
+J01256,C038,U013,IT & Data,2023-02-13,,true,mid,perm
+J01257,C054,U013,IT & Data,2023-03-27,,false,junior,contract
+J01258,C054,U013,IT & Data,2023-10-18,,true,mid,contract
+J01259,C038,U014,IT & Data,2023-01-23,,false,mid,contract
+J01260,C052,U014,IT & Data,2023-02-14,,false,senior,perm
+J01261,C006,U014,IT & Data,2023-09-08,,true,senior,perm
+J01262,C052,U014,IT & Data,2023-02-01,,false,senior,perm
+J01263,C045,U014,IT & Data,2023-09-27,,false,lead,contract
+J01264,C065,U014,IT & Data,2023-04-04,,false,junior,perm
+J01265,C006,U014,IT & Data,2023-02-27,,false,mid,perm
+J01266,C038,U014,IT & Data,2023-05-18,,false,mid,perm
+J01267,C028,U014,IT & Data,2023-01-27,,false,mid,contract
+J01268,C005,U014,IT & Data,2023-11-06,,false,mid,contract
+J01269,C054,U014,IT & Data,2023-09-11,,true,lead,perm
+J01270,C052,U014,IT & Data,2023-02-20,,false,senior,perm
+J01271,C006,U014,IT & Data,2023-07-24,,true,mid,perm
+J01272,C013,U014,IT & Data,2023-02-08,,false,mid,perm
+J01273,C008,U014,IT & Data,2023-07-21,,false,lead,perm
+J01274,C043,U014,IT & Data,2023-10-18,,false,junior,perm
+J01275,C038,U014,IT & Data,2023-10-13,,true,mid,perm
+J01276,C001,U014,IT & Data,2023-12-11,,false,mid,perm
+J01277,C054,U014,IT & Data,2023-03-27,,false,mid,perm
+J01278,C049,U014,IT & Data,2023-05-12,,true,mid,perm
+J01279,C065,U014,IT & Data,2023-11-20,,false,senior,perm
+J01280,C065,U014,IT & Data,2023-12-25,,true,mid,perm
+J01281,C059,U014,IT & Data,2023-06-16,,true,mid,perm
+J01282,C049,U014,IT & Data,2023-04-24,,false,senior,contract
+J01283,C045,U014,IT & Data,2023-09-04,,false,junior,contract
+J01284,C065,U014,IT & Data,2023-09-04,,false,mid,contract
+J01285,C023,U015,Engineering,2023-02-02,,false,junior,perm
+J01286,C010,U015,Engineering,2023-10-23,,false,mid,perm
+J01287,C060,U015,Engineering,2023-03-13,,true,senior,perm
+J01288,C019,U015,Engineering,2023-04-12,,false,mid,perm
+J01289,C056,U015,Engineering,2023-06-06,,false,lead,perm
+J01290,C009,U015,Engineering,2023-04-03,,false,junior,contract
+J01291,C010,U015,Engineering,2023-02-07,,false,mid,perm
+J01292,C022,U015,Engineering,2023-09-25,,true,junior,perm
+J01293,C067,U015,Engineering,2023-02-20,,false,senior,perm
+J01294,C014,U015,Engineering,2023-09-18,,false,mid,perm
+J01295,C022,U015,Engineering,2023-02-27,,true,senior,perm
+J01296,C010,U015,Engineering,2023-12-27,,false,mid,perm
+J01297,C014,U015,Engineering,2023-07-03,,true,junior,contract
+J01298,C041,U015,Engineering,2023-07-27,,false,junior,perm
+J01299,C009,U015,Engineering,2023-10-11,,false,senior,perm
+J01300,C023,U015,Engineering,2023-02-20,,false,mid,perm
+J01301,C063,U015,Engineering,2023-07-27,,false,senior,perm
+J01302,C067,U015,Engineering,2023-03-22,,false,mid,perm
+J01303,C022,U015,Engineering,2023-04-20,,false,mid,perm
+J01304,C019,U015,Engineering,2023-05-16,,false,senior,contract
+J01305,C019,U015,Engineering,2023-01-06,,false,junior,perm
+J01306,C023,U015,Engineering,2023-08-07,,false,mid,perm
+J01307,C068,U015,Engineering,2023-06-21,,true,senior,perm
+J01308,C019,U015,Engineering,2023-01-13,,true,mid,perm
+J01309,C016,U015,Engineering,2023-12-18,,true,lead,perm
+J01310,C056,U015,Engineering,2023-02-21,,false,junior,perm
+J01311,C014,U015,Engineering,2023-07-14,,false,senior,contract
+J01312,C022,U015,Engineering,2023-03-13,,false,junior,perm
+J01313,C022,U015,Engineering,2023-06-05,,false,senior,perm
+J01314,C019,U015,Engineering,2023-03-20,,false,senior,perm
+J01315,C055,U016,IT & Data,2023-08-28,,false,mid,perm
+J01316,C052,U016,IT & Data,2023-09-13,,false,mid,perm
+J01317,C038,U016,IT & Data,2023-06-05,,false,senior,perm
+J01318,C043,U016,IT & Data,2023-03-21,,false,senior,perm
+J01319,C038,U016,IT & Data,2023-11-20,,false,junior,contract
+J01320,C049,U016,IT & Data,2023-12-04,,true,mid,perm
+J01321,C032,U016,IT & Data,2023-09-11,,false,mid,perm
+J01322,C058,U016,IT & Data,2023-05-18,,false,senior,perm
+J01323,C005,U016,IT & Data,2023-10-09,,false,lead,perm
+J01324,C008,U016,IT & Data,2023-10-27,,false,mid,perm
+J01325,C005,U016,IT & Data,2023-05-22,,true,junior,perm
+J01326,C040,U016,IT & Data,2023-10-16,,false,junior,contract
+J01327,C043,U016,IT & Data,2023-03-22,,false,mid,perm
+J01328,C013,U016,IT & Data,2023-05-09,,false,senior,contract
+J01329,C040,U016,IT & Data,2023-06-26,,false,mid,perm
+J01330,C052,U016,IT & Data,2023-07-17,,false,mid,contract
+J01331,C065,U016,IT & Data,2023-01-25,,false,senior,perm
+J01332,C037,U016,IT & Data,2023-07-04,,false,senior,perm
+J01333,C038,U016,IT & Data,2023-11-09,,false,senior,perm
+J01334,C045,U016,IT & Data,2023-08-22,,false,junior,contract
+J01335,C059,U016,IT & Data,2023-12-22,,false,senior,perm
+J01336,C005,U016,IT & Data,2023-03-20,,true,mid,perm
+J01337,C058,U016,IT & Data,2023-11-09,,false,mid,perm
+J01338,C005,U016,IT & Data,2023-12-15,,false,mid,perm
+J01339,C055,U016,IT & Data,2023-03-06,,true,mid,contract
+J01340,C037,U016,IT & Data,2023-05-16,,false,junior,perm
+J01341,C008,U016,IT & Data,2023-10-09,,false,mid,perm
+J01342,C052,U016,IT & Data,2023-05-16,,false,mid,perm
+J01343,C005,U016,IT & Data,2023-12-25,,false,mid,perm
+J01344,C043,U016,IT & Data,2023-05-25,,false,junior,perm
+J01345,C054,U016,IT & Data,2023-01-09,,true,mid,perm
+J01346,C065,U016,IT & Data,2023-09-22,,true,senior,contract
+J01347,C038,U016,IT & Data,2023-03-21,,false,junior,perm
+J01348,C040,U016,IT & Data,2023-06-12,,false,mid,contract
+J01349,C054,U016,IT & Data,2023-04-19,,false,junior,perm
+J01350,C052,U018,IT & Data,2023-09-14,,false,mid,perm
+J01351,C032,U018,IT & Data,2023-10-25,,false,mid,perm
+J01352,C006,U018,IT & Data,2023-11-17,,false,mid,perm
+J01353,C040,U018,IT & Data,2023-05-16,,true,junior,perm
+J01354,C038,U018,IT & Data,2023-09-25,,false,senior,perm
+J01355,C008,U018,IT & Data,2023-12-11,,false,junior,perm
+J01356,C006,U018,IT & Data,2023-09-05,,true,mid,contract
+J01357,C054,U018,IT & Data,2023-09-25,,false,mid,perm
+J01358,C049,U018,IT & Data,2023-01-18,,false,mid,contract
+J01359,C005,U018,IT & Data,2023-08-28,,true,senior,perm
+J01360,C043,U018,IT & Data,2023-12-18,,false,mid,perm
+J01361,C043,U018,IT & Data,2023-01-06,,false,mid,perm
+J01362,C032,U018,IT & Data,2023-05-08,,true,senior,perm
+J01363,C037,U018,IT & Data,2023-09-11,,false,lead,perm
+J01364,C032,U018,IT & Data,2023-11-03,,false,junior,contract
+J01365,C049,U018,IT & Data,2023-04-03,,false,senior,perm
+J01366,C005,U018,IT & Data,2023-05-11,,false,mid,perm
+J01367,C006,U018,IT & Data,2023-03-24,,false,senior,contract
+J01368,C038,U018,IT & Data,2023-09-27,,false,senior,perm
+J01369,C008,U018,IT & Data,2023-06-05,,false,senior,contract
+J01370,C032,U018,IT & Data,2023-03-24,,false,junior,perm
+J01371,C001,U018,IT & Data,2023-02-22,,false,mid,perm
+J01372,C005,U018,IT & Data,2023-11-03,,false,junior,contract
+J01373,C058,U018,IT & Data,2023-10-16,,true,senior,perm
+J01374,C032,U018,IT & Data,2023-04-14,,false,mid,perm
+J01375,C052,U018,IT & Data,2023-05-08,,true,junior,perm
+J01376,C052,U018,IT & Data,2023-12-15,,false,mid,perm
+J01377,C065,U018,IT & Data,2023-04-13,,false,senior,perm
+J01378,C043,U018,IT & Data,2023-04-04,,false,mid,perm
+J01379,C052,U018,IT & Data,2023-10-09,,false,lead,perm
+J01380,C040,U018,IT & Data,2023-08-22,,false,mid,contract
+J01381,C043,U018,IT & Data,2023-06-07,,false,mid,perm
+J01382,C006,U018,IT & Data,2023-12-07,,false,mid,perm
+J01383,C028,U018,IT & Data,2023-08-09,,false,mid,perm
+J01384,C032,U018,IT & Data,2023-10-10,,false,mid,contract
+J01385,C008,U018,IT & Data,2023-04-12,,false,senior,contract
+J01386,C049,U018,IT & Data,2023-09-13,,false,junior,perm
+J01387,C008,U018,IT & Data,2023-09-13,,false,junior,perm
+J01388,C005,U018,IT & Data,2023-10-25,,true,senior,contract
+J01389,C038,U018,IT & Data,2023-07-03,,true,mid,contract
+J01390,C037,U018,IT & Data,2023-07-03,,true,lead,perm
+J01391,C001,U018,IT & Data,2023-06-12,,false,mid,perm
+J01392,C054,U018,IT & Data,2023-04-24,,false,mid,contract
+J01393,C065,U018,IT & Data,2023-09-20,,false,mid,contract
+J01394,C028,U018,IT & Data,2023-02-20,,true,mid,perm
+J01395,C043,U018,IT & Data,2023-09-12,,false,senior,perm
+J01396,C006,U019,IT & Data,2023-10-23,,false,senior,perm
+J01397,C013,U019,IT & Data,2023-01-12,,false,mid,perm
+J01398,C054,U019,IT & Data,2023-11-08,,false,mid,perm
+J01399,C058,U019,IT & Data,2023-12-04,,false,senior,perm
+J01400,C013,U019,IT & Data,2023-02-10,,true,mid,perm
+J01401,C008,U019,IT & Data,2023-05-03,,false,senior,perm
+J01402,C052,U019,IT & Data,2023-04-26,,false,junior,contract
+J01403,C059,U019,IT & Data,2023-07-05,,false,mid,perm
+J01404,C065,U019,IT & Data,2023-02-06,,false,mid,perm
+J01405,C005,U019,IT & Data,2023-01-10,,false,senior,contract
+J01406,C032,U019,IT & Data,2023-09-27,,false,mid,perm
+J01407,C049,U019,IT & Data,2023-09-18,,true,mid,perm
+J01408,C045,U019,IT & Data,2023-09-11,,false,junior,perm
+J01409,C006,U019,IT & Data,2023-09-22,,false,mid,perm
+J01410,C055,U019,IT & Data,2023-06-27,,false,mid,perm
+J01411,C045,U019,IT & Data,2023-01-23,,false,mid,contract
+J01412,C055,U019,IT & Data,2023-06-16,,false,junior,perm
+J01413,C049,U019,IT & Data,2023-09-07,,false,mid,perm
+J01414,C055,U019,IT & Data,2023-08-28,,false,mid,perm
+J01415,C045,U019,IT & Data,2023-10-02,,false,lead,perm
+J01416,C054,U019,IT & Data,2023-10-10,,false,mid,contract
+J01417,C006,U019,IT & Data,2023-09-19,,false,senior,perm
+J01418,C001,U019,IT & Data,2023-06-12,,false,mid,perm
+J01419,C058,U019,IT & Data,2023-12-21,,false,mid,perm
+J01420,C058,U019,IT & Data,2023-03-13,,true,senior,perm
+J01421,C005,U019,IT & Data,2023-12-14,,false,lead,perm
+J01422,C005,U019,IT & Data,2023-05-03,,true,mid,perm
+J01423,C059,U019,IT & Data,2023-03-27,,false,mid,perm
+J01424,C037,U019,IT & Data,2023-03-03,,true,junior,perm
+J01425,C045,U019,IT & Data,2023-08-11,,true,senior,perm
+J01426,C049,U019,IT & Data,2023-05-01,,true,mid,perm
+J01427,C001,U019,IT & Data,2023-10-06,,true,senior,perm
+J01428,C059,U019,IT & Data,2023-07-19,,false,mid,perm
+J01429,C006,U019,IT & Data,2023-02-20,,false,mid,perm
+J01430,C001,U019,IT & Data,2023-06-12,,true,mid,perm
+J01431,C054,U019,IT & Data,2023-12-04,,false,mid,contract
+J01432,C065,U019,IT & Data,2023-02-24,,true,mid,perm
+J01433,C006,U019,IT & Data,2023-04-24,,true,senior,perm
+J01434,C006,U019,IT & Data,2023-10-09,,true,mid,contract
+J01435,C008,U019,IT & Data,2023-06-06,,true,senior,perm
+J01436,C059,U019,IT & Data,2023-10-16,,true,mid,contract
+J01437,C037,U019,IT & Data,2023-09-20,,false,junior,perm
+J01438,C032,U019,IT & Data,2023-02-02,,false,mid,contract
+J01439,C045,U019,IT & Data,2023-11-27,,false,lead,perm
+J01440,C066,U020,Life Sciences,2023-06-20,,false,mid,perm
+J01441,C003,U021,Public Sector,2023-03-13,,false,mid,perm
+J01442,C036,U021,Public Sector,2023-11-07,,true,senior,perm
+J01443,C036,U021,Public Sector,2023-10-13,,true,lead,perm
+J01444,C036,U021,Public Sector,2023-06-14,,false,senior,perm
+J01445,C018,U021,Public Sector,2023-09-25,,false,lead,perm
+J01446,C018,U021,Public Sector,2023-08-10,,false,senior,contract
+J01447,C025,U021,Public Sector,2023-10-19,,false,senior,perm
+J01448,C018,U021,Public Sector,2023-04-18,,false,mid,perm
+J01449,C036,U021,Public Sector,2023-12-14,,false,lead,perm
+J01450,C024,U021,Public Sector,2023-10-02,,false,senior,perm
+J01451,C018,U021,Public Sector,2023-02-20,,false,mid,perm
+J01452,C018,U021,Public Sector,2023-11-23,,false,junior,perm
+J01453,C018,U021,Public Sector,2023-09-18,,false,mid,perm
+J01454,C024,U021,Public Sector,2023-11-14,,false,mid,perm
+J01455,C008,U022,IT & Data,2023-12-14,,false,junior,perm
+J01456,C059,U001,IT & Data,2024-09-03,,true,mid,perm
+J01457,C052,U001,IT & Data,2024-02-27,,false,mid,contract
+J01458,C054,U001,IT & Data,2024-09-16,,false,junior,perm
+J01460,C049,U001,IT & Data,2024-01-03,,false,mid,contract
+J01461,C028,U001,IT & Data,2024-09-24,,false,mid,perm
+J01462,C005,U001,IT & Data,2024-05-20,,false,junior,perm
+J01463,C032,U001,IT & Data,2024-10-09,,false,senior,perm
+J01464,C055,U001,IT & Data,2024-07-23,,false,junior,perm
+J01465,C065,U001,IT & Data,2024-02-23,,false,senior,perm
+J01466,C038,U001,IT & Data,2024-05-22,,false,mid,contract
+J01467,C040,U001,IT & Data,2024-07-03,,false,mid,perm
+J01468,C040,U001,IT & Data,2024-07-10,,false,mid,perm
+J01469,C032,U001,IT & Data,2024-12-16,,false,senior,perm
+J01470,C065,U001,IT & Data,2024-11-18,,false,junior,perm
+J01471,C005,U001,IT & Data,2024-05-15,,false,lead,contract
+J01472,C013,U001,IT & Data,2024-09-12,,false,junior,perm
+J01473,C054,U001,IT & Data,2024-03-04,,true,mid,perm
+J01474,C058,U001,IT & Data,2024-03-25,,false,senior,perm
+J01476,C045,U001,IT & Data,2024-04-22,,false,junior,perm
+J01477,C032,U001,IT & Data,2024-05-06,,false,mid,contract
+J01478,C052,U001,IT & Data,2024-09-09,,false,senior,perm
+J01479,C045,U001,IT & Data,2024-01-02,,true,lead,perm
+J01480,C040,U001,IT & Data,2024-06-10,,false,mid,perm
+J01482,C058,U001,IT & Data,2024-01-08,,false,senior,perm
+J01483,C049,U001,IT & Data,2024-05-07,,true,lead,perm
+J01484,C058,U001,IT & Data,2024-04-29,,false,mid,perm
+J01485,C005,U001,IT & Data,2024-02-02,,true,senior,perm
+J01486,C055,U001,IT & Data,2024-10-24,,false,mid,contract
+J01487,C043,U001,IT & Data,2024-04-26,,true,mid,perm
+J01488,C043,U001,IT & Data,2024-10-21,,false,mid,contract
+J01489,C006,U001,IT & Data,2024-07-08,,true,junior,perm
+J01490,C006,U001,IT & Data,2024-06-21,,false,senior,perm
+J01492,C032,U004,IT & Data,2024-04-16,,false,mid,perm
+J01493,C006,U004,IT & Data,2024-11-25,,false,junior,contract
+J01494,C043,U004,IT & Data,2024-06-10,,true,junior,perm
+J01495,C038,U004,IT & Data,2024-07-11,,false,senior,perm
+J01496,C055,U004,IT & Data,2024-08-12,,false,lead,perm
+J01497,C049,U004,IT & Data,2024-03-26,,true,mid,contract
+J01498,C006,U004,IT & Data,2024-11-04,,true,mid,perm
+J01499,C032,U004,IT & Data,2024-10-17,,false,mid,perm
+J01500,C065,U004,IT & Data,2024-01-02,,false,mid,perm
+J01501,C045,U004,IT & Data,2024-11-28,,false,senior,perm
+J01502,C013,U004,IT & Data,2024-04-01,,false,senior,perm
+J01503,C065,U004,IT & Data,2024-04-01,,false,senior,contract
+J01504,C054,U004,IT & Data,2024-04-08,,false,junior,perm
+J01505,C013,U004,IT & Data,2024-05-07,,false,lead,perm
+J01506,C040,U004,IT & Data,2024-10-23,,true,mid,perm
+J01507,C052,U004,IT & Data,2024-03-13,,false,senior,perm
+J01508,C001,U004,IT & Data,2024-02-26,,false,mid,perm
+J01509,C038,U004,IT & Data,2024-10-21,,false,mid,perm
+J01510,C028,U004,IT & Data,2024-06-24,,false,senior,contract
+J01511,C038,U004,IT & Data,2024-10-21,,true,mid,perm
+J01512,C040,U004,IT & Data,2024-05-03,,false,senior,contract
+J01513,C038,U004,IT & Data,2024-01-15,,false,junior,contract
+J01514,C052,U004,IT & Data,2024-06-17,,false,mid,perm
+J01515,C054,U004,IT & Data,2024-12-09,,false,mid,perm
+J01516,C005,U004,IT & Data,2024-02-08,,false,senior,perm
+J01517,C058,U004,IT & Data,2024-10-21,,false,mid,perm
+J01518,C040,U004,IT & Data,2024-11-26,,false,senior,contract
+J01519,C055,U004,IT & Data,2024-06-17,,false,senior,contract
+J01520,C032,U004,IT & Data,2024-06-06,,false,senior,contract
+J01521,C059,U004,IT & Data,2024-01-11,,false,senior,contract
+J01522,C043,U004,IT & Data,2024-06-17,,false,senior,contract
+J01523,C065,U004,IT & Data,2024-06-17,,false,mid,perm
+J01524,C006,U004,IT & Data,2024-12-17,,true,senior,perm
+J01525,C058,U004,IT & Data,2024-06-11,,false,junior,perm
+J01526,C040,U004,IT & Data,2024-03-11,,false,mid,perm
+J01527,C052,U004,IT & Data,2024-02-26,,true,mid,perm
+J01528,C006,U004,IT & Data,2024-01-24,,false,mid,contract
+J01529,C058,U004,IT & Data,2024-05-06,,false,mid,perm
+J01531,C043,U004,IT & Data,2024-08-16,,false,lead,perm
+J01532,C054,U004,IT & Data,2024-12-09,,true,junior,contract
+J01533,C006,U004,IT & Data,2024-06-05,,false,mid,perm
+J01535,C046,U005,Engineering,2024-02-07,,false,junior,perm
+J01536,C016,U005,Engineering,2024-04-02,,false,mid,perm
+J01537,C026,U005,Engineering,2024-11-08,,false,senior,perm
+J01538,C009,U005,Engineering,2024-06-24,,false,senior,contract
+J01539,C019,U005,Engineering,2024-10-23,,false,mid,contract
+J01540,C002,U005,Engineering,2024-04-22,,false,senior,perm
+J01541,C026,U005,Engineering,2024-06-24,,false,senior,perm
+J01542,C026,U005,Engineering,2024-04-01,,false,mid,perm
+J01543,C060,U005,Engineering,2024-12-23,,true,mid,perm
+J01544,C019,U005,Engineering,2024-04-16,,false,senior,perm
+J01545,C026,U005,Engineering,2024-09-09,,true,mid,contract
+J01546,C023,U005,Engineering,2024-01-03,,false,junior,perm
+J01547,C019,U005,Engineering,2024-01-22,,false,senior,perm
+J01548,C022,U005,Engineering,2024-04-16,,false,junior,contract
+J01549,C014,U005,Engineering,2024-10-28,,true,mid,perm
+J01550,C022,U005,Engineering,2024-04-29,,false,senior,perm
+J01551,C019,U005,Engineering,2024-09-09,,false,mid,perm
+J01552,C061,U005,Engineering,2024-05-27,,false,mid,perm
+J01553,C067,U005,Engineering,2024-05-24,,false,senior,perm
+J01554,C056,U005,Engineering,2024-09-16,,false,senior,perm
+J01555,C010,U005,Engineering,2024-08-15,,true,mid,perm
+J01556,C003,U006,Public Sector,2024-03-14,,false,senior,perm
+J01557,C022,U007,Engineering,2024-11-26,,false,mid,perm
+J01558,C002,U007,Engineering,2024-01-23,,true,senior,perm
+J01559,C010,U007,Engineering,2024-03-13,,false,junior,contract
+J01560,C026,U007,Engineering,2024-04-02,,false,junior,contract
+J01561,C046,U007,Engineering,2024-08-16,,false,junior,perm
+J01562,C023,U007,Engineering,2024-11-13,,false,mid,contract
+J01563,C056,U007,Engineering,2024-05-10,,true,senior,perm
+J01564,C063,U007,Engineering,2024-06-18,,false,senior,perm
+J01565,C009,U007,Engineering,2024-10-07,,false,mid,perm
+J01566,C056,U007,Engineering,2024-02-02,,true,mid,perm
+J01567,C023,U007,Engineering,2024-07-29,,false,junior,contract
+J01568,C022,U007,Engineering,2024-03-05,,false,junior,perm
+J01569,C016,U007,Engineering,2024-11-04,,false,junior,perm
+J01570,C063,U007,Engineering,2024-01-26,,false,junior,perm
+J01571,C060,U007,Engineering,2024-08-12,,false,mid,perm
+J01572,C061,U007,Engineering,2024-01-15,,false,junior,contract
+J01573,C060,U007,Engineering,2024-08-05,,false,mid,contract
+J01574,C002,U007,Engineering,2024-01-16,,false,mid,contract
+J01575,C060,U007,Engineering,2024-03-07,,false,mid,perm
+J01576,C061,U007,Engineering,2024-11-14,,false,senior,contract
+J01577,C046,U007,Engineering,2024-03-04,,false,junior,perm
+J01578,C041,U007,Engineering,2024-01-16,,false,mid,contract
+J01579,C014,U007,Engineering,2024-03-25,,false,mid,perm
+J01580,C063,U007,Engineering,2024-03-11,,false,junior,perm
+J01581,C019,U007,Engineering,2024-09-12,,false,mid,perm
+J01582,C046,U007,Engineering,2024-11-07,,false,senior,contract
+J01583,C023,U007,Engineering,2024-02-16,,true,senior,perm
+J01584,C002,U007,Engineering,2024-10-02,,true,mid,perm
+J01585,C026,U007,Engineering,2024-03-04,,false,junior,contract
+J01586,C056,U007,Engineering,2024-01-24,,false,mid,contract
+J01587,C063,U007,Engineering,2024-07-19,,false,mid,perm
+J01588,C016,U007,Engineering,2024-02-01,,false,senior,contract
+J01589,C067,U007,Engineering,2024-02-13,,false,senior,perm
+J01590,C010,U007,Engineering,2024-01-18,,false,senior,perm
+J01591,C060,U007,Engineering,2024-02-12,,false,mid,perm
+J01592,C009,U007,Engineering,2024-03-25,,false,junior,perm
+J01593,C022,U008,Engineering,2024-10-14,,true,mid,contract
+J01594,C022,U008,Engineering,2024-12-26,,false,senior,perm
+J01595,C019,U008,Engineering,2024-09-02,,false,senior,contract
+J01596,C014,U008,Engineering,2024-10-09,,false,mid,perm
+J01597,C014,U008,Engineering,2024-04-17,,true,junior,perm
+J01598,C023,U008,Engineering,2024-02-05,,true,mid,perm
+J01599,C067,U008,Engineering,2024-05-02,,false,mid,perm
+J01600,C002,U008,Engineering,2024-10-21,,false,junior,contract
+J01601,C014,U008,Engineering,2024-04-26,,true,senior,perm
+J01602,C041,U008,Engineering,2024-01-15,,false,mid,contract
+J01603,C016,U008,Engineering,2024-06-06,,false,lead,perm
+J01604,C056,U008,Engineering,2024-11-26,,false,lead,perm
+J01605,C063,U008,Engineering,2024-01-08,,false,mid,perm
+J01606,C016,U008,Engineering,2024-08-26,,false,junior,perm
+J01607,C060,U008,Engineering,2024-07-17,,false,mid,perm
+J01608,C068,U008,Engineering,2024-03-21,,false,junior,perm
+J01609,C002,U008,Engineering,2024-11-22,,false,senior,perm
+J01610,C010,U008,Engineering,2024-11-11,,false,senior,perm
+J01611,C046,U008,Engineering,2024-05-02,,false,senior,perm
+J01612,C068,U008,Engineering,2024-01-03,,false,junior,perm
+J01613,C056,U008,Engineering,2024-02-27,,false,senior,perm
+J01614,C067,U008,Engineering,2024-04-04,,false,mid,contract
+J01615,C014,U008,Engineering,2024-07-01,,false,mid,perm
+J01616,C002,U008,Engineering,2024-02-05,,false,senior,perm
+J01617,C014,U008,Engineering,2024-01-15,,false,junior,perm
+J01618,C026,U008,Engineering,2024-06-27,,false,junior,contract
+J01619,C046,U008,Engineering,2024-08-05,,false,junior,contract
+J01620,C016,U009,Engineering,2024-01-08,,false,mid,perm
+J01621,C067,U009,Engineering,2024-09-04,,true,senior,perm
+J01622,C002,U009,Engineering,2024-10-18,,false,senior,contract
+J01623,C010,U009,Engineering,2024-01-22,,false,mid,perm
+J01624,C060,U009,Engineering,2024-10-09,,true,senior,perm
+J01625,C067,U009,Engineering,2024-08-19,,false,senior,perm
+J01626,C067,U009,Engineering,2024-07-22,,true,senior,perm
+J01627,C026,U009,Engineering,2024-03-18,,false,lead,contract
+J01628,C067,U009,Engineering,2024-05-27,,false,senior,perm
+J01629,C063,U009,Engineering,2024-03-18,,false,senior,perm
+J01630,C002,U009,Engineering,2024-12-09,,false,senior,perm
+J01631,C016,U009,Engineering,2024-07-10,,false,lead,contract
+J01632,C067,U009,Engineering,2024-10-15,,false,mid,perm
+J01633,C004,U009,Engineering,2024-02-09,,true,mid,perm
+J01634,C019,U009,Engineering,2024-12-17,,false,mid,perm
+J01635,C009,U009,Engineering,2024-03-18,,false,senior,contract
+J01636,C002,U009,Engineering,2024-12-19,,true,mid,contract
+J01637,C026,U009,Engineering,2024-09-09,,true,mid,perm
+J01638,C060,U009,Engineering,2024-05-03,,false,mid,perm
+J01639,C014,U009,Engineering,2024-09-26,,false,mid,perm
+J01640,C022,U009,Engineering,2024-03-18,,false,mid,perm
+J01641,C063,U009,Engineering,2024-06-05,,false,mid,perm
+J01642,C002,U009,Engineering,2024-11-19,,true,junior,contract
+J01643,C016,U009,Engineering,2024-02-27,,true,mid,perm
+J01644,C014,U009,Engineering,2024-09-03,,true,senior,perm
+J01645,C063,U009,Engineering,2024-02-06,,false,senior,perm
+J01646,C009,U009,Engineering,2024-12-23,,false,mid,perm
+J01647,C009,U009,Engineering,2024-01-22,,true,senior,perm
+J01648,C046,U009,Engineering,2024-08-19,,false,junior,contract
+J01649,C022,U009,Engineering,2024-04-15,,false,mid,contract
+J01650,C026,U009,Engineering,2024-03-25,,true,junior,perm
+J01651,C002,U009,Engineering,2024-11-25,,false,junior,perm
+J01652,C004,U009,Engineering,2024-08-13,,false,junior,perm
+J01653,C063,U009,Engineering,2024-04-15,,true,mid,contract
+J01654,C046,U009,Engineering,2024-09-16,,false,junior,perm
+J01655,C014,U009,Engineering,2024-06-11,,false,senior,perm
+J01656,C010,U009,Engineering,2024-05-09,,true,mid,perm
+J01657,C067,U009,Engineering,2024-06-07,,false,lead,contract
+J01658,C014,U009,Engineering,2024-04-22,,true,senior,perm
+J01659,C032,U012,IT & Data,2024-04-04,,true,senior,perm
+J01660,C045,U012,IT & Data,2024-01-25,,true,mid,perm
+J01661,C055,U012,IT & Data,2024-06-18,,false,mid,perm
+J01663,C037,U012,IT & Data,2024-10-16,,true,mid,contract
+J01664,C037,U012,IT & Data,2024-01-09,,true,junior,contract
+J01665,C049,U012,IT & Data,2024-09-30,,false,mid,perm
+J01666,C058,U012,IT & Data,2024-01-22,,false,senior,contract
+J01667,C055,U012,IT & Data,2024-04-05,,false,mid,perm
+J01668,C043,U012,IT & Data,2024-01-15,,false,mid,perm
+J01669,C049,U012,IT & Data,2024-01-22,,false,senior,perm
+J01670,C052,U012,IT & Data,2024-02-01,,false,mid,perm
+J01671,C005,U012,IT & Data,2024-09-09,,false,mid,contract
+J01672,C065,U012,IT & Data,2024-12-17,,false,mid,contract
+J01673,C065,U012,IT & Data,2024-12-30,,false,senior,perm
+J01674,C049,U012,IT & Data,2024-02-09,,false,mid,perm
+J01675,C059,U012,IT & Data,2024-02-13,,false,senior,perm
+J01676,C006,U012,IT & Data,2024-05-13,,false,junior,perm
+J01677,C028,U012,IT & Data,2024-04-08,,false,senior,perm
+J01678,C013,U012,IT & Data,2024-01-17,,true,senior,perm
+J01679,C006,U012,IT & Data,2024-02-08,,true,senior,perm
+J01680,C028,U012,IT & Data,2024-10-28,,false,mid,contract
+J01681,C045,U012,IT & Data,2024-01-12,,false,senior,contract
+J01682,C052,U012,IT & Data,2024-10-07,,true,senior,perm
+J01683,C028,U012,IT & Data,2024-04-23,,false,mid,contract
+J01684,C049,U012,IT & Data,2024-01-01,,false,mid,perm
+J01685,C054,U012,IT & Data,2024-01-08,,false,junior,perm
+J01686,C028,U012,IT & Data,2024-09-06,,false,mid,perm
+J01687,C052,U012,IT & Data,2024-08-01,,false,junior,perm
+J01688,C058,U012,IT & Data,2024-09-23,,false,junior,contract
+J01689,C049,U012,IT & Data,2024-09-02,,true,junior,perm
+J01690,C006,U012,IT & Data,2024-02-27,,false,junior,contract
+J01691,C065,U012,IT & Data,2024-02-07,,true,lead,contract
+J01692,C065,U012,IT & Data,2024-03-11,,false,senior,perm
+J01693,C045,U012,IT & Data,2024-09-12,,false,lead,perm
+J01694,C052,U012,IT & Data,2024-06-10,,false,senior,perm
+J01695,C043,U012,IT & Data,2024-11-27,,false,junior,perm
+J01696,C040,U012,IT & Data,2024-09-02,,false,lead,perm
+J01697,C028,U012,IT & Data,2024-04-22,,false,lead,perm
+J01698,C006,U012,IT & Data,2024-01-23,,false,senior,perm
+J01699,C058,U012,IT & Data,2024-06-11,,true,junior,perm
+J01700,C045,U012,IT & Data,2024-09-30,,true,mid,contract
+J01701,C059,U012,IT & Data,2024-09-06,,true,mid,perm
+J01702,C065,U012,IT & Data,2024-07-24,,true,senior,perm
+J01703,C065,U012,IT & Data,2024-09-09,,false,senior,perm
+J01704,C005,U012,IT & Data,2024-11-04,,false,senior,perm
+J01705,C059,U012,IT & Data,2024-10-09,,false,senior,contract
+J01706,C052,U013,IT & Data,2024-01-29,,false,senior,perm
+J01708,C045,U013,IT & Data,2024-12-19,,false,mid,contract
+J01709,C049,U013,IT & Data,2024-01-23,,false,mid,contract
+J01711,C049,U013,IT & Data,2024-07-19,,true,senior,contract
+J01712,C054,U013,IT & Data,2024-11-15,,false,junior,perm
+J01713,C065,U013,IT & Data,2024-01-22,,false,mid,perm
+J01714,C005,U013,IT & Data,2024-03-20,,false,mid,perm
+J01715,C013,U013,IT & Data,2024-12-11,,false,senior,perm
+J01716,C038,U013,IT & Data,2024-09-17,,false,senior,contract
+J01717,C065,U013,IT & Data,2024-01-22,,true,junior,perm
+J01718,C052,U013,IT & Data,2024-11-15,,false,senior,perm
+J01719,C013,U013,IT & Data,2024-10-14,,false,mid,perm
+J01720,C006,U013,IT & Data,2024-10-10,,false,junior,contract
+J01721,C005,U013,IT & Data,2024-09-10,,false,mid,perm
+J01722,C059,U013,IT & Data,2024-10-23,,false,junior,contract
+J01723,C045,U013,IT & Data,2024-01-03,,false,junior,perm
+J01724,C065,U013,IT & Data,2024-06-25,,false,junior,perm
+J01725,C005,U013,IT & Data,2024-03-26,,false,junior,perm
+J01726,C054,U013,IT & Data,2024-06-04,,false,mid,perm
+J01727,C006,U013,IT & Data,2024-07-22,,false,senior,contract
+J01728,C055,U013,IT & Data,2024-05-24,,true,mid,perm
+J01729,C043,U013,IT & Data,2024-04-09,,false,senior,perm
+J01730,C032,U013,IT & Data,2024-06-05,,true,mid,perm
+J01731,C037,U013,IT & Data,2024-03-26,,false,senior,contract
+J01732,C065,U013,IT & Data,2024-11-11,,false,senior,perm
+J01733,C006,U013,IT & Data,2024-11-11,,false,senior,perm
+J01734,C038,U013,IT & Data,2024-10-10,,false,mid,perm
+J01735,C058,U013,IT & Data,2024-05-13,,false,mid,perm
+J01736,C065,U013,IT & Data,2024-10-24,,true,mid,perm
+J01737,C055,U013,IT & Data,2024-09-25,,false,lead,perm
+J01738,C001,U013,IT & Data,2024-03-18,,true,mid,perm
+J01739,C037,U013,IT & Data,2024-11-11,,false,mid,perm
+J01740,C049,U013,IT & Data,2024-06-17,,false,senior,contract
+J01741,C028,U013,IT & Data,2024-10-04,,false,mid,contract
+J01742,C058,U013,IT & Data,2024-07-11,,false,senior,contract
+J01743,C037,U013,IT & Data,2024-11-08,,false,mid,perm
+J01744,C037,U013,IT & Data,2024-07-24,,false,lead,perm
+J01745,C058,U013,IT & Data,2024-09-26,,false,senior,perm
+J01746,C032,U014,IT & Data,2024-09-12,,false,senior,perm
+J01747,C038,U014,IT & Data,2024-07-15,,false,lead,perm
+J01748,C038,U014,IT & Data,2024-02-23,,false,senior,perm
+J01749,C054,U014,IT & Data,2024-07-12,,false,junior,contract
+J01750,C045,U014,IT & Data,2024-01-22,,false,mid,contract
+J01751,C049,U014,IT & Data,2024-11-20,,false,mid,perm
+J01752,C043,U014,IT & Data,2024-10-11,,false,mid,perm
+J01753,C032,U014,IT & Data,2024-10-16,,false,mid,contract
+J01754,C065,U014,IT & Data,2024-04-08,,false,mid,perm
+J01755,C005,U014,IT & Data,2024-12-23,,false,junior,perm
+J01756,C065,U014,IT & Data,2024-02-12,,false,senior,perm
+J01757,C055,U014,IT & Data,2024-05-14,,false,junior,contract
+J01758,C065,U014,IT & Data,2024-07-08,,false,junior,perm
+J01759,C055,U014,IT & Data,2024-05-13,,false,mid,perm
+J01760,C058,U014,IT & Data,2024-09-09,,false,senior,perm
+J01761,C049,U014,IT & Data,2024-06-17,,false,senior,contract
+J01762,C055,U014,IT & Data,2024-12-02,,false,senior,perm
+J01763,C059,U014,IT & Data,2024-03-18,,false,mid,perm
+J01764,C054,U014,IT & Data,2024-12-10,,true,senior,contract
+J01765,C065,U014,IT & Data,2024-05-22,,false,mid,perm
+J01767,C005,U014,IT & Data,2024-08-26,,false,mid,perm
+J01768,C038,U014,IT & Data,2024-01-24,,false,junior,perm
+J01770,C052,U014,IT & Data,2024-09-11,,true,junior,contract
+J01771,C054,U014,IT & Data,2024-09-23,,false,mid,perm
+J01772,C049,U014,IT & Data,2024-12-24,,false,senior,perm
+J01773,C065,U014,IT & Data,2024-05-13,,false,senior,perm
+J01774,C001,U014,IT & Data,2024-02-15,,false,senior,perm
+J01775,C038,U014,IT & Data,2024-01-22,,true,senior,contract
+J01776,C032,U014,IT & Data,2024-04-15,,false,mid,contract
+J01777,C006,U014,IT & Data,2024-04-24,,true,junior,perm
+J01778,C001,U014,IT & Data,2024-09-16,,false,junior,contract
+J01779,C005,U014,IT & Data,2024-02-14,,false,mid,perm
+J01780,C001,U014,IT & Data,2024-04-16,,false,mid,perm
+J01781,C028,U014,IT & Data,2024-04-03,,false,mid,perm
+J01782,C045,U014,IT & Data,2024-12-04,,true,mid,contract
+J01783,C005,U014,IT & Data,2024-09-09,,false,mid,perm
+J01784,C038,U014,IT & Data,2024-02-26,,false,mid,perm
+J01785,C001,U014,IT & Data,2024-02-05,,false,mid,perm
+J01786,C052,U014,IT & Data,2024-12-24,,false,mid,perm
+J01787,C055,U014,IT & Data,2024-01-08,,true,mid,perm
+J01789,C006,U014,IT & Data,2024-02-26,,false,lead,contract
+J01790,C054,U014,IT & Data,2024-01-22,,false,junior,perm
+J01791,C065,U014,IT & Data,2024-11-06,,false,senior,perm
+J01792,C054,U014,IT & Data,2024-10-04,,false,mid,perm
+J01793,C040,U014,IT & Data,2024-07-12,,true,senior,perm
+J01794,C001,U014,IT & Data,2024-11-04,,false,mid,perm
+J01795,C028,U014,IT & Data,2024-08-14,,false,junior,contract
+J01796,C023,U015,Engineering,2024-12-18,,false,junior,contract
+J01797,C067,U015,Engineering,2024-07-22,,false,junior,perm
+J01798,C014,U015,Engineering,2024-07-22,,true,junior,contract
+J01799,C063,U015,Engineering,2024-08-20,,false,mid,perm
+J01800,C022,U015,Engineering,2024-09-23,,false,mid,perm
+J01801,C026,U015,Engineering,2024-08-12,,false,senior,contract
+J01802,C046,U015,Engineering,2024-03-14,,false,mid,perm
+J01803,C019,U015,Engineering,2024-10-25,,false,junior,perm
+J01804,C016,U015,Engineering,2024-09-02,,false,mid,perm
+J01805,C002,U015,Engineering,2024-09-30,,false,junior,perm
+J01806,C056,U015,Engineering,2024-08-08,,false,mid,contract
+J01807,C009,U015,Engineering,2024-07-22,,false,senior,perm
+J01808,C068,U015,Engineering,2024-01-25,,false,mid,contract
+J01809,C014,U015,Engineering,2024-06-20,,false,senior,perm
+J01810,C060,U015,Engineering,2024-03-07,,false,mid,contract
+J01811,C026,U015,Engineering,2024-01-08,,false,junior,contract
+J01812,C061,U015,Engineering,2024-09-12,,true,mid,contract
+J01813,C004,U015,Engineering,2024-06-24,,false,junior,perm
+J01814,C023,U015,Engineering,2024-05-20,,false,mid,contract
+J01815,C067,U015,Engineering,2024-08-28,,false,mid,perm
+J01816,C010,U015,Engineering,2024-02-19,,false,junior,perm
+J01817,C067,U015,Engineering,2024-03-20,,false,mid,perm
+J01818,C046,U015,Engineering,2024-06-25,,true,mid,perm
+J01819,C023,U015,Engineering,2024-01-08,,false,mid,contract
+J01820,C019,U015,Engineering,2024-09-17,,false,junior,perm
+J01821,C010,U015,Engineering,2024-03-18,,false,junior,contract
+J01822,C023,U015,Engineering,2024-03-12,,false,mid,perm
+J01823,C026,U015,Engineering,2024-02-26,,false,senior,perm
+J01824,C041,U015,Engineering,2024-04-22,,false,junior,perm
+J01825,C060,U015,Engineering,2024-09-27,,false,mid,perm
+J01826,C023,U015,Engineering,2024-07-24,,false,senior,perm
+J01827,C054,U016,IT & Data,2024-01-29,,false,mid,contract
+J01828,C052,U016,IT & Data,2024-01-17,,false,mid,contract
+J01829,C040,U016,IT & Data,2024-03-18,,false,mid,perm
+J01830,C052,U016,IT & Data,2024-07-29,,false,mid,perm
+J01831,C054,U016,IT & Data,2024-03-25,,false,senior,contract
+J01832,C065,U016,IT & Data,2024-08-20,,false,lead,perm
+J01834,C052,U016,IT & Data,2024-10-07,,false,lead,contract
+J01835,C001,U016,IT & Data,2024-01-12,,false,lead,perm
+J01837,C037,U016,IT & Data,2024-10-09,,false,senior,perm
+J01838,C058,U016,IT & Data,2024-04-15,,false,junior,contract
+J01839,C054,U016,IT & Data,2024-09-09,,true,mid,contract
+J01840,C006,U016,IT & Data,2024-12-02,,false,mid,perm
+J01841,C059,U016,IT & Data,2024-12-24,,false,lead,perm
+J01842,C052,U016,IT & Data,2024-05-27,,false,senior,perm
+J01843,C052,U016,IT & Data,2024-10-21,,false,senior,contract
+J01844,C040,U016,IT & Data,2024-01-08,,false,senior,contract
+J01845,C040,U016,IT & Data,2024-10-28,,false,mid,perm
+J01846,C028,U016,IT & Data,2024-05-13,,false,senior,perm
+J01847,C055,U016,IT & Data,2024-11-25,,false,mid,contract
+J01849,C005,U016,IT & Data,2024-03-25,,false,junior,perm
+J01850,C032,U016,IT & Data,2024-09-30,,false,senior,perm
+J01851,C065,U016,IT & Data,2024-11-11,,false,senior,perm
+J01852,C054,U016,IT & Data,2024-12-02,,false,senior,contract
+J01853,C032,U016,IT & Data,2024-09-20,,false,mid,perm
+J01854,C040,U016,IT & Data,2024-03-18,,false,mid,contract
+J01855,C054,U016,IT & Data,2024-10-07,,true,mid,contract
+J01856,C049,U016,IT & Data,2024-12-23,,true,mid,contract
+J01857,C052,U016,IT & Data,2024-02-14,,false,mid,perm
+J01858,C006,U016,IT & Data,2024-06-05,,false,mid,perm
+J01860,C058,U016,IT & Data,2024-03-05,,false,mid,perm
+J01861,C045,U016,IT & Data,2024-07-04,,false,senior,perm
+J01862,C043,U016,IT & Data,2024-10-14,,false,senior,perm
+J01863,C032,U016,IT & Data,2024-10-07,,false,junior,perm
+J01864,C037,U016,IT & Data,2024-03-11,,false,mid,perm
+J01865,C055,U016,IT & Data,2024-10-14,,false,mid,perm
+J01866,C059,U016,IT & Data,2024-05-20,,false,junior,perm
+J01867,C049,U016,IT & Data,2024-07-15,,false,junior,contract
+J01868,C013,U016,IT & Data,2024-04-24,,false,senior,perm
+J01869,C043,U018,IT & Data,2024-02-26,,false,lead,contract
+J01870,C058,U018,IT & Data,2024-05-13,,false,mid,perm
+J01871,C043,U018,IT & Data,2024-05-07,,true,senior,contract
+J01872,C058,U018,IT & Data,2024-09-23,,false,mid,perm
+J01873,C043,U018,IT & Data,2024-09-27,,false,senior,perm
+J01875,C065,U018,IT & Data,2024-12-02,,false,junior,perm
+J01876,C049,U018,IT & Data,2024-04-04,,true,senior,perm
+J01877,C005,U018,IT & Data,2024-01-22,,false,senior,contract
+J01878,C043,U018,IT & Data,2024-02-02,,false,mid,perm
+J01879,C052,U018,IT & Data,2024-11-04,,false,senior,contract
+J01880,C040,U018,IT & Data,2024-01-19,,true,mid,perm
+J01881,C037,U018,IT & Data,2024-02-01,,false,mid,perm
+J01882,C049,U018,IT & Data,2024-01-29,,true,junior,perm
+J01883,C040,U018,IT & Data,2024-04-04,,false,senior,contract
+J01884,C037,U018,IT & Data,2024-02-19,,false,mid,contract
+J01885,C065,U018,IT & Data,2024-03-14,,true,senior,perm
+J01886,C045,U018,IT & Data,2024-06-10,,true,mid,contract
+J01887,C038,U018,IT & Data,2024-03-11,,true,junior,perm
+J01888,C045,U018,IT & Data,2024-01-17,,false,senior,perm
+J01889,C013,U018,IT & Data,2024-04-19,,false,mid,contract
+J01890,C055,U018,IT & Data,2024-09-05,,false,mid,contract
+J01891,C049,U018,IT & Data,2024-02-19,,false,junior,perm
+J01893,C043,U018,IT & Data,2024-05-28,,false,junior,perm
+J01894,C052,U018,IT & Data,2024-10-21,,false,senior,contract
+J01895,C049,U018,IT & Data,2024-09-26,,false,senior,perm
+J01896,C058,U018,IT & Data,2024-05-17,,true,senior,contract
+J01897,C043,U018,IT & Data,2024-07-15,,false,junior,perm
+J01898,C054,U018,IT & Data,2024-06-06,,false,mid,perm
+J01899,C052,U018,IT & Data,2024-11-04,,false,senior,perm
+J01900,C059,U018,IT & Data,2024-09-13,,false,senior,perm
+J01901,C005,U018,IT & Data,2024-12-16,,false,senior,perm
+J01902,C006,U018,IT & Data,2024-01-29,,false,mid,contract
+J01903,C052,U018,IT & Data,2024-05-09,,false,mid,contract
+J01904,C049,U018,IT & Data,2024-12-30,,false,junior,perm
+J01905,C032,U018,IT & Data,2024-10-04,,false,junior,perm
+J01906,C043,U018,IT & Data,2024-05-06,,false,mid,perm
+J01907,C043,U018,IT & Data,2024-12-18,,true,senior,perm
+J01908,C043,U018,IT & Data,2024-02-02,,true,mid,perm
+J01909,C006,U018,IT & Data,2024-12-11,,false,junior,perm
+J01910,C065,U018,IT & Data,2024-11-28,,false,junior,perm
+J01911,C054,U018,IT & Data,2024-09-03,,false,mid,perm
+J01912,C065,U018,IT & Data,2024-01-01,,false,mid,perm
+J01913,C032,U018,IT & Data,2024-02-26,,false,mid,perm
+J01914,C052,U019,IT & Data,2024-02-22,,false,lead,perm
+J01915,C065,U019,IT & Data,2024-12-23,,true,junior,contract
+J01916,C028,U019,IT & Data,2024-12-10,,false,mid,perm
+J01917,C032,U019,IT & Data,2024-10-17,,false,lead,perm
+J01918,C059,U019,IT & Data,2024-03-26,,false,junior,perm
+J01919,C005,U019,IT & Data,2024-09-04,,false,senior,contract
+J01920,C028,U019,IT & Data,2024-03-13,,false,mid,perm
+J01921,C038,U019,IT & Data,2024-02-19,,false,senior,perm
+J01922,C065,U019,IT & Data,2024-07-22,,false,mid,perm
+J01923,C049,U019,IT & Data,2024-03-28,,false,mid,contract
+J01924,C038,U019,IT & Data,2024-02-27,,true,mid,perm
+J01925,C058,U019,IT & Data,2024-09-04,,false,junior,perm
+J01926,C032,U019,IT & Data,2024-04-05,,false,mid,perm
+J01927,C006,U019,IT & Data,2024-09-09,,false,senior,contract
+J01928,C037,U019,IT & Data,2024-02-19,,true,mid,perm
+J01929,C065,U019,IT & Data,2024-06-26,,false,mid,perm
+J01930,C045,U019,IT & Data,2024-11-26,,false,mid,perm
+J01931,C045,U019,IT & Data,2024-02-26,,false,mid,perm
+J01932,C043,U019,IT & Data,2024-07-10,,false,junior,perm
+J01933,C040,U019,IT & Data,2024-09-11,,false,mid,perm
+J01935,C054,U019,IT & Data,2024-08-21,,false,mid,perm
+J01936,C054,U019,IT & Data,2024-09-23,,false,senior,perm
+J01937,C045,U019,IT & Data,2024-09-03,,false,junior,contract
+J01938,C058,U019,IT & Data,2024-02-22,,false,mid,perm
+J01939,C052,U019,IT & Data,2024-06-24,,false,senior,perm
+J01940,C052,U019,IT & Data,2024-03-15,,false,mid,perm
+J01941,C032,U019,IT & Data,2024-06-05,,false,mid,perm
+J01942,C064,U020,Life Sciences,2024-05-01,,true,mid,perm
+J01943,C064,U020,Life Sciences,2024-03-05,,false,lead,perm
+J01944,C070,U020,Life Sciences,2024-12-23,,false,mid,perm
+J01945,C021,U020,Life Sciences,2024-07-15,,false,mid,contract
+J01946,C069,U020,Life Sciences,2024-04-16,,false,senior,perm
+J01947,C034,U020,Life Sciences,2024-06-14,,true,senior,perm
+J01948,C012,U020,Life Sciences,2024-02-08,,false,senior,contract
+J01949,C064,U020,Life Sciences,2024-09-09,,false,senior,perm
+J01950,C011,U020,Life Sciences,2024-01-12,,false,mid,perm
+J01951,C069,U020,Life Sciences,2024-07-03,,false,mid,perm
+J01952,C048,U020,Life Sciences,2024-07-22,,false,junior,perm
+J01953,C066,U020,Life Sciences,2024-09-09,,true,mid,contract
+J01954,C048,U020,Life Sciences,2024-12-20,,false,junior,perm
+J01955,C070,U020,Life Sciences,2024-07-26,,false,junior,perm
+J01956,C048,U020,Life Sciences,2024-11-01,,false,mid,contract
+J01957,C048,U020,Life Sciences,2024-05-17,,false,junior,contract
+J01958,C029,U020,Life Sciences,2024-01-12,,false,junior,perm
+J01959,C039,U020,Life Sciences,2024-09-26,,false,senior,contract
+J01960,C066,U020,Life Sciences,2024-01-18,,false,junior,perm
+J01961,C021,U020,Life Sciences,2024-10-14,,false,mid,contract
+J01962,C039,U020,Life Sciences,2024-01-17,,false,mid,perm
+J01963,C064,U020,Life Sciences,2024-03-27,,true,mid,perm
+J01964,C039,U020,Life Sciences,2024-11-21,,false,senior,perm
+J01965,C034,U020,Life Sciences,2024-04-22,,false,mid,perm
+J01966,C064,U020,Life Sciences,2024-02-19,,false,mid,perm
+J01967,C036,U021,Public Sector,2024-09-12,,false,senior,perm
+J01968,C018,U021,Public Sector,2024-03-13,,false,mid,perm
+J01969,C018,U021,Public Sector,2024-01-26,,false,mid,perm
+J01970,C036,U021,Public Sector,2024-08-19,,true,mid,perm
+J01971,C024,U021,Public Sector,2024-03-25,,false,junior,perm
+J01972,C050,U021,Public Sector,2024-10-28,,true,mid,perm
+J01973,C025,U021,Public Sector,2024-01-02,,false,mid,perm
+J01974,C024,U021,Public Sector,2024-03-22,,false,junior,contract
+J01975,C049,U022,IT & Data,2024-06-04,,true,senior,contract
+J01976,C055,U022,IT & Data,2024-02-26,,false,junior,perm
+J01977,C059,U022,IT & Data,2024-09-20,,false,junior,perm
+J01978,C058,U022,IT & Data,2024-03-06,,false,senior,perm
+J01979,C052,U022,IT & Data,2024-01-02,,false,mid,perm
+J01980,C005,U022,IT & Data,2024-05-22,,true,junior,perm
+J01981,C054,U022,IT & Data,2024-01-04,,false,mid,perm
+J01982,C043,U022,IT & Data,2024-09-03,,false,mid,contract
+J01983,C055,U022,IT & Data,2024-08-12,,false,mid,contract
+J01985,C028,U022,IT & Data,2024-07-22,,false,junior,perm
+J01986,C005,U022,IT & Data,2024-06-03,,true,junior,contract
+J01987,C058,U022,IT & Data,2024-05-15,,false,lead,contract
+J01988,C038,U022,IT & Data,2024-06-20,,false,junior,contract
+J01989,C059,U022,IT & Data,2024-03-07,,false,mid,perm
+J01990,C028,U022,IT & Data,2024-02-20,,true,junior,perm
+J01991,C043,U022,IT & Data,2024-09-05,,false,mid,perm
+J01992,C049,U022,IT & Data,2024-04-25,,false,senior,perm
+J01993,C040,U022,IT & Data,2024-02-20,,false,senior,contract
+J01994,C038,U022,IT & Data,2024-06-24,,false,junior,perm
+J01996,C049,U022,IT & Data,2024-04-08,,false,mid,perm
+J01997,C005,U022,IT & Data,2024-04-02,,false,senior,perm
+J01998,C055,U022,IT & Data,2024-04-05,,false,mid,contract
+J01999,C006,U022,IT & Data,2024-11-21,,false,senior,perm
+J02000,C065,U001,IT & Data,2025-10-13,,true,mid,contract
+J02002,C054,U001,IT & Data,2025-01-06,,false,mid,contract
+J02003,C052,U001,IT & Data,2025-04-24,,false,junior,perm
+J02004,C055,U001,IT & Data,2025-02-07,,false,mid,perm
+J02005,C028,U001,IT & Data,2025-09-15,,false,mid,perm
+J02006,C043,U001,IT & Data,2025-12-25,,false,senior,contract
+J02007,C032,U001,IT & Data,2025-07-18,,false,mid,contract
+J02008,C032,U001,IT & Data,2025-03-17,,false,senior,perm
+J02009,C040,U001,IT & Data,2025-10-24,,true,senior,perm
+J02010,C006,U001,IT & Data,2025-10-06,,false,mid,contract
+J02011,C038,U001,IT & Data,2025-06-23,,false,mid,perm
+J02012,C005,U001,IT & Data,2025-04-24,,false,mid,contract
+J02013,C058,U001,IT & Data,2025-10-07,,false,senior,contract
+J02014,C049,U001,IT & Data,2025-07-25,,false,mid,contract
+J02015,C032,U001,IT & Data,2025-02-04,,false,senior,contract
+J02016,C028,U001,IT & Data,2025-11-24,,false,mid,perm
+J02017,C043,U001,IT & Data,2025-03-21,,false,mid,contract
+J02018,C049,U001,IT & Data,2025-03-10,,false,mid,perm
+J02019,C052,U001,IT & Data,2025-07-04,,false,junior,perm
+J02020,C032,U001,IT & Data,2025-04-15,,false,junior,perm
+J02021,C052,U001,IT & Data,2025-02-24,,false,mid,perm
+J02022,C065,U001,IT & Data,2025-12-19,,false,senior,perm
+J02023,C058,U001,IT & Data,2025-02-10,,false,mid,contract
+J02024,C054,U001,IT & Data,2025-11-10,,false,mid,perm
+J02025,C059,U001,IT & Data,2025-09-17,,false,mid,contract
+J02026,C065,U001,IT & Data,2025-11-07,,true,senior,perm
+J02027,C006,U001,IT & Data,2025-02-17,,false,mid,perm
+J02028,C045,U001,IT & Data,2025-03-07,,false,senior,contract
+J02029,C037,U001,IT & Data,2025-02-14,,false,senior,perm
+J02030,C058,U001,IT & Data,2025-09-17,,false,mid,perm
+J02032,C054,U001,IT & Data,2025-10-13,,false,senior,perm
+J02033,C013,U001,IT & Data,2025-11-24,,false,mid,perm
+J02034,C006,U001,IT & Data,2025-07-21,,false,mid,perm
+J02035,C045,U001,IT & Data,2025-07-16,,false,junior,perm
+J02036,C028,U001,IT & Data,2025-10-27,,false,mid,contract
+J02037,C049,U001,IT & Data,2025-04-17,,false,mid,perm
+J02038,C032,U001,IT & Data,2025-07-17,,true,mid,perm
+J02039,C037,U001,IT & Data,2025-11-21,,true,mid,perm
+J02040,C058,U001,IT & Data,2025-10-14,,true,senior,contract
+J02041,C038,U001,IT & Data,2025-08-18,,false,senior,contract
+J02042,C028,U001,IT & Data,2025-04-07,,false,junior,perm
+J02043,C058,U001,IT & Data,2025-07-15,,false,junior,perm
+J02045,C038,U001,IT & Data,2025-09-05,,true,senior,perm
+J02046,C006,U001,IT & Data,2025-04-17,,false,senior,contract
+J02047,C028,U004,IT & Data,2025-03-13,,false,mid,perm
+J02048,C058,U004,IT & Data,2025-02-13,,false,senior,perm
+J02050,C049,U004,IT & Data,2025-02-12,,true,junior,perm
+J02051,C049,U004,IT & Data,2025-11-05,,false,senior,perm
+J02052,C049,U004,IT & Data,2025-03-18,,false,junior,contract
+J02053,C049,U004,IT & Data,2025-11-24,,false,mid,contract
+J02054,C013,U004,IT & Data,2025-08-06,,false,mid,perm
+J02055,C054,U004,IT & Data,2025-11-10,,true,senior,perm
+J02057,C045,U004,IT & Data,2025-11-20,,false,junior,perm
+J02058,C055,U004,IT & Data,2025-10-28,,false,mid,perm
+J02059,C006,U004,IT & Data,2025-03-24,,false,mid,perm
+J02060,C038,U004,IT & Data,2025-05-19,,false,senior,perm
+J02061,C037,U004,IT & Data,2025-01-08,,false,senior,perm
+J02062,C059,U004,IT & Data,2025-12-04,,false,mid,contract
+J02063,C054,U004,IT & Data,2025-03-21,,false,lead,perm
+J02064,C043,U004,IT & Data,2025-11-10,,false,senior,perm
+J02065,C006,U004,IT & Data,2025-02-03,,true,mid,contract
+J02066,C049,U004,IT & Data,2025-03-21,,false,junior,perm
+J02067,C013,U004,IT & Data,2025-08-18,,false,senior,contract
+J02068,C037,U004,IT & Data,2025-02-03,,false,junior,perm
+J02069,C028,U004,IT & Data,2025-11-24,,true,mid,contract
+J02070,C055,U004,IT & Data,2025-11-28,,false,lead,contract
+J02071,C037,U004,IT & Data,2025-02-12,,true,senior,contract
+J02072,C038,U004,IT & Data,2025-09-18,,false,junior,perm
+J02073,C038,U004,IT & Data,2025-02-10,,false,mid,contract
+J02074,C028,U004,IT & Data,2025-10-28,,false,mid,perm
+J02075,C055,U004,IT & Data,2025-12-22,,false,lead,perm
+J02076,C040,U004,IT & Data,2025-01-02,,false,junior,perm
+J02077,C055,U004,IT & Data,2025-03-24,,false,mid,contract
+J02078,C054,U004,IT & Data,2025-02-05,,false,mid,perm
+J02079,C037,U004,IT & Data,2025-10-10,,false,lead,perm
+J02080,C055,U004,IT & Data,2025-03-03,,false,mid,perm
+J02081,C054,U004,IT & Data,2025-06-20,,true,senior,perm
+J02082,C001,U004,IT & Data,2025-01-15,,true,mid,perm
+J02083,C037,U004,IT & Data,2025-12-08,,false,junior,perm
+J02084,C059,U004,IT & Data,2025-09-04,,false,senior,perm
+J02085,C058,U004,IT & Data,2025-03-10,,false,mid,perm
+J02086,C060,U005,Engineering,2025-09-08,,false,senior,perm
+J02087,C009,U005,Engineering,2025-06-04,,false,junior,perm
+J02088,C016,U005,Engineering,2025-06-23,,false,mid,contract
+J02089,C056,U005,Engineering,2025-10-06,,true,mid,perm
+J02090,C060,U005,Engineering,2025-05-06,,false,senior,contract
+J02091,C002,U005,Engineering,2025-04-28,,false,senior,perm
+J02092,C019,U005,Engineering,2025-07-21,,false,mid,contract
+J02093,C063,U005,Engineering,2025-01-27,,false,junior,perm
+J02094,C063,U005,Engineering,2025-01-07,,false,mid,perm
+J02095,C056,U005,Engineering,2025-05-01,,false,junior,contract
+J02096,C067,U005,Engineering,2025-09-17,,false,senior,perm
+J02097,C023,U005,Engineering,2025-06-10,,false,lead,perm
+J02098,C046,U005,Engineering,2025-09-08,,false,mid,perm
+J02099,C004,U005,Engineering,2025-12-08,,false,mid,perm
+J02100,C046,U005,Engineering,2025-09-18,,false,senior,perm
+J02101,C009,U005,Engineering,2025-04-28,,false,senior,perm
+J02102,C046,U005,Engineering,2025-11-06,,false,lead,perm
+J02103,C063,U005,Engineering,2025-09-24,,true,lead,perm
+J02104,C002,U005,Engineering,2025-01-14,,false,mid,contract
+J02105,C067,U005,Engineering,2025-05-23,,false,junior,perm
+J02106,C067,U005,Engineering,2025-09-29,,false,junior,perm
+J02107,C023,U005,Engineering,2025-05-14,,false,mid,perm
+J02108,C041,U005,Engineering,2025-06-09,,true,senior,perm
+J02109,C063,U005,Engineering,2025-09-15,,false,mid,perm
+J02110,C067,U005,Engineering,2025-12-08,,false,senior,contract
+J02111,C002,U005,Engineering,2025-01-06,,false,lead,perm
+J02112,C036,U006,Public Sector,2025-06-27,,false,mid,perm
+J02113,C003,U006,Public Sector,2025-09-01,,false,senior,perm
+J02114,C018,U006,Public Sector,2025-06-03,,true,junior,perm
+J02115,C036,U006,Public Sector,2025-08-12,,false,mid,perm
+J02116,C016,U007,Engineering,2025-12-17,,false,junior,perm
+J02117,C046,U007,Engineering,2025-10-01,,false,mid,contract
+J02118,C014,U007,Engineering,2025-01-16,,false,senior,perm
+J02119,C063,U007,Engineering,2025-07-08,,false,junior,perm
+J02120,C009,U007,Engineering,2025-01-20,,true,senior,perm
+J02121,C002,U007,Engineering,2025-03-25,,false,mid,contract
+J02122,C067,U007,Engineering,2025-06-12,,false,mid,perm
+J02123,C046,U007,Engineering,2025-03-13,,false,mid,perm
+J02124,C014,U007,Engineering,2025-09-02,,false,mid,perm
+J02125,C060,U007,Engineering,2025-10-06,,false,lead,perm
+J02126,C063,U007,Engineering,2025-01-01,,false,mid,perm
+J02127,C016,U007,Engineering,2025-01-02,,false,mid,perm
+J02128,C002,U007,Engineering,2025-12-01,,false,mid,perm
+J02129,C060,U007,Engineering,2025-10-27,,false,junior,perm
+J02130,C067,U007,Engineering,2025-09-09,,false,senior,perm
+J02131,C068,U007,Engineering,2025-06-19,,false,mid,contract
+J02132,C061,U007,Engineering,2025-10-03,,true,senior,contract
+J02133,C016,U007,Engineering,2025-04-03,,true,senior,perm
+J02134,C023,U007,Engineering,2025-05-14,,false,mid,perm
+J02135,C067,U007,Engineering,2025-02-12,,false,mid,perm
+J02136,C019,U007,Engineering,2025-04-07,,false,mid,contract
+J02137,C022,U007,Engineering,2025-12-26,,false,lead,perm
+J02138,C061,U007,Engineering,2025-01-06,,false,mid,perm
+J02139,C002,U007,Engineering,2025-08-13,,false,mid,perm
+J02140,C046,U007,Engineering,2025-07-16,,true,senior,perm
+J02141,C056,U007,Engineering,2025-08-15,,false,lead,perm
+J02142,C046,U007,Engineering,2025-12-08,,false,junior,perm
+J02143,C010,U007,Engineering,2025-11-04,,false,lead,contract
+J02144,C046,U007,Engineering,2025-12-11,,false,mid,perm
+J02145,C002,U008,Engineering,2025-08-15,,false,senior,perm
+J02146,C026,U008,Engineering,2025-05-26,,false,senior,perm
+J02147,C009,U008,Engineering,2025-05-19,,false,mid,perm
+J02148,C067,U008,Engineering,2025-03-17,,true,mid,contract
+J02149,C056,U008,Engineering,2025-09-29,,false,senior,perm
+J02150,C016,U008,Engineering,2025-07-09,,false,mid,perm
+J02151,C060,U008,Engineering,2025-07-02,,false,mid,perm
+J02152,C019,U008,Engineering,2025-03-13,,false,senior,contract
+J02153,C016,U008,Engineering,2025-06-06,,false,mid,perm
+J02154,C009,U008,Engineering,2025-04-28,,false,mid,perm
+J02155,C023,U008,Engineering,2025-09-08,,false,senior,perm
+J02156,C014,U008,Engineering,2025-10-27,,false,mid,perm
+J02157,C023,U008,Engineering,2025-04-02,,false,mid,perm
+J02158,C019,U008,Engineering,2025-04-07,,false,mid,contract
+J02159,C004,U008,Engineering,2025-06-17,,false,junior,perm
+J02160,C002,U008,Engineering,2025-06-24,,true,senior,contract
+J02161,C019,U008,Engineering,2025-02-24,,false,mid,perm
+J02162,C023,U008,Engineering,2025-01-03,,false,senior,perm
+J02163,C067,U008,Engineering,2025-02-03,,false,senior,perm
+J02164,C067,U008,Engineering,2025-11-21,,false,mid,perm
+J02165,C026,U008,Engineering,2025-09-03,,false,senior,contract
+J02166,C061,U008,Engineering,2025-07-28,,false,mid,perm
+J02167,C016,U008,Engineering,2025-01-27,,false,junior,perm
+J02168,C026,U008,Engineering,2025-01-02,,false,mid,perm
+J02169,C010,U008,Engineering,2025-02-11,,false,junior,perm
+J02170,C010,U008,Engineering,2025-09-23,,false,lead,perm
+J02171,C016,U008,Engineering,2025-01-13,,false,senior,contract
+J02172,C010,U008,Engineering,2025-05-02,,false,junior,perm
+J02173,C002,U009,Engineering,2025-03-03,,true,mid,perm
+J02174,C063,U009,Engineering,2025-02-11,,true,mid,perm
+J02175,C041,U009,Engineering,2025-10-15,,false,mid,perm
+J02176,C023,U009,Engineering,2025-11-03,,false,junior,contract
+J02177,C023,U009,Engineering,2025-01-15,,false,mid,perm
+J02178,C022,U009,Engineering,2025-05-20,,false,senior,contract
+J02179,C009,U009,Engineering,2025-01-01,,false,senior,contract
+J02180,C056,U009,Engineering,2025-12-15,,false,junior,contract
+J02181,C019,U009,Engineering,2025-03-12,,false,junior,contract
+J02182,C019,U009,Engineering,2025-10-06,,false,senior,perm
+J02183,C014,U009,Engineering,2025-01-10,,false,senior,contract
+J02184,C014,U009,Engineering,2025-04-22,,false,senior,contract
+J02185,C002,U009,Engineering,2025-12-18,,false,mid,perm
+J02186,C014,U009,Engineering,2025-05-27,,false,senior,contract
+J02187,C019,U009,Engineering,2025-10-06,,true,lead,perm
+J02188,C063,U009,Engineering,2025-02-10,,true,mid,perm
+J02189,C016,U009,Engineering,2025-04-07,,false,junior,perm
+J02190,C002,U009,Engineering,2025-01-20,,false,junior,contract
+J02191,C068,U009,Engineering,2025-10-13,,false,lead,perm
+J02192,C010,U009,Engineering,2025-10-21,,false,mid,perm
+J02193,C063,U009,Engineering,2025-08-07,,false,senior,perm
+J02194,C014,U009,Engineering,2025-01-13,,false,junior,perm
+J02195,C014,U009,Engineering,2025-09-12,,false,mid,perm
+J02196,C055,U012,IT & Data,2025-04-18,,false,senior,perm
+J02197,C032,U012,IT & Data,2025-08-28,,false,mid,perm
+J02199,C006,U012,IT & Data,2025-03-17,,true,lead,perm
+J02200,C049,U012,IT & Data,2025-09-15,,false,junior,perm
+J02201,C001,U012,IT & Data,2025-01-27,,false,senior,perm
+J02202,C049,U012,IT & Data,2025-10-20,,false,junior,contract
+J02203,C045,U012,IT & Data,2025-11-14,,false,junior,perm
+J02204,C005,U012,IT & Data,2025-03-04,,false,mid,perm
+J02205,C049,U012,IT & Data,2025-05-12,,false,senior,perm
+J02206,C038,U012,IT & Data,2025-11-19,,false,junior,perm
+J02207,C005,U012,IT & Data,2025-02-10,,false,mid,perm
+J02208,C052,U012,IT & Data,2025-01-17,,false,senior,perm
+J02209,C049,U012,IT & Data,2025-12-29,,false,mid,perm
+J02210,C040,U012,IT & Data,2025-07-21,,false,junior,perm
+J02211,C037,U012,IT & Data,2025-08-21,,false,mid,perm
+J02213,C037,U012,IT & Data,2025-04-07,,false,junior,perm
+J02214,C052,U012,IT & Data,2025-06-30,,false,junior,perm
+J02215,C055,U012,IT & Data,2025-09-16,,false,mid,contract
+J02216,C058,U012,IT & Data,2025-11-07,,false,senior,perm
+J02217,C049,U012,IT & Data,2025-01-17,,false,senior,contract
+J02218,C058,U012,IT & Data,2025-12-02,,false,junior,contract
+J02219,C006,U012,IT & Data,2025-03-17,,false,senior,perm
+J02220,C001,U012,IT & Data,2025-04-01,,false,mid,perm
+J02221,C006,U013,IT & Data,2025-12-29,,false,junior,perm
+J02222,C040,U013,IT & Data,2025-09-22,,false,mid,perm
+J02223,C055,U013,IT & Data,2025-09-09,,false,senior,perm
+J02224,C052,U013,IT & Data,2025-10-06,,true,senior,perm
+J02225,C032,U013,IT & Data,2025-06-10,,false,lead,perm
+J02226,C038,U013,IT & Data,2025-09-17,,false,mid,contract
+J02227,C028,U013,IT & Data,2025-07-21,,true,mid,contract
+J02228,C005,U013,IT & Data,2025-05-19,,false,senior,contract
+J02229,C043,U013,IT & Data,2025-12-17,,true,junior,perm
+J02230,C045,U013,IT & Data,2025-07-14,,false,senior,contract
+J02231,C032,U013,IT & Data,2025-11-21,,false,mid,perm
+J02232,C059,U013,IT & Data,2025-04-24,,false,mid,perm
+J02233,C040,U013,IT & Data,2025-11-25,,false,mid,contract
+J02234,C055,U013,IT & Data,2025-05-21,,false,junior,contract
+J02236,C049,U013,IT & Data,2025-01-21,,false,mid,perm
+J02237,C054,U013,IT & Data,2025-02-03,,false,mid,contract
+J02238,C005,U013,IT & Data,2025-03-21,,false,mid,perm
+J02239,C049,U013,IT & Data,2025-05-15,,true,junior,perm
+J02240,C001,U013,IT & Data,2025-10-03,,false,junior,contract
+J02241,C038,U013,IT & Data,2025-09-04,,false,senior,perm
+J02242,C055,U013,IT & Data,2025-11-14,,true,lead,perm
+J02243,C040,U013,IT & Data,2025-11-24,,false,mid,contract
+J02244,C040,U013,IT & Data,2025-10-22,,true,senior,perm
+J02245,C059,U013,IT & Data,2025-06-30,,false,senior,perm
+J02246,C052,U013,IT & Data,2025-08-28,,true,junior,perm
+J02247,C037,U013,IT & Data,2025-07-07,,false,junior,perm
+J02248,C058,U013,IT & Data,2025-12-24,,false,mid,perm
+J02249,C028,U013,IT & Data,2025-05-26,,true,senior,perm
+J02250,C028,U013,IT & Data,2025-08-01,,false,lead,contract
+J02251,C006,U013,IT & Data,2025-01-01,,false,junior,contract
+J02252,C059,U013,IT & Data,2025-03-18,,false,mid,perm
+J02253,C045,U013,IT & Data,2025-09-16,,false,mid,contract
+J02254,C052,U013,IT & Data,2025-03-24,,false,mid,perm
+J02255,C032,U013,IT & Data,2025-06-11,,false,mid,perm
+J02256,C059,U013,IT & Data,2025-10-20,,false,junior,perm
+J02257,C038,U013,IT & Data,2025-01-02,,false,junior,perm
+J02258,C005,U013,IT & Data,2025-09-15,,false,mid,perm
+J02259,C006,U013,IT & Data,2025-03-21,,true,senior,contract
+J02260,C028,U013,IT & Data,2025-09-18,,false,senior,perm
+J02261,C058,U013,IT & Data,2025-05-02,,false,senior,perm
+J02262,C055,U013,IT & Data,2025-01-16,,false,mid,contract
+J02264,C052,U013,IT & Data,2025-09-10,,true,senior,perm
+J02265,C054,U013,IT & Data,2025-02-03,,false,senior,contract
+J02267,C059,U014,IT & Data,2025-01-06,,false,mid,perm
+J02268,C045,U014,IT & Data,2025-07-11,,false,mid,perm
+J02269,C001,U014,IT & Data,2025-10-21,,false,junior,perm
+J02270,C043,U014,IT & Data,2025-05-20,,false,senior,contract
+J02271,C040,U014,IT & Data,2025-07-07,,true,junior,contract
+J02272,C055,U014,IT & Data,2025-09-24,,false,senior,contract
+J02273,C052,U014,IT & Data,2025-02-18,,false,mid,contract
+J02274,C055,U014,IT & Data,2025-05-05,,false,mid,perm
+J02275,C049,U014,IT & Data,2025-04-11,,false,junior,perm
+J02276,C059,U014,IT & Data,2025-12-08,,false,senior,perm
+J02277,C037,U014,IT & Data,2025-06-04,,false,mid,perm
+J02278,C043,U014,IT & Data,2025-04-18,,true,senior,perm
+J02279,C045,U014,IT & Data,2025-04-09,,false,mid,contract
+J02280,C040,U014,IT & Data,2025-10-20,,false,mid,perm
+J02281,C045,U014,IT & Data,2025-10-15,,false,mid,perm
+J02282,C054,U014,IT & Data,2025-08-04,,false,mid,perm
+J02283,C055,U014,IT & Data,2025-09-29,,false,senior,perm
+J02284,C001,U014,IT & Data,2025-09-22,,false,mid,perm
+J02285,C065,U014,IT & Data,2025-12-17,,false,senior,perm
+J02286,C052,U014,IT & Data,2025-12-08,,false,senior,perm
+J02288,C006,U014,IT & Data,2025-10-16,,false,mid,perm
+J02289,C032,U014,IT & Data,2025-05-06,,false,junior,perm
+J02290,C058,U014,IT & Data,2025-04-10,,false,mid,contract
+J02291,C055,U014,IT & Data,2025-03-26,,true,junior,perm
+J02292,C043,U014,IT & Data,2025-01-15,,false,senior,perm
+J02293,C045,U014,IT & Data,2025-12-08,,false,mid,perm
+J02294,C032,U014,IT & Data,2025-10-27,,false,lead,perm
+J02295,C013,U014,IT & Data,2025-11-03,,false,mid,perm
+J02296,C055,U014,IT & Data,2025-09-12,,false,junior,contract
+J02297,C032,U014,IT & Data,2025-03-18,,false,junior,perm
+J02298,C054,U014,IT & Data,2025-01-08,,true,mid,perm
+J02299,C028,U014,IT & Data,2025-10-14,,false,senior,contract
+J02300,C043,U014,IT & Data,2025-10-24,,false,senior,contract
+J02301,C028,U014,IT & Data,2025-04-04,,false,senior,perm
+J02302,C054,U014,IT & Data,2025-01-02,,true,mid,contract
+J02303,C049,U014,IT & Data,2025-02-03,,false,mid,perm
+J02304,C028,U014,IT & Data,2025-05-05,,false,mid,perm
+J02305,C016,U015,Engineering,2025-06-10,,false,mid,contract
+J02306,C009,U015,Engineering,2025-11-03,,true,mid,contract
+J02307,C026,U015,Engineering,2025-11-03,,false,senior,contract
+J02308,C010,U015,Engineering,2025-06-12,,false,senior,perm
+J02309,C068,U015,Engineering,2025-10-02,,false,senior,perm
+J02310,C041,U015,Engineering,2025-10-24,,false,mid,perm
+J02311,C022,U015,Engineering,2025-02-06,,false,senior,perm
+J02312,C016,U015,Engineering,2025-03-10,,false,lead,contract
+J02313,C026,U015,Engineering,2025-11-03,,false,senior,contract
+J02314,C002,U015,Engineering,2025-03-17,,false,junior,perm
+J02315,C056,U015,Engineering,2025-11-10,,false,mid,perm
+J02316,C060,U015,Engineering,2025-09-08,,false,mid,perm
+J02317,C063,U015,Engineering,2025-02-10,,false,senior,perm
+J02318,C026,U015,Engineering,2025-12-22,,false,mid,perm
+J02319,C067,U015,Engineering,2025-05-14,,true,senior,perm
+J02320,C002,U015,Engineering,2025-04-25,,true,mid,perm
+J02321,C010,U015,Engineering,2025-07-22,,false,mid,contract
+J02322,C046,U015,Engineering,2025-02-03,,false,mid,perm
+J02323,C026,U015,Engineering,2025-03-03,,false,mid,contract
+J02324,C026,U015,Engineering,2025-01-09,,false,junior,contract
+J02325,C060,U015,Engineering,2025-12-11,,false,junior,contract
+J02326,C014,U015,Engineering,2025-08-11,,true,junior,perm
+J02327,C061,U015,Engineering,2025-06-16,,true,mid,perm
+J02328,C043,U016,IT & Data,2025-03-24,,false,senior,perm
+J02329,C006,U016,IT & Data,2025-10-27,,false,mid,perm
+J02331,C043,U016,IT & Data,2025-07-01,,false,senior,perm
+J02333,C005,U016,IT & Data,2025-01-24,,false,senior,perm
+J02334,C043,U016,IT & Data,2025-03-12,,false,junior,contract
+J02335,C065,U016,IT & Data,2025-10-27,,true,mid,perm
+J02336,C055,U016,IT & Data,2025-07-14,,false,lead,perm
+J02337,C049,U016,IT & Data,2025-03-21,,false,senior,perm
+J02338,C045,U016,IT & Data,2025-12-01,,false,mid,contract
+J02339,C032,U016,IT & Data,2025-09-22,,true,mid,perm
+J02340,C054,U016,IT & Data,2025-08-27,,false,junior,perm
+J02341,C045,U016,IT & Data,2025-09-08,,false,mid,contract
+J02342,C059,U016,IT & Data,2025-01-06,,true,lead,perm
+J02343,C052,U016,IT & Data,2025-11-24,,true,senior,perm
+J02344,C065,U016,IT & Data,2025-01-14,,true,mid,perm
+J02345,C037,U016,IT & Data,2025-10-08,,true,mid,perm
+J02346,C054,U016,IT & Data,2025-01-20,,true,senior,contract
+J02347,C049,U016,IT & Data,2025-01-20,,false,mid,perm
+J02348,C055,U016,IT & Data,2025-11-17,,false,senior,perm
+J02349,C059,U016,IT & Data,2025-01-17,,true,mid,contract
+J02350,C049,U016,IT & Data,2025-12-22,,false,lead,perm
+J02351,C038,U016,IT & Data,2025-11-28,,false,senior,contract
+J02352,C059,U016,IT & Data,2025-06-27,,false,lead,perm
+J02353,C054,U016,IT & Data,2025-04-28,,false,mid,contract
+J02354,C045,U016,IT & Data,2025-01-27,,false,senior,perm
+J02355,C037,U016,IT & Data,2025-02-10,,false,senior,perm
+J02356,C058,U016,IT & Data,2025-01-22,,false,junior,perm
+J02357,C065,U016,IT & Data,2025-08-28,,false,mid,perm
+J02359,C054,U016,IT & Data,2025-05-12,,true,lead,perm
+J02360,C001,U016,IT & Data,2025-02-03,,false,mid,perm
+J02361,C006,U016,IT & Data,2025-05-14,,false,mid,perm
+J02362,C038,U016,IT & Data,2025-07-01,,false,senior,perm
+J02363,C032,U016,IT & Data,2025-11-10,,false,mid,contract
+J02364,C045,U016,IT & Data,2025-07-28,,false,senior,perm
+J02365,C005,U016,IT & Data,2025-05-28,,false,senior,contract
+J02366,C028,U016,IT & Data,2025-09-04,,false,mid,perm
+J02367,C006,U016,IT & Data,2025-02-06,,false,senior,perm
+J02368,C006,U016,IT & Data,2025-04-10,,false,senior,perm
+J02369,C037,U016,IT & Data,2025-05-28,,false,mid,perm
+J02370,C055,U016,IT & Data,2025-08-14,,false,senior,perm
+J02371,C049,U016,IT & Data,2025-02-27,,true,junior,perm
+J02372,C052,U016,IT & Data,2025-03-20,,false,mid,perm
+J02373,C065,U016,IT & Data,2025-10-06,,false,mid,perm
+J02374,C065,U016,IT & Data,2025-10-13,,false,mid,perm
+J02375,C058,U016,IT & Data,2025-01-22,,true,junior,perm
+J02376,C006,U018,IT & Data,2025-12-29,,true,mid,contract
+J02377,C049,U018,IT & Data,2025-08-12,,true,junior,perm
+J02378,C052,U018,IT & Data,2025-11-03,,false,junior,perm
+J02379,C005,U018,IT & Data,2025-06-09,,false,senior,contract
+J02380,C049,U018,IT & Data,2025-01-13,,true,mid,perm
+J02383,C052,U018,IT & Data,2025-12-03,,false,mid,perm
+J02384,C049,U018,IT & Data,2025-07-02,,false,mid,contract
+J02385,C001,U018,IT & Data,2025-08-14,,false,junior,contract
+J02386,C006,U018,IT & Data,2025-09-22,,false,senior,perm
+J02387,C038,U018,IT & Data,2025-10-16,,false,mid,contract
+J02388,C059,U018,IT & Data,2025-09-29,,false,senior,perm
+J02389,C028,U018,IT & Data,2025-05-12,,false,mid,perm
+J02390,C049,U018,IT & Data,2025-02-21,,true,mid,perm
+J02391,C052,U018,IT & Data,2025-06-26,,false,junior,perm
+J02392,C059,U018,IT & Data,2025-06-03,,false,mid,contract
+J02393,C052,U018,IT & Data,2025-05-26,,false,junior,perm
+J02394,C005,U018,IT & Data,2025-12-29,,false,mid,perm
+J02395,C065,U018,IT & Data,2025-10-28,,false,mid,perm
+J02396,C028,U018,IT & Data,2025-06-17,,true,junior,perm
+J02397,C065,U018,IT & Data,2025-04-07,,false,mid,perm
+J02398,C038,U018,IT & Data,2025-11-11,,false,senior,contract
+J02399,C038,U018,IT & Data,2025-04-21,,false,senior,perm
+J02400,C049,U018,IT & Data,2025-07-22,,false,junior,perm
+J02401,C054,U018,IT & Data,2025-01-08,,false,mid,contract
+J02402,C005,U018,IT & Data,2025-04-07,,false,mid,perm
+J02403,C040,U018,IT & Data,2025-01-14,,true,mid,contract
+J02404,C028,U018,IT & Data,2025-03-24,,true,junior,perm
+J02405,C006,U018,IT & Data,2025-06-27,,false,lead,perm
+J02406,C049,U018,IT & Data,2025-04-11,,false,senior,perm
+J02407,C005,U018,IT & Data,2025-02-05,,false,senior,perm
+J02408,C055,U018,IT & Data,2025-03-04,,false,lead,perm
+J02409,C006,U018,IT & Data,2025-10-13,,false,mid,contract
+J02410,C032,U018,IT & Data,2025-05-22,,false,mid,perm
+J02411,C040,U018,IT & Data,2025-04-24,,false,senior,contract
+J02412,C001,U018,IT & Data,2025-06-09,,true,junior,perm
+J02413,C001,U018,IT & Data,2025-12-17,,false,mid,perm
+J02414,C049,U018,IT & Data,2025-04-11,,false,junior,perm
+J02415,C037,U018,IT & Data,2025-11-19,,false,mid,contract
+J02416,C054,U018,IT & Data,2025-07-22,,true,mid,contract
+J02417,C065,U018,IT & Data,2025-05-13,,true,junior,perm
+J02418,C054,U018,IT & Data,2025-03-17,,true,mid,contract
+J02419,C052,U018,IT & Data,2025-11-04,,false,senior,perm
+J02420,C052,U019,IT & Data,2025-05-26,,false,mid,perm
+J02421,C013,U019,IT & Data,2025-10-20,,false,senior,perm
+J02422,C038,U019,IT & Data,2025-05-26,,false,mid,perm
+J02424,C045,U019,IT & Data,2025-01-23,,true,junior,perm
+J02425,C065,U019,IT & Data,2025-01-09,,false,mid,perm
+J02426,C049,U019,IT & Data,2025-10-17,,false,junior,perm
+J02427,C052,U019,IT & Data,2025-05-26,,false,junior,contract
+J02428,C006,U019,IT & Data,2025-04-23,,false,mid,perm
+J02429,C055,U019,IT & Data,2025-05-27,,true,senior,perm
+J02430,C005,U019,IT & Data,2025-11-10,,false,junior,perm
+J02431,C037,U019,IT & Data,2025-11-17,,true,lead,perm
+J02432,C001,U019,IT & Data,2025-04-23,,false,mid,perm
+J02433,C038,U019,IT & Data,2025-03-04,,false,junior,contract
+J02434,C054,U019,IT & Data,2025-10-01,,false,mid,contract
+J02435,C006,U019,IT & Data,2025-07-02,,true,junior,perm
+J02436,C043,U019,IT & Data,2025-12-24,,false,senior,perm
+J02437,C054,U019,IT & Data,2025-10-20,,true,senior,perm
+J02438,C038,U019,IT & Data,2025-07-07,,false,mid,perm
+J02439,C032,U019,IT & Data,2025-09-22,,false,senior,contract
+J02440,C013,U019,IT & Data,2025-06-24,,false,mid,perm
+J02441,C006,U019,IT & Data,2025-07-21,,false,mid,perm
+J02442,C040,U019,IT & Data,2025-04-14,,false,senior,perm
+J02443,C043,U019,IT & Data,2025-04-17,,false,mid,perm
+J02444,C028,U019,IT & Data,2025-06-11,,false,mid,perm
+J02446,C049,U019,IT & Data,2025-10-06,,false,junior,contract
+J02447,C058,U019,IT & Data,2025-05-21,,false,junior,perm
+J02448,C058,U019,IT & Data,2025-12-25,,false,mid,perm
+J02449,C006,U019,IT & Data,2025-08-21,,false,mid,contract
+J02450,C037,U019,IT & Data,2025-02-10,,false,mid,perm
+J02452,C055,U019,IT & Data,2025-06-16,,true,senior,perm
+J02453,C013,U019,IT & Data,2025-01-20,,false,senior,contract
+J02454,C054,U019,IT & Data,2025-01-24,,false,mid,perm
+J02455,C054,U019,IT & Data,2025-02-06,,true,junior,perm
+J02456,C032,U019,IT & Data,2025-06-02,,true,mid,perm
+J02457,C001,U019,IT & Data,2025-05-23,,false,junior,perm
+J02458,C032,U019,IT & Data,2025-01-21,,false,senior,perm
+J02459,C006,U019,IT & Data,2025-11-14,,false,mid,contract
+J02460,C028,U019,IT & Data,2025-01-27,,false,mid,perm
+J02461,C006,U019,IT & Data,2025-06-26,,false,junior,contract
+J02462,C006,U019,IT & Data,2025-03-17,,false,senior,contract
+J02463,C028,U019,IT & Data,2025-05-27,,false,junior,perm
+J02464,C048,U020,Life Sciences,2025-02-03,,false,senior,perm
+J02465,C070,U020,Life Sciences,2025-08-25,,false,senior,perm
+J02466,C069,U020,Life Sciences,2025-08-21,,true,senior,perm
+J02467,C066,U020,Life Sciences,2025-05-09,,false,mid,perm
+J02468,C044,U020,Life Sciences,2025-12-04,,true,junior,perm
+J02469,C070,U020,Life Sciences,2025-09-22,,true,junior,perm
+J02470,C039,U020,Life Sciences,2025-11-06,,true,lead,contract
+J02471,C048,U020,Life Sciences,2025-04-23,,true,junior,perm
+J02472,C012,U020,Life Sciences,2025-10-06,,false,senior,perm
+J02473,C034,U020,Life Sciences,2025-02-04,,false,junior,perm
+J02474,C012,U020,Life Sciences,2025-11-24,,false,mid,perm
+J02475,C057,U020,Life Sciences,2025-05-12,,false,mid,contract
+J02476,C066,U020,Life Sciences,2025-09-12,,false,mid,contract
+J02477,C044,U020,Life Sciences,2025-09-08,,false,senior,perm
+J02478,C048,U020,Life Sciences,2025-09-24,,false,mid,contract
+J02479,C021,U020,Life Sciences,2025-04-21,,false,senior,contract
+J02480,C012,U020,Life Sciences,2025-01-20,,false,senior,perm
+J02481,C069,U020,Life Sciences,2025-06-09,,true,senior,contract
+J02482,C070,U020,Life Sciences,2025-03-17,,false,senior,perm
+J02483,C070,U020,Life Sciences,2025-10-22,,true,mid,perm
+J02484,C057,U020,Life Sciences,2025-09-03,,false,senior,perm
+J02485,C039,U020,Life Sciences,2025-11-17,,false,senior,contract
+J02486,C039,U020,Life Sciences,2025-03-17,,false,senior,perm
+J02487,C021,U020,Life Sciences,2025-02-27,,false,junior,perm
+J02488,C064,U020,Life Sciences,2025-06-09,,false,mid,perm
+J02489,C011,U020,Life Sciences,2025-05-26,,false,senior,perm
+J02490,C039,U020,Life Sciences,2025-11-26,,false,mid,perm
+J02491,C070,U020,Life Sciences,2025-06-16,,true,senior,perm
+J02492,C048,U020,Life Sciences,2025-01-06,,false,mid,perm
+J02493,C011,U020,Life Sciences,2025-05-12,,true,mid,perm
+J02494,C029,U020,Life Sciences,2025-12-08,,false,mid,perm
+J02495,C064,U020,Life Sciences,2025-12-08,,false,mid,perm
+J02496,C012,U020,Life Sciences,2025-01-09,,false,junior,contract
+J02497,C048,U020,Life Sciences,2025-04-11,,false,lead,perm
+J02498,C048,U020,Life Sciences,2025-03-12,,false,senior,perm
+J02499,C057,U020,Life Sciences,2025-12-08,,false,mid,perm
+J02500,C048,U020,Life Sciences,2025-04-10,,false,mid,perm
+J02501,C069,U020,Life Sciences,2025-11-05,,true,mid,contract
+J02502,C011,U020,Life Sciences,2025-11-19,,false,junior,perm
+J02503,C066,U020,Life Sciences,2025-02-25,,false,senior,perm
+J02504,C066,U020,Life Sciences,2025-10-13,,true,mid,perm
+J02505,C057,U020,Life Sciences,2025-07-28,,false,mid,contract
+J02506,C034,U020,Life Sciences,2025-09-26,,false,mid,contract
+J02507,C039,U020,Life Sciences,2025-10-01,,true,junior,perm
+J02508,C044,U020,Life Sciences,2025-09-12,,true,mid,perm
+J02509,C034,U020,Life Sciences,2025-10-13,,false,senior,contract
+J02510,C048,U020,Life Sciences,2025-09-05,,false,mid,perm
+J02511,C064,U020,Life Sciences,2025-05-12,,false,lead,contract
+J02512,C069,U020,Life Sciences,2025-09-29,,false,senior,perm
+J02513,C057,U020,Life Sciences,2025-07-04,,false,senior,contract
+J02514,C070,U020,Life Sciences,2025-09-23,,false,junior,contract
+J02515,C012,U020,Life Sciences,2025-02-19,,false,mid,perm
+J02516,C011,U020,Life Sciences,2025-03-04,,false,senior,perm
+J02517,C029,U020,Life Sciences,2025-06-13,,false,mid,perm
+J02518,C048,U020,Life Sciences,2025-12-12,,false,mid,perm
+J02519,C021,U020,Life Sciences,2025-02-03,,false,mid,perm
+J02520,C064,U020,Life Sciences,2025-04-21,,false,senior,perm
+J02521,C021,U020,Life Sciences,2025-11-10,,false,junior,contract
+J02522,C066,U020,Life Sciences,2025-11-03,,false,mid,perm
+J02523,C021,U020,Life Sciences,2025-02-03,,false,senior,perm
+J02524,C011,U020,Life Sciences,2025-07-01,,false,mid,perm
+J02525,C011,U020,Life Sciences,2025-02-14,,false,lead,contract
+J02526,C053,U020,Life Sciences,2025-07-07,,false,senior,contract
+J02527,C039,U020,Life Sciences,2025-01-17,,false,junior,contract
+J02528,C034,U020,Life Sciences,2025-01-13,,false,mid,contract
+J02529,C018,U021,Public Sector,2025-10-06,,false,senior,perm
+J02530,C024,U021,Public Sector,2025-04-17,,false,mid,perm
+J02531,C018,U021,Public Sector,2025-09-22,,false,lead,contract
+J02532,C018,U021,Public Sector,2025-04-25,,false,senior,perm
+J02533,C050,U021,Public Sector,2025-03-17,,false,mid,perm
+J02534,C006,U022,IT & Data,2025-01-08,,true,mid,perm
+J02535,C059,U022,IT & Data,2025-07-02,,false,senior,perm
+J02536,C006,U022,IT & Data,2025-01-15,,false,mid,perm
+J02537,C065,U022,IT & Data,2025-03-03,,false,mid,perm
+J02538,C043,U022,IT & Data,2025-09-01,,false,junior,perm
+J02539,C001,U022,IT & Data,2025-06-24,,false,mid,perm
+J02540,C006,U022,IT & Data,2025-01-02,,true,mid,perm
+J02541,C049,U022,IT & Data,2025-03-10,,true,lead,perm
+J02542,C049,U022,IT & Data,2025-11-14,,false,mid,perm
+J02543,C054,U022,IT & Data,2025-12-23,,false,senior,perm
+J02544,C065,U022,IT & Data,2025-05-05,,false,mid,perm
+J02546,C040,U022,IT & Data,2025-06-03,,false,senior,perm
+J02547,C065,U022,IT & Data,2025-08-22,,false,mid,perm
+J02548,C052,U022,IT & Data,2025-01-14,,false,junior,perm
+J02549,C052,U022,IT & Data,2025-09-05,,true,senior,perm
+J02551,C006,U022,IT & Data,2025-10-27,,true,mid,perm
+J02552,C032,U022,IT & Data,2025-03-21,,false,mid,contract
+J02553,C038,U022,IT & Data,2025-01-06,,false,senior,perm
+J02554,C040,U022,IT & Data,2025-08-13,,false,junior,perm
+J02555,C001,U022,IT & Data,2025-07-09,,true,junior,perm
+J02556,C028,U022,IT & Data,2025-07-23,,false,mid,contract
+J02557,C054,U022,IT & Data,2025-04-28,,false,mid,perm
+J02558,C052,U022,IT & Data,2025-09-08,,false,senior,perm
+J02559,C045,U022,IT & Data,2025-09-19,,true,senior,perm
+J02560,C013,U022,IT & Data,2025-01-06,,false,senior,perm
+J02561,C028,U022,IT & Data,2025-09-15,,false,mid,perm
+J02562,C065,U022,IT & Data,2025-02-25,,true,mid,perm

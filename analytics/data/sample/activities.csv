@@ -1,0 +1,4255 @@
+activity_date,consultant_id,market,action,client_id,count
+2019-11-15,U001,IT & Data,call,,6
+2019-11-15,U001,IT & Data,connect,,1
+2019-11-15,U001,IT & Data,email,,8
+2019-12-15,U001,IT & Data,call,,4
+2019-12-15,U001,IT & Data,email,,5
+2019-09-15,U002,Renewables,call,,6
+2019-09-15,U002,Renewables,connect,,1
+2019-09-15,U002,Renewables,email,,8
+2019-10-15,U002,Renewables,call,,5
+2019-10-15,U002,Renewables,connect,,1
+2019-10-15,U002,Renewables,email,,7
+2019-11-15,U002,Renewables,call,,8
+2019-11-15,U002,Renewables,connect,,1
+2019-11-15,U002,Renewables,email,,11
+2019-12-15,U002,Renewables,call,,5
+2019-12-15,U002,Renewables,connect,,1
+2019-12-15,U002,Renewables,email,,7
+2019-07-15,U003,IT & Data,call,,8
+2019-07-15,U003,IT & Data,connect,,2
+2019-07-15,U003,IT & Data,email,,11
+2019-08-15,U003,IT & Data,call,,2
+2019-08-15,U003,IT & Data,email,,2
+2019-09-15,U003,IT & Data,call,,3
+2019-09-15,U003,IT & Data,email,,4
+2019-10-15,U003,IT & Data,call,,6
+2019-10-15,U003,IT & Data,connect,,1
+2019-10-15,U003,IT & Data,email,,8
+2019-11-15,U003,IT & Data,call,,6
+2019-11-15,U003,IT & Data,connect,,1
+2019-11-15,U003,IT & Data,email,,8
+2019-12-15,U003,IT & Data,call,,4
+2019-12-15,U003,IT & Data,email,,5
+2019-09-15,U004,IT & Data,call,,6
+2019-09-15,U004,IT & Data,connect,,1
+2019-09-15,U004,IT & Data,email,,8
+2019-10-15,U004,IT & Data,call,,6
+2019-10-15,U004,IT & Data,connect,,1
+2019-10-15,U004,IT & Data,email,,8
+2019-11-15,U004,IT & Data,call,,5
+2019-11-15,U004,IT & Data,email,,7
+2019-12-15,U004,IT & Data,call,,3
+2019-12-15,U004,IT & Data,email,,4
+2019-01-15,U007,Engineering,call,,129
+2019-01-15,U007,Engineering,connect,,29
+2019-01-15,U007,Engineering,email,,180
+2019-01-15,U007,Engineering,client_meeting,,6
+2019-02-15,U007,Engineering,call,,112
+2019-02-15,U007,Engineering,connect,,35
+2019-02-15,U007,Engineering,email,,156
+2019-02-15,U007,Engineering,client_meeting,,8
+2019-03-15,U007,Engineering,call,,155
+2019-03-15,U007,Engineering,connect,,45
+2019-03-15,U007,Engineering,email,,217
+2019-03-15,U007,Engineering,client_meeting,,8
+2019-04-15,U007,Engineering,call,,87
+2019-04-15,U007,Engineering,connect,,25
+2019-04-15,U007,Engineering,email,,121
+2019-04-15,U007,Engineering,client_meeting,,3
+2019-05-15,U007,Engineering,call,,215
+2019-05-15,U007,Engineering,connect,,55
+2019-05-15,U007,Engineering,email,,301
+2019-05-15,U007,Engineering,client_meeting,,11
+2019-06-15,U007,Engineering,call,,104
+2019-06-15,U007,Engineering,connect,,24
+2019-06-15,U007,Engineering,email,,145
+2019-06-15,U007,Engineering,client_meeting,,3
+2019-07-15,U007,Engineering,call,,176
+2019-07-15,U007,Engineering,connect,,43
+2019-07-15,U007,Engineering,email,,246
+2019-07-15,U007,Engineering,client_meeting,,10
+2019-08-15,U007,Engineering,call,,68
+2019-08-15,U007,Engineering,connect,,15
+2019-08-15,U007,Engineering,email,,95
+2019-08-15,U007,Engineering,client_meeting,,1
+2019-09-15,U007,Engineering,call,,119
+2019-09-15,U007,Engineering,connect,,25
+2019-09-15,U007,Engineering,email,,166
+2019-09-15,U007,Engineering,client_meeting,,3
+2019-10-15,U007,Engineering,call,,166
+2019-10-15,U007,Engineering,connect,,32
+2019-10-15,U007,Engineering,email,,232
+2019-10-15,U007,Engineering,client_meeting,,6
+2019-11-15,U007,Engineering,call,,130
+2019-11-15,U007,Engineering,connect,,24
+2019-11-15,U007,Engineering,email,,182
+2019-11-15,U007,Engineering,client_meeting,,3
+2019-12-15,U007,Engineering,call,,112
+2019-12-15,U007,Engineering,connect,,32
+2019-12-15,U007,Engineering,email,,156
+2019-12-15,U007,Engineering,client_meeting,,5
+2019-11-15,U010,Life Sciences,call,,2
+2019-11-15,U010,Life Sciences,email,,2
+2019-12-15,U010,Life Sciences,call,,1
+2019-12-15,U010,Life Sciences,email,,1
+2019-01-15,U011,Life Sciences,call,,95
+2019-01-15,U011,Life Sciences,connect,,22
+2019-01-15,U011,Life Sciences,email,,133
+2019-01-15,U011,Life Sciences,client_meeting,,3
+2019-02-15,U011,Life Sciences,call,,134
+2019-02-15,U011,Life Sciences,connect,,26
+2019-02-15,U011,Life Sciences,email,,187
+2019-02-15,U011,Life Sciences,client_meeting,,5
+2019-03-15,U011,Life Sciences,call,,181
+2019-03-15,U011,Life Sciences,connect,,37
+2019-03-15,U011,Life Sciences,email,,253
+2019-03-15,U011,Life Sciences,client_meeting,,4
+2019-04-15,U011,Life Sciences,call,,156
+2019-04-15,U011,Life Sciences,connect,,34
+2019-04-15,U011,Life Sciences,email,,218
+2019-04-15,U011,Life Sciences,client_meeting,,4
+2019-05-15,U011,Life Sciences,call,,178
+2019-05-15,U011,Life Sciences,connect,,52
+2019-05-15,U011,Life Sciences,email,,249
+2019-05-15,U011,Life Sciences,client_meeting,,8
+2019-06-15,U011,Life Sciences,call,,78
+2019-06-15,U011,Life Sciences,connect,,17
+2019-06-15,U011,Life Sciences,email,,109
+2019-06-15,U011,Life Sciences,client_meeting,,3
+2019-07-15,U011,Life Sciences,call,,200
+2019-07-15,U011,Life Sciences,connect,,49
+2019-07-15,U011,Life Sciences,email,,280
+2019-07-15,U011,Life Sciences,client_meeting,,9
+2019-08-15,U011,Life Sciences,call,,63
+2019-08-15,U011,Life Sciences,connect,,16
+2019-08-15,U011,Life Sciences,email,,88
+2019-08-15,U011,Life Sciences,client_meeting,,3
+2019-09-15,U011,Life Sciences,call,,120
+2019-09-15,U011,Life Sciences,connect,,22
+2019-09-15,U011,Life Sciences,email,,168
+2019-09-15,U011,Life Sciences,client_meeting,,3
+2019-10-15,U011,Life Sciences,call,,164
+2019-10-15,U011,Life Sciences,connect,,41
+2019-10-15,U011,Life Sciences,email,,229
+2019-10-15,U011,Life Sciences,client_meeting,,6
+2019-11-15,U011,Life Sciences,call,,116
+2019-11-15,U011,Life Sciences,connect,,33
+2019-11-15,U011,Life Sciences,email,,162
+2019-11-15,U011,Life Sciences,client_meeting,,4
+2019-12-15,U011,Life Sciences,call,,106
+2019-12-15,U011,Life Sciences,connect,,23
+2019-12-15,U011,Life Sciences,email,,148
+2019-12-15,U011,Life Sciences,client_meeting,,5
+2019-01-15,U014,IT & Data,call,,122
+2019-01-15,U014,IT & Data,connect,,24
+2019-01-15,U014,IT & Data,email,,170
+2019-01-15,U014,IT & Data,client_meeting,,5
+2019-02-15,U014,IT & Data,call,,185
+2019-02-15,U014,IT & Data,connect,,50
+2019-02-15,U014,IT & Data,email,,259
+2019-02-15,U014,IT & Data,client_meeting,,12
+2019-03-15,U014,IT & Data,call,,125
+2019-03-15,U014,IT & Data,connect,,27
+2019-03-15,U014,IT & Data,email,,175
+2019-03-15,U014,IT & Data,client_meeting,,6
+2019-04-15,U014,IT & Data,call,,141
+2019-04-15,U014,IT & Data,connect,,36
+2019-04-15,U014,IT & Data,email,,197
+2019-04-15,U014,IT & Data,client_meeting,,6
+2019-05-15,U014,IT & Data,call,,135
+2019-05-15,U014,IT & Data,connect,,28
+2019-05-15,U014,IT & Data,email,,189
+2019-05-15,U014,IT & Data,client_meeting,,7
+2019-06-15,U014,IT & Data,call,,121
+2019-06-15,U014,IT & Data,connect,,29
+2019-06-15,U014,IT & Data,email,,169
+2019-06-15,U014,IT & Data,client_meeting,,5
+2019-07-15,U014,IT & Data,call,,167
+2019-07-15,U014,IT & Data,connect,,45
+2019-07-15,U014,IT & Data,email,,233
+2019-07-15,U014,IT & Data,client_meeting,,6
+2019-08-15,U014,IT & Data,call,,89
+2019-08-15,U014,IT & Data,connect,,21
+2019-08-15,U014,IT & Data,email,,124
+2019-08-15,U014,IT & Data,client_meeting,,4
+2019-09-15,U014,IT & Data,call,,155
+2019-09-15,U014,IT & Data,connect,,38
+2019-09-15,U014,IT & Data,email,,217
+2019-09-15,U014,IT & Data,client_meeting,,4
+2019-10-15,U014,IT & Data,call,,162
+2019-10-15,U014,IT & Data,connect,,40
+2019-10-15,U014,IT & Data,email,,226
+2019-10-15,U014,IT & Data,client_meeting,,7
+2019-11-15,U014,IT & Data,call,,129
+2019-11-15,U014,IT & Data,connect,,24
+2019-11-15,U014,IT & Data,email,,180
+2019-11-15,U014,IT & Data,client_meeting,,4
+2019-12-15,U014,IT & Data,call,,50
+2019-12-15,U014,IT & Data,connect,,10
+2019-12-15,U014,IT & Data,email,,70
+2019-12-15,U014,IT & Data,client_meeting,,1
+2019-01-15,U015,Engineering,call,,91
+2019-01-15,U015,Engineering,connect,,19
+2019-01-15,U015,Engineering,email,,127
+2019-01-15,U015,Engineering,client_meeting,,4
+2019-02-15,U015,Engineering,call,,86
+2019-02-15,U015,Engineering,connect,,18
+2019-02-15,U015,Engineering,email,,120
+2019-02-15,U015,Engineering,client_meeting,,2
+2019-03-15,U015,Engineering,call,,115
+2019-03-15,U015,Engineering,connect,,28
+2019-03-15,U015,Engineering,email,,161
+2019-03-15,U015,Engineering,client_meeting,,4
+2019-04-15,U015,Engineering,call,,191
+2019-04-15,U015,Engineering,connect,,51
+2019-04-15,U015,Engineering,email,,267
+2019-04-15,U015,Engineering,client_meeting,,6
+2019-05-15,U015,Engineering,call,,160
+2019-05-15,U015,Engineering,connect,,45
+2019-05-15,U015,Engineering,email,,224
+2019-05-15,U015,Engineering,client_meeting,,10
+2019-06-15,U015,Engineering,call,,124
+2019-06-15,U015,Engineering,connect,,31
+2019-06-15,U015,Engineering,email,,173
+2019-06-15,U015,Engineering,client_meeting,,6
+2019-07-15,U015,Engineering,call,,156
+2019-07-15,U015,Engineering,connect,,39
+2019-07-15,U015,Engineering,email,,218
+2019-07-15,U015,Engineering,client_meeting,,5
+2019-08-15,U015,Engineering,call,,48
+2019-08-15,U015,Engineering,connect,,10
+2019-08-15,U015,Engineering,email,,67
+2019-08-15,U015,Engineering,client_meeting,,1
+2019-09-15,U015,Engineering,call,,153
+2019-09-15,U015,Engineering,connect,,41
+2019-09-15,U015,Engineering,email,,214
+2019-09-15,U015,Engineering,client_meeting,,9
+2019-10-15,U015,Engineering,call,,116
+2019-10-15,U015,Engineering,connect,,29
+2019-10-15,U015,Engineering,email,,162
+2019-10-15,U015,Engineering,client_meeting,,4
+2019-11-15,U015,Engineering,call,,125
+2019-11-15,U015,Engineering,connect,,38
+2019-11-15,U015,Engineering,email,,175
+2019-11-15,U015,Engineering,client_meeting,,8
+2019-12-15,U015,Engineering,call,,112
+2019-12-15,U015,Engineering,connect,,34
+2019-12-15,U015,Engineering,email,,156
+2019-12-15,U015,Engineering,client_meeting,,6
+2019-01-15,U016,IT & Data,call,,28
+2019-01-15,U016,IT & Data,connect,,6
+2019-01-15,U016,IT & Data,email,,39
+2019-01-15,U016,IT & Data,client_meeting,,1
+2019-02-15,U016,IT & Data,call,,30
+2019-02-15,U016,IT & Data,connect,,7
+2019-02-15,U016,IT & Data,email,,42
+2019-02-15,U016,IT & Data,client_meeting,,1
+2019-03-15,U016,IT & Data,call,,22
+2019-03-15,U016,IT & Data,connect,,4
+2019-03-15,U016,IT & Data,email,,30
+2019-04-15,U016,IT & Data,call,,30
+2019-04-15,U016,IT & Data,connect,,8
+2019-04-15,U016,IT & Data,email,,42
+2019-04-15,U016,IT & Data,client_meeting,,1
+2019-05-15,U016,IT & Data,call,,28
+2019-05-15,U016,IT & Data,connect,,7
+2019-05-15,U016,IT & Data,email,,39
+2019-05-15,U016,IT & Data,client_meeting,,1
+2019-06-15,U016,IT & Data,call,,31
+2019-06-15,U016,IT & Data,connect,,7
+2019-06-15,U016,IT & Data,email,,43
+2019-06-15,U016,IT & Data,client_meeting,,1
+2019-07-15,U016,IT & Data,call,,33
+2019-07-15,U016,IT & Data,connect,,9
+2019-07-15,U016,IT & Data,email,,46
+2019-07-15,U016,IT & Data,client_meeting,,2
+2019-08-15,U016,IT & Data,call,,9
+2019-08-15,U016,IT & Data,connect,,1
+2019-08-15,U016,IT & Data,email,,12
+2019-09-15,U016,IT & Data,call,,20
+2019-09-15,U016,IT & Data,connect,,3
+2019-09-15,U016,IT & Data,email,,28
+2019-10-15,U016,IT & Data,call,,19
+2019-10-15,U016,IT & Data,connect,,3
+2019-10-15,U016,IT & Data,email,,26
+2019-11-15,U016,IT & Data,call,,24
+2019-11-15,U016,IT & Data,connect,,7
+2019-11-15,U016,IT & Data,email,,33
+2019-11-15,U016,IT & Data,client_meeting,,1
+2019-12-15,U016,IT & Data,call,,28
+2019-12-15,U016,IT & Data,connect,,8
+2019-12-15,U016,IT & Data,email,,39
+2019-12-15,U016,IT & Data,client_meeting,,1
+2019-01-15,U017,Public Sector,call,,43
+2019-01-15,U017,Public Sector,connect,,11
+2019-01-15,U017,Public Sector,email,,60
+2019-01-15,U017,Public Sector,client_meeting,,2
+2019-02-15,U017,Public Sector,call,,48
+2019-02-15,U017,Public Sector,connect,,14
+2019-02-15,U017,Public Sector,email,,67
+2019-02-15,U017,Public Sector,client_meeting,,2
+2019-03-15,U017,Public Sector,call,,46
+2019-03-15,U017,Public Sector,connect,,11
+2019-03-15,U017,Public Sector,email,,64
+2019-03-15,U017,Public Sector,client_meeting,,1
+2019-04-15,U017,Public Sector,call,,38
+2019-04-15,U017,Public Sector,connect,,8
+2019-04-15,U017,Public Sector,email,,53
+2019-04-15,U017,Public Sector,client_meeting,,1
+2019-05-15,U017,Public Sector,call,,49
+2019-05-15,U017,Public Sector,connect,,11
+2019-05-15,U017,Public Sector,email,,68
+2019-05-15,U017,Public Sector,client_meeting,,2
+2019-06-15,U017,Public Sector,call,,47
+2019-06-15,U017,Public Sector,connect,,13
+2019-06-15,U017,Public Sector,email,,65
+2019-06-15,U017,Public Sector,client_meeting,,1
+2019-07-15,U017,Public Sector,call,,51
+2019-07-15,U017,Public Sector,connect,,11
+2019-07-15,U017,Public Sector,email,,71
+2019-07-15,U017,Public Sector,client_meeting,,1
+2019-08-15,U017,Public Sector,call,,16
+2019-08-15,U017,Public Sector,connect,,3
+2019-08-15,U017,Public Sector,email,,22
+2019-09-15,U017,Public Sector,call,,56
+2019-09-15,U017,Public Sector,connect,,11
+2019-09-15,U017,Public Sector,email,,78
+2019-09-15,U017,Public Sector,client_meeting,,1
+2019-10-15,U017,Public Sector,call,,53
+2019-10-15,U017,Public Sector,connect,,14
+2019-10-15,U017,Public Sector,email,,74
+2019-10-15,U017,Public Sector,client_meeting,,2
+2019-11-15,U017,Public Sector,call,,53
+2019-11-15,U017,Public Sector,connect,,16
+2019-11-15,U017,Public Sector,email,,74
+2019-11-15,U017,Public Sector,client_meeting,,2
+2019-12-15,U017,Public Sector,call,,43
+2019-12-15,U017,Public Sector,connect,,11
+2019-12-15,U017,Public Sector,email,,60
+2019-12-15,U017,Public Sector,client_meeting,,2
+2019-01-15,U021,Public Sector,call,,96
+2019-01-15,U021,Public Sector,connect,,18
+2019-01-15,U021,Public Sector,email,,134
+2019-01-15,U021,Public Sector,client_meeting,,3
+2019-02-15,U021,Public Sector,call,,124
+2019-02-15,U021,Public Sector,connect,,31
+2019-02-15,U021,Public Sector,email,,173
+2019-02-15,U021,Public Sector,client_meeting,,3
+2019-03-15,U021,Public Sector,call,,118
+2019-03-15,U021,Public Sector,connect,,32
+2019-03-15,U021,Public Sector,email,,165
+2019-03-15,U021,Public Sector,client_meeting,,4
+2019-04-15,U021,Public Sector,call,,162
+2019-04-15,U021,Public Sector,connect,,29
+2019-04-15,U021,Public Sector,email,,226
+2019-04-15,U021,Public Sector,client_meeting,,6
+2019-05-15,U021,Public Sector,call,,168
+2019-05-15,U021,Public Sector,connect,,32
+2019-05-15,U021,Public Sector,email,,235
+2019-05-15,U021,Public Sector,client_meeting,,7
+2019-06-15,U021,Public Sector,call,,111
+2019-06-15,U021,Public Sector,connect,,30
+2019-06-15,U021,Public Sector,email,,155
+2019-06-15,U021,Public Sector,client_meeting,,7
+2019-07-15,U021,Public Sector,call,,121
+2019-07-15,U021,Public Sector,connect,,35
+2019-07-15,U021,Public Sector,email,,169
+2019-07-15,U021,Public Sector,client_meeting,,8
+2019-08-15,U021,Public Sector,call,,70
+2019-08-15,U021,Public Sector,connect,,16
+2019-08-15,U021,Public Sector,email,,98
+2019-08-15,U021,Public Sector,client_meeting,,3
+2019-09-15,U021,Public Sector,call,,178
+2019-09-15,U021,Public Sector,connect,,49
+2019-09-15,U021,Public Sector,email,,249
+2019-09-15,U021,Public Sector,client_meeting,,8
+2019-10-15,U021,Public Sector,call,,88
+2019-10-15,U021,Public Sector,connect,,25
+2019-10-15,U021,Public Sector,email,,123
+2019-10-15,U021,Public Sector,client_meeting,,5
+2019-11-15,U021,Public Sector,call,,96
+2019-11-15,U021,Public Sector,connect,,30
+2019-11-15,U021,Public Sector,email,,134
+2019-11-15,U021,Public Sector,client_meeting,,7
+2019-12-15,U021,Public Sector,call,,101
+2019-12-15,U021,Public Sector,connect,,29
+2019-12-15,U021,Public Sector,email,,141
+2019-12-15,U021,Public Sector,client_meeting,,6
+2020-01-15,U001,IT & Data,call,,80
+2020-01-15,U001,IT & Data,connect,,18
+2020-01-15,U001,IT & Data,email,,112
+2020-01-15,U001,IT & Data,client_meeting,,2
+2020-02-15,U001,IT & Data,call,,22
+2020-02-15,U001,IT & Data,connect,,6
+2020-02-15,U001,IT & Data,email,,30
+2020-02-15,U001,IT & Data,client_meeting,,1
+2020-03-15,U001,IT & Data,call,,93
+2020-03-15,U001,IT & Data,connect,,18
+2020-03-15,U001,IT & Data,email,,130
+2020-03-15,U001,IT & Data,client_meeting,,2
+2020-04-15,U001,IT & Data,call,,60
+2020-04-15,U001,IT & Data,connect,,13
+2020-04-15,U001,IT & Data,email,,84
+2020-04-15,U001,IT & Data,client_meeting,,3
+2020-05-15,U001,IT & Data,call,,46
+2020-05-15,U001,IT & Data,connect,,12
+2020-05-15,U001,IT & Data,email,,64
+2020-05-15,U001,IT & Data,client_meeting,,2
+2020-06-15,U001,IT & Data,call,,38
+2020-06-15,U001,IT & Data,connect,,10
+2020-06-15,U001,IT & Data,email,,53
+2020-06-15,U001,IT & Data,client_meeting,,1
+2020-07-15,U001,IT & Data,call,,74
+2020-07-15,U001,IT & Data,connect,,14
+2020-07-15,U001,IT & Data,email,,103
+2020-07-15,U001,IT & Data,client_meeting,,2
+2020-08-15,U001,IT & Data,call,,25
+2020-08-15,U001,IT & Data,connect,,5
+2020-08-15,U001,IT & Data,email,,35
+2020-08-15,U001,IT & Data,client_meeting,,1
+2020-09-15,U001,IT & Data,call,,89
+2020-09-15,U001,IT & Data,connect,,26
+2020-09-15,U001,IT & Data,email,,124
+2020-09-15,U001,IT & Data,client_meeting,,5
+2020-10-15,U001,IT & Data,call,,54
+2020-10-15,U001,IT & Data,connect,,12
+2020-10-15,U001,IT & Data,email,,75
+2020-10-15,U001,IT & Data,client_meeting,,1
+2020-11-15,U001,IT & Data,call,,78
+2020-11-15,U001,IT & Data,connect,,15
+2020-11-15,U001,IT & Data,email,,109
+2020-11-15,U001,IT & Data,client_meeting,,3
+2020-12-15,U001,IT & Data,call,,38
+2020-12-15,U001,IT & Data,connect,,9
+2020-12-15,U001,IT & Data,email,,53
+2020-12-15,U001,IT & Data,client_meeting,,1
+2020-01-15,U002,Renewables,call,,81
+2020-01-15,U002,Renewables,connect,,23
+2020-01-15,U002,Renewables,email,,113
+2020-01-15,U002,Renewables,client_meeting,,2
+2020-02-15,U002,Renewables,call,,74
+2020-02-15,U002,Renewables,connect,,17
+2020-02-15,U002,Renewables,email,,103
+2020-02-15,U002,Renewables,client_meeting,,2
+2020-03-15,U002,Renewables,call,,66
+2020-03-15,U002,Renewables,connect,,14
+2020-03-15,U002,Renewables,email,,92
+2020-03-15,U002,Renewables,client_meeting,,2
+2020-04-15,U002,Renewables,call,,77
+2020-04-15,U002,Renewables,connect,,22
+2020-04-15,U002,Renewables,email,,107
+2020-04-15,U002,Renewables,client_meeting,,3
+2020-05-15,U002,Renewables,call,,92
+2020-05-15,U002,Renewables,connect,,17
+2020-05-15,U002,Renewables,email,,128
+2020-05-15,U002,Renewables,client_meeting,,4
+2020-06-15,U002,Renewables,call,,104
+2020-06-15,U002,Renewables,connect,,20
+2020-06-15,U002,Renewables,email,,145
+2020-06-15,U002,Renewables,client_meeting,,4
+2020-07-15,U002,Renewables,call,,83
+2020-07-15,U002,Renewables,connect,,17
+2020-07-15,U002,Renewables,email,,116
+2020-07-15,U002,Renewables,client_meeting,,2
+2020-08-15,U002,Renewables,call,,25
+2020-08-15,U002,Renewables,connect,,6
+2020-08-15,U002,Renewables,email,,35
+2020-08-15,U002,Renewables,client_meeting,,1
+2020-09-15,U002,Renewables,call,,101
+2020-09-15,U002,Renewables,connect,,30
+2020-09-15,U002,Renewables,email,,141
+2020-09-15,U002,Renewables,client_meeting,,7
+2020-10-15,U002,Renewables,call,,46
+2020-10-15,U002,Renewables,connect,,11
+2020-10-15,U002,Renewables,email,,64
+2020-10-15,U002,Renewables,client_meeting,,2
+2020-01-15,U003,IT & Data,call,,109
+2020-01-15,U003,IT & Data,connect,,33
+2020-01-15,U003,IT & Data,email,,152
+2020-01-15,U003,IT & Data,client_meeting,,7
+2020-02-15,U003,IT & Data,call,,51
+2020-02-15,U003,IT & Data,connect,,14
+2020-02-15,U003,IT & Data,email,,71
+2020-02-15,U003,IT & Data,client_meeting,,3
+2020-03-15,U003,IT & Data,call,,83
+2020-03-15,U003,IT & Data,connect,,20
+2020-03-15,U003,IT & Data,email,,116
+2020-03-15,U003,IT & Data,client_meeting,,4
+2020-04-15,U003,IT & Data,call,,81
+2020-04-15,U003,IT & Data,connect,,23
+2020-04-15,U003,IT & Data,email,,113
+2020-04-15,U003,IT & Data,client_meeting,,3
+2020-05-15,U003,IT & Data,call,,76
+2020-05-15,U003,IT & Data,connect,,16
+2020-05-15,U003,IT & Data,email,,106
+2020-05-15,U003,IT & Data,client_meeting,,3
+2020-06-15,U003,IT & Data,call,,46
+2020-06-15,U003,IT & Data,connect,,10
+2020-06-15,U003,IT & Data,email,,64
+2020-06-15,U003,IT & Data,client_meeting,,1
+2020-07-15,U003,IT & Data,call,,83
+2020-07-15,U003,IT & Data,connect,,17
+2020-07-15,U003,IT & Data,email,,116
+2020-07-15,U003,IT & Data,client_meeting,,2
+2020-08-15,U003,IT & Data,call,,30
+2020-08-15,U003,IT & Data,connect,,8
+2020-08-15,U003,IT & Data,email,,42
+2020-08-15,U003,IT & Data,client_meeting,,1
+2020-09-15,U003,IT & Data,call,,59
+2020-09-15,U003,IT & Data,connect,,18
+2020-09-15,U003,IT & Data,email,,82
+2020-09-15,U003,IT & Data,client_meeting,,2
+2020-10-15,U003,IT & Data,call,,112
+2020-10-15,U003,IT & Data,connect,,26
+2020-10-15,U003,IT & Data,email,,156
+2020-10-15,U003,IT & Data,client_meeting,,6
+2020-11-15,U003,IT & Data,call,,87
+2020-11-15,U003,IT & Data,connect,,23
+2020-11-15,U003,IT & Data,email,,121
+2020-11-15,U003,IT & Data,client_meeting,,4
+2020-12-15,U003,IT & Data,call,,56
+2020-12-15,U003,IT & Data,connect,,17
+2020-12-15,U003,IT & Data,email,,78
+2020-12-15,U003,IT & Data,client_meeting,,2
+2020-01-15,U004,IT & Data,call,,90
+2020-01-15,U004,IT & Data,connect,,25
+2020-01-15,U004,IT & Data,email,,125
+2020-01-15,U004,IT & Data,client_meeting,,4
+2020-02-15,U004,IT & Data,call,,84
+2020-02-15,U004,IT & Data,connect,,22
+2020-02-15,U004,IT & Data,email,,117
+2020-02-15,U004,IT & Data,client_meeting,,3
+2020-03-15,U004,IT & Data,call,,43
+2020-03-15,U004,IT & Data,connect,,13
+2020-03-15,U004,IT & Data,email,,60
+2020-03-15,U004,IT & Data,client_meeting,,1
+2020-04-15,U004,IT & Data,call,,63
+2020-04-15,U004,IT & Data,connect,,14
+2020-04-15,U004,IT & Data,email,,88
+2020-04-15,U004,IT & Data,client_meeting,,2
+2020-05-15,U004,IT & Data,call,,89
+2020-05-15,U004,IT & Data,connect,,19
+2020-05-15,U004,IT & Data,email,,124
+2020-05-15,U004,IT & Data,client_meeting,,3
+2020-06-15,U004,IT & Data,call,,50
+2020-06-15,U004,IT & Data,connect,,9
+2020-06-15,U004,IT & Data,email,,70
+2020-06-15,U004,IT & Data,client_meeting,,2
+2020-07-15,U004,IT & Data,call,,61
+2020-07-15,U004,IT & Data,connect,,14
+2020-07-15,U004,IT & Data,email,,85
+2020-07-15,U004,IT & Data,client_meeting,,2
+2020-08-15,U004,IT & Data,call,,10
+2020-08-15,U004,IT & Data,connect,,2
+2020-08-15,U004,IT & Data,email,,14
+2020-09-15,U004,IT & Data,call,,60
+2020-09-15,U004,IT & Data,connect,,15
+2020-09-15,U004,IT & Data,email,,84
+2020-09-15,U004,IT & Data,client_meeting,,3
+2020-10-15,U004,IT & Data,call,,62
+2020-10-15,U004,IT & Data,connect,,19
+2020-10-15,U004,IT & Data,email,,86
+2020-10-15,U004,IT & Data,client_meeting,,4
+2020-11-15,U004,IT & Data,call,,103
+2020-11-15,U004,IT & Data,connect,,32
+2020-11-15,U004,IT & Data,email,,144
+2020-11-15,U004,IT & Data,client_meeting,,4
+2020-12-15,U004,IT & Data,call,,62
+2020-12-15,U004,IT & Data,connect,,16
+2020-12-15,U004,IT & Data,email,,86
+2020-12-15,U004,IT & Data,client_meeting,,2
+2020-01-15,U007,Engineering,call,,99
+2020-01-15,U007,Engineering,connect,,26
+2020-01-15,U007,Engineering,email,,138
+2020-01-15,U007,Engineering,client_meeting,,6
+2020-02-15,U007,Engineering,call,,128
+2020-02-15,U007,Engineering,connect,,25
+2020-02-15,U007,Engineering,email,,179
+2020-02-15,U007,Engineering,client_meeting,,5
+2020-03-15,U007,Engineering,call,,87
+2020-03-15,U007,Engineering,connect,,17
+2020-03-15,U007,Engineering,email,,121
+2020-03-15,U007,Engineering,client_meeting,,3
+2020-04-15,U007,Engineering,call,,123
+2020-04-15,U007,Engineering,connect,,28
+2020-04-15,U007,Engineering,email,,172
+2020-04-15,U007,Engineering,client_meeting,,3
+2020-05-15,U007,Engineering,call,,111
+2020-05-15,U007,Engineering,connect,,24
+2020-05-15,U007,Engineering,email,,155
+2020-05-15,U007,Engineering,client_meeting,,4
+2020-06-15,U007,Engineering,call,,113
+2020-06-15,U007,Engineering,connect,,28
+2020-06-15,U007,Engineering,email,,158
+2020-06-15,U007,Engineering,client_meeting,,5
+2020-07-15,U007,Engineering,call,,81
+2020-07-15,U007,Engineering,connect,,21
+2020-07-15,U007,Engineering,email,,113
+2020-07-15,U007,Engineering,client_meeting,,3
+2020-08-15,U007,Engineering,call,,42
+2020-08-15,U007,Engineering,connect,,11
+2020-08-15,U007,Engineering,email,,58
+2020-08-15,U007,Engineering,client_meeting,,1
+2020-09-15,U007,Engineering,call,,112
+2020-09-15,U007,Engineering,connect,,27
+2020-09-15,U007,Engineering,email,,156
+2020-09-15,U007,Engineering,client_meeting,,3
+2020-10-15,U007,Engineering,call,,116
+2020-10-15,U007,Engineering,connect,,33
+2020-10-15,U007,Engineering,email,,162
+2020-10-15,U007,Engineering,client_meeting,,8
+2020-11-15,U007,Engineering,call,,117
+2020-11-15,U007,Engineering,connect,,23
+2020-11-15,U007,Engineering,email,,163
+2020-11-15,U007,Engineering,client_meeting,,3
+2020-12-15,U007,Engineering,call,,80
+2020-12-15,U007,Engineering,connect,,22
+2020-12-15,U007,Engineering,email,,112
+2020-12-15,U007,Engineering,client_meeting,,2
+2020-11-15,U008,Engineering,call,,3
+2020-11-15,U008,Engineering,email,,4
+2020-12-15,U008,Engineering,call,,3
+2020-12-15,U008,Engineering,email,,4
+2020-01-15,U010,Life Sciences,call,,15
+2020-01-15,U010,Life Sciences,connect,,4
+2020-01-15,U010,Life Sciences,email,,21
+2020-02-15,U010,Life Sciences,call,,13
+2020-02-15,U010,Life Sciences,connect,,3
+2020-02-15,U010,Life Sciences,email,,18
+2020-03-15,U010,Life Sciences,call,,19
+2020-03-15,U010,Life Sciences,connect,,3
+2020-03-15,U010,Life Sciences,email,,26
+2020-04-15,U010,Life Sciences,call,,11
+2020-04-15,U010,Life Sciences,connect,,2
+2020-04-15,U010,Life Sciences,email,,15
+2020-05-15,U010,Life Sciences,call,,11
+2020-05-15,U010,Life Sciences,connect,,2
+2020-05-15,U010,Life Sciences,email,,15
+2020-06-15,U010,Life Sciences,call,,12
+2020-06-15,U010,Life Sciences,connect,,3
+2020-06-15,U010,Life Sciences,email,,16
+2020-07-15,U010,Life Sciences,call,,14
+2020-07-15,U010,Life Sciences,connect,,3
+2020-07-15,U010,Life Sciences,email,,19
+2020-08-15,U010,Life Sciences,call,,6
+2020-08-15,U010,Life Sciences,connect,,1
+2020-08-15,U010,Life Sciences,email,,8
+2020-09-15,U010,Life Sciences,call,,14
+2020-09-15,U010,Life Sciences,connect,,4
+2020-09-15,U010,Life Sciences,email,,19
+2020-10-15,U010,Life Sciences,call,,12
+2020-10-15,U010,Life Sciences,connect,,3
+2020-10-15,U010,Life Sciences,email,,16
+2020-11-15,U010,Life Sciences,call,,18
+2020-11-15,U010,Life Sciences,connect,,5
+2020-11-15,U010,Life Sciences,email,,25
+2020-12-15,U010,Life Sciences,call,,9
+2020-12-15,U010,Life Sciences,connect,,1
+2020-12-15,U010,Life Sciences,email,,12
+2020-01-15,U011,Life Sciences,call,,48
+2020-01-15,U011,Life Sciences,connect,,11
+2020-01-15,U011,Life Sciences,email,,67
+2020-01-15,U011,Life Sciences,client_meeting,,2
+2020-02-15,U011,Life Sciences,call,,98
+2020-02-15,U011,Life Sciences,connect,,29
+2020-02-15,U011,Life Sciences,email,,137
+2020-02-15,U011,Life Sciences,client_meeting,,5
+2020-03-15,U011,Life Sciences,call,,88
+2020-03-15,U011,Life Sciences,connect,,24
+2020-03-15,U011,Life Sciences,email,,123
+2020-03-15,U011,Life Sciences,client_meeting,,4
+2020-04-15,U011,Life Sciences,call,,120
+2020-04-15,U011,Life Sciences,connect,,35
+2020-04-15,U011,Life Sciences,email,,168
+2020-04-15,U011,Life Sciences,client_meeting,,8
+2020-05-15,U011,Life Sciences,call,,111
+2020-05-15,U011,Life Sciences,connect,,25
+2020-05-15,U011,Life Sciences,email,,155
+2020-05-15,U011,Life Sciences,client_meeting,,5
+2020-06-15,U011,Life Sciences,call,,134
+2020-06-15,U011,Life Sciences,connect,,37
+2020-06-15,U011,Life Sciences,email,,187
+2020-06-15,U011,Life Sciences,client_meeting,,8
+2020-07-15,U011,Life Sciences,call,,151
+2020-07-15,U011,Life Sciences,connect,,43
+2020-07-15,U011,Life Sciences,email,,211
+2020-07-15,U011,Life Sciences,client_meeting,,8
+2020-08-15,U011,Life Sciences,call,,60
+2020-08-15,U011,Life Sciences,connect,,14
+2020-08-15,U011,Life Sciences,email,,84
+2020-08-15,U011,Life Sciences,client_meeting,,2
+2020-09-15,U011,Life Sciences,call,,54
+2020-09-15,U011,Life Sciences,connect,,13
+2020-09-15,U011,Life Sciences,email,,75
+2020-09-15,U011,Life Sciences,client_meeting,,2
+2020-10-15,U011,Life Sciences,call,,124
+2020-10-15,U011,Life Sciences,connect,,37
+2020-10-15,U011,Life Sciences,email,,173
+2020-10-15,U011,Life Sciences,client_meeting,,8
+2020-11-15,U011,Life Sciences,call,,108
+2020-11-15,U011,Life Sciences,connect,,26
+2020-11-15,U011,Life Sciences,email,,151
+2020-11-15,U011,Life Sciences,client_meeting,,4
+2020-12-15,U011,Life Sciences,call,,41
+2020-12-15,U011,Life Sciences,connect,,11
+2020-12-15,U011,Life Sciences,email,,57
+2020-12-15,U011,Life Sciences,client_meeting,,2
+2020-01-15,U014,IT & Data,call,,88
+2020-01-15,U014,IT & Data,connect,,16
+2020-01-15,U014,IT & Data,email,,123
+2020-01-15,U014,IT & Data,client_meeting,,2
+2020-02-15,U014,IT & Data,call,,124
+2020-02-15,U014,IT & Data,connect,,26
+2020-02-15,U014,IT & Data,email,,173
+2020-02-15,U014,IT & Data,client_meeting,,6
+2020-03-15,U014,IT & Data,call,,88
+2020-03-15,U014,IT & Data,connect,,17
+2020-03-15,U014,IT & Data,email,,123
+2020-03-15,U014,IT & Data,client_meeting,,2
+2020-04-15,U014,IT & Data,call,,119
+2020-04-15,U014,IT & Data,connect,,24
+2020-04-15,U014,IT & Data,email,,166
+2020-04-15,U014,IT & Data,client_meeting,,3
+2020-05-15,U014,IT & Data,call,,104
+2020-05-15,U014,IT & Data,connect,,22
+2020-05-15,U014,IT & Data,email,,145
+2020-05-15,U014,IT & Data,client_meeting,,5
+2020-06-15,U014,IT & Data,call,,93
+2020-06-15,U014,IT & Data,connect,,24
+2020-06-15,U014,IT & Data,email,,130
+2020-06-15,U014,IT & Data,client_meeting,,5
+2020-07-15,U014,IT & Data,call,,103
+2020-07-15,U014,IT & Data,connect,,19
+2020-07-15,U014,IT & Data,email,,144
+2020-07-15,U014,IT & Data,client_meeting,,2
+2020-08-15,U014,IT & Data,call,,43
+2020-08-15,U014,IT & Data,connect,,12
+2020-08-15,U014,IT & Data,email,,60
+2020-08-15,U014,IT & Data,client_meeting,,2
+2020-09-15,U014,IT & Data,call,,99
+2020-09-15,U014,IT & Data,connect,,22
+2020-09-15,U014,IT & Data,email,,138
+2020-09-15,U014,IT & Data,client_meeting,,3
+2020-10-15,U014,IT & Data,call,,125
+2020-10-15,U014,IT & Data,connect,,25
+2020-10-15,U014,IT & Data,email,,175
+2020-10-15,U014,IT & Data,client_meeting,,3
+2020-11-15,U014,IT & Data,call,,96
+2020-11-15,U014,IT & Data,connect,,26
+2020-11-15,U014,IT & Data,email,,134
+2020-11-15,U014,IT & Data,client_meeting,,4
+2020-12-15,U014,IT & Data,call,,55
+2020-12-15,U014,IT & Data,connect,,14
+2020-12-15,U014,IT & Data,email,,77
+2020-12-15,U014,IT & Data,client_meeting,,2
+2020-01-15,U015,Engineering,call,,40
+2020-01-15,U015,Engineering,connect,,11
+2020-01-15,U015,Engineering,email,,56
+2020-01-15,U015,Engineering,client_meeting,,2
+2020-02-15,U015,Engineering,call,,135
+2020-02-15,U015,Engineering,connect,,26
+2020-02-15,U015,Engineering,email,,189
+2020-02-15,U015,Engineering,client_meeting,,3
+2020-03-15,U015,Engineering,call,,69
+2020-03-15,U015,Engineering,connect,,15
+2020-03-15,U015,Engineering,email,,96
+2020-03-15,U015,Engineering,client_meeting,,2
+2020-04-15,U015,Engineering,call,,105
+2020-04-15,U015,Engineering,connect,,31
+2020-04-15,U015,Engineering,email,,147
+2020-04-15,U015,Engineering,client_meeting,,7
+2020-05-15,U015,Engineering,call,,69
+2020-05-15,U015,Engineering,connect,,19
+2020-05-15,U015,Engineering,email,,96
+2020-05-15,U015,Engineering,client_meeting,,4
+2020-06-15,U015,Engineering,call,,78
+2020-06-15,U015,Engineering,connect,,15
+2020-06-15,U015,Engineering,email,,109
+2020-06-15,U015,Engineering,client_meeting,,3
+2020-07-15,U015,Engineering,call,,85
+2020-07-15,U015,Engineering,connect,,16
+2020-07-15,U015,Engineering,email,,118
+2020-07-15,U015,Engineering,client_meeting,,3
+2020-08-15,U015,Engineering,call,,52
+2020-08-15,U015,Engineering,connect,,11
+2020-08-15,U015,Engineering,email,,72
+2020-08-15,U015,Engineering,client_meeting,,1
+2020-09-15,U015,Engineering,call,,116
+2020-09-15,U015,Engineering,connect,,27
+2020-09-15,U015,Engineering,email,,162
+2020-09-15,U015,Engineering,client_meeting,,5
+2020-10-15,U015,Engineering,call,,158
+2020-10-15,U015,Engineering,connect,,32
+2020-10-15,U015,Engineering,email,,221
+2020-10-15,U015,Engineering,client_meeting,,5
+2020-11-15,U015,Engineering,call,,128
+2020-11-15,U015,Engineering,connect,,35
+2020-11-15,U015,Engineering,email,,179
+2020-11-15,U015,Engineering,client_meeting,,6
+2020-12-15,U015,Engineering,call,,36
+2020-12-15,U015,Engineering,connect,,6
+2020-12-15,U015,Engineering,email,,50
+2020-01-15,U016,IT & Data,call,,24
+2020-01-15,U016,IT & Data,connect,,4
+2020-01-15,U016,IT & Data,email,,33
+2020-02-15,U016,IT & Data,call,,28
+2020-02-15,U016,IT & Data,connect,,5
+2020-02-15,U016,IT & Data,email,,39
+2020-03-15,U016,IT & Data,call,,28
+2020-03-15,U016,IT & Data,connect,,5
+2020-03-15,U016,IT & Data,email,,39
+2020-03-15,U016,IT & Data,client_meeting,,1
+2020-04-15,U016,IT & Data,call,,24
+2020-04-15,U016,IT & Data,connect,,5
+2020-04-15,U016,IT & Data,email,,33
+2020-05-15,U016,IT & Data,call,,11
+2020-05-15,U016,IT & Data,connect,,3
+2020-05-15,U016,IT & Data,email,,15
+2020-06-15,U016,IT & Data,call,,21
+2020-06-15,U016,IT & Data,connect,,5
+2020-06-15,U016,IT & Data,email,,29
+2020-06-15,U016,IT & Data,client_meeting,,1
+2020-07-15,U016,IT & Data,call,,25
+2020-07-15,U016,IT & Data,connect,,7
+2020-07-15,U016,IT & Data,email,,35
+2020-07-15,U016,IT & Data,client_meeting,,1
+2020-08-15,U016,IT & Data,call,,8
+2020-08-15,U016,IT & Data,connect,,2
+2020-08-15,U016,IT & Data,email,,11
+2020-09-15,U016,IT & Data,call,,28
+2020-09-15,U016,IT & Data,connect,,8
+2020-09-15,U016,IT & Data,email,,39
+2020-09-15,U016,IT & Data,client_meeting,,1
+2020-10-15,U016,IT & Data,call,,28
+2020-10-15,U016,IT & Data,connect,,8
+2020-10-15,U016,IT & Data,email,,39
+2020-10-15,U016,IT & Data,client_meeting,,1
+2020-11-15,U016,IT & Data,call,,31
+2020-11-15,U016,IT & Data,connect,,9
+2020-11-15,U016,IT & Data,email,,43
+2020-11-15,U016,IT & Data,client_meeting,,1
+2020-12-15,U016,IT & Data,call,,17
+2020-12-15,U016,IT & Data,connect,,3
+2020-12-15,U016,IT & Data,email,,23
+2020-01-15,U017,Public Sector,call,,74
+2020-01-15,U017,Public Sector,connect,,14
+2020-01-15,U017,Public Sector,email,,103
+2020-01-15,U017,Public Sector,client_meeting,,2
+2020-02-15,U017,Public Sector,call,,91
+2020-02-15,U017,Public Sector,connect,,19
+2020-02-15,U017,Public Sector,email,,127
+2020-02-15,U017,Public Sector,client_meeting,,3
+2020-03-15,U017,Public Sector,call,,78
+2020-03-15,U017,Public Sector,connect,,21
+2020-03-15,U017,Public Sector,email,,109
+2020-03-15,U017,Public Sector,client_meeting,,3
+2020-04-15,U017,Public Sector,call,,101
+2020-04-15,U017,Public Sector,connect,,29
+2020-04-15,U017,Public Sector,email,,141
+2020-04-15,U017,Public Sector,client_meeting,,6
+2020-05-15,U017,Public Sector,call,,104
+2020-05-15,U017,Public Sector,connect,,29
+2020-05-15,U017,Public Sector,email,,145
+2020-05-15,U017,Public Sector,client_meeting,,6
+2020-06-15,U017,Public Sector,call,,99
+2020-06-15,U017,Public Sector,connect,,19
+2020-06-15,U017,Public Sector,email,,138
+2020-06-15,U017,Public Sector,client_meeting,,3
+2020-07-15,U017,Public Sector,call,,129
+2020-07-15,U017,Public Sector,connect,,27
+2020-07-15,U017,Public Sector,email,,180
+2020-07-15,U017,Public Sector,client_meeting,,4
+2020-08-15,U017,Public Sector,call,,24
+2020-08-15,U017,Public Sector,connect,,5
+2020-08-15,U017,Public Sector,email,,33
+2020-08-15,U017,Public Sector,client_meeting,,1
+2020-09-15,U017,Public Sector,call,,113
+2020-09-15,U017,Public Sector,connect,,32
+2020-09-15,U017,Public Sector,email,,158
+2020-09-15,U017,Public Sector,client_meeting,,4
+2020-10-15,U017,Public Sector,call,,73
+2020-10-15,U017,Public Sector,connect,,22
+2020-10-15,U017,Public Sector,email,,102
+2020-10-15,U017,Public Sector,client_meeting,,5
+2020-11-15,U017,Public Sector,call,,137
+2020-11-15,U017,Public Sector,connect,,40
+2020-11-15,U017,Public Sector,email,,191
+2020-11-15,U017,Public Sector,client_meeting,,8
+2020-12-15,U017,Public Sector,call,,42
+2020-12-15,U017,Public Sector,connect,,11
+2020-12-15,U017,Public Sector,email,,58
+2020-12-15,U017,Public Sector,client_meeting,,1
+2020-11-15,U019,IT & Data,call,,4
+2020-11-15,U019,IT & Data,connect,,1
+2020-11-15,U019,IT & Data,email,,5
+2020-12-15,U019,IT & Data,call,,3
+2020-12-15,U019,IT & Data,email,,4
+2020-01-15,U021,Public Sector,call,,69
+2020-01-15,U021,Public Sector,connect,,19
+2020-01-15,U021,Public Sector,email,,96
+2020-01-15,U021,Public Sector,client_meeting,,4
+2020-02-15,U021,Public Sector,call,,85
+2020-02-15,U021,Public Sector,connect,,26
+2020-02-15,U021,Public Sector,email,,118
+2020-02-15,U021,Public Sector,client_meeting,,4
+2020-03-15,U021,Public Sector,call,,142
+2020-03-15,U021,Public Sector,connect,,33
+2020-03-15,U021,Public Sector,email,,198
+2020-03-15,U021,Public Sector,client_meeting,,4
+2020-04-15,U021,Public Sector,call,,109
+2020-04-15,U021,Public Sector,connect,,31
+2020-04-15,U021,Public Sector,email,,152
+2020-04-15,U021,Public Sector,client_meeting,,6
+2020-05-15,U021,Public Sector,call,,94
+2020-05-15,U021,Public Sector,connect,,20
+2020-05-15,U021,Public Sector,email,,131
+2020-05-15,U021,Public Sector,client_meeting,,3
+2020-06-15,U021,Public Sector,call,,78
+2020-06-15,U021,Public Sector,connect,,20
+2020-06-15,U021,Public Sector,email,,109
+2020-06-15,U021,Public Sector,client_meeting,,3
+2020-07-15,U021,Public Sector,call,,91
+2020-07-15,U021,Public Sector,connect,,24
+2020-07-15,U021,Public Sector,email,,127
+2020-07-15,U021,Public Sector,client_meeting,,5
+2020-08-15,U021,Public Sector,call,,44
+2020-08-15,U021,Public Sector,connect,,7
+2020-08-15,U021,Public Sector,email,,61
+2020-08-15,U021,Public Sector,client_meeting,,1
+2020-09-15,U021,Public Sector,call,,89
+2020-09-15,U021,Public Sector,connect,,24
+2020-09-15,U021,Public Sector,email,,124
+2020-09-15,U021,Public Sector,client_meeting,,4
+2020-10-15,U021,Public Sector,call,,120
+2020-10-15,U021,Public Sector,connect,,33
+2020-10-15,U021,Public Sector,email,,168
+2020-10-15,U021,Public Sector,client_meeting,,4
+2020-11-15,U021,Public Sector,call,,111
+2020-11-15,U021,Public Sector,connect,,33
+2020-11-15,U021,Public Sector,email,,155
+2020-11-15,U021,Public Sector,client_meeting,,5
+2020-12-15,U021,Public Sector,call,,47
+2020-12-15,U021,Public Sector,connect,,11
+2020-12-15,U021,Public Sector,email,,65
+2020-12-15,U021,Public Sector,client_meeting,,2
+2021-01-15,U001,IT & Data,call,,192
+2021-01-15,U001,IT & Data,connect,,57
+2021-01-15,U001,IT & Data,email,,268
+2021-01-15,U001,IT & Data,client_meeting,,7
+2021-02-15,U001,IT & Data,call,,104
+2021-02-15,U001,IT & Data,connect,,20
+2021-02-15,U001,IT & Data,email,,145
+2021-02-15,U001,IT & Data,client_meeting,,4
+2021-03-15,U001,IT & Data,call,,167
+2021-03-15,U001,IT & Data,connect,,35
+2021-03-15,U001,IT & Data,email,,233
+2021-03-15,U001,IT & Data,client_meeting,,4
+2021-04-15,U001,IT & Data,call,,107
+2021-04-15,U001,IT & Data,connect,,33
+2021-04-15,U001,IT & Data,email,,149
+2021-04-15,U001,IT & Data,client_meeting,,5
+2021-05-15,U001,IT & Data,call,,83
+2021-05-15,U001,IT & Data,connect,,25
+2021-05-15,U001,IT & Data,email,,116
+2021-05-15,U001,IT & Data,client_meeting,,5
+2021-06-15,U001,IT & Data,call,,167
+2021-06-15,U001,IT & Data,connect,,44
+2021-06-15,U001,IT & Data,email,,233
+2021-06-15,U001,IT & Data,client_meeting,,5
+2021-07-15,U001,IT & Data,call,,196
+2021-07-15,U001,IT & Data,connect,,54
+2021-07-15,U001,IT & Data,email,,274
+2021-07-15,U001,IT & Data,client_meeting,,7
+2021-08-15,U001,IT & Data,call,,72
+2021-08-15,U001,IT & Data,connect,,13
+2021-08-15,U001,IT & Data,email,,100
+2021-08-15,U001,IT & Data,client_meeting,,2
+2021-09-15,U001,IT & Data,call,,141
+2021-09-15,U001,IT & Data,connect,,40
+2021-09-15,U001,IT & Data,email,,197
+2021-09-15,U001,IT & Data,client_meeting,,8
+2021-10-15,U001,IT & Data,call,,156
+2021-10-15,U001,IT & Data,connect,,31
+2021-10-15,U001,IT & Data,email,,218
+2021-10-15,U001,IT & Data,client_meeting,,5
+2021-11-15,U001,IT & Data,call,,153
+2021-11-15,U001,IT & Data,connect,,32
+2021-11-15,U001,IT & Data,email,,214
+2021-11-15,U001,IT & Data,client_meeting,,6
+2021-12-15,U001,IT & Data,call,,101
+2021-12-15,U001,IT & Data,connect,,22
+2021-12-15,U001,IT & Data,email,,141
+2021-12-15,U001,IT & Data,client_meeting,,4
+2021-01-15,U003,IT & Data,call,,192
+2021-01-15,U003,IT & Data,connect,,57
+2021-01-15,U003,IT & Data,email,,268
+2021-01-15,U003,IT & Data,client_meeting,,12
+2021-02-15,U003,IT & Data,call,,121
+2021-02-15,U003,IT & Data,connect,,32
+2021-02-15,U003,IT & Data,email,,169
+2021-02-15,U003,IT & Data,client_meeting,,5
+2021-03-15,U003,IT & Data,call,,176
+2021-03-15,U003,IT & Data,connect,,51
+2021-03-15,U003,IT & Data,email,,246
+2021-03-15,U003,IT & Data,client_meeting,,10
+2021-01-15,U004,IT & Data,call,,131
+2021-01-15,U004,IT & Data,connect,,36
+2021-01-15,U004,IT & Data,email,,183
+2021-01-15,U004,IT & Data,client_meeting,,4
+2021-02-15,U004,IT & Data,call,,131
+2021-02-15,U004,IT & Data,connect,,29
+2021-02-15,U004,IT & Data,email,,183
+2021-02-15,U004,IT & Data,client_meeting,,4
+2021-03-15,U004,IT & Data,call,,139
+2021-03-15,U004,IT & Data,connect,,41
+2021-03-15,U004,IT & Data,email,,194
+2021-03-15,U004,IT & Data,client_meeting,,6
+2021-04-15,U004,IT & Data,call,,149
+2021-04-15,U004,IT & Data,connect,,38
+2021-04-15,U004,IT & Data,email,,208
+2021-04-15,U004,IT & Data,client_meeting,,9
+2021-05-15,U004,IT & Data,call,,142
+2021-05-15,U004,IT & Data,connect,,28
+2021-05-15,U004,IT & Data,email,,198
+2021-05-15,U004,IT & Data,client_meeting,,6
+2021-06-15,U004,IT & Data,call,,88
+2021-06-15,U004,IT & Data,connect,,23
+2021-06-15,U004,IT & Data,email,,123
+2021-06-15,U004,IT & Data,client_meeting,,4
+2021-07-15,U004,IT & Data,call,,114
+2021-07-15,U004,IT & Data,connect,,28
+2021-07-15,U004,IT & Data,email,,159
+2021-07-15,U004,IT & Data,client_meeting,,5
+2021-08-15,U004,IT & Data,call,,48
+2021-08-15,U004,IT & Data,connect,,13
+2021-08-15,U004,IT & Data,email,,67
+2021-08-15,U004,IT & Data,client_meeting,,2
+2021-09-15,U004,IT & Data,call,,166
+2021-09-15,U004,IT & Data,connect,,49
+2021-09-15,U004,IT & Data,email,,232
+2021-09-15,U004,IT & Data,client_meeting,,10
+2021-10-15,U004,IT & Data,call,,183
+2021-10-15,U004,IT & Data,connect,,50
+2021-10-15,U004,IT & Data,email,,256
+2021-10-15,U004,IT & Data,client_meeting,,6
+2021-11-15,U004,IT & Data,call,,122
+2021-11-15,U004,IT & Data,connect,,36
+2021-11-15,U004,IT & Data,email,,170
+2021-11-15,U004,IT & Data,client_meeting,,8
+2021-12-15,U004,IT & Data,call,,120
+2021-12-15,U004,IT & Data,connect,,24
+2021-12-15,U004,IT & Data,email,,168
+2021-12-15,U004,IT & Data,client_meeting,,5
+2021-01-15,U007,Engineering,call,,138
+2021-01-15,U007,Engineering,connect,,39
+2021-01-15,U007,Engineering,email,,193
+2021-01-15,U007,Engineering,client_meeting,,8
+2021-02-15,U007,Engineering,call,,155
+2021-02-15,U007,Engineering,connect,,28
+2021-02-15,U007,Engineering,email,,217
+2021-02-15,U007,Engineering,client_meeting,,6
+2021-03-15,U007,Engineering,call,,122
+2021-03-15,U007,Engineering,connect,,30
+2021-03-15,U007,Engineering,email,,170
+2021-03-15,U007,Engineering,client_meeting,,5
+2021-04-15,U007,Engineering,call,,196
+2021-04-15,U007,Engineering,connect,,49
+2021-04-15,U007,Engineering,email,,274
+2021-04-15,U007,Engineering,client_meeting,,6
+2021-05-15,U007,Engineering,call,,136
+2021-05-15,U007,Engineering,connect,,39
+2021-05-15,U007,Engineering,email,,190
+2021-05-15,U007,Engineering,client_meeting,,6
+2021-06-15,U007,Engineering,call,,182
+2021-06-15,U007,Engineering,connect,,34
+2021-06-15,U007,Engineering,email,,254
+2021-06-15,U007,Engineering,client_meeting,,4
+2021-07-15,U007,Engineering,call,,109
+2021-07-15,U007,Engineering,connect,,19
+2021-07-15,U007,Engineering,email,,152
+2021-07-15,U007,Engineering,client_meeting,,4
+2021-08-15,U007,Engineering,call,,57
+2021-08-15,U007,Engineering,connect,,13
+2021-08-15,U007,Engineering,email,,79
+2021-08-15,U007,Engineering,client_meeting,,2
+2021-09-15,U007,Engineering,call,,156
+2021-09-15,U007,Engineering,connect,,39
+2021-09-15,U007,Engineering,email,,218
+2021-09-15,U007,Engineering,client_meeting,,4
+2021-10-15,U007,Engineering,call,,160
+2021-10-15,U007,Engineering,connect,,30
+2021-10-15,U007,Engineering,email,,224
+2021-10-15,U007,Engineering,client_meeting,,5
+2021-11-15,U007,Engineering,call,,124
+2021-11-15,U007,Engineering,connect,,29
+2021-11-15,U007,Engineering,email,,173
+2021-11-15,U007,Engineering,client_meeting,,6
+2021-12-15,U007,Engineering,call,,117
+2021-12-15,U007,Engineering,connect,,22
+2021-12-15,U007,Engineering,email,,163
+2021-12-15,U007,Engineering,client_meeting,,3
+2021-01-15,U008,Engineering,call,,103
+2021-01-15,U008,Engineering,connect,,20
+2021-01-15,U008,Engineering,email,,144
+2021-01-15,U008,Engineering,client_meeting,,4
+2021-02-15,U008,Engineering,call,,76
+2021-02-15,U008,Engineering,connect,,19
+2021-02-15,U008,Engineering,email,,106
+2021-02-15,U008,Engineering,client_meeting,,4
+2021-03-15,U008,Engineering,call,,52
+2021-03-15,U008,Engineering,connect,,12
+2021-03-15,U008,Engineering,email,,72
+2021-03-15,U008,Engineering,client_meeting,,1
+2021-04-15,U008,Engineering,call,,84
+2021-04-15,U008,Engineering,connect,,25
+2021-04-15,U008,Engineering,email,,117
+2021-04-15,U008,Engineering,client_meeting,,4
+2021-05-15,U008,Engineering,call,,96
+2021-05-15,U008,Engineering,connect,,21
+2021-05-15,U008,Engineering,email,,134
+2021-05-15,U008,Engineering,client_meeting,,5
+2021-06-15,U008,Engineering,call,,96
+2021-06-15,U008,Engineering,connect,,19
+2021-06-15,U008,Engineering,email,,134
+2021-06-15,U008,Engineering,client_meeting,,2
+2021-07-15,U008,Engineering,call,,82
+2021-07-15,U008,Engineering,connect,,24
+2021-07-15,U008,Engineering,email,,114
+2021-07-15,U008,Engineering,client_meeting,,4
+2021-08-15,U008,Engineering,call,,46
+2021-08-15,U008,Engineering,connect,,11
+2021-08-15,U008,Engineering,email,,64
+2021-08-15,U008,Engineering,client_meeting,,2
+2021-09-15,U008,Engineering,call,,87
+2021-09-15,U008,Engineering,connect,,17
+2021-09-15,U008,Engineering,email,,121
+2021-09-15,U008,Engineering,client_meeting,,3
+2021-10-15,U008,Engineering,call,,126
+2021-10-15,U008,Engineering,connect,,26
+2021-10-15,U008,Engineering,email,,176
+2021-10-15,U008,Engineering,client_meeting,,3
+2021-11-15,U008,Engineering,call,,66
+2021-11-15,U008,Engineering,connect,,15
+2021-11-15,U008,Engineering,email,,92
+2021-11-15,U008,Engineering,client_meeting,,2
+2021-12-15,U008,Engineering,call,,54
+2021-12-15,U008,Engineering,connect,,11
+2021-12-15,U008,Engineering,email,,75
+2021-12-15,U008,Engineering,client_meeting,,1
+2021-01-15,U010,Life Sciences,call,,38
+2021-01-15,U010,Life Sciences,connect,,8
+2021-01-15,U010,Life Sciences,email,,53
+2021-01-15,U010,Life Sciences,client_meeting,,2
+2021-02-15,U010,Life Sciences,call,,29
+2021-02-15,U010,Life Sciences,connect,,7
+2021-02-15,U010,Life Sciences,email,,40
+2021-03-15,U010,Life Sciences,call,,42
+2021-03-15,U010,Life Sciences,connect,,12
+2021-03-15,U010,Life Sciences,email,,58
+2021-03-15,U010,Life Sciences,client_meeting,,2
+2021-04-15,U010,Life Sciences,call,,42
+2021-04-15,U010,Life Sciences,connect,,8
+2021-04-15,U010,Life Sciences,email,,58
+2021-04-15,U010,Life Sciences,client_meeting,,2
+2021-05-15,U010,Life Sciences,call,,30
+2021-05-15,U010,Life Sciences,connect,,8
+2021-05-15,U010,Life Sciences,email,,42
+2021-05-15,U010,Life Sciences,client_meeting,,1
+2021-06-15,U010,Life Sciences,call,,32
+2021-06-15,U010,Life Sciences,connect,,7
+2021-06-15,U010,Life Sciences,email,,44
+2021-06-15,U010,Life Sciences,client_meeting,,1
+2021-07-15,U010,Life Sciences,call,,44
+2021-07-15,U010,Life Sciences,connect,,9
+2021-07-15,U010,Life Sciences,email,,61
+2021-07-15,U010,Life Sciences,client_meeting,,1
+2021-08-15,U010,Life Sciences,call,,5
+2021-08-15,U010,Life Sciences,connect,,1
+2021-08-15,U010,Life Sciences,email,,7
+2021-09-15,U010,Life Sciences,call,,36
+2021-09-15,U010,Life Sciences,connect,,9
+2021-09-15,U010,Life Sciences,email,,50
+2021-09-15,U010,Life Sciences,client_meeting,,1
+2021-10-15,U010,Life Sciences,call,,28
+2021-10-15,U010,Life Sciences,connect,,6
+2021-10-15,U010,Life Sciences,email,,39
+2021-11-15,U010,Life Sciences,call,,34
+2021-11-15,U010,Life Sciences,connect,,7
+2021-11-15,U010,Life Sciences,email,,47
+2021-11-15,U010,Life Sciences,client_meeting,,1
+2021-12-15,U010,Life Sciences,call,,18
+2021-12-15,U010,Life Sciences,connect,,4
+2021-12-15,U010,Life Sciences,email,,25
+2021-01-15,U014,IT & Data,call,,156
+2021-01-15,U014,IT & Data,connect,,48
+2021-01-15,U014,IT & Data,email,,218
+2021-01-15,U014,IT & Data,client_meeting,,6
+2021-02-15,U014,IT & Data,call,,105
+2021-02-15,U014,IT & Data,connect,,19
+2021-02-15,U014,IT & Data,email,,147
+2021-02-15,U014,IT & Data,client_meeting,,4
+2021-03-15,U014,IT & Data,call,,189
+2021-03-15,U014,IT & Data,connect,,51
+2021-03-15,U014,IT & Data,email,,264
+2021-03-15,U014,IT & Data,client_meeting,,12
+2021-04-15,U014,IT & Data,call,,182
+2021-04-15,U014,IT & Data,connect,,47
+2021-04-15,U014,IT & Data,email,,254
+2021-04-15,U014,IT & Data,client_meeting,,8
+2021-05-15,U014,IT & Data,call,,237
+2021-05-15,U014,IT & Data,connect,,62
+2021-05-15,U014,IT & Data,email,,331
+2021-05-15,U014,IT & Data,client_meeting,,10
+2021-06-15,U014,IT & Data,call,,177
+2021-06-15,U014,IT & Data,connect,,55
+2021-06-15,U014,IT & Data,email,,247
+2021-06-15,U014,IT & Data,client_meeting,,8
+2021-07-15,U014,IT & Data,call,,131
+2021-07-15,U014,IT & Data,connect,,38
+2021-07-15,U014,IT & Data,email,,183
+2021-07-15,U014,IT & Data,client_meeting,,8
+2021-08-15,U014,IT & Data,call,,40
+2021-08-15,U014,IT & Data,connect,,7
+2021-08-15,U014,IT & Data,email,,56
+2021-08-15,U014,IT & Data,client_meeting,,1
+2021-09-15,U014,IT & Data,call,,130
+2021-09-15,U014,IT & Data,connect,,33
+2021-09-15,U014,IT & Data,email,,182
+2021-09-15,U014,IT & Data,client_meeting,,4
+2021-10-15,U014,IT & Data,call,,88
+2021-10-15,U014,IT & Data,connect,,16
+2021-10-15,U014,IT & Data,email,,123
+2021-10-15,U014,IT & Data,client_meeting,,4
+2021-11-15,U014,IT & Data,call,,186
+2021-11-15,U014,IT & Data,connect,,39
+2021-11-15,U014,IT & Data,email,,260
+2021-11-15,U014,IT & Data,client_meeting,,7
+2021-12-15,U014,IT & Data,call,,112
+2021-12-15,U014,IT & Data,connect,,20
+2021-12-15,U014,IT & Data,email,,156
+2021-12-15,U014,IT & Data,client_meeting,,3
+2021-01-15,U015,Engineering,call,,112
+2021-01-15,U015,Engineering,connect,,27
+2021-01-15,U015,Engineering,email,,156
+2021-01-15,U015,Engineering,client_meeting,,6
+2021-02-15,U015,Engineering,call,,144
+2021-02-15,U015,Engineering,connect,,27
+2021-02-15,U015,Engineering,email,,201
+2021-02-15,U015,Engineering,client_meeting,,5
+2021-03-15,U015,Engineering,call,,142
+2021-03-15,U015,Engineering,connect,,29
+2021-03-15,U015,Engineering,email,,198
+2021-03-15,U015,Engineering,client_meeting,,7
+2021-04-15,U015,Engineering,call,,97
+2021-04-15,U015,Engineering,connect,,23
+2021-04-15,U015,Engineering,email,,135
+2021-04-15,U015,Engineering,client_meeting,,4
+2021-05-15,U015,Engineering,call,,219
+2021-05-15,U015,Engineering,connect,,47
+2021-05-15,U015,Engineering,email,,306
+2021-05-15,U015,Engineering,client_meeting,,5
+2021-06-15,U015,Engineering,call,,118
+2021-06-15,U015,Engineering,connect,,37
+2021-06-15,U015,Engineering,email,,165
+2021-06-15,U015,Engineering,client_meeting,,7
+2021-07-15,U015,Engineering,call,,134
+2021-07-15,U015,Engineering,connect,,24
+2021-07-15,U015,Engineering,email,,187
+2021-07-15,U015,Engineering,client_meeting,,5
+2021-08-15,U015,Engineering,call,,66
+2021-08-15,U015,Engineering,connect,,15
+2021-08-15,U015,Engineering,email,,92
+2021-08-15,U015,Engineering,client_meeting,,3
+2021-09-15,U015,Engineering,call,,163
+2021-09-15,U015,Engineering,connect,,30
+2021-09-15,U015,Engineering,email,,228
+2021-09-15,U015,Engineering,client_meeting,,6
+2021-10-15,U015,Engineering,call,,123
+2021-10-15,U015,Engineering,connect,,31
+2021-10-15,U015,Engineering,email,,172
+2021-10-15,U015,Engineering,client_meeting,,6
+2021-11-15,U015,Engineering,call,,209
+2021-11-15,U015,Engineering,connect,,43
+2021-11-15,U015,Engineering,email,,292
+2021-11-15,U015,Engineering,client_meeting,,9
+2021-12-15,U015,Engineering,call,,122
+2021-12-15,U015,Engineering,connect,,27
+2021-12-15,U015,Engineering,email,,170
+2021-12-15,U015,Engineering,client_meeting,,3
+2021-01-15,U016,IT & Data,call,,52
+2021-01-15,U016,IT & Data,connect,,14
+2021-01-15,U016,IT & Data,email,,72
+2021-01-15,U016,IT & Data,client_meeting,,2
+2021-02-15,U016,IT & Data,call,,63
+2021-02-15,U016,IT & Data,connect,,16
+2021-02-15,U016,IT & Data,email,,88
+2021-02-15,U016,IT & Data,client_meeting,,2
+2021-03-15,U016,IT & Data,call,,33
+2021-03-15,U016,IT & Data,connect,,7
+2021-03-15,U016,IT & Data,email,,46
+2021-03-15,U016,IT & Data,client_meeting,,1
+2021-04-15,U016,IT & Data,call,,39
+2021-04-15,U016,IT & Data,connect,,9
+2021-04-15,U016,IT & Data,email,,54
+2021-04-15,U016,IT & Data,client_meeting,,1
+2021-05-15,U016,IT & Data,call,,36
+2021-05-15,U016,IT & Data,connect,,8
+2021-05-15,U016,IT & Data,email,,50
+2021-05-15,U016,IT & Data,client_meeting,,1
+2021-06-15,U016,IT & Data,call,,48
+2021-06-15,U016,IT & Data,connect,,12
+2021-06-15,U016,IT & Data,email,,67
+2021-06-15,U016,IT & Data,client_meeting,,1
+2021-07-15,U016,IT & Data,call,,40
+2021-07-15,U016,IT & Data,connect,,7
+2021-07-15,U016,IT & Data,email,,56
+2021-07-15,U016,IT & Data,client_meeting,,1
+2021-08-15,U016,IT & Data,call,,13
+2021-08-15,U016,IT & Data,connect,,2
+2021-08-15,U016,IT & Data,email,,18
+2021-09-15,U016,IT & Data,call,,36
+2021-09-15,U016,IT & Data,connect,,8
+2021-09-15,U016,IT & Data,email,,50
+2021-09-15,U016,IT & Data,client_meeting,,1
+2021-10-15,U016,IT & Data,call,,50
+2021-10-15,U016,IT & Data,connect,,12
+2021-10-15,U016,IT & Data,email,,70
+2021-10-15,U016,IT & Data,client_meeting,,2
+2021-11-15,U016,IT & Data,call,,40
+2021-11-15,U016,IT & Data,connect,,7
+2021-11-15,U016,IT & Data,email,,56
+2021-11-15,U016,IT & Data,client_meeting,,1
+2021-12-15,U016,IT & Data,call,,24
+2021-12-15,U016,IT & Data,connect,,5
+2021-12-15,U016,IT & Data,email,,33
+2021-01-15,U017,Public Sector,call,,100
+2021-01-15,U017,Public Sector,connect,,21
+2021-01-15,U017,Public Sector,email,,140
+2021-01-15,U017,Public Sector,client_meeting,,4
+2021-02-15,U018,IT & Data,call,,67
+2021-02-15,U018,IT & Data,connect,,16
+2021-02-15,U018,IT & Data,email,,93
+2021-02-15,U018,IT & Data,client_meeting,,3
+2021-03-15,U018,IT & Data,call,,36
+2021-03-15,U018,IT & Data,connect,,11
+2021-03-15,U018,IT & Data,email,,50
+2021-03-15,U018,IT & Data,client_meeting,,2
+2021-04-15,U018,IT & Data,call,,49
+2021-04-15,U018,IT & Data,connect,,14
+2021-04-15,U018,IT & Data,email,,68
+2021-04-15,U018,IT & Data,client_meeting,,3
+2021-05-15,U018,IT & Data,call,,46
+2021-05-15,U018,IT & Data,connect,,8
+2021-05-15,U018,IT & Data,email,,64
+2021-05-15,U018,IT & Data,client_meeting,,1
+2021-06-15,U018,IT & Data,call,,54
+2021-06-15,U018,IT & Data,connect,,16
+2021-06-15,U018,IT & Data,email,,75
+2021-06-15,U018,IT & Data,client_meeting,,2
+2021-07-15,U018,IT & Data,call,,39
+2021-07-15,U018,IT & Data,connect,,11
+2021-07-15,U018,IT & Data,email,,54
+2021-07-15,U018,IT & Data,client_meeting,,1
+2021-08-15,U018,IT & Data,call,,25
+2021-08-15,U018,IT & Data,connect,,5
+2021-08-15,U018,IT & Data,email,,35
+2021-08-15,U018,IT & Data,client_meeting,,1
+2021-09-15,U018,IT & Data,call,,33
+2021-09-15,U018,IT & Data,connect,,7
+2021-09-15,U018,IT & Data,email,,46
+2021-10-15,U018,IT & Data,call,,31
+2021-10-15,U018,IT & Data,connect,,6
+2021-10-15,U018,IT & Data,email,,43
+2021-10-15,U018,IT & Data,client_meeting,,1
+2021-11-15,U018,IT & Data,call,,28
+2021-11-15,U018,IT & Data,connect,,7
+2021-11-15,U018,IT & Data,email,,39
+2021-11-15,U018,IT & Data,client_meeting,,1
+2021-12-15,U018,IT & Data,call,,36
+2021-12-15,U018,IT & Data,connect,,9
+2021-12-15,U018,IT & Data,email,,50
+2021-12-15,U018,IT & Data,client_meeting,,1
+2021-01-15,U019,IT & Data,call,,104
+2021-01-15,U019,IT & Data,connect,,19
+2021-01-15,U019,IT & Data,email,,145
+2021-01-15,U019,IT & Data,client_meeting,,3
+2021-02-15,U019,IT & Data,call,,52
+2021-02-15,U019,IT & Data,connect,,10
+2021-02-15,U019,IT & Data,email,,72
+2021-02-15,U019,IT & Data,client_meeting,,1
+2021-03-15,U019,IT & Data,call,,89
+2021-03-15,U019,IT & Data,connect,,17
+2021-03-15,U019,IT & Data,email,,124
+2021-03-15,U019,IT & Data,client_meeting,,3
+2021-04-15,U019,IT & Data,call,,63
+2021-04-15,U019,IT & Data,connect,,17
+2021-04-15,U019,IT & Data,email,,88
+2021-04-15,U019,IT & Data,client_meeting,,3
+2021-05-15,U019,IT & Data,call,,67
+2021-05-15,U019,IT & Data,connect,,20
+2021-05-15,U019,IT & Data,email,,93
+2021-05-15,U019,IT & Data,client_meeting,,4
+2021-06-15,U019,IT & Data,call,,102
+2021-06-15,U019,IT & Data,connect,,20
+2021-06-15,U019,IT & Data,email,,142
+2021-06-15,U019,IT & Data,client_meeting,,2
+2021-07-15,U019,IT & Data,call,,62
+2021-07-15,U019,IT & Data,connect,,16
+2021-07-15,U019,IT & Data,email,,86
+2021-07-15,U019,IT & Data,client_meeting,,4
+2021-08-15,U019,IT & Data,call,,38
+2021-08-15,U019,IT & Data,connect,,9
+2021-08-15,U019,IT & Data,email,,53
+2021-08-15,U019,IT & Data,client_meeting,,1
+2021-09-15,U019,IT & Data,call,,113
+2021-09-15,U019,IT & Data,connect,,32
+2021-09-15,U019,IT & Data,email,,158
+2021-09-15,U019,IT & Data,client_meeting,,5
+2021-10-15,U019,IT & Data,call,,66
+2021-10-15,U019,IT & Data,connect,,12
+2021-10-15,U019,IT & Data,email,,92
+2021-10-15,U019,IT & Data,client_meeting,,2
+2021-11-15,U019,IT & Data,call,,68
+2021-11-15,U019,IT & Data,connect,,18
+2021-11-15,U019,IT & Data,email,,95
+2021-11-15,U019,IT & Data,client_meeting,,4
+2021-12-15,U019,IT & Data,call,,54
+2021-12-15,U019,IT & Data,connect,,9
+2021-12-15,U019,IT & Data,email,,75
+2021-12-15,U019,IT & Data,client_meeting,,1
+2021-01-15,U021,Public Sector,call,,138
+2021-01-15,U021,Public Sector,connect,,34
+2021-01-15,U021,Public Sector,email,,193
+2021-01-15,U021,Public Sector,client_meeting,,4
+2021-02-15,U021,Public Sector,call,,118
+2021-02-15,U021,Public Sector,connect,,31
+2021-02-15,U021,Public Sector,email,,165
+2021-02-15,U021,Public Sector,client_meeting,,4
+2021-03-15,U021,Public Sector,call,,193
+2021-03-15,U021,Public Sector,connect,,44
+2021-03-15,U021,Public Sector,email,,270
+2021-03-15,U021,Public Sector,client_meeting,,6
+2021-04-15,U021,Public Sector,call,,197
+2021-04-15,U021,Public Sector,connect,,44
+2021-04-15,U021,Public Sector,email,,275
+2021-04-15,U021,Public Sector,client_meeting,,9
+2021-05-15,U021,Public Sector,call,,168
+2021-05-15,U021,Public Sector,connect,,53
+2021-05-15,U021,Public Sector,email,,235
+2021-05-15,U021,Public Sector,client_meeting,,12
+2021-06-15,U021,Public Sector,call,,118
+2021-06-15,U021,Public Sector,connect,,32
+2021-06-15,U021,Public Sector,email,,165
+2021-06-15,U021,Public Sector,client_meeting,,4
+2021-07-15,U021,Public Sector,call,,223
+2021-07-15,U021,Public Sector,connect,,66
+2021-07-15,U021,Public Sector,email,,312
+2021-07-15,U021,Public Sector,client_meeting,,15
+2021-08-15,U021,Public Sector,call,,51
+2021-08-15,U021,Public Sector,connect,,12
+2021-08-15,U021,Public Sector,email,,71
+2021-08-15,U021,Public Sector,client_meeting,,1
+2021-09-15,U021,Public Sector,call,,199
+2021-09-15,U021,Public Sector,connect,,53
+2021-09-15,U021,Public Sector,email,,278
+2021-09-15,U021,Public Sector,client_meeting,,9
+2021-10-15,U021,Public Sector,call,,242
+2021-10-15,U021,Public Sector,connect,,75
+2021-10-15,U021,Public Sector,email,,338
+2021-10-15,U021,Public Sector,client_meeting,,11
+2021-11-15,U021,Public Sector,call,,163
+2021-11-15,U021,Public Sector,connect,,30
+2021-11-15,U021,Public Sector,email,,228
+2021-11-15,U021,Public Sector,client_meeting,,3
+2021-12-15,U021,Public Sector,call,,115
+2021-12-15,U021,Public Sector,connect,,24
+2021-12-15,U021,Public Sector,email,,161
+2021-12-15,U021,Public Sector,client_meeting,,3
+2022-01-15,U001,IT & Data,call,,119
+2022-01-15,U001,IT & Data,connect,,32
+2022-01-15,U001,IT & Data,email,,166
+2022-01-15,U001,IT & Data,client_meeting,,6
+2022-02-15,U001,IT & Data,call,,138
+2022-02-15,U001,IT & Data,connect,,32
+2022-02-15,U001,IT & Data,email,,193
+2022-02-15,U001,IT & Data,client_meeting,,4
+2022-03-15,U001,IT & Data,call,,106
+2022-03-15,U001,IT & Data,connect,,25
+2022-03-15,U001,IT & Data,email,,148
+2022-03-15,U001,IT & Data,client_meeting,,4
+2022-04-15,U001,IT & Data,call,,208
+2022-04-15,U001,IT & Data,connect,,61
+2022-04-15,U001,IT & Data,email,,291
+2022-04-15,U001,IT & Data,client_meeting,,15
+2022-05-15,U001,IT & Data,call,,192
+2022-05-15,U001,IT & Data,connect,,43
+2022-05-15,U001,IT & Data,email,,268
+2022-05-15,U001,IT & Data,client_meeting,,6
+2022-06-15,U001,IT & Data,call,,100
+2022-06-15,U001,IT & Data,connect,,22
+2022-06-15,U001,IT & Data,email,,140
+2022-06-15,U001,IT & Data,client_meeting,,4
+2022-07-15,U001,IT & Data,call,,142
+2022-07-15,U001,IT & Data,connect,,41
+2022-07-15,U001,IT & Data,email,,198
+2022-07-15,U001,IT & Data,client_meeting,,8
+2022-08-15,U001,IT & Data,call,,73
+2022-08-15,U001,IT & Data,connect,,22
+2022-08-15,U001,IT & Data,email,,102
+2022-08-15,U001,IT & Data,client_meeting,,3
+2022-09-15,U001,IT & Data,call,,152
+2022-09-15,U001,IT & Data,connect,,48
+2022-09-15,U001,IT & Data,email,,212
+2022-09-15,U001,IT & Data,client_meeting,,6
+2022-10-15,U001,IT & Data,call,,130
+2022-10-15,U001,IT & Data,connect,,30
+2022-10-15,U001,IT & Data,email,,182
+2022-10-15,U001,IT & Data,client_meeting,,4
+2022-11-15,U001,IT & Data,call,,149
+2022-11-15,U001,IT & Data,connect,,30
+2022-11-15,U001,IT & Data,email,,208
+2022-11-15,U001,IT & Data,client_meeting,,6
+2022-12-15,U001,IT & Data,call,,123
+2022-12-15,U001,IT & Data,connect,,28
+2022-12-15,U001,IT & Data,email,,172
+2022-12-15,U001,IT & Data,client_meeting,,5
+2022-01-15,U004,IT & Data,call,,135
+2022-01-15,U004,IT & Data,connect,,42
+2022-01-15,U004,IT & Data,email,,189
+2022-01-15,U004,IT & Data,client_meeting,,7
+2022-02-15,U004,IT & Data,call,,204
+2022-02-15,U004,IT & Data,connect,,60
+2022-02-15,U004,IT & Data,email,,285
+2022-02-15,U004,IT & Data,client_meeting,,10
+2022-03-15,U004,IT & Data,call,,161
+2022-03-15,U004,IT & Data,connect,,32
+2022-03-15,U004,IT & Data,email,,225
+2022-03-15,U004,IT & Data,client_meeting,,7
+2022-04-15,U004,IT & Data,call,,63
+2022-04-15,U004,IT & Data,connect,,19
+2022-04-15,U004,IT & Data,email,,88
+2022-04-15,U004,IT & Data,client_meeting,,4
+2022-05-15,U004,IT & Data,call,,166
+2022-05-15,U004,IT & Data,connect,,42
+2022-05-15,U004,IT & Data,email,,232
+2022-05-15,U004,IT & Data,client_meeting,,8
+2022-06-15,U004,IT & Data,call,,192
+2022-06-15,U004,IT & Data,connect,,54
+2022-06-15,U004,IT & Data,email,,268
+2022-06-15,U004,IT & Data,client_meeting,,7
+2022-07-15,U004,IT & Data,call,,168
+2022-07-15,U004,IT & Data,connect,,35
+2022-07-15,U004,IT & Data,email,,235
+2022-07-15,U004,IT & Data,client_meeting,,8
+2022-08-15,U004,IT & Data,call,,42
+2022-08-15,U004,IT & Data,connect,,13
+2022-08-15,U004,IT & Data,email,,58
+2022-08-15,U004,IT & Data,client_meeting,,2
+2022-09-15,U004,IT & Data,call,,131
+2022-09-15,U004,IT & Data,connect,,35
+2022-09-15,U004,IT & Data,email,,183
+2022-09-15,U004,IT & Data,client_meeting,,8
+2022-10-15,U004,IT & Data,call,,131
+2022-10-15,U004,IT & Data,connect,,40
+2022-10-15,U004,IT & Data,email,,183
+2022-10-15,U004,IT & Data,client_meeting,,6
+2022-11-15,U004,IT & Data,call,,211
+2022-11-15,U004,IT & Data,connect,,58
+2022-11-15,U004,IT & Data,email,,295
+2022-11-15,U004,IT & Data,client_meeting,,12
+2022-12-15,U004,IT & Data,call,,92
+2022-12-15,U004,IT & Data,connect,,21
+2022-12-15,U004,IT & Data,email,,128
+2022-12-15,U004,IT & Data,client_meeting,,5
+2022-09-15,U005,Engineering,call,,4
+2022-09-15,U005,Engineering,connect,,1
+2022-09-15,U005,Engineering,email,,5
+2022-10-15,U005,Engineering,call,,4
+2022-10-15,U005,Engineering,connect,,1
+2022-10-15,U005,Engineering,email,,5
+2022-11-15,U005,Engineering,call,,4
+2022-11-15,U005,Engineering,connect,,1
+2022-11-15,U005,Engineering,email,,5
+2022-12-15,U005,Engineering,call,,3
+2022-12-15,U005,Engineering,email,,4
+2022-01-15,U007,Engineering,call,,84
+2022-01-15,U007,Engineering,connect,,25
+2022-01-15,U007,Engineering,email,,117
+2022-01-15,U007,Engineering,client_meeting,,5
+2022-02-15,U007,Engineering,call,,146
+2022-02-15,U007,Engineering,connect,,39
+2022-02-15,U007,Engineering,email,,204
+2022-02-15,U007,Engineering,client_meeting,,9
+2022-03-15,U007,Engineering,call,,176
+2022-03-15,U007,Engineering,connect,,55
+2022-03-15,U007,Engineering,email,,246
+2022-03-15,U007,Engineering,client_meeting,,8
+2022-04-15,U007,Engineering,call,,116
+2022-04-15,U007,Engineering,connect,,24
+2022-04-15,U007,Engineering,email,,162
+2022-04-15,U007,Engineering,client_meeting,,5
+2022-05-15,U007,Engineering,call,,173
+2022-05-15,U007,Engineering,connect,,39
+2022-05-15,U007,Engineering,email,,242
+2022-05-15,U007,Engineering,client_meeting,,6
+2022-06-15,U007,Engineering,call,,176
+2022-06-15,U007,Engineering,connect,,41
+2022-06-15,U007,Engineering,email,,246
+2022-06-15,U007,Engineering,client_meeting,,10
+2022-07-15,U007,Engineering,call,,170
+2022-07-15,U007,Engineering,connect,,35
+2022-07-15,U007,Engineering,email,,237
+2022-07-15,U007,Engineering,client_meeting,,6
+2022-08-15,U007,Engineering,call,,57
+2022-08-15,U007,Engineering,connect,,13
+2022-08-15,U007,Engineering,email,,79
+2022-08-15,U007,Engineering,client_meeting,,1
+2022-09-15,U007,Engineering,call,,200
+2022-09-15,U007,Engineering,connect,,62
+2022-09-15,U007,Engineering,email,,280
+2022-09-15,U007,Engineering,client_meeting,,11
+2022-10-15,U007,Engineering,call,,111
+2022-10-15,U007,Engineering,connect,,27
+2022-10-15,U007,Engineering,email,,155
+2022-10-15,U007,Engineering,client_meeting,,3
+2022-11-15,U007,Engineering,call,,165
+2022-11-15,U007,Engineering,connect,,32
+2022-11-15,U007,Engineering,email,,230
+2022-11-15,U007,Engineering,client_meeting,,8
+2022-12-15,U007,Engineering,call,,103
+2022-12-15,U007,Engineering,connect,,24
+2022-12-15,U007,Engineering,email,,144
+2022-12-15,U007,Engineering,client_meeting,,2
+2022-01-15,U008,Engineering,call,,188
+2022-01-15,U008,Engineering,connect,,48
+2022-01-15,U008,Engineering,email,,263
+2022-01-15,U008,Engineering,client_meeting,,7
+2022-02-15,U008,Engineering,call,,94
+2022-02-15,U008,Engineering,connect,,26
+2022-02-15,U008,Engineering,email,,131
+2022-02-15,U008,Engineering,client_meeting,,6
+2022-03-15,U008,Engineering,call,,143
+2022-03-15,U008,Engineering,connect,,31
+2022-03-15,U008,Engineering,email,,200
+2022-03-15,U008,Engineering,client_meeting,,4
+2022-04-15,U008,Engineering,call,,187
+2022-04-15,U008,Engineering,connect,,43
+2022-04-15,U008,Engineering,email,,261
+2022-04-15,U008,Engineering,client_meeting,,7
+2022-05-15,U008,Engineering,call,,121
+2022-05-15,U008,Engineering,connect,,24
+2022-05-15,U008,Engineering,email,,169
+2022-05-15,U008,Engineering,client_meeting,,3
+2022-06-15,U008,Engineering,call,,131
+2022-06-15,U008,Engineering,connect,,38
+2022-06-15,U008,Engineering,email,,183
+2022-06-15,U008,Engineering,client_meeting,,6
+2022-07-15,U008,Engineering,call,,217
+2022-07-15,U008,Engineering,connect,,64
+2022-07-15,U008,Engineering,email,,303
+2022-07-15,U008,Engineering,client_meeting,,14
+2022-08-15,U008,Engineering,call,,78
+2022-08-15,U008,Engineering,connect,,15
+2022-08-15,U008,Engineering,email,,109
+2022-08-15,U008,Engineering,client_meeting,,3
+2022-09-15,U008,Engineering,call,,137
+2022-09-15,U008,Engineering,connect,,42
+2022-09-15,U008,Engineering,email,,191
+2022-09-15,U008,Engineering,client_meeting,,5
+2022-10-15,U008,Engineering,call,,185
+2022-10-15,U008,Engineering,connect,,44
+2022-10-15,U008,Engineering,email,,259
+2022-10-15,U008,Engineering,client_meeting,,8
+2022-11-15,U008,Engineering,call,,142
+2022-11-15,U008,Engineering,connect,,44
+2022-11-15,U008,Engineering,email,,198
+2022-11-15,U008,Engineering,client_meeting,,10
+2022-12-15,U008,Engineering,call,,94
+2022-12-15,U008,Engineering,connect,,22
+2022-12-15,U008,Engineering,email,,131
+2022-12-15,U008,Engineering,client_meeting,,4
+2022-06-15,U009,Engineering,call,,9
+2022-06-15,U009,Engineering,connect,,2
+2022-06-15,U009,Engineering,email,,12
+2022-07-15,U009,Engineering,call,,7
+2022-07-15,U009,Engineering,connect,,2
+2022-07-15,U009,Engineering,email,,9
+2022-08-15,U009,Engineering,call,,3
+2022-08-15,U009,Engineering,email,,4
+2022-09-15,U009,Engineering,call,,5
+2022-09-15,U009,Engineering,connect,,1
+2022-09-15,U009,Engineering,email,,7
+2022-10-15,U009,Engineering,call,,8
+2022-10-15,U009,Engineering,connect,,2
+2022-10-15,U009,Engineering,email,,11
+2022-11-15,U009,Engineering,call,,7
+2022-11-15,U009,Engineering,connect,,1
+2022-11-15,U009,Engineering,email,,9
+2022-12-15,U009,Engineering,call,,4
+2022-12-15,U009,Engineering,email,,5
+2022-01-15,U010,Life Sciences,call,,29
+2022-01-15,U010,Life Sciences,connect,,5
+2022-01-15,U010,Life Sciences,email,,40
+2022-01-15,U010,Life Sciences,client_meeting,,1
+2022-02-15,U010,Life Sciences,call,,31
+2022-02-15,U010,Life Sciences,connect,,9
+2022-02-15,U010,Life Sciences,email,,43
+2022-02-15,U010,Life Sciences,client_meeting,,1
+2022-03-15,U010,Life Sciences,call,,21
+2022-03-15,U010,Life Sciences,connect,,4
+2022-03-15,U010,Life Sciences,email,,29
+2022-04-15,U010,Life Sciences,call,,32
+2022-04-15,U010,Life Sciences,connect,,8
+2022-04-15,U010,Life Sciences,email,,44
+2022-04-15,U010,Life Sciences,client_meeting,,1
+2022-07-15,U013,IT & Data,call,,5
+2022-07-15,U013,IT & Data,connect,,1
+2022-07-15,U013,IT & Data,email,,7
+2022-08-15,U013,IT & Data,call,,2
+2022-08-15,U013,IT & Data,email,,2
+2022-09-15,U013,IT & Data,call,,6
+2022-09-15,U013,IT & Data,connect,,1
+2022-09-15,U013,IT & Data,email,,8
+2022-10-15,U013,IT & Data,call,,10
+2022-10-15,U013,IT & Data,connect,,2
+2022-10-15,U013,IT & Data,email,,14
+2022-11-15,U013,IT & Data,call,,8
+2022-11-15,U013,IT & Data,connect,,2
+2022-11-15,U013,IT & Data,email,,11
+2022-12-15,U013,IT & Data,call,,5
+2022-12-15,U013,IT & Data,connect,,1
+2022-12-15,U013,IT & Data,email,,7
+2022-01-15,U014,IT & Data,call,,164
+2022-01-15,U014,IT & Data,connect,,47
+2022-01-15,U014,IT & Data,email,,229
+2022-01-15,U014,IT & Data,client_meeting,,11
+2022-02-15,U014,IT & Data,call,,101
+2022-02-15,U014,IT & Data,connect,,21
+2022-02-15,U014,IT & Data,email,,141
+2022-02-15,U014,IT & Data,client_meeting,,4
+2022-03-15,U014,IT & Data,call,,120
+2022-03-15,U014,IT & Data,connect,,34
+2022-03-15,U014,IT & Data,email,,168
+2022-03-15,U014,IT & Data,client_meeting,,7
+2022-04-15,U014,IT & Data,call,,133
+2022-04-15,U014,IT & Data,connect,,32
+2022-04-15,U014,IT & Data,email,,186
+2022-04-15,U014,IT & Data,client_meeting,,3
+2022-05-15,U014,IT & Data,call,,128
+2022-05-15,U014,IT & Data,connect,,24
+2022-05-15,U014,IT & Data,email,,179
+2022-05-15,U014,IT & Data,client_meeting,,4
+2022-06-15,U014,IT & Data,call,,168
+2022-06-15,U014,IT & Data,connect,,35
+2022-06-15,U014,IT & Data,email,,235
+2022-06-15,U014,IT & Data,client_meeting,,9
+2022-07-15,U014,IT & Data,call,,197
+2022-07-15,U014,IT & Data,connect,,58
+2022-07-15,U014,IT & Data,email,,275
+2022-07-15,U014,IT & Data,client_meeting,,12
+2022-08-15,U014,IT & Data,call,,34
+2022-08-15,U014,IT & Data,connect,,10
+2022-08-15,U014,IT & Data,email,,47
+2022-08-15,U014,IT & Data,client_meeting,,1
+2022-09-15,U014,IT & Data,call,,111
+2022-09-15,U014,IT & Data,connect,,20
+2022-09-15,U014,IT & Data,email,,155
+2022-09-15,U014,IT & Data,client_meeting,,3
+2022-10-15,U014,IT & Data,call,,90
+2022-10-15,U014,IT & Data,connect,,22
+2022-10-15,U014,IT & Data,email,,125
+2022-10-15,U014,IT & Data,client_meeting,,3
+2022-11-15,U014,IT & Data,call,,179
+2022-11-15,U014,IT & Data,connect,,49
+2022-11-15,U014,IT & Data,email,,250
+2022-11-15,U014,IT & Data,client_meeting,,9
+2022-12-15,U014,IT & Data,call,,41
+2022-12-15,U014,IT & Data,connect,,8
+2022-12-15,U014,IT & Data,email,,57
+2022-12-15,U014,IT & Data,client_meeting,,2
+2022-01-15,U015,Engineering,call,,167
+2022-01-15,U015,Engineering,connect,,34
+2022-01-15,U015,Engineering,email,,233
+2022-01-15,U015,Engineering,client_meeting,,6
+2022-02-15,U015,Engineering,call,,126
+2022-02-15,U015,Engineering,connect,,33
+2022-02-15,U015,Engineering,email,,176
+2022-02-15,U015,Engineering,client_meeting,,4
+2022-03-15,U015,Engineering,call,,158
+2022-03-15,U015,Engineering,connect,,37
+2022-03-15,U015,Engineering,email,,221
+2022-03-15,U015,Engineering,client_meeting,,7
+2022-04-15,U015,Engineering,call,,98
+2022-04-15,U015,Engineering,connect,,18
+2022-04-15,U015,Engineering,email,,137
+2022-04-15,U015,Engineering,client_meeting,,2
+2022-05-15,U015,Engineering,call,,176
+2022-05-15,U015,Engineering,connect,,36
+2022-05-15,U015,Engineering,email,,246
+2022-05-15,U015,Engineering,client_meeting,,4
+2022-06-15,U015,Engineering,call,,115
+2022-06-15,U015,Engineering,connect,,35
+2022-06-15,U015,Engineering,email,,161
+2022-06-15,U015,Engineering,client_meeting,,5
+2022-07-15,U015,Engineering,call,,154
+2022-07-15,U015,Engineering,connect,,33
+2022-07-15,U015,Engineering,email,,215
+2022-07-15,U015,Engineering,client_meeting,,7
+2022-08-15,U015,Engineering,call,,44
+2022-08-15,U015,Engineering,connect,,8
+2022-08-15,U015,Engineering,email,,61
+2022-08-15,U015,Engineering,client_meeting,,1
+2022-09-15,U015,Engineering,call,,163
+2022-09-15,U015,Engineering,connect,,38
+2022-09-15,U015,Engineering,email,,228
+2022-09-15,U015,Engineering,client_meeting,,8
+2022-10-15,U015,Engineering,call,,96
+2022-10-15,U015,Engineering,connect,,24
+2022-10-15,U015,Engineering,email,,134
+2022-10-15,U015,Engineering,client_meeting,,5
+2022-11-15,U015,Engineering,call,,183
+2022-11-15,U015,Engineering,connect,,56
+2022-11-15,U015,Engineering,email,,256
+2022-11-15,U015,Engineering,client_meeting,,11
+2022-12-15,U015,Engineering,call,,96
+2022-12-15,U015,Engineering,connect,,22
+2022-12-15,U015,Engineering,email,,134
+2022-12-15,U015,Engineering,client_meeting,,3
+2022-01-15,U016,IT & Data,call,,35
+2022-01-15,U016,IT & Data,connect,,9
+2022-01-15,U016,IT & Data,email,,49
+2022-01-15,U016,IT & Data,client_meeting,,2
+2022-02-15,U016,IT & Data,call,,42
+2022-02-15,U016,IT & Data,connect,,8
+2022-02-15,U016,IT & Data,email,,58
+2022-02-15,U016,IT & Data,client_meeting,,1
+2022-03-15,U016,IT & Data,call,,26
+2022-03-15,U016,IT & Data,connect,,7
+2022-03-15,U016,IT & Data,email,,36
+2022-03-15,U016,IT & Data,client_meeting,,1
+2022-04-15,U016,IT & Data,call,,44
+2022-04-15,U016,IT & Data,connect,,11
+2022-04-15,U016,IT & Data,email,,61
+2022-04-15,U016,IT & Data,client_meeting,,2
+2022-05-15,U016,IT & Data,call,,42
+2022-05-15,U016,IT & Data,connect,,9
+2022-05-15,U016,IT & Data,email,,58
+2022-05-15,U016,IT & Data,client_meeting,,1
+2022-06-15,U016,IT & Data,call,,35
+2022-06-15,U016,IT & Data,connect,,9
+2022-06-15,U016,IT & Data,email,,49
+2022-06-15,U016,IT & Data,client_meeting,,1
+2022-07-15,U016,IT & Data,call,,26
+2022-07-15,U016,IT & Data,connect,,7
+2022-07-15,U016,IT & Data,email,,36
+2022-07-15,U016,IT & Data,client_meeting,,1
+2022-08-15,U016,IT & Data,call,,17
+2022-08-15,U016,IT & Data,connect,,4
+2022-08-15,U016,IT & Data,email,,23
+2022-09-15,U016,IT & Data,call,,31
+2022-09-15,U016,IT & Data,connect,,8
+2022-09-15,U016,IT & Data,email,,43
+2022-09-15,U016,IT & Data,client_meeting,,1
+2022-10-15,U016,IT & Data,call,,28
+2022-10-15,U016,IT & Data,connect,,8
+2022-10-15,U016,IT & Data,email,,39
+2022-10-15,U016,IT & Data,client_meeting,,1
+2022-11-15,U016,IT & Data,call,,42
+2022-11-15,U016,IT & Data,connect,,11
+2022-11-15,U016,IT & Data,email,,58
+2022-11-15,U016,IT & Data,client_meeting,,2
+2022-12-15,U016,IT & Data,call,,22
+2022-12-15,U016,IT & Data,connect,,6
+2022-12-15,U016,IT & Data,email,,30
+2022-12-15,U016,IT & Data,client_meeting,,1
+2022-01-15,U018,IT & Data,call,,167
+2022-01-15,U018,IT & Data,connect,,35
+2022-01-15,U018,IT & Data,email,,233
+2022-01-15,U018,IT & Data,client_meeting,,7
+2022-02-15,U018,IT & Data,call,,78
+2022-02-15,U018,IT & Data,connect,,18
+2022-02-15,U018,IT & Data,email,,109
+2022-02-15,U018,IT & Data,client_meeting,,2
+2022-03-15,U018,IT & Data,call,,160
+2022-03-15,U018,IT & Data,connect,,47
+2022-03-15,U018,IT & Data,email,,224
+2022-03-15,U018,IT & Data,client_meeting,,8
+2022-04-15,U018,IT & Data,call,,145
+2022-04-15,U018,IT & Data,connect,,43
+2022-04-15,U018,IT & Data,email,,203
+2022-04-15,U018,IT & Data,client_meeting,,7
+2022-05-15,U018,IT & Data,call,,139
+2022-05-15,U018,IT & Data,connect,,25
+2022-05-15,U018,IT & Data,email,,194
+2022-05-15,U018,IT & Data,client_meeting,,6
+2022-06-15,U018,IT & Data,call,,160
+2022-06-15,U018,IT & Data,connect,,32
+2022-06-15,U018,IT & Data,email,,224
+2022-06-15,U018,IT & Data,client_meeting,,4
+2022-07-15,U018,IT & Data,call,,162
+2022-07-15,U018,IT & Data,connect,,46
+2022-07-15,U018,IT & Data,email,,226
+2022-07-15,U018,IT & Data,client_meeting,,8
+2022-08-15,U018,IT & Data,call,,67
+2022-08-15,U018,IT & Data,connect,,13
+2022-08-15,U018,IT & Data,email,,93
+2022-08-15,U018,IT & Data,client_meeting,,3
+2022-09-15,U018,IT & Data,call,,56
+2022-09-15,U018,IT & Data,connect,,15
+2022-09-15,U018,IT & Data,email,,78
+2022-09-15,U018,IT & Data,client_meeting,,3
+2022-10-15,U018,IT & Data,call,,75
+2022-10-15,U018,IT & Data,connect,,22
+2022-10-15,U018,IT & Data,email,,105
+2022-10-15,U018,IT & Data,client_meeting,,4
+2022-11-15,U018,IT & Data,call,,143
+2022-11-15,U018,IT & Data,connect,,43
+2022-11-15,U018,IT & Data,email,,200
+2022-11-15,U018,IT & Data,client_meeting,,8
+2022-12-15,U018,IT & Data,call,,85
+2022-12-15,U018,IT & Data,connect,,23
+2022-12-15,U018,IT & Data,email,,118
+2022-12-15,U018,IT & Data,client_meeting,,4
+2022-01-15,U019,IT & Data,call,,82
+2022-01-15,U019,IT & Data,connect,,17
+2022-01-15,U019,IT & Data,email,,114
+2022-01-15,U019,IT & Data,client_meeting,,3
+2022-02-15,U019,IT & Data,call,,111
+2022-02-15,U019,IT & Data,connect,,26
+2022-02-15,U019,IT & Data,email,,155
+2022-02-15,U019,IT & Data,client_meeting,,3
+2022-03-15,U019,IT & Data,call,,102
+2022-03-15,U019,IT & Data,connect,,24
+2022-03-15,U019,IT & Data,email,,142
+2022-03-15,U019,IT & Data,client_meeting,,4
+2022-04-15,U019,IT & Data,call,,190
+2022-04-15,U019,IT & Data,connect,,57
+2022-04-15,U019,IT & Data,email,,266
+2022-04-15,U019,IT & Data,client_meeting,,13
+2022-05-15,U019,IT & Data,call,,135
+2022-05-15,U019,IT & Data,connect,,40
+2022-05-15,U019,IT & Data,email,,189
+2022-05-15,U019,IT & Data,client_meeting,,6
+2022-06-15,U019,IT & Data,call,,185
+2022-06-15,U019,IT & Data,connect,,38
+2022-06-15,U019,IT & Data,email,,259
+2022-06-15,U019,IT & Data,client_meeting,,7
+2022-07-15,U019,IT & Data,call,,84
+2022-07-15,U019,IT & Data,connect,,25
+2022-07-15,U019,IT & Data,email,,117
+2022-07-15,U019,IT & Data,client_meeting,,6
+2022-08-15,U019,IT & Data,call,,42
+2022-08-15,U019,IT & Data,connect,,10
+2022-08-15,U019,IT & Data,email,,58
+2022-08-15,U019,IT & Data,client_meeting,,1
+2022-09-15,U019,IT & Data,call,,173
+2022-09-15,U019,IT & Data,connect,,37
+2022-09-15,U019,IT & Data,email,,242
+2022-09-15,U019,IT & Data,client_meeting,,8
+2022-10-15,U019,IT & Data,call,,136
+2022-10-15,U019,IT & Data,connect,,37
+2022-10-15,U019,IT & Data,email,,190
+2022-10-15,U019,IT & Data,client_meeting,,8
+2022-11-15,U019,IT & Data,call,,104
+2022-11-15,U019,IT & Data,connect,,28
+2022-11-15,U019,IT & Data,email,,145
+2022-11-15,U019,IT & Data,client_meeting,,4
+2022-12-15,U019,IT & Data,call,,93
+2022-12-15,U019,IT & Data,connect,,20
+2022-12-15,U019,IT & Data,email,,130
+2022-12-15,U019,IT & Data,client_meeting,,2
+2022-01-15,U021,Public Sector,call,,157
+2022-01-15,U021,Public Sector,connect,,35
+2022-01-15,U021,Public Sector,email,,219
+2022-01-15,U021,Public Sector,client_meeting,,8
+2022-02-15,U021,Public Sector,call,,90
+2022-02-15,U021,Public Sector,connect,,22
+2022-02-15,U021,Public Sector,email,,125
+2022-02-15,U021,Public Sector,client_meeting,,5
+2022-03-15,U021,Public Sector,call,,45
+2022-03-15,U021,Public Sector,connect,,8
+2022-03-15,U021,Public Sector,email,,62
+2022-03-15,U021,Public Sector,client_meeting,,1
+2022-04-15,U021,Public Sector,call,,178
+2022-04-15,U021,Public Sector,connect,,50
+2022-04-15,U021,Public Sector,email,,249
+2022-04-15,U021,Public Sector,client_meeting,,10
+2022-05-15,U021,Public Sector,call,,92
+2022-05-15,U021,Public Sector,connect,,23
+2022-05-15,U021,Public Sector,email,,128
+2022-05-15,U021,Public Sector,client_meeting,,3
+2022-06-15,U021,Public Sector,call,,110
+2022-06-15,U021,Public Sector,connect,,22
+2022-06-15,U021,Public Sector,email,,154
+2022-06-15,U021,Public Sector,client_meeting,,5
+2022-07-15,U021,Public Sector,call,,144
+2022-07-15,U021,Public Sector,connect,,44
+2022-07-15,U021,Public Sector,email,,201
+2022-07-15,U021,Public Sector,client_meeting,,6
+2022-08-15,U021,Public Sector,call,,65
+2022-08-15,U021,Public Sector,connect,,12
+2022-08-15,U021,Public Sector,email,,91
+2022-08-15,U021,Public Sector,client_meeting,,1
+2022-09-15,U021,Public Sector,call,,209
+2022-09-15,U021,Public Sector,connect,,60
+2022-09-15,U021,Public Sector,email,,292
+2022-09-15,U021,Public Sector,client_meeting,,10
+2022-10-15,U021,Public Sector,call,,99
+2022-10-15,U021,Public Sector,connect,,29
+2022-10-15,U021,Public Sector,email,,138
+2022-10-15,U021,Public Sector,client_meeting,,4
+2022-11-15,U021,Public Sector,call,,152
+2022-11-15,U021,Public Sector,connect,,48
+2022-11-15,U021,Public Sector,email,,212
+2022-11-15,U021,Public Sector,client_meeting,,6
+2022-12-15,U021,Public Sector,call,,77
+2022-12-15,U021,Public Sector,connect,,23
+2022-12-15,U021,Public Sector,email,,107
+2022-12-15,U021,Public Sector,client_meeting,,5
+2023-01-15,U001,IT & Data,call,,127
+2023-01-15,U001,IT & Data,connect,,23
+2023-01-15,U001,IT & Data,email,,177
+2023-01-15,U001,IT & Data,client_meeting,,5
+2023-02-15,U001,IT & Data,call,,153
+2023-02-15,U001,IT & Data,connect,,46
+2023-02-15,U001,IT & Data,email,,214
+2023-02-15,U001,IT & Data,client_meeting,,11
+2023-03-15,U001,IT & Data,call,,98
+2023-03-15,U001,IT & Data,connect,,30
+2023-03-15,U001,IT & Data,email,,137
+2023-03-15,U001,IT & Data,client_meeting,,4
+2023-04-15,U001,IT & Data,call,,143
+2023-04-15,U001,IT & Data,connect,,31
+2023-04-15,U001,IT & Data,email,,200
+2023-04-15,U001,IT & Data,client_meeting,,5
+2023-05-15,U001,IT & Data,call,,146
+2023-05-15,U001,IT & Data,connect,,30
+2023-05-15,U001,IT & Data,email,,204
+2023-05-15,U001,IT & Data,client_meeting,,5
+2023-06-15,U001,IT & Data,call,,182
+2023-06-15,U001,IT & Data,connect,,55
+2023-06-15,U001,IT & Data,email,,254
+2023-06-15,U001,IT & Data,client_meeting,,13
+2023-07-15,U001,IT & Data,call,,131
+2023-07-15,U001,IT & Data,connect,,28
+2023-07-15,U001,IT & Data,email,,183
+2023-07-15,U001,IT & Data,client_meeting,,6
+2023-08-15,U001,IT & Data,call,,83
+2023-08-15,U001,IT & Data,connect,,18
+2023-08-15,U001,IT & Data,email,,116
+2023-08-15,U001,IT & Data,client_meeting,,3
+2023-09-15,U001,IT & Data,call,,186
+2023-09-15,U001,IT & Data,connect,,53
+2023-09-15,U001,IT & Data,email,,260
+2023-09-15,U001,IT & Data,client_meeting,,10
+2023-10-15,U001,IT & Data,call,,128
+2023-10-15,U001,IT & Data,connect,,35
+2023-10-15,U001,IT & Data,email,,179
+2023-10-15,U001,IT & Data,client_meeting,,6
+2023-11-15,U001,IT & Data,call,,81
+2023-11-15,U001,IT & Data,connect,,19
+2023-11-15,U001,IT & Data,email,,113
+2023-11-15,U001,IT & Data,client_meeting,,2
+2023-12-15,U001,IT & Data,call,,140
+2023-12-15,U001,IT & Data,connect,,38
+2023-12-15,U001,IT & Data,email,,196
+2023-12-15,U001,IT & Data,client_meeting,,9
+2023-01-15,U004,IT & Data,call,,111
+2023-01-15,U004,IT & Data,connect,,32
+2023-01-15,U004,IT & Data,email,,155
+2023-01-15,U004,IT & Data,client_meeting,,7
+2023-02-15,U004,IT & Data,call,,168
+2023-02-15,U004,IT & Data,connect,,52
+2023-02-15,U004,IT & Data,email,,235
+2023-02-15,U004,IT & Data,client_meeting,,13
+2023-03-15,U004,IT & Data,call,,166
+2023-03-15,U004,IT & Data,connect,,48
+2023-03-15,U004,IT & Data,email,,232
+2023-03-15,U004,IT & Data,client_meeting,,11
+2023-04-15,U004,IT & Data,call,,144
+2023-04-15,U004,IT & Data,connect,,32
+2023-04-15,U004,IT & Data,email,,201
+2023-04-15,U004,IT & Data,client_meeting,,4
+2023-05-15,U004,IT & Data,call,,106
+2023-05-15,U004,IT & Data,connect,,28
+2023-05-15,U004,IT & Data,email,,148
+2023-05-15,U004,IT & Data,client_meeting,,3
+2023-06-15,U004,IT & Data,call,,113
+2023-06-15,U004,IT & Data,connect,,34
+2023-06-15,U004,IT & Data,email,,158
+2023-06-15,U004,IT & Data,client_meeting,,5
+2023-07-15,U004,IT & Data,call,,213
+2023-07-15,U004,IT & Data,connect,,47
+2023-07-15,U004,IT & Data,email,,298
+2023-07-15,U004,IT & Data,client_meeting,,7
+2023-08-15,U004,IT & Data,call,,20
+2023-08-15,U004,IT & Data,connect,,5
+2023-08-15,U004,IT & Data,email,,28
+2023-09-15,U004,IT & Data,call,,187
+2023-09-15,U004,IT & Data,connect,,54
+2023-09-15,U004,IT & Data,email,,261
+2023-09-15,U004,IT & Data,client_meeting,,9
+2023-10-15,U004,IT & Data,call,,142
+2023-10-15,U004,IT & Data,connect,,28
+2023-10-15,U004,IT & Data,email,,198
+2023-10-15,U004,IT & Data,client_meeting,,3
+2023-11-15,U004,IT & Data,call,,116
+2023-11-15,U004,IT & Data,connect,,32
+2023-11-15,U004,IT & Data,email,,162
+2023-11-15,U004,IT & Data,client_meeting,,5
+2023-12-15,U004,IT & Data,call,,155
+2023-12-15,U004,IT & Data,connect,,32
+2023-12-15,U004,IT & Data,email,,217
+2023-12-15,U004,IT & Data,client_meeting,,7
+2023-01-15,U005,Engineering,call,,155
+2023-01-15,U005,Engineering,connect,,45
+2023-01-15,U005,Engineering,email,,217
+2023-01-15,U005,Engineering,client_meeting,,6
+2023-02-15,U005,Engineering,call,,92
+2023-02-15,U005,Engineering,connect,,17
+2023-02-15,U005,Engineering,email,,128
+2023-02-15,U005,Engineering,client_meeting,,3
+2023-03-15,U005,Engineering,call,,167
+2023-03-15,U005,Engineering,connect,,30
+2023-03-15,U005,Engineering,email,,233
+2023-03-15,U005,Engineering,client_meeting,,7
+2023-04-15,U005,Engineering,call,,106
+2023-04-15,U005,Engineering,connect,,32
+2023-04-15,U005,Engineering,email,,148
+2023-04-15,U005,Engineering,client_meeting,,5
+2023-05-15,U005,Engineering,call,,106
+2023-05-15,U005,Engineering,connect,,27
+2023-05-15,U005,Engineering,email,,148
+2023-05-15,U005,Engineering,client_meeting,,4
+2023-06-15,U005,Engineering,call,,145
+2023-06-15,U005,Engineering,connect,,44
+2023-06-15,U005,Engineering,email,,203
+2023-06-15,U005,Engineering,client_meeting,,10
+2023-07-15,U005,Engineering,call,,98
+2023-07-15,U005,Engineering,connect,,20
+2023-07-15,U005,Engineering,email,,137
+2023-07-15,U005,Engineering,client_meeting,,4
+2023-08-15,U005,Engineering,call,,37
+2023-08-15,U005,Engineering,connect,,7
+2023-08-15,U005,Engineering,email,,51
+2023-08-15,U005,Engineering,client_meeting,,1
+2023-09-15,U005,Engineering,call,,172
+2023-09-15,U005,Engineering,connect,,55
+2023-09-15,U005,Engineering,email,,240
+2023-09-15,U005,Engineering,client_meeting,,7
+2023-10-15,U005,Engineering,call,,102
+2023-10-15,U005,Engineering,connect,,27
+2023-10-15,U005,Engineering,email,,142
+2023-10-15,U005,Engineering,client_meeting,,3
+2023-11-15,U005,Engineering,call,,124
+2023-11-15,U005,Engineering,connect,,25
+2023-11-15,U005,Engineering,email,,173
+2023-11-15,U005,Engineering,client_meeting,,5
+2023-12-15,U005,Engineering,call,,75
+2023-12-15,U005,Engineering,connect,,15
+2023-12-15,U005,Engineering,email,,105
+2023-12-15,U005,Engineering,client_meeting,,2
+2023-01-15,U007,Engineering,call,,118
+2023-01-15,U007,Engineering,connect,,37
+2023-01-15,U007,Engineering,email,,165
+2023-01-15,U007,Engineering,client_meeting,,5
+2023-02-15,U007,Engineering,call,,192
+2023-02-15,U007,Engineering,connect,,59
+2023-02-15,U007,Engineering,email,,268
+2023-02-15,U007,Engineering,client_meeting,,14
+2023-03-15,U007,Engineering,call,,127
+2023-03-15,U007,Engineering,connect,,25
+2023-03-15,U007,Engineering,email,,177
+2023-03-15,U007,Engineering,client_meeting,,4
+2023-04-15,U007,Engineering,call,,208
+2023-04-15,U007,Engineering,connect,,61
+2023-04-15,U007,Engineering,email,,291
+2023-04-15,U007,Engineering,client_meeting,,11
+2023-05-15,U007,Engineering,call,,193
+2023-05-15,U007,Engineering,connect,,45
+2023-05-15,U007,Engineering,email,,270
+2023-05-15,U007,Engineering,client_meeting,,8
+2023-06-15,U007,Engineering,call,,116
+2023-06-15,U007,Engineering,connect,,25
+2023-06-15,U007,Engineering,email,,162
+2023-06-15,U007,Engineering,client_meeting,,4
+2023-07-15,U007,Engineering,call,,138
+2023-07-15,U007,Engineering,connect,,26
+2023-07-15,U007,Engineering,email,,193
+2023-07-15,U007,Engineering,client_meeting,,6
+2023-08-15,U007,Engineering,call,,57
+2023-08-15,U007,Engineering,connect,,15
+2023-08-15,U007,Engineering,email,,79
+2023-08-15,U007,Engineering,client_meeting,,3
+2023-09-15,U007,Engineering,call,,166
+2023-09-15,U007,Engineering,connect,,52
+2023-09-15,U007,Engineering,email,,232
+2023-09-15,U007,Engineering,client_meeting,,8
+2023-10-15,U007,Engineering,call,,167
+2023-10-15,U007,Engineering,connect,,39
+2023-10-15,U007,Engineering,email,,233
+2023-10-15,U007,Engineering,client_meeting,,5
+2023-11-15,U007,Engineering,call,,173
+2023-11-15,U007,Engineering,connect,,32
+2023-11-15,U007,Engineering,email,,242
+2023-11-15,U007,Engineering,client_meeting,,7
+2023-12-15,U007,Engineering,call,,81
+2023-12-15,U007,Engineering,connect,,21
+2023-12-15,U007,Engineering,email,,113
+2023-12-15,U007,Engineering,client_meeting,,4
+2023-01-15,U008,Engineering,call,,171
+2023-01-15,U008,Engineering,connect,,43
+2023-01-15,U008,Engineering,email,,239
+2023-01-15,U008,Engineering,client_meeting,,8
+2023-02-15,U008,Engineering,call,,126
+2023-02-15,U008,Engineering,connect,,30
+2023-02-15,U008,Engineering,email,,176
+2023-02-15,U008,Engineering,client_meeting,,5
+2023-03-15,U008,Engineering,call,,131
+2023-03-15,U008,Engineering,connect,,31
+2023-03-15,U008,Engineering,email,,183
+2023-03-15,U008,Engineering,client_meeting,,3
+2023-04-15,U008,Engineering,call,,93
+2023-04-15,U008,Engineering,connect,,18
+2023-04-15,U008,Engineering,email,,130
+2023-04-15,U008,Engineering,client_meeting,,3
+2023-05-15,U008,Engineering,call,,153
+2023-05-15,U008,Engineering,connect,,37
+2023-05-15,U008,Engineering,email,,214
+2023-05-15,U008,Engineering,client_meeting,,4
+2023-06-15,U008,Engineering,call,,95
+2023-06-15,U008,Engineering,connect,,27
+2023-06-15,U008,Engineering,email,,133
+2023-06-15,U008,Engineering,client_meeting,,5
+2023-07-15,U008,Engineering,call,,205
+2023-07-15,U008,Engineering,connect,,48
+2023-07-15,U008,Engineering,email,,287
+2023-07-15,U008,Engineering,client_meeting,,7
+2023-08-15,U008,Engineering,call,,58
+2023-08-15,U008,Engineering,connect,,16
+2023-08-15,U008,Engineering,email,,81
+2023-08-15,U008,Engineering,client_meeting,,3
+2023-09-15,U008,Engineering,call,,161
+2023-09-15,U008,Engineering,connect,,46
+2023-09-15,U008,Engineering,email,,225
+2023-09-15,U008,Engineering,client_meeting,,11
+2023-10-15,U008,Engineering,call,,89
+2023-10-15,U008,Engineering,connect,,21
+2023-10-15,U008,Engineering,email,,124
+2023-10-15,U008,Engineering,client_meeting,,4
+2023-11-15,U008,Engineering,call,,93
+2023-11-15,U008,Engineering,connect,,20
+2023-11-15,U008,Engineering,email,,130
+2023-11-15,U008,Engineering,client_meeting,,2
+2023-12-15,U008,Engineering,call,,89
+2023-12-15,U008,Engineering,connect,,16
+2023-12-15,U008,Engineering,email,,124
+2023-12-15,U008,Engineering,client_meeting,,2
+2023-01-15,U009,Engineering,call,,128
+2023-01-15,U009,Engineering,connect,,32
+2023-01-15,U009,Engineering,email,,179
+2023-01-15,U009,Engineering,client_meeting,,8
+2023-02-15,U009,Engineering,call,,60
+2023-02-15,U009,Engineering,connect,,18
+2023-02-15,U009,Engineering,email,,84
+2023-02-15,U009,Engineering,client_meeting,,4
+2023-03-15,U009,Engineering,call,,164
+2023-03-15,U009,Engineering,connect,,31
+2023-03-15,U009,Engineering,email,,229
+2023-03-15,U009,Engineering,client_meeting,,7
+2023-04-15,U009,Engineering,call,,121
+2023-04-15,U009,Engineering,connect,,29
+2023-04-15,U009,Engineering,email,,169
+2023-04-15,U009,Engineering,client_meeting,,4
+2023-05-15,U009,Engineering,call,,139
+2023-05-15,U009,Engineering,connect,,28
+2023-05-15,U009,Engineering,email,,194
+2023-05-15,U009,Engineering,client_meeting,,3
+2023-06-15,U009,Engineering,call,,123
+2023-06-15,U009,Engineering,connect,,24
+2023-06-15,U009,Engineering,email,,172
+2023-06-15,U009,Engineering,client_meeting,,3
+2023-07-15,U009,Engineering,call,,155
+2023-07-15,U009,Engineering,connect,,42
+2023-07-15,U009,Engineering,email,,217
+2023-07-15,U009,Engineering,client_meeting,,10
+2023-08-15,U009,Engineering,call,,67
+2023-08-15,U009,Engineering,connect,,14
+2023-08-15,U009,Engineering,email,,93
+2023-08-15,U009,Engineering,client_meeting,,2
+2023-09-15,U009,Engineering,call,,89
+2023-09-15,U009,Engineering,connect,,26
+2023-09-15,U009,Engineering,email,,124
+2023-09-15,U009,Engineering,client_meeting,,6
+2023-10-15,U009,Engineering,call,,126
+2023-10-15,U009,Engineering,connect,,31
+2023-10-15,U009,Engineering,email,,176
+2023-10-15,U009,Engineering,client_meeting,,6
+2023-11-15,U009,Engineering,call,,142
+2023-11-15,U009,Engineering,connect,,37
+2023-11-15,U009,Engineering,email,,198
+2023-11-15,U009,Engineering,client_meeting,,4
+2023-12-15,U009,Engineering,call,,113
+2023-12-15,U009,Engineering,connect,,32
+2023-12-15,U009,Engineering,email,,158
+2023-12-15,U009,Engineering,client_meeting,,5
+2023-02-15,U012,IT & Data,call,,12
+2023-02-15,U012,IT & Data,connect,,3
+2023-02-15,U012,IT & Data,email,,16
+2023-03-15,U012,IT & Data,call,,12
+2023-03-15,U012,IT & Data,connect,,3
+2023-03-15,U012,IT & Data,email,,16
+2023-04-15,U012,IT & Data,call,,12
+2023-04-15,U012,IT & Data,connect,,3
+2023-04-15,U012,IT & Data,email,,16
+2023-05-15,U012,IT & Data,call,,9
+2023-05-15,U012,IT & Data,connect,,2
+2023-05-15,U012,IT & Data,email,,12
+2023-06-15,U012,IT & Data,call,,11
+2023-06-15,U012,IT & Data,connect,,3
+2023-06-15,U012,IT & Data,email,,15
+2023-07-15,U012,IT & Data,call,,15
+2023-07-15,U012,IT & Data,connect,,4
+2023-07-15,U012,IT & Data,email,,21
+2023-08-15,U012,IT & Data,call,,3
+2023-08-15,U012,IT & Data,email,,4
+2023-09-15,U012,IT & Data,call,,17
+2023-09-15,U012,IT & Data,connect,,3
+2023-09-15,U012,IT & Data,email,,23
+2023-10-15,U012,IT & Data,call,,13
+2023-10-15,U012,IT & Data,connect,,3
+2023-10-15,U012,IT & Data,email,,18
+2023-11-15,U012,IT & Data,call,,11
+2023-11-15,U012,IT & Data,connect,,2
+2023-11-15,U012,IT & Data,email,,15
+2023-12-15,U012,IT & Data,call,,5
+2023-12-15,U012,IT & Data,connect,,1
+2023-12-15,U012,IT & Data,email,,7
+2023-01-15,U013,IT & Data,call,,126
+2023-01-15,U013,IT & Data,connect,,37
+2023-01-15,U013,IT & Data,email,,176
+2023-01-15,U013,IT & Data,client_meeting,,6
+2023-02-15,U013,IT & Data,call,,84
+2023-02-15,U013,IT & Data,connect,,23
+2023-02-15,U013,IT & Data,email,,117
+2023-02-15,U013,IT & Data,client_meeting,,5
+2023-03-15,U013,IT & Data,call,,144
+2023-03-15,U013,IT & Data,connect,,37
+2023-03-15,U013,IT & Data,email,,201
+2023-03-15,U013,IT & Data,client_meeting,,8
+2023-04-15,U013,IT & Data,call,,113
+2023-04-15,U013,IT & Data,connect,,23
+2023-04-15,U013,IT & Data,email,,158
+2023-04-15,U013,IT & Data,client_meeting,,4
+2023-05-15,U013,IT & Data,call,,116
+2023-05-15,U013,IT & Data,connect,,24
+2023-05-15,U013,IT & Data,email,,162
+2023-05-15,U013,IT & Data,client_meeting,,4
+2023-06-15,U013,IT & Data,call,,79
+2023-06-15,U013,IT & Data,connect,,18
+2023-06-15,U013,IT & Data,email,,110
+2023-06-15,U013,IT & Data,client_meeting,,2
+2023-07-15,U013,IT & Data,call,,78
+2023-07-15,U013,IT & Data,connect,,18
+2023-07-15,U013,IT & Data,email,,109
+2023-07-15,U013,IT & Data,client_meeting,,3
+2023-08-15,U013,IT & Data,call,,35
+2023-08-15,U013,IT & Data,connect,,7
+2023-08-15,U013,IT & Data,email,,49
+2023-08-15,U013,IT & Data,client_meeting,,1
+2023-09-15,U013,IT & Data,call,,97
+2023-09-15,U013,IT & Data,connect,,22
+2023-09-15,U013,IT & Data,email,,135
+2023-09-15,U013,IT & Data,client_meeting,,4
+2023-10-15,U013,IT & Data,call,,123
+2023-10-15,U013,IT & Data,connect,,38
+2023-10-15,U013,IT & Data,email,,172
+2023-10-15,U013,IT & Data,client_meeting,,6
+2023-11-15,U013,IT & Data,call,,71
+2023-11-15,U013,IT & Data,connect,,16
+2023-11-15,U013,IT & Data,email,,99
+2023-11-15,U013,IT & Data,client_meeting,,4
+2023-12-15,U013,IT & Data,call,,54
+2023-12-15,U013,IT & Data,connect,,12
+2023-12-15,U013,IT & Data,email,,75
+2023-12-15,U013,IT & Data,client_meeting,,1
+2023-01-15,U014,IT & Data,call,,179
+2023-01-15,U014,IT & Data,connect,,47
+2023-01-15,U014,IT & Data,email,,250
+2023-01-15,U014,IT & Data,client_meeting,,7
+2023-02-15,U014,IT & Data,call,,163
+2023-02-15,U014,IT & Data,connect,,32
+2023-02-15,U014,IT & Data,email,,228
+2023-02-15,U014,IT & Data,client_meeting,,5
+2023-03-15,U014,IT & Data,call,,155
+2023-03-15,U014,IT & Data,connect,,36
+2023-03-15,U014,IT & Data,email,,217
+2023-03-15,U014,IT & Data,client_meeting,,4
+2023-04-15,U014,IT & Data,call,,163
+2023-04-15,U014,IT & Data,connect,,42
+2023-04-15,U014,IT & Data,email,,228
+2023-04-15,U014,IT & Data,client_meeting,,7
+2023-05-15,U014,IT & Data,call,,166
+2023-05-15,U014,IT & Data,connect,,44
+2023-05-15,U014,IT & Data,email,,232
+2023-05-15,U014,IT & Data,client_meeting,,8
+2023-06-15,U014,IT & Data,call,,113
+2023-06-15,U014,IT & Data,connect,,22
+2023-06-15,U014,IT & Data,email,,158
+2023-06-15,U014,IT & Data,client_meeting,,3
+2023-07-15,U014,IT & Data,call,,154
+2023-07-15,U014,IT & Data,connect,,34
+2023-07-15,U014,IT & Data,email,,215
+2023-07-15,U014,IT & Data,client_meeting,,4
+2023-08-15,U014,IT & Data,call,,52
+2023-08-15,U014,IT & Data,connect,,10
+2023-08-15,U014,IT & Data,email,,72
+2023-08-15,U014,IT & Data,client_meeting,,2
+2023-09-15,U014,IT & Data,call,,191
+2023-09-15,U014,IT & Data,connect,,59
+2023-09-15,U014,IT & Data,email,,267
+2023-09-15,U014,IT & Data,client_meeting,,13
+2023-10-15,U014,IT & Data,call,,167
+2023-10-15,U014,IT & Data,connect,,31
+2023-10-15,U014,IT & Data,email,,233
+2023-10-15,U014,IT & Data,client_meeting,,5
+2023-11-15,U014,IT & Data,call,,125
+2023-11-15,U014,IT & Data,connect,,30
+2023-11-15,U014,IT & Data,email,,175
+2023-11-15,U014,IT & Data,client_meeting,,4
+2023-12-15,U014,IT & Data,call,,98
+2023-12-15,U014,IT & Data,connect,,30
+2023-12-15,U014,IT & Data,email,,137
+2023-12-15,U014,IT & Data,client_meeting,,4
+2023-01-15,U015,Engineering,call,,153
+2023-01-15,U015,Engineering,connect,,37
+2023-01-15,U015,Engineering,email,,214
+2023-01-15,U015,Engineering,client_meeting,,5
+2023-02-15,U015,Engineering,call,,167
+2023-02-15,U015,Engineering,connect,,32
+2023-02-15,U015,Engineering,email,,233
+2023-02-15,U015,Engineering,client_meeting,,7
+2023-03-15,U015,Engineering,call,,129
+2023-03-15,U015,Engineering,connect,,28
+2023-03-15,U015,Engineering,email,,180
+2023-03-15,U015,Engineering,client_meeting,,6
+2023-04-15,U015,Engineering,call,,110
+2023-04-15,U015,Engineering,connect,,28
+2023-04-15,U015,Engineering,email,,154
+2023-04-15,U015,Engineering,client_meeting,,6
+2023-05-15,U015,Engineering,call,,143
+2023-05-15,U015,Engineering,connect,,41
+2023-05-15,U015,Engineering,email,,200
+2023-05-15,U015,Engineering,client_meeting,,5
+2023-06-15,U015,Engineering,call,,136
+2023-06-15,U015,Engineering,connect,,34
+2023-06-15,U015,Engineering,email,,190
+2023-06-15,U015,Engineering,client_meeting,,5
+2023-07-15,U015,Engineering,call,,140
+2023-07-15,U015,Engineering,connect,,29
+2023-07-15,U015,Engineering,email,,196
+2023-07-15,U015,Engineering,client_meeting,,4
+2023-08-15,U015,Engineering,call,,65
+2023-08-15,U015,Engineering,connect,,14
+2023-08-15,U015,Engineering,email,,91
+2023-08-15,U015,Engineering,client_meeting,,2
+2023-09-15,U015,Engineering,call,,150
+2023-09-15,U015,Engineering,connect,,33
+2023-09-15,U015,Engineering,email,,210
+2023-09-15,U015,Engineering,client_meeting,,4
+2023-10-15,U015,Engineering,call,,126
+2023-10-15,U015,Engineering,connect,,26
+2023-10-15,U015,Engineering,email,,176
+2023-10-15,U015,Engineering,client_meeting,,3
+2023-11-15,U015,Engineering,call,,177
+2023-11-15,U015,Engineering,connect,,55
+2023-11-15,U015,Engineering,email,,247
+2023-11-15,U015,Engineering,client_meeting,,8
+2023-12-15,U015,Engineering,call,,115
+2023-12-15,U015,Engineering,connect,,22
+2023-12-15,U015,Engineering,email,,161
+2023-12-15,U015,Engineering,client_meeting,,5
+2023-01-15,U016,IT & Data,call,,30
+2023-01-15,U016,IT & Data,connect,,8
+2023-01-15,U016,IT & Data,email,,42
+2023-01-15,U016,IT & Data,client_meeting,,1
+2023-02-15,U016,IT & Data,call,,37
+2023-02-15,U016,IT & Data,connect,,11
+2023-02-15,U016,IT & Data,email,,51
+2023-02-15,U016,IT & Data,client_meeting,,1
+2023-03-15,U016,IT & Data,call,,25
+2023-03-15,U016,IT & Data,connect,,5
+2023-03-15,U016,IT & Data,email,,35
+2023-03-15,U016,IT & Data,client_meeting,,1
+2023-04-15,U016,IT & Data,call,,32
+2023-04-15,U016,IT & Data,connect,,8
+2023-04-15,U016,IT & Data,email,,44
+2023-04-15,U016,IT & Data,client_meeting,,1
+2023-05-15,U016,IT & Data,call,,41
+2023-05-15,U016,IT & Data,connect,,12
+2023-05-15,U016,IT & Data,email,,57
+2023-05-15,U016,IT & Data,client_meeting,,1
+2023-06-15,U016,IT & Data,call,,35
+2023-06-15,U016,IT & Data,connect,,9
+2023-06-15,U016,IT & Data,email,,49
+2023-06-15,U016,IT & Data,client_meeting,,1
+2023-07-15,U016,IT & Data,call,,28
+2023-07-15,U016,IT & Data,connect,,6
+2023-07-15,U016,IT & Data,email,,39
+2023-08-15,U016,IT & Data,call,,17
+2023-08-15,U016,IT & Data,connect,,3
+2023-08-15,U016,IT & Data,email,,23
+2023-09-15,U016,IT & Data,call,,21
+2023-09-15,U016,IT & Data,connect,,4
+2023-09-15,U016,IT & Data,email,,29
+2023-10-15,U016,IT & Data,call,,25
+2023-10-15,U016,IT & Data,connect,,7
+2023-10-15,U016,IT & Data,email,,35
+2023-10-15,U016,IT & Data,client_meeting,,1
+2023-11-15,U016,IT & Data,call,,42
+2023-11-15,U016,IT & Data,connect,,12
+2023-11-15,U016,IT & Data,email,,58
+2023-11-15,U016,IT & Data,client_meeting,,3
+2023-12-15,U016,IT & Data,call,,21
+2023-12-15,U016,IT & Data,connect,,6
+2023-12-15,U016,IT & Data,email,,29
+2023-01-15,U018,IT & Data,call,,181
+2023-01-15,U018,IT & Data,connect,,49
+2023-01-15,U018,IT & Data,email,,253
+2023-01-15,U018,IT & Data,client_meeting,,8
+2023-02-15,U018,IT & Data,call,,163
+2023-02-15,U018,IT & Data,connect,,33
+2023-02-15,U018,IT & Data,email,,228
+2023-02-15,U018,IT & Data,client_meeting,,6
+2023-03-15,U018,IT & Data,call,,75
+2023-03-15,U018,IT & Data,connect,,15
+2023-03-15,U018,IT & Data,email,,105
+2023-03-15,U018,IT & Data,client_meeting,,3
+2023-04-15,U018,IT & Data,call,,104
+2023-04-15,U018,IT & Data,connect,,30
+2023-04-15,U018,IT & Data,email,,145
+2023-04-15,U018,IT & Data,client_meeting,,6
+2023-05-15,U018,IT & Data,call,,111
+2023-05-15,U018,IT & Data,connect,,27
+2023-05-15,U018,IT & Data,email,,155
+2023-05-15,U018,IT & Data,client_meeting,,4
+2023-06-15,U018,IT & Data,call,,154
+2023-06-15,U018,IT & Data,connect,,40
+2023-06-15,U018,IT & Data,email,,215
+2023-06-15,U018,IT & Data,client_meeting,,9
+2023-07-15,U018,IT & Data,call,,137
+2023-07-15,U018,IT & Data,connect,,33
+2023-07-15,U018,IT & Data,email,,191
+2023-07-15,U018,IT & Data,client_meeting,,5
+2023-08-15,U018,IT & Data,call,,33
+2023-08-15,U018,IT & Data,connect,,7
+2023-08-15,U018,IT & Data,email,,46
+2023-08-15,U018,IT & Data,client_meeting,,1
+2023-09-15,U018,IT & Data,call,,145
+2023-09-15,U018,IT & Data,connect,,34
+2023-09-15,U018,IT & Data,email,,203
+2023-09-15,U018,IT & Data,client_meeting,,5
+2023-10-15,U018,IT & Data,call,,196
+2023-10-15,U018,IT & Data,connect,,55
+2023-10-15,U018,IT & Data,email,,274
+2023-10-15,U018,IT & Data,client_meeting,,7
+2023-11-15,U018,IT & Data,call,,121
+2023-11-15,U018,IT & Data,connect,,38
+2023-11-15,U018,IT & Data,email,,169
+2023-11-15,U018,IT & Data,client_meeting,,7
+2023-12-15,U018,IT & Data,call,,88
+2023-12-15,U018,IT & Data,connect,,20
+2023-12-15,U018,IT & Data,email,,123
+2023-12-15,U018,IT & Data,client_meeting,,4
+2023-01-15,U019,IT & Data,call,,212
+2023-01-15,U019,IT & Data,connect,,58
+2023-01-15,U019,IT & Data,email,,296
+2023-01-15,U019,IT & Data,client_meeting,,9
+2023-02-15,U019,IT & Data,call,,170
+2023-02-15,U019,IT & Data,connect,,34
+2023-02-15,U019,IT & Data,email,,237
+2023-02-15,U019,IT & Data,client_meeting,,7
+2023-03-15,U019,IT & Data,call,,150
+2023-03-15,U019,IT & Data,connect,,40
+2023-03-15,U019,IT & Data,email,,210
+2023-03-15,U019,IT & Data,client_meeting,,9
+2023-04-15,U019,IT & Data,call,,120
+2023-04-15,U019,IT & Data,connect,,27
+2023-04-15,U019,IT & Data,email,,168
+2023-04-15,U019,IT & Data,client_meeting,,6
+2023-05-15,U019,IT & Data,call,,166
+2023-05-15,U019,IT & Data,connect,,45
+2023-05-15,U019,IT & Data,email,,232
+2023-05-15,U019,IT & Data,client_meeting,,7
+2023-06-15,U019,IT & Data,call,,116
+2023-06-15,U019,IT & Data,connect,,33
+2023-06-15,U019,IT & Data,email,,162
+2023-06-15,U019,IT & Data,client_meeting,,4
+2023-07-15,U019,IT & Data,call,,66
+2023-07-15,U019,IT & Data,connect,,17
+2023-07-15,U019,IT & Data,email,,92
+2023-07-15,U019,IT & Data,client_meeting,,2
+2023-08-15,U019,IT & Data,call,,71
+2023-08-15,U019,IT & Data,connect,,16
+2023-08-15,U019,IT & Data,email,,99
+2023-08-15,U019,IT & Data,client_meeting,,2
+2023-09-15,U019,IT & Data,call,,32
+2023-09-15,U019,IT & Data,connect,,9
+2023-09-15,U019,IT & Data,email,,44
+2023-09-15,U019,IT & Data,client_meeting,,2
+2023-10-15,U019,IT & Data,call,,136
+2023-10-15,U019,IT & Data,connect,,30
+2023-10-15,U019,IT & Data,email,,190
+2023-10-15,U019,IT & Data,client_meeting,,5
+2023-11-15,U019,IT & Data,call,,135
+2023-11-15,U019,IT & Data,connect,,32
+2023-11-15,U019,IT & Data,email,,189
+2023-11-15,U019,IT & Data,client_meeting,,5
+2023-12-15,U019,IT & Data,call,,104
+2023-12-15,U019,IT & Data,connect,,25
+2023-12-15,U019,IT & Data,email,,145
+2023-12-15,U019,IT & Data,client_meeting,,3
+2023-11-15,U020,Life Sciences,call,,4
+2023-11-15,U020,Life Sciences,email,,5
+2023-12-15,U020,Life Sciences,call,,4
+2023-12-15,U020,Life Sciences,connect,,1
+2023-12-15,U020,Life Sciences,email,,5
+2023-01-15,U021,Public Sector,call,,111
+2023-01-15,U021,Public Sector,connect,,34
+2023-01-15,U021,Public Sector,email,,155
+2023-01-15,U021,Public Sector,client_meeting,,4
+2023-02-15,U021,Public Sector,call,,118
+2023-02-15,U021,Public Sector,connect,,37
+2023-02-15,U021,Public Sector,email,,165
+2023-02-15,U021,Public Sector,client_meeting,,7
+2023-03-15,U021,Public Sector,call,,124
+2023-03-15,U021,Public Sector,connect,,28
+2023-03-15,U021,Public Sector,email,,173
+2023-03-15,U021,Public Sector,client_meeting,,3
+2023-04-15,U021,Public Sector,call,,132
+2023-04-15,U021,Public Sector,connect,,37
+2023-04-15,U021,Public Sector,email,,184
+2023-04-15,U021,Public Sector,client_meeting,,7
+2023-05-15,U021,Public Sector,call,,145
+2023-05-15,U021,Public Sector,connect,,32
+2023-05-15,U021,Public Sector,email,,203
+2023-05-15,U021,Public Sector,client_meeting,,5
+2023-06-15,U021,Public Sector,call,,162
+2023-06-15,U021,Public Sector,connect,,38
+2023-06-15,U021,Public Sector,email,,226
+2023-06-15,U021,Public Sector,client_meeting,,6
+2023-07-15,U021,Public Sector,call,,196
+2023-07-15,U021,Public Sector,connect,,55
+2023-07-15,U021,Public Sector,email,,274
+2023-07-15,U021,Public Sector,client_meeting,,10
+2023-08-15,U021,Public Sector,call,,36
+2023-08-15,U021,Public Sector,connect,,8
+2023-08-15,U021,Public Sector,email,,50
+2023-08-15,U021,Public Sector,client_meeting,,1
+2023-09-15,U021,Public Sector,call,,155
+2023-09-15,U021,Public Sector,connect,,31
+2023-09-15,U021,Public Sector,email,,217
+2023-09-15,U021,Public Sector,client_meeting,,6
+2023-10-15,U021,Public Sector,call,,130
+2023-10-15,U021,Public Sector,connect,,39
+2023-10-15,U021,Public Sector,email,,182
+2023-10-15,U021,Public Sector,client_meeting,,9
+2023-11-15,U021,Public Sector,call,,143
+2023-11-15,U021,Public Sector,connect,,43
+2023-11-15,U021,Public Sector,email,,200
+2023-11-15,U021,Public Sector,client_meeting,,7
+2023-12-15,U021,Public Sector,call,,111
+2023-12-15,U021,Public Sector,connect,,30
+2023-12-15,U021,Public Sector,email,,155
+2023-12-15,U021,Public Sector,client_meeting,,6
+2023-05-15,U022,IT & Data,call,,6
+2023-05-15,U022,IT & Data,connect,,1
+2023-05-15,U022,IT & Data,email,,8
+2023-06-15,U022,IT & Data,call,,7
+2023-06-15,U022,IT & Data,connect,,1
+2023-06-15,U022,IT & Data,email,,9
+2023-07-15,U022,IT & Data,call,,7
+2023-07-15,U022,IT & Data,connect,,1
+2023-07-15,U022,IT & Data,email,,9
+2023-08-15,U022,IT & Data,call,,3
+2023-08-15,U022,IT & Data,email,,4
+2023-09-15,U022,IT & Data,call,,5
+2023-09-15,U022,IT & Data,connect,,1
+2023-09-15,U022,IT & Data,email,,7
+2023-10-15,U022,IT & Data,call,,6
+2023-10-15,U022,IT & Data,connect,,1
+2023-10-15,U022,IT & Data,email,,8
+2023-11-15,U022,IT & Data,call,,6
+2023-11-15,U022,IT & Data,connect,,1
+2023-11-15,U022,IT & Data,email,,8
+2023-12-15,U022,IT & Data,call,,3
+2023-12-15,U022,IT & Data,email,,4
+2024-01-15,U001,IT & Data,call,,173
+2024-01-15,U001,IT & Data,connect,,39
+2024-01-15,U001,IT & Data,email,,242
+2024-01-15,U001,IT & Data,client_meeting,,4
+2024-02-15,U001,IT & Data,call,,119
+2024-02-15,U001,IT & Data,connect,,37
+2024-02-15,U001,IT & Data,email,,166
+2024-02-15,U001,IT & Data,client_meeting,,5
+2024-03-15,U001,IT & Data,call,,185
+2024-03-15,U001,IT & Data,connect,,46
+2024-03-15,U001,IT & Data,email,,259
+2024-03-15,U001,IT & Data,client_meeting,,7
+2024-04-15,U001,IT & Data,call,,153
+2024-04-15,U001,IT & Data,connect,,32
+2024-04-15,U001,IT & Data,email,,214
+2024-04-15,U001,IT & Data,client_meeting,,5
+2024-05-15,U001,IT & Data,call,,237
+2024-05-15,U001,IT & Data,connect,,72
+2024-05-15,U001,IT & Data,email,,331
+2024-05-15,U001,IT & Data,client_meeting,,14
+2024-06-15,U001,IT & Data,call,,109
+2024-06-15,U001,IT & Data,connect,,28
+2024-06-15,U001,IT & Data,email,,152
+2024-06-15,U001,IT & Data,client_meeting,,4
+2024-07-15,U001,IT & Data,call,,178
+2024-07-15,U001,IT & Data,connect,,53
+2024-07-15,U001,IT & Data,email,,249
+2024-07-15,U001,IT & Data,client_meeting,,12
+2024-08-15,U001,IT & Data,call,,76
+2024-08-15,U001,IT & Data,connect,,14
+2024-08-15,U001,IT & Data,email,,106
+2024-08-15,U001,IT & Data,client_meeting,,2
+2024-09-15,U001,IT & Data,call,,168
+2024-09-15,U001,IT & Data,connect,,30
+2024-09-15,U001,IT & Data,email,,235
+2024-09-15,U001,IT & Data,client_meeting,,6
+2024-10-15,U001,IT & Data,call,,148
+2024-10-15,U001,IT & Data,connect,,41
+2024-10-15,U001,IT & Data,email,,207
+2024-10-15,U001,IT & Data,client_meeting,,10
+2024-11-15,U001,IT & Data,call,,119
+2024-11-15,U001,IT & Data,connect,,23
+2024-11-15,U001,IT & Data,email,,166
+2024-11-15,U001,IT & Data,client_meeting,,3
+2024-12-15,U001,IT & Data,call,,59
+2024-12-15,U001,IT & Data,connect,,13
+2024-12-15,U001,IT & Data,email,,82
+2024-12-15,U001,IT & Data,client_meeting,,2
+2024-01-15,U004,IT & Data,call,,108
+2024-01-15,U004,IT & Data,connect,,26
+2024-01-15,U004,IT & Data,email,,151
+2024-01-15,U004,IT & Data,client_meeting,,5
+2024-02-15,U004,IT & Data,call,,147
+2024-02-15,U004,IT & Data,connect,,39
+2024-02-15,U004,IT & Data,email,,205
+2024-02-15,U004,IT & Data,client_meeting,,10
+2024-03-15,U004,IT & Data,call,,149
+2024-03-15,U004,IT & Data,connect,,33
+2024-03-15,U004,IT & Data,email,,208
+2024-03-15,U004,IT & Data,client_meeting,,6
+2024-04-15,U004,IT & Data,call,,116
+2024-04-15,U004,IT & Data,connect,,29
+2024-04-15,U004,IT & Data,email,,162
+2024-04-15,U004,IT & Data,client_meeting,,7
+2024-05-15,U004,IT & Data,call,,102
+2024-05-15,U004,IT & Data,connect,,20
+2024-05-15,U004,IT & Data,email,,142
+2024-05-15,U004,IT & Data,client_meeting,,3
+2024-06-15,U004,IT & Data,call,,132
+2024-06-15,U004,IT & Data,connect,,38
+2024-06-15,U004,IT & Data,email,,184
+2024-06-15,U004,IT & Data,client_meeting,,7
+2024-07-15,U004,IT & Data,call,,175
+2024-07-15,U004,IT & Data,connect,,49
+2024-07-15,U004,IT & Data,email,,244
+2024-07-15,U004,IT & Data,client_meeting,,10
+2024-08-15,U004,IT & Data,call,,46
+2024-08-15,U004,IT & Data,connect,,8
+2024-08-15,U004,IT & Data,email,,64
+2024-08-15,U004,IT & Data,client_meeting,,1
+2024-09-15,U004,IT & Data,call,,124
+2024-09-15,U004,IT & Data,connect,,22
+2024-09-15,U004,IT & Data,email,,173
+2024-09-15,U004,IT & Data,client_meeting,,2
+2024-10-15,U004,IT & Data,call,,127
+2024-10-15,U004,IT & Data,connect,,30
+2024-10-15,U004,IT & Data,email,,177
+2024-10-15,U004,IT & Data,client_meeting,,4
+2024-11-15,U004,IT & Data,call,,123
+2024-11-15,U004,IT & Data,connect,,37
+2024-11-15,U004,IT & Data,email,,172
+2024-11-15,U004,IT & Data,client_meeting,,6
+2024-12-15,U004,IT & Data,call,,79
+2024-12-15,U004,IT & Data,connect,,18
+2024-12-15,U004,IT & Data,email,,110
+2024-12-15,U004,IT & Data,client_meeting,,4
+2024-01-15,U005,Engineering,call,,211
+2024-01-15,U005,Engineering,connect,,60
+2024-01-15,U005,Engineering,email,,295
+2024-01-15,U005,Engineering,client_meeting,,13
+2024-02-15,U005,Engineering,call,,165
+2024-02-15,U005,Engineering,connect,,50
+2024-02-15,U005,Engineering,email,,230
+2024-02-15,U005,Engineering,client_meeting,,12
+2024-03-15,U005,Engineering,call,,144
+2024-03-15,U005,Engineering,connect,,26
+2024-03-15,U005,Engineering,email,,201
+2024-03-15,U005,Engineering,client_meeting,,4
+2024-04-15,U005,Engineering,call,,103
+2024-04-15,U005,Engineering,connect,,20
+2024-04-15,U005,Engineering,email,,144
+2024-04-15,U005,Engineering,client_meeting,,3
+2024-05-15,U005,Engineering,call,,140
+2024-05-15,U005,Engineering,connect,,43
+2024-05-15,U005,Engineering,email,,196
+2024-05-15,U005,Engineering,client_meeting,,7
+2024-06-15,U005,Engineering,call,,159
+2024-06-15,U005,Engineering,connect,,43
+2024-06-15,U005,Engineering,email,,222
+2024-06-15,U005,Engineering,client_meeting,,6
+2024-07-15,U005,Engineering,call,,31
+2024-07-15,U005,Engineering,connect,,9
+2024-07-15,U005,Engineering,email,,43
+2024-07-15,U005,Engineering,client_meeting,,1
+2024-08-15,U005,Engineering,call,,56
+2024-08-15,U005,Engineering,connect,,16
+2024-08-15,U005,Engineering,email,,78
+2024-08-15,U005,Engineering,client_meeting,,2
+2024-09-15,U005,Engineering,call,,144
+2024-09-15,U005,Engineering,connect,,35
+2024-09-15,U005,Engineering,email,,201
+2024-09-15,U005,Engineering,client_meeting,,5
+2024-10-15,U005,Engineering,call,,177
+2024-10-15,U005,Engineering,connect,,40
+2024-10-15,U005,Engineering,email,,247
+2024-10-15,U005,Engineering,client_meeting,,5
+2024-11-15,U005,Engineering,call,,102
+2024-11-15,U005,Engineering,connect,,21
+2024-11-15,U005,Engineering,email,,142
+2024-11-15,U005,Engineering,client_meeting,,2
+2024-12-15,U005,Engineering,call,,98
+2024-12-15,U005,Engineering,connect,,31
+2024-12-15,U005,Engineering,email,,137
+2024-12-15,U005,Engineering,client_meeting,,7
+2024-12-15,U006,Public Sector,call,,3
+2024-12-15,U006,Public Sector,email,,4
+2024-01-15,U007,Engineering,call,,163
+2024-01-15,U007,Engineering,connect,,48
+2024-01-15,U007,Engineering,email,,228
+2024-01-15,U007,Engineering,client_meeting,,5
+2024-02-15,U007,Engineering,call,,100
+2024-02-15,U007,Engineering,connect,,24
+2024-02-15,U007,Engineering,email,,140
+2024-02-15,U007,Engineering,client_meeting,,6
+2024-03-15,U007,Engineering,call,,109
+2024-03-15,U007,Engineering,connect,,34
+2024-03-15,U007,Engineering,email,,152
+2024-03-15,U007,Engineering,client_meeting,,7
+2024-04-15,U007,Engineering,call,,97
+2024-04-15,U007,Engineering,connect,,19
+2024-04-15,U007,Engineering,email,,135
+2024-04-15,U007,Engineering,client_meeting,,4
+2024-05-15,U007,Engineering,call,,186
+2024-05-15,U007,Engineering,connect,,51
+2024-05-15,U007,Engineering,email,,260
+2024-05-15,U007,Engineering,client_meeting,,7
+2024-06-15,U007,Engineering,call,,125
+2024-06-15,U007,Engineering,connect,,30
+2024-06-15,U007,Engineering,email,,175
+2024-06-15,U007,Engineering,client_meeting,,6
+2024-07-15,U007,Engineering,call,,183
+2024-07-15,U007,Engineering,connect,,51
+2024-07-15,U007,Engineering,email,,256
+2024-07-15,U007,Engineering,client_meeting,,6
+2024-08-15,U007,Engineering,call,,75
+2024-08-15,U007,Engineering,connect,,23
+2024-08-15,U007,Engineering,email,,105
+2024-08-15,U007,Engineering,client_meeting,,5
+2024-09-15,U007,Engineering,call,,110
+2024-09-15,U007,Engineering,connect,,27
+2024-09-15,U007,Engineering,email,,154
+2024-09-15,U007,Engineering,client_meeting,,4
+2024-10-15,U007,Engineering,call,,188
+2024-10-15,U007,Engineering,connect,,47
+2024-10-15,U007,Engineering,email,,263
+2024-10-15,U007,Engineering,client_meeting,,9
+2024-11-15,U007,Engineering,call,,156
+2024-11-15,U007,Engineering,connect,,36
+2024-11-15,U007,Engineering,email,,218
+2024-11-15,U007,Engineering,client_meeting,,9
+2024-12-15,U007,Engineering,call,,116
+2024-12-15,U007,Engineering,connect,,30
+2024-12-15,U007,Engineering,email,,162
+2024-12-15,U007,Engineering,client_meeting,,5
+2024-01-15,U008,Engineering,call,,172
+2024-01-15,U008,Engineering,connect,,31
+2024-01-15,U008,Engineering,email,,240
+2024-01-15,U008,Engineering,client_meeting,,5
+2024-02-15,U008,Engineering,call,,176
+2024-02-15,U008,Engineering,connect,,45
+2024-02-15,U008,Engineering,email,,246
+2024-02-15,U008,Engineering,client_meeting,,8
+2024-03-15,U008,Engineering,call,,156
+2024-03-15,U008,Engineering,connect,,28
+2024-03-15,U008,Engineering,email,,218
+2024-03-15,U008,Engineering,client_meeting,,3
+2024-04-15,U008,Engineering,call,,149
+2024-04-15,U008,Engineering,connect,,30
+2024-04-15,U008,Engineering,email,,208
+2024-04-15,U008,Engineering,client_meeting,,6
+2024-05-15,U008,Engineering,call,,112
+2024-05-15,U008,Engineering,connect,,21
+2024-05-15,U008,Engineering,email,,156
+2024-05-15,U008,Engineering,client_meeting,,3
+2024-06-15,U008,Engineering,call,,173
+2024-06-15,U008,Engineering,connect,,34
+2024-06-15,U008,Engineering,email,,242
+2024-06-15,U008,Engineering,client_meeting,,4
+2024-07-15,U008,Engineering,call,,125
+2024-07-15,U008,Engineering,connect,,27
+2024-07-15,U008,Engineering,email,,175
+2024-07-15,U008,Engineering,client_meeting,,5
+2024-08-15,U008,Engineering,call,,66
+2024-08-15,U008,Engineering,connect,,17
+2024-08-15,U008,Engineering,email,,92
+2024-08-15,U008,Engineering,client_meeting,,4
+2024-09-15,U008,Engineering,call,,139
+2024-09-15,U008,Engineering,connect,,27
+2024-09-15,U008,Engineering,email,,194
+2024-09-15,U008,Engineering,client_meeting,,3
+2024-10-15,U008,Engineering,call,,148
+2024-10-15,U008,Engineering,connect,,36
+2024-10-15,U008,Engineering,email,,207
+2024-10-15,U008,Engineering,client_meeting,,6
+2024-11-15,U008,Engineering,call,,146
+2024-11-15,U008,Engineering,connect,,29
+2024-11-15,U008,Engineering,email,,204
+2024-11-15,U008,Engineering,client_meeting,,4
+2024-12-15,U008,Engineering,call,,30
+2024-12-15,U008,Engineering,connect,,9
+2024-12-15,U008,Engineering,email,,42
+2024-12-15,U008,Engineering,client_meeting,,1
+2024-01-15,U009,Engineering,call,,159
+2024-01-15,U009,Engineering,connect,,31
+2024-01-15,U009,Engineering,email,,222
+2024-01-15,U009,Engineering,client_meeting,,6
+2024-02-15,U009,Engineering,call,,166
+2024-02-15,U009,Engineering,connect,,32
+2024-02-15,U009,Engineering,email,,232
+2024-02-15,U009,Engineering,client_meeting,,6
+2024-03-15,U009,Engineering,call,,158
+2024-03-15,U009,Engineering,connect,,39
+2024-03-15,U009,Engineering,email,,221
+2024-03-15,U009,Engineering,client_meeting,,6
+2024-04-15,U009,Engineering,call,,140
+2024-04-15,U009,Engineering,connect,,38
+2024-04-15,U009,Engineering,email,,196
+2024-04-15,U009,Engineering,client_meeting,,6
+2024-05-15,U009,Engineering,call,,142
+2024-05-15,U009,Engineering,connect,,30
+2024-05-15,U009,Engineering,email,,198
+2024-05-15,U009,Engineering,client_meeting,,4
+2024-06-15,U009,Engineering,call,,176
+2024-06-15,U009,Engineering,connect,,34
+2024-06-15,U009,Engineering,email,,246
+2024-06-15,U009,Engineering,client_meeting,,5
+2024-07-15,U009,Engineering,call,,144
+2024-07-15,U009,Engineering,connect,,40
+2024-07-15,U009,Engineering,email,,201
+2024-07-15,U009,Engineering,client_meeting,,6
+2024-08-15,U009,Engineering,call,,73
+2024-08-15,U009,Engineering,connect,,13
+2024-08-15,U009,Engineering,email,,102
+2024-08-15,U009,Engineering,client_meeting,,2
+2024-09-15,U009,Engineering,call,,165
+2024-09-15,U009,Engineering,connect,,40
+2024-09-15,U009,Engineering,email,,230
+2024-09-15,U009,Engineering,client_meeting,,9
+2024-10-15,U009,Engineering,call,,70
+2024-10-15,U009,Engineering,connect,,20
+2024-10-15,U009,Engineering,email,,98
+2024-10-15,U009,Engineering,client_meeting,,3
+2024-11-15,U009,Engineering,call,,95
+2024-11-15,U009,Engineering,connect,,20
+2024-11-15,U009,Engineering,email,,133
+2024-11-15,U009,Engineering,client_meeting,,2
+2024-12-15,U009,Engineering,call,,67
+2024-12-15,U009,Engineering,connect,,15
+2024-12-15,U009,Engineering,email,,93
+2024-12-15,U009,Engineering,client_meeting,,2
+2024-01-15,U012,IT & Data,call,,35
+2024-01-15,U012,IT & Data,connect,,9
+2024-01-15,U012,IT & Data,email,,49
+2024-01-15,U012,IT & Data,client_meeting,,1
+2024-02-15,U012,IT & Data,call,,29
+2024-02-15,U012,IT & Data,connect,,6
+2024-02-15,U012,IT & Data,email,,40
+2024-03-15,U012,IT & Data,call,,29
+2024-03-15,U012,IT & Data,connect,,7
+2024-03-15,U012,IT & Data,email,,40
+2024-03-15,U012,IT & Data,client_meeting,,1
+2024-04-15,U012,IT & Data,call,,13
+2024-04-15,U012,IT & Data,connect,,2
+2024-04-15,U012,IT & Data,email,,18
+2024-05-15,U012,IT & Data,call,,36
+2024-05-15,U012,IT & Data,connect,,10
+2024-05-15,U012,IT & Data,email,,50
+2024-05-15,U012,IT & Data,client_meeting,,1
+2024-06-15,U012,IT & Data,call,,44
+2024-06-15,U012,IT & Data,connect,,9
+2024-06-15,U012,IT & Data,email,,61
+2024-06-15,U012,IT & Data,client_meeting,,2
+2024-07-15,U012,IT & Data,call,,43
+2024-07-15,U012,IT & Data,connect,,9
+2024-07-15,U012,IT & Data,email,,60
+2024-07-15,U012,IT & Data,client_meeting,,1
+2024-08-15,U012,IT & Data,call,,7
+2024-08-15,U012,IT & Data,connect,,1
+2024-08-15,U012,IT & Data,email,,9
+2024-09-15,U012,IT & Data,call,,18
+2024-09-15,U012,IT & Data,connect,,5
+2024-09-15,U012,IT & Data,email,,25
+2024-10-15,U012,IT & Data,call,,27
+2024-10-15,U012,IT & Data,connect,,7
+2024-10-15,U012,IT & Data,email,,37
+2024-10-15,U012,IT & Data,client_meeting,,1
+2024-11-15,U012,IT & Data,call,,24
+2024-11-15,U012,IT & Data,connect,,6
+2024-11-15,U012,IT & Data,email,,33
+2024-11-15,U012,IT & Data,client_meeting,,1
+2024-12-15,U012,IT & Data,call,,30
+2024-12-15,U012,IT & Data,connect,,8
+2024-12-15,U012,IT & Data,email,,42
+2024-12-15,U012,IT & Data,client_meeting,,1
+2024-01-15,U013,IT & Data,call,,159
+2024-01-15,U013,IT & Data,connect,,39
+2024-01-15,U013,IT & Data,email,,222
+2024-01-15,U013,IT & Data,client_meeting,,4
+2024-02-15,U013,IT & Data,call,,100
+2024-02-15,U013,IT & Data,connect,,18
+2024-02-15,U013,IT & Data,email,,140
+2024-02-15,U013,IT & Data,client_meeting,,4
+2024-03-15,U013,IT & Data,call,,135
+2024-03-15,U013,IT & Data,connect,,39
+2024-03-15,U013,IT & Data,email,,189
+2024-03-15,U013,IT & Data,client_meeting,,7
+2024-04-15,U013,IT & Data,call,,179
+2024-04-15,U013,IT & Data,connect,,50
+2024-04-15,U013,IT & Data,email,,250
+2024-04-15,U013,IT & Data,client_meeting,,12
+2024-05-15,U013,IT & Data,call,,172
+2024-05-15,U013,IT & Data,connect,,39
+2024-05-15,U013,IT & Data,email,,240
+2024-05-15,U013,IT & Data,client_meeting,,6
+2024-06-15,U013,IT & Data,call,,147
+2024-06-15,U013,IT & Data,connect,,32
+2024-06-15,U013,IT & Data,email,,205
+2024-06-15,U013,IT & Data,client_meeting,,5
+2024-07-15,U013,IT & Data,call,,121
+2024-07-15,U013,IT & Data,connect,,29
+2024-07-15,U013,IT & Data,email,,169
+2024-07-15,U013,IT & Data,client_meeting,,3
+2024-08-15,U013,IT & Data,call,,22
+2024-08-15,U013,IT & Data,connect,,4
+2024-08-15,U013,IT & Data,email,,30
+2024-09-15,U013,IT & Data,call,,126
+2024-09-15,U013,IT & Data,connect,,35
+2024-09-15,U013,IT & Data,email,,176
+2024-09-15,U013,IT & Data,client_meeting,,9
+2024-10-15,U013,IT & Data,call,,123
+2024-10-15,U013,IT & Data,connect,,36
+2024-10-15,U013,IT & Data,email,,172
+2024-10-15,U013,IT & Data,client_meeting,,8
+2024-11-15,U013,IT & Data,call,,201
+2024-11-15,U013,IT & Data,connect,,39
+2024-11-15,U013,IT & Data,email,,281
+2024-11-15,U013,IT & Data,client_meeting,,6
+2024-12-15,U013,IT & Data,call,,55
+2024-12-15,U013,IT & Data,connect,,13
+2024-12-15,U013,IT & Data,email,,77
+2024-12-15,U013,IT & Data,client_meeting,,3
+2024-01-15,U014,IT & Data,call,,116
+2024-01-15,U014,IT & Data,connect,,27
+2024-01-15,U014,IT & Data,email,,162
+2024-01-15,U014,IT & Data,client_meeting,,6
+2024-02-15,U014,IT & Data,call,,174
+2024-02-15,U014,IT & Data,connect,,50
+2024-02-15,U014,IT & Data,email,,243
+2024-02-15,U014,IT & Data,client_meeting,,12
+2024-03-15,U014,IT & Data,call,,149
+2024-03-15,U014,IT & Data,connect,,40
+2024-03-15,U014,IT & Data,email,,208
+2024-03-15,U014,IT & Data,client_meeting,,5
+2024-04-15,U014,IT & Data,call,,179
+2024-04-15,U014,IT & Data,connect,,40
+2024-04-15,U014,IT & Data,email,,250
+2024-04-15,U014,IT & Data,client_meeting,,6
+2024-05-15,U014,IT & Data,call,,94
+2024-05-15,U014,IT & Data,connect,,22
+2024-05-15,U014,IT & Data,email,,131
+2024-05-15,U014,IT & Data,client_meeting,,2
+2024-06-15,U014,IT & Data,call,,95
+2024-06-15,U014,IT & Data,connect,,24
+2024-06-15,U014,IT & Data,email,,133
+2024-06-15,U014,IT & Data,client_meeting,,6
+2024-07-15,U014,IT & Data,call,,105
+2024-07-15,U014,IT & Data,connect,,33
+2024-07-15,U014,IT & Data,email,,147
+2024-07-15,U014,IT & Data,client_meeting,,5
+2024-08-15,U014,IT & Data,call,,75
+2024-08-15,U014,IT & Data,connect,,19
+2024-08-15,U014,IT & Data,email,,105
+2024-08-15,U014,IT & Data,client_meeting,,4
+2024-09-15,U014,IT & Data,call,,145
+2024-09-15,U014,IT & Data,connect,,39
+2024-09-15,U014,IT & Data,email,,203
+2024-09-15,U014,IT & Data,client_meeting,,8
+2024-10-15,U014,IT & Data,call,,145
+2024-10-15,U014,IT & Data,connect,,38
+2024-10-15,U014,IT & Data,email,,203
+2024-10-15,U014,IT & Data,client_meeting,,4
+2024-11-15,U014,IT & Data,call,,136
+2024-11-15,U014,IT & Data,connect,,31
+2024-11-15,U014,IT & Data,email,,190
+2024-11-15,U014,IT & Data,client_meeting,,4
+2024-12-15,U014,IT & Data,call,,98
+2024-12-15,U014,IT & Data,connect,,22
+2024-12-15,U014,IT & Data,email,,137
+2024-12-15,U014,IT & Data,client_meeting,,3
+2024-01-15,U015,Engineering,call,,231
+2024-01-15,U015,Engineering,connect,,69
+2024-01-15,U015,Engineering,email,,323
+2024-01-15,U015,Engineering,client_meeting,,16
+2024-02-15,U015,Engineering,call,,158
+2024-02-15,U015,Engineering,connect,,47
+2024-02-15,U015,Engineering,email,,221
+2024-02-15,U015,Engineering,client_meeting,,11
+2024-03-15,U015,Engineering,call,,139
+2024-03-15,U015,Engineering,connect,,25
+2024-03-15,U015,Engineering,email,,194
+2024-03-15,U015,Engineering,client_meeting,,4
+2024-04-15,U015,Engineering,call,,138
+2024-04-15,U015,Engineering,connect,,43
+2024-04-15,U015,Engineering,email,,193
+2024-04-15,U015,Engineering,client_meeting,,10
+2024-05-15,U015,Engineering,call,,118
+2024-05-15,U015,Engineering,connect,,31
+2024-05-15,U015,Engineering,email,,165
+2024-05-15,U015,Engineering,client_meeting,,7
+2024-06-15,U015,Engineering,call,,162
+2024-06-15,U015,Engineering,connect,,42
+2024-06-15,U015,Engineering,email,,226
+2024-06-15,U015,Engineering,client_meeting,,6
+2024-07-15,U015,Engineering,call,,216
+2024-07-15,U015,Engineering,connect,,48
+2024-07-15,U015,Engineering,email,,302
+2024-07-15,U015,Engineering,client_meeting,,9
+2024-08-15,U015,Engineering,call,,43
+2024-08-15,U015,Engineering,connect,,11
+2024-08-15,U015,Engineering,email,,60
+2024-08-15,U015,Engineering,client_meeting,,1
+2024-09-15,U015,Engineering,call,,142
+2024-09-15,U015,Engineering,connect,,40
+2024-09-15,U015,Engineering,email,,198
+2024-09-15,U015,Engineering,client_meeting,,8
+2024-10-15,U015,Engineering,call,,153
+2024-10-15,U015,Engineering,connect,,48
+2024-10-15,U015,Engineering,email,,214
+2024-10-15,U015,Engineering,client_meeting,,11
+2024-11-15,U015,Engineering,call,,104
+2024-11-15,U015,Engineering,connect,,19
+2024-11-15,U015,Engineering,email,,145
+2024-11-15,U015,Engineering,client_meeting,,3
+2024-12-15,U015,Engineering,call,,101
+2024-12-15,U015,Engineering,connect,,22
+2024-12-15,U015,Engineering,email,,141
+2024-12-15,U015,Engineering,client_meeting,,4
+2024-01-15,U016,IT & Data,call,,43
+2024-01-15,U016,IT & Data,connect,,9
+2024-01-15,U016,IT & Data,email,,60
+2024-01-15,U016,IT & Data,client_meeting,,2
+2024-02-15,U016,IT & Data,call,,41
+2024-02-15,U016,IT & Data,connect,,10
+2024-02-15,U016,IT & Data,email,,57
+2024-02-15,U016,IT & Data,client_meeting,,2
+2024-03-15,U016,IT & Data,call,,42
+2024-03-15,U016,IT & Data,connect,,10
+2024-03-15,U016,IT & Data,email,,58
+2024-03-15,U016,IT & Data,client_meeting,,1
+2024-04-15,U016,IT & Data,call,,44
+2024-04-15,U016,IT & Data,connect,,8
+2024-04-15,U016,IT & Data,email,,61
+2024-04-15,U016,IT & Data,client_meeting,,1
+2024-05-15,U016,IT & Data,call,,29
+2024-05-15,U016,IT & Data,connect,,6
+2024-05-15,U016,IT & Data,email,,40
+2024-05-15,U016,IT & Data,client_meeting,,1
+2024-06-15,U016,IT & Data,call,,39
+2024-06-15,U016,IT & Data,connect,,11
+2024-06-15,U016,IT & Data,email,,54
+2024-06-15,U016,IT & Data,client_meeting,,2
+2024-07-15,U016,IT & Data,call,,37
+2024-07-15,U016,IT & Data,connect,,8
+2024-07-15,U016,IT & Data,email,,51
+2024-07-15,U016,IT & Data,client_meeting,,1
+2024-08-15,U016,IT & Data,call,,13
+2024-08-15,U016,IT & Data,connect,,3
+2024-08-15,U016,IT & Data,email,,18
+2024-09-15,U016,IT & Data,call,,23
+2024-09-15,U016,IT & Data,connect,,4
+2024-09-15,U016,IT & Data,email,,32
+2024-10-15,U016,IT & Data,call,,28
+2024-10-15,U016,IT & Data,connect,,8
+2024-10-15,U016,IT & Data,email,,39
+2024-10-15,U016,IT & Data,client_meeting,,1
+2024-11-15,U016,IT & Data,call,,34
+2024-11-15,U016,IT & Data,connect,,7
+2024-11-15,U016,IT & Data,email,,47
+2024-11-15,U016,IT & Data,client_meeting,,1
+2024-12-15,U016,IT & Data,call,,28
+2024-12-15,U016,IT & Data,connect,,5
+2024-12-15,U016,IT & Data,email,,39
+2024-01-15,U018,IT & Data,call,,83
+2024-01-15,U018,IT & Data,connect,,20
+2024-01-15,U018,IT & Data,email,,116
+2024-01-15,U018,IT & Data,client_meeting,,3
+2024-02-15,U018,IT & Data,call,,129
+2024-02-15,U018,IT & Data,connect,,25
+2024-02-15,U018,IT & Data,email,,180
+2024-02-15,U018,IT & Data,client_meeting,,4
+2024-03-15,U018,IT & Data,call,,89
+2024-03-15,U018,IT & Data,connect,,17
+2024-03-15,U018,IT & Data,email,,124
+2024-03-15,U018,IT & Data,client_meeting,,3
+2024-04-15,U018,IT & Data,call,,112
+2024-04-15,U018,IT & Data,connect,,22
+2024-04-15,U018,IT & Data,email,,156
+2024-04-15,U018,IT & Data,client_meeting,,3
+2024-05-15,U018,IT & Data,call,,82
+2024-05-15,U018,IT & Data,connect,,24
+2024-05-15,U018,IT & Data,email,,114
+2024-05-15,U018,IT & Data,client_meeting,,5
+2024-06-15,U018,IT & Data,call,,133
+2024-06-15,U018,IT & Data,connect,,29
+2024-06-15,U018,IT & Data,email,,186
+2024-06-15,U018,IT & Data,client_meeting,,3
+2024-07-15,U018,IT & Data,call,,150
+2024-07-15,U018,IT & Data,connect,,29
+2024-07-15,U018,IT & Data,email,,210
+2024-07-15,U018,IT & Data,client_meeting,,4
+2024-08-15,U018,IT & Data,call,,14
+2024-08-15,U018,IT & Data,connect,,2
+2024-08-15,U018,IT & Data,email,,19
+2024-09-15,U018,IT & Data,call,,159
+2024-09-15,U018,IT & Data,connect,,41
+2024-09-15,U018,IT & Data,email,,222
+2024-09-15,U018,IT & Data,client_meeting,,7
+2024-10-15,U018,IT & Data,call,,156
+2024-10-15,U018,IT & Data,connect,,42
+2024-10-15,U018,IT & Data,email,,218
+2024-10-15,U018,IT & Data,client_meeting,,10
+2024-11-15,U018,IT & Data,call,,153
+2024-11-15,U018,IT & Data,connect,,37
+2024-11-15,U018,IT & Data,email,,214
+2024-11-15,U018,IT & Data,client_meeting,,7
+2024-12-15,U018,IT & Data,call,,140
+2024-12-15,U018,IT & Data,connect,,30
+2024-12-15,U018,IT & Data,email,,196
+2024-12-15,U018,IT & Data,client_meeting,,5
+2024-01-15,U019,IT & Data,call,,148
+2024-01-15,U019,IT & Data,connect,,44
+2024-01-15,U019,IT & Data,email,,207
+2024-01-15,U019,IT & Data,client_meeting,,7
+2024-02-15,U019,IT & Data,call,,108
+2024-02-15,U019,IT & Data,connect,,19
+2024-02-15,U019,IT & Data,email,,151
+2024-02-15,U019,IT & Data,client_meeting,,4
+2024-03-15,U019,IT & Data,call,,161
+2024-03-15,U019,IT & Data,connect,,44
+2024-03-15,U019,IT & Data,email,,225
+2024-03-15,U019,IT & Data,client_meeting,,8
+2024-04-15,U019,IT & Data,call,,147
+2024-04-15,U019,IT & Data,connect,,26
+2024-04-15,U019,IT & Data,email,,205
+2024-04-15,U019,IT & Data,client_meeting,,5
+2024-05-15,U019,IT & Data,call,,145
+2024-05-15,U019,IT & Data,connect,,41
+2024-05-15,U019,IT & Data,email,,203
+2024-05-15,U019,IT & Data,client_meeting,,6
+2024-06-15,U019,IT & Data,call,,144
+2024-06-15,U019,IT & Data,connect,,44
+2024-06-15,U019,IT & Data,email,,201
+2024-06-15,U019,IT & Data,client_meeting,,8
+2024-07-15,U019,IT & Data,call,,136
+2024-07-15,U019,IT & Data,connect,,42
+2024-07-15,U019,IT & Data,email,,190
+2024-07-15,U019,IT & Data,client_meeting,,10
+2024-08-15,U019,IT & Data,call,,77
+2024-08-15,U019,IT & Data,connect,,23
+2024-08-15,U019,IT & Data,email,,107
+2024-08-15,U019,IT & Data,client_meeting,,5
+2024-09-15,U019,IT & Data,call,,103
+2024-09-15,U019,IT & Data,connect,,23
+2024-09-15,U019,IT & Data,email,,144
+2024-09-15,U019,IT & Data,client_meeting,,3
+2024-10-15,U019,IT & Data,call,,128
+2024-10-15,U019,IT & Data,connect,,27
+2024-10-15,U019,IT & Data,email,,179
+2024-10-15,U019,IT & Data,client_meeting,,3
+2024-11-15,U019,IT & Data,call,,122
+2024-11-15,U019,IT & Data,connect,,32
+2024-11-15,U019,IT & Data,email,,170
+2024-11-15,U019,IT & Data,client_meeting,,5
+2024-12-15,U019,IT & Data,call,,132
+2024-12-15,U019,IT & Data,connect,,40
+2024-12-15,U019,IT & Data,email,,184
+2024-12-15,U019,IT & Data,client_meeting,,6
+2024-01-15,U020,Life Sciences,call,,95
+2024-01-15,U020,Life Sciences,connect,,19
+2024-01-15,U020,Life Sciences,email,,133
+2024-01-15,U020,Life Sciences,client_meeting,,4
+2024-02-15,U020,Life Sciences,call,,70
+2024-02-15,U020,Life Sciences,connect,,17
+2024-02-15,U020,Life Sciences,email,,98
+2024-02-15,U020,Life Sciences,client_meeting,,3
+2024-03-15,U020,Life Sciences,call,,90
+2024-03-15,U020,Life Sciences,connect,,25
+2024-03-15,U020,Life Sciences,email,,125
+2024-03-15,U020,Life Sciences,client_meeting,,4
+2024-04-15,U020,Life Sciences,call,,110
+2024-04-15,U020,Life Sciences,connect,,31
+2024-04-15,U020,Life Sciences,email,,154
+2024-04-15,U020,Life Sciences,client_meeting,,5
+2024-05-15,U020,Life Sciences,call,,102
+2024-05-15,U020,Life Sciences,connect,,23
+2024-05-15,U020,Life Sciences,email,,142
+2024-05-15,U020,Life Sciences,client_meeting,,3
+2024-06-15,U020,Life Sciences,call,,97
+2024-06-15,U020,Life Sciences,connect,,20
+2024-06-15,U020,Life Sciences,email,,135
+2024-06-15,U020,Life Sciences,client_meeting,,4
+2024-07-15,U020,Life Sciences,call,,81
+2024-07-15,U020,Life Sciences,connect,,18
+2024-07-15,U020,Life Sciences,email,,113
+2024-07-15,U020,Life Sciences,client_meeting,,2
+2024-08-15,U020,Life Sciences,call,,39
+2024-08-15,U020,Life Sciences,connect,,9
+2024-08-15,U020,Life Sciences,email,,54
+2024-08-15,U020,Life Sciences,client_meeting,,1
+2024-09-15,U020,Life Sciences,call,,71
+2024-09-15,U020,Life Sciences,connect,,14
+2024-09-15,U020,Life Sciences,email,,99
+2024-09-15,U020,Life Sciences,client_meeting,,3
+2024-10-15,U020,Life Sciences,call,,106
+2024-10-15,U020,Life Sciences,connect,,32
+2024-10-15,U020,Life Sciences,email,,148
+2024-10-15,U020,Life Sciences,client_meeting,,7
+2024-11-15,U020,Life Sciences,call,,68
+2024-11-15,U020,Life Sciences,connect,,20
+2024-11-15,U020,Life Sciences,email,,95
+2024-11-15,U020,Life Sciences,client_meeting,,2
+2024-12-15,U020,Life Sciences,call,,57
+2024-12-15,U020,Life Sciences,connect,,14
+2024-12-15,U020,Life Sciences,email,,79
+2024-12-15,U020,Life Sciences,client_meeting,,2
+2024-01-15,U021,Public Sector,call,,128
+2024-01-15,U021,Public Sector,connect,,28
+2024-01-15,U021,Public Sector,email,,179
+2024-01-15,U021,Public Sector,client_meeting,,6
+2024-02-15,U021,Public Sector,call,,66
+2024-02-15,U021,Public Sector,connect,,13
+2024-02-15,U021,Public Sector,email,,92
+2024-02-15,U021,Public Sector,client_meeting,,1
+2024-03-15,U021,Public Sector,call,,118
+2024-03-15,U021,Public Sector,connect,,22
+2024-03-15,U021,Public Sector,email,,165
+2024-03-15,U021,Public Sector,client_meeting,,3
+2024-04-15,U021,Public Sector,call,,189
+2024-04-15,U021,Public Sector,connect,,57
+2024-04-15,U021,Public Sector,email,,264
+2024-04-15,U021,Public Sector,client_meeting,,10
+2024-05-15,U021,Public Sector,call,,128
+2024-05-15,U021,Public Sector,connect,,32
+2024-05-15,U021,Public Sector,email,,179
+2024-05-15,U021,Public Sector,client_meeting,,5
+2024-06-15,U021,Public Sector,call,,121
+2024-06-15,U021,Public Sector,connect,,24
+2024-06-15,U021,Public Sector,email,,169
+2024-06-15,U021,Public Sector,client_meeting,,5
+2024-07-15,U021,Public Sector,call,,212
+2024-07-15,U021,Public Sector,connect,,44
+2024-07-15,U021,Public Sector,email,,296
+2024-07-15,U021,Public Sector,client_meeting,,5
+2024-08-15,U021,Public Sector,call,,47
+2024-08-15,U021,Public Sector,connect,,9
+2024-08-15,U021,Public Sector,email,,65
+2024-08-15,U021,Public Sector,client_meeting,,2
+2024-09-15,U021,Public Sector,call,,141
+2024-09-15,U021,Public Sector,connect,,36
+2024-09-15,U021,Public Sector,email,,197
+2024-09-15,U021,Public Sector,client_meeting,,8
+2024-10-15,U021,Public Sector,call,,142
+2024-10-15,U021,Public Sector,connect,,41
+2024-10-15,U021,Public Sector,email,,198
+2024-10-15,U021,Public Sector,client_meeting,,7
+2024-11-15,U021,Public Sector,call,,157
+2024-11-15,U021,Public Sector,connect,,46
+2024-11-15,U021,Public Sector,email,,219
+2024-11-15,U021,Public Sector,client_meeting,,7
+2024-12-15,U021,Public Sector,call,,90
+2024-12-15,U021,Public Sector,connect,,22
+2024-12-15,U021,Public Sector,email,,125
+2024-12-15,U021,Public Sector,client_meeting,,5
+2024-01-15,U022,IT & Data,call,,175
+2024-01-15,U022,IT & Data,connect,,55
+2024-01-15,U022,IT & Data,email,,244
+2024-01-15,U022,IT & Data,client_meeting,,10
+2024-02-15,U022,IT & Data,call,,137
+2024-02-15,U022,IT & Data,connect,,39
+2024-02-15,U022,IT & Data,email,,191
+2024-02-15,U022,IT & Data,client_meeting,,5
+2024-03-15,U022,IT & Data,call,,160
+2024-03-15,U022,IT & Data,connect,,37
+2024-03-15,U022,IT & Data,email,,224
+2024-03-15,U022,IT & Data,client_meeting,,7
+2024-04-15,U022,IT & Data,call,,165
+2024-04-15,U022,IT & Data,connect,,30
+2024-04-15,U022,IT & Data,email,,230
+2024-04-15,U022,IT & Data,client_meeting,,7
+2024-05-15,U022,IT & Data,call,,91
+2024-05-15,U022,IT & Data,connect,,20
+2024-05-15,U022,IT & Data,email,,127
+2024-05-15,U022,IT & Data,client_meeting,,2
+2024-06-15,U022,IT & Data,call,,136
+2024-06-15,U022,IT & Data,connect,,27
+2024-06-15,U022,IT & Data,email,,190
+2024-06-15,U022,IT & Data,client_meeting,,5
+2024-07-15,U022,IT & Data,call,,131
+2024-07-15,U022,IT & Data,connect,,35
+2024-07-15,U022,IT & Data,email,,183
+2024-07-15,U022,IT & Data,client_meeting,,7
+2024-08-15,U022,IT & Data,call,,62
+2024-08-15,U022,IT & Data,connect,,19
+2024-08-15,U022,IT & Data,email,,86
+2024-08-15,U022,IT & Data,client_meeting,,4
+2024-09-15,U022,IT & Data,call,,183
+2024-09-15,U022,IT & Data,connect,,51
+2024-09-15,U022,IT & Data,email,,256
+2024-09-15,U022,IT & Data,client_meeting,,8
+2024-10-15,U022,IT & Data,call,,186
+2024-10-15,U022,IT & Data,connect,,34
+2024-10-15,U022,IT & Data,email,,260
+2024-10-15,U022,IT & Data,client_meeting,,7
+2024-11-15,U022,IT & Data,call,,168
+2024-11-15,U022,IT & Data,connect,,30
+2024-11-15,U022,IT & Data,email,,235
+2024-11-15,U022,IT & Data,client_meeting,,7
+2024-12-15,U022,IT & Data,call,,53
+2024-12-15,U022,IT & Data,connect,,10
+2024-12-15,U022,IT & Data,email,,74
+2024-12-15,U022,IT & Data,client_meeting,,1
+2025-01-15,U001,IT & Data,call,,98
+2025-01-15,U001,IT & Data,connect,,20
+2025-01-15,U001,IT & Data,email,,137
+2025-01-15,U001,IT & Data,client_meeting,,3
+2025-02-15,U001,IT & Data,call,,139
+2025-02-15,U001,IT & Data,connect,,32
+2025-02-15,U001,IT & Data,email,,194
+2025-02-15,U001,IT & Data,client_meeting,,5
+2025-03-15,U001,IT & Data,call,,120
+2025-03-15,U001,IT & Data,connect,,29
+2025-03-15,U001,IT & Data,email,,168
+2025-03-15,U001,IT & Data,client_meeting,,3
+2025-04-15,U001,IT & Data,call,,115
+2025-04-15,U001,IT & Data,connect,,30
+2025-04-15,U001,IT & Data,email,,161
+2025-04-15,U001,IT & Data,client_meeting,,4
+2025-05-15,U001,IT & Data,call,,134
+2025-05-15,U001,IT & Data,connect,,42
+2025-05-15,U001,IT & Data,email,,187
+2025-05-15,U001,IT & Data,client_meeting,,8
+2025-06-15,U001,IT & Data,call,,200
+2025-06-15,U001,IT & Data,connect,,41
+2025-06-15,U001,IT & Data,email,,280
+2025-06-15,U001,IT & Data,client_meeting,,8
+2025-07-15,U001,IT & Data,call,,152
+2025-07-15,U001,IT & Data,connect,,34
+2025-07-15,U001,IT & Data,email,,212
+2025-07-15,U001,IT & Data,client_meeting,,6
+2025-08-15,U001,IT & Data,call,,38
+2025-08-15,U001,IT & Data,connect,,11
+2025-08-15,U001,IT & Data,email,,53
+2025-08-15,U001,IT & Data,client_meeting,,1
+2025-09-15,U001,IT & Data,call,,147
+2025-09-15,U001,IT & Data,connect,,27
+2025-09-15,U001,IT & Data,email,,205
+2025-09-15,U001,IT & Data,client_meeting,,5
+2025-10-15,U001,IT & Data,call,,156
+2025-10-15,U001,IT & Data,connect,,45
+2025-10-15,U001,IT & Data,email,,218
+2025-10-15,U001,IT & Data,client_meeting,,6
+2025-11-15,U001,IT & Data,call,,165
+2025-11-15,U001,IT & Data,connect,,39
+2025-11-15,U001,IT & Data,email,,230
+2025-11-15,U001,IT & Data,client_meeting,,8
+2025-12-15,U001,IT & Data,call,,77
+2025-12-15,U001,IT & Data,connect,,22
+2025-12-15,U001,IT & Data,email,,107
+2025-12-15,U001,IT & Data,client_meeting,,2
+2025-01-15,U004,IT & Data,call,,159
+2025-01-15,U004,IT & Data,connect,,48
+2025-01-15,U004,IT & Data,email,,222
+2025-01-15,U004,IT & Data,client_meeting,,7
+2025-02-15,U004,IT & Data,call,,137
+2025-02-15,U004,IT & Data,connect,,26
+2025-02-15,U004,IT & Data,email,,191
+2025-02-15,U004,IT & Data,client_meeting,,4
+2025-03-15,U004,IT & Data,call,,76
+2025-03-15,U004,IT & Data,connect,,23
+2025-03-15,U004,IT & Data,email,,106
+2025-03-15,U004,IT & Data,client_meeting,,5
+2025-04-15,U004,IT & Data,call,,119
+2025-04-15,U004,IT & Data,connect,,34
+2025-04-15,U004,IT & Data,email,,166
+2025-04-15,U004,IT & Data,client_meeting,,5
+2025-05-15,U004,IT & Data,call,,128
+2025-05-15,U004,IT & Data,connect,,38
+2025-05-15,U004,IT & Data,email,,179
+2025-05-15,U004,IT & Data,client_meeting,,5
+2025-06-15,U004,IT & Data,call,,159
+2025-06-15,U004,IT & Data,connect,,39
+2025-06-15,U004,IT & Data,email,,222
+2025-06-15,U004,IT & Data,client_meeting,,9
+2025-07-15,U004,IT & Data,call,,168
+2025-07-15,U004,IT & Data,connect,,49
+2025-07-15,U004,IT & Data,email,,235
+2025-07-15,U004,IT & Data,client_meeting,,10
+2025-08-15,U004,IT & Data,call,,69
+2025-08-15,U004,IT & Data,connect,,17
+2025-08-15,U004,IT & Data,email,,96
+2025-08-15,U004,IT & Data,client_meeting,,4
+2025-09-15,U004,IT & Data,call,,101
+2025-09-15,U004,IT & Data,connect,,24
+2025-09-15,U004,IT & Data,email,,141
+2025-09-15,U004,IT & Data,client_meeting,,3
+2025-10-15,U004,IT & Data,call,,170
+2025-10-15,U004,IT & Data,connect,,46
+2025-10-15,U004,IT & Data,email,,237
+2025-10-15,U004,IT & Data,client_meeting,,7
+2025-11-15,U004,IT & Data,call,,159
+2025-11-15,U004,IT & Data,connect,,45
+2025-11-15,U004,IT & Data,email,,222
+2025-11-15,U004,IT & Data,client_meeting,,9
+2025-12-15,U004,IT & Data,call,,79
+2025-12-15,U004,IT & Data,connect,,16
+2025-12-15,U004,IT & Data,email,,110
+2025-12-15,U004,IT & Data,client_meeting,,3
+2025-01-15,U005,Engineering,call,,100
+2025-01-15,U005,Engineering,connect,,30
+2025-01-15,U005,Engineering,email,,140
+2025-01-15,U005,Engineering,client_meeting,,7
+2025-02-15,U005,Engineering,call,,207
+2025-02-15,U005,Engineering,connect,,44
+2025-02-15,U005,Engineering,email,,289
+2025-02-15,U005,Engineering,client_meeting,,9
+2025-03-15,U005,Engineering,call,,68
+2025-03-15,U005,Engineering,connect,,18
+2025-03-15,U005,Engineering,email,,95
+2025-03-15,U005,Engineering,client_meeting,,4
+2025-04-15,U005,Engineering,call,,259
+2025-04-15,U005,Engineering,connect,,59
+2025-04-15,U005,Engineering,email,,362
+2025-04-15,U005,Engineering,client_meeting,,14
+2025-05-15,U005,Engineering,call,,107
+2025-05-15,U005,Engineering,connect,,32
+2025-05-15,U005,Engineering,email,,149
+2025-05-15,U005,Engineering,client_meeting,,4
+2025-06-15,U005,Engineering,call,,157
+2025-06-15,U005,Engineering,connect,,39
+2025-06-15,U005,Engineering,email,,219
+2025-06-15,U005,Engineering,client_meeting,,7
+2025-07-15,U005,Engineering,call,,88
+2025-07-15,U005,Engineering,connect,,19
+2025-07-15,U005,Engineering,email,,123
+2025-07-15,U005,Engineering,client_meeting,,3
+2025-08-15,U005,Engineering,call,,47
+2025-08-15,U005,Engineering,connect,,12
+2025-08-15,U005,Engineering,email,,65
+2025-08-15,U005,Engineering,client_meeting,,2
+2025-09-15,U005,Engineering,call,,171
+2025-09-15,U005,Engineering,connect,,48
+2025-09-15,U005,Engineering,email,,239
+2025-09-15,U005,Engineering,client_meeting,,10
+2025-10-15,U005,Engineering,call,,162
+2025-10-15,U005,Engineering,connect,,50
+2025-10-15,U005,Engineering,email,,226
+2025-10-15,U005,Engineering,client_meeting,,6
+2025-11-15,U005,Engineering,call,,176
+2025-11-15,U005,Engineering,connect,,56
+2025-11-15,U005,Engineering,email,,246
+2025-11-15,U005,Engineering,client_meeting,,12
+2025-12-15,U005,Engineering,call,,106
+2025-12-15,U005,Engineering,connect,,31
+2025-12-15,U005,Engineering,email,,148
+2025-12-15,U005,Engineering,client_meeting,,4
+2025-01-15,U006,Public Sector,call,,91
+2025-01-15,U006,Public Sector,connect,,18
+2025-01-15,U006,Public Sector,email,,127
+2025-01-15,U006,Public Sector,client_meeting,,3
+2025-02-15,U006,Public Sector,call,,108
+2025-02-15,U006,Public Sector,connect,,28
+2025-02-15,U006,Public Sector,email,,151
+2025-02-15,U006,Public Sector,client_meeting,,7
+2025-03-15,U006,Public Sector,call,,118
+2025-03-15,U006,Public Sector,connect,,36
+2025-03-15,U006,Public Sector,email,,165
+2025-03-15,U006,Public Sector,client_meeting,,7
+2025-04-15,U006,Public Sector,call,,96
+2025-04-15,U006,Public Sector,connect,,30
+2025-04-15,U006,Public Sector,email,,134
+2025-04-15,U006,Public Sector,client_meeting,,5
+2025-05-15,U006,Public Sector,call,,128
+2025-05-15,U006,Public Sector,connect,,26
+2025-05-15,U006,Public Sector,email,,179
+2025-05-15,U006,Public Sector,client_meeting,,6
+2025-06-15,U006,Public Sector,call,,66
+2025-06-15,U006,Public Sector,connect,,18
+2025-06-15,U006,Public Sector,email,,92
+2025-06-15,U006,Public Sector,client_meeting,,3
+2025-07-15,U006,Public Sector,call,,90
+2025-07-15,U006,Public Sector,connect,,23
+2025-07-15,U006,Public Sector,email,,125
+2025-07-15,U006,Public Sector,client_meeting,,3
+2025-08-15,U006,Public Sector,call,,33
+2025-08-15,U006,Public Sector,connect,,6
+2025-08-15,U006,Public Sector,email,,46
+2025-09-15,U006,Public Sector,call,,76
+2025-09-15,U006,Public Sector,connect,,22
+2025-09-15,U006,Public Sector,email,,106
+2025-09-15,U006,Public Sector,client_meeting,,3
+2025-10-15,U006,Public Sector,call,,96
+2025-10-15,U006,Public Sector,connect,,19
+2025-10-15,U006,Public Sector,email,,134
+2025-10-15,U006,Public Sector,client_meeting,,3
+2025-11-15,U006,Public Sector,call,,85
+2025-11-15,U006,Public Sector,connect,,21
+2025-11-15,U006,Public Sector,email,,118
+2025-11-15,U006,Public Sector,client_meeting,,4
+2025-12-15,U006,Public Sector,call,,76
+2025-12-15,U006,Public Sector,connect,,18
+2025-12-15,U006,Public Sector,email,,106
+2025-12-15,U006,Public Sector,client_meeting,,3
+2025-01-15,U007,Engineering,call,,105
+2025-01-15,U007,Engineering,connect,,33
+2025-01-15,U007,Engineering,email,,147
+2025-01-15,U007,Engineering,client_meeting,,7
+2025-02-15,U007,Engineering,call,,139
+2025-02-15,U007,Engineering,connect,,42
+2025-02-15,U007,Engineering,email,,194
+2025-02-15,U007,Engineering,client_meeting,,6
+2025-03-15,U007,Engineering,call,,83
+2025-03-15,U007,Engineering,connect,,20
+2025-03-15,U007,Engineering,email,,116
+2025-03-15,U007,Engineering,client_meeting,,4
+2025-04-15,U007,Engineering,call,,172
+2025-04-15,U007,Engineering,connect,,43
+2025-04-15,U007,Engineering,email,,240
+2025-04-15,U007,Engineering,client_meeting,,7
+2025-05-15,U007,Engineering,call,,141
+2025-05-15,U007,Engineering,connect,,28
+2025-05-15,U007,Engineering,email,,197
+2025-05-15,U007,Engineering,client_meeting,,3
+2025-06-15,U007,Engineering,call,,104
+2025-06-15,U007,Engineering,connect,,28
+2025-06-15,U007,Engineering,email,,145
+2025-06-15,U007,Engineering,client_meeting,,4
+2025-07-15,U007,Engineering,call,,90
+2025-07-15,U007,Engineering,connect,,18
+2025-07-15,U007,Engineering,email,,125
+2025-07-15,U007,Engineering,client_meeting,,2
+2025-08-15,U007,Engineering,call,,57
+2025-08-15,U007,Engineering,connect,,15
+2025-08-15,U007,Engineering,email,,79
+2025-08-15,U007,Engineering,client_meeting,,2
+2025-09-15,U007,Engineering,call,,149
+2025-09-15,U007,Engineering,connect,,38
+2025-09-15,U007,Engineering,email,,208
+2025-09-15,U007,Engineering,client_meeting,,5
+2025-10-15,U007,Engineering,call,,149
+2025-10-15,U007,Engineering,connect,,43
+2025-10-15,U007,Engineering,email,,208
+2025-10-15,U007,Engineering,client_meeting,,8
+2025-11-15,U007,Engineering,call,,163
+2025-11-15,U007,Engineering,connect,,31
+2025-11-15,U007,Engineering,email,,228
+2025-11-15,U007,Engineering,client_meeting,,4
+2025-12-15,U007,Engineering,call,,102
+2025-12-15,U007,Engineering,connect,,19
+2025-12-15,U007,Engineering,email,,142
+2025-12-15,U007,Engineering,client_meeting,,3
+2025-01-15,U008,Engineering,call,,99
+2025-01-15,U008,Engineering,connect,,18
+2025-01-15,U008,Engineering,email,,138
+2025-01-15,U008,Engineering,client_meeting,,2
+2025-02-15,U008,Engineering,call,,178
+2025-02-15,U008,Engineering,connect,,49
+2025-02-15,U008,Engineering,email,,249
+2025-02-15,U008,Engineering,client_meeting,,9
+2025-03-15,U008,Engineering,call,,146
+2025-03-15,U008,Engineering,connect,,38
+2025-03-15,U008,Engineering,email,,204
+2025-03-15,U008,Engineering,client_meeting,,8
+2025-04-15,U008,Engineering,call,,150
+2025-04-15,U008,Engineering,connect,,46
+2025-04-15,U008,Engineering,email,,210
+2025-04-15,U008,Engineering,client_meeting,,7
+2025-05-15,U008,Engineering,call,,163
+2025-05-15,U008,Engineering,connect,,51
+2025-05-15,U008,Engineering,email,,228
+2025-05-15,U008,Engineering,client_meeting,,8
+2025-06-15,U008,Engineering,call,,159
+2025-06-15,U008,Engineering,connect,,35
+2025-06-15,U008,Engineering,email,,222
+2025-06-15,U008,Engineering,client_meeting,,5
+2025-07-15,U008,Engineering,call,,121
+2025-07-15,U008,Engineering,connect,,27
+2025-07-15,U008,Engineering,email,,169
+2025-07-15,U008,Engineering,client_meeting,,5
+2025-08-15,U008,Engineering,call,,38
+2025-08-15,U008,Engineering,connect,,7
+2025-08-15,U008,Engineering,email,,53
+2025-08-15,U008,Engineering,client_meeting,,1
+2025-09-15,U008,Engineering,call,,86
+2025-09-15,U008,Engineering,connect,,17
+2025-09-15,U008,Engineering,email,,120
+2025-09-15,U008,Engineering,client_meeting,,3
+2025-10-15,U008,Engineering,call,,166
+2025-10-15,U008,Engineering,connect,,40
+2025-10-15,U008,Engineering,email,,232
+2025-10-15,U008,Engineering,client_meeting,,9
+2025-11-15,U008,Engineering,call,,167
+2025-11-15,U008,Engineering,connect,,48
+2025-11-15,U008,Engineering,email,,233
+2025-11-15,U008,Engineering,client_meeting,,11
+2025-12-15,U008,Engineering,call,,120
+2025-12-15,U008,Engineering,connect,,25
+2025-12-15,U008,Engineering,email,,168
+2025-12-15,U008,Engineering,client_meeting,,3
+2025-01-15,U009,Engineering,call,,151
+2025-01-15,U009,Engineering,connect,,45
+2025-01-15,U009,Engineering,email,,211
+2025-01-15,U009,Engineering,client_meeting,,7
+2025-02-15,U009,Engineering,call,,147
+2025-02-15,U009,Engineering,connect,,31
+2025-02-15,U009,Engineering,email,,205
+2025-02-15,U009,Engineering,client_meeting,,4
+2025-03-15,U009,Engineering,call,,131
+2025-03-15,U009,Engineering,connect,,38
+2025-03-15,U009,Engineering,email,,183
+2025-03-15,U009,Engineering,client_meeting,,5
+2025-04-15,U009,Engineering,call,,156
+2025-04-15,U009,Engineering,connect,,41
+2025-04-15,U009,Engineering,email,,218
+2025-04-15,U009,Engineering,client_meeting,,9
+2025-05-15,U009,Engineering,call,,143
+2025-05-15,U009,Engineering,connect,,31
+2025-05-15,U009,Engineering,email,,200
+2025-05-15,U009,Engineering,client_meeting,,7
+2025-06-15,U009,Engineering,call,,176
+2025-06-15,U009,Engineering,connect,,37
+2025-06-15,U009,Engineering,email,,246
+2025-06-15,U009,Engineering,client_meeting,,8
+2025-07-15,U009,Engineering,call,,111
+2025-07-15,U009,Engineering,connect,,20
+2025-07-15,U009,Engineering,email,,155
+2025-07-15,U009,Engineering,client_meeting,,2
+2025-08-15,U009,Engineering,call,,65
+2025-08-15,U009,Engineering,connect,,17
+2025-08-15,U009,Engineering,email,,91
+2025-08-15,U009,Engineering,client_meeting,,3
+2025-09-15,U009,Engineering,call,,132
+2025-09-15,U009,Engineering,connect,,35
+2025-09-15,U009,Engineering,email,,184
+2025-09-15,U009,Engineering,client_meeting,,7
+2025-10-15,U009,Engineering,call,,94
+2025-10-15,U009,Engineering,connect,,22
+2025-10-15,U009,Engineering,email,,131
+2025-10-15,U009,Engineering,client_meeting,,2
+2025-11-15,U009,Engineering,call,,132
+2025-11-15,U009,Engineering,connect,,40
+2025-11-15,U009,Engineering,email,,184
+2025-11-15,U009,Engineering,client_meeting,,7
+2025-12-15,U009,Engineering,call,,87
+2025-12-15,U009,Engineering,connect,,24
+2025-12-15,U009,Engineering,email,,121
+2025-12-15,U009,Engineering,client_meeting,,6
+2025-01-15,U012,IT & Data,call,,37
+2025-01-15,U012,IT & Data,connect,,7
+2025-01-15,U012,IT & Data,email,,51
+2025-02-15,U012,IT & Data,call,,36
+2025-02-15,U012,IT & Data,connect,,8
+2025-02-15,U012,IT & Data,email,,50
+2025-02-15,U012,IT & Data,client_meeting,,1
+2025-03-15,U012,IT & Data,call,,29
+2025-03-15,U012,IT & Data,connect,,8
+2025-03-15,U012,IT & Data,email,,40
+2025-03-15,U012,IT & Data,client_meeting,,1
+2025-04-15,U012,IT & Data,call,,29
+2025-04-15,U012,IT & Data,connect,,6
+2025-04-15,U012,IT & Data,email,,40
+2025-04-15,U012,IT & Data,client_meeting,,1
+2025-05-15,U012,IT & Data,call,,21
+2025-05-15,U012,IT & Data,connect,,5
+2025-05-15,U012,IT & Data,email,,29
+2025-06-15,U012,IT & Data,call,,23
+2025-06-15,U012,IT & Data,connect,,4
+2025-06-15,U012,IT & Data,email,,32
+2025-07-15,U012,IT & Data,call,,43
+2025-07-15,U012,IT & Data,connect,,10
+2025-07-15,U012,IT & Data,email,,60
+2025-07-15,U012,IT & Data,client_meeting,,2
+2025-08-15,U012,IT & Data,call,,12
+2025-08-15,U012,IT & Data,connect,,3
+2025-08-15,U012,IT & Data,email,,16
+2025-09-15,U012,IT & Data,call,,29
+2025-09-15,U012,IT & Data,connect,,8
+2025-09-15,U012,IT & Data,email,,40
+2025-09-15,U012,IT & Data,client_meeting,,2
+2025-10-15,U012,IT & Data,call,,39
+2025-10-15,U012,IT & Data,connect,,8
+2025-10-15,U012,IT & Data,email,,54
+2025-10-15,U012,IT & Data,client_meeting,,2
+2025-11-15,U012,IT & Data,call,,37
+2025-11-15,U012,IT & Data,connect,,9
+2025-11-15,U012,IT & Data,email,,51
+2025-11-15,U012,IT & Data,client_meeting,,1
+2025-12-15,U012,IT & Data,call,,13
+2025-12-15,U012,IT & Data,connect,,3
+2025-12-15,U012,IT & Data,email,,18
+2025-01-15,U013,IT & Data,call,,153
+2025-01-15,U013,IT & Data,connect,,41
+2025-01-15,U013,IT & Data,email,,214
+2025-01-15,U013,IT & Data,client_meeting,,9
+2025-02-15,U013,IT & Data,call,,164
+2025-02-15,U013,IT & Data,connect,,36
+2025-02-15,U013,IT & Data,email,,229
+2025-02-15,U013,IT & Data,client_meeting,,8
+2025-03-15,U013,IT & Data,call,,165
+2025-03-15,U013,IT & Data,connect,,45
+2025-03-15,U013,IT & Data,email,,230
+2025-03-15,U013,IT & Data,client_meeting,,11
+2025-04-15,U013,IT & Data,call,,117
+2025-04-15,U013,IT & Data,connect,,26
+2025-04-15,U013,IT & Data,email,,163
+2025-04-15,U013,IT & Data,client_meeting,,5
+2025-05-15,U013,IT & Data,call,,139
+2025-05-15,U013,IT & Data,connect,,32
+2025-05-15,U013,IT & Data,email,,194
+2025-05-15,U013,IT & Data,client_meeting,,8
+2025-06-15,U013,IT & Data,call,,149
+2025-06-15,U013,IT & Data,connect,,43
+2025-06-15,U013,IT & Data,email,,208
+2025-06-15,U013,IT & Data,client_meeting,,10
+2025-07-15,U013,IT & Data,call,,184
+2025-07-15,U013,IT & Data,connect,,34
+2025-07-15,U013,IT & Data,email,,257
+2025-07-15,U013,IT & Data,client_meeting,,7
+2025-08-15,U013,IT & Data,call,,68
+2025-08-15,U013,IT & Data,connect,,21
+2025-08-15,U013,IT & Data,email,,95
+2025-08-15,U013,IT & Data,client_meeting,,2
+2025-09-15,U013,IT & Data,call,,167
+2025-09-15,U013,IT & Data,connect,,44
+2025-09-15,U013,IT & Data,email,,233
+2025-09-15,U013,IT & Data,client_meeting,,6
+2025-10-15,U013,IT & Data,call,,100
+2025-10-15,U013,IT & Data,connect,,29
+2025-10-15,U013,IT & Data,email,,140
+2025-10-15,U013,IT & Data,client_meeting,,6
+2025-11-15,U013,IT & Data,call,,136
+2025-11-15,U013,IT & Data,connect,,40
+2025-11-15,U013,IT & Data,email,,190
+2025-11-15,U013,IT & Data,client_meeting,,9
+2025-12-15,U013,IT & Data,call,,54
+2025-12-15,U013,IT & Data,connect,,17
+2025-12-15,U013,IT & Data,email,,75
+2025-12-15,U013,IT & Data,client_meeting,,3
+2025-01-15,U014,IT & Data,call,,224
+2025-01-15,U014,IT & Data,connect,,49
+2025-01-15,U014,IT & Data,email,,313
+2025-01-15,U014,IT & Data,client_meeting,,11
+2025-02-15,U014,IT & Data,call,,73
+2025-02-15,U014,IT & Data,connect,,18
+2025-02-15,U014,IT & Data,email,,102
+2025-02-15,U014,IT & Data,client_meeting,,2
+2025-03-15,U014,IT & Data,call,,74
+2025-03-15,U014,IT & Data,connect,,15
+2025-03-15,U014,IT & Data,email,,103
+2025-03-15,U014,IT & Data,client_meeting,,2
+2025-04-15,U014,IT & Data,call,,148
+2025-04-15,U014,IT & Data,connect,,46
+2025-04-15,U014,IT & Data,email,,207
+2025-04-15,U014,IT & Data,client_meeting,,6
+2025-05-15,U014,IT & Data,call,,202
+2025-05-15,U014,IT & Data,connect,,47
+2025-05-15,U014,IT & Data,email,,282
+2025-05-15,U014,IT & Data,client_meeting,,11
+2025-06-15,U014,IT & Data,call,,127
+2025-06-15,U014,IT & Data,connect,,27
+2025-06-15,U014,IT & Data,email,,177
+2025-06-15,U014,IT & Data,client_meeting,,5
+2025-07-15,U014,IT & Data,call,,224
+2025-07-15,U014,IT & Data,connect,,71
+2025-07-15,U014,IT & Data,email,,313
+2025-07-15,U014,IT & Data,client_meeting,,16
+2025-08-15,U014,IT & Data,call,,53
+2025-08-15,U014,IT & Data,connect,,12
+2025-08-15,U014,IT & Data,email,,74
+2025-08-15,U014,IT & Data,client_meeting,,1
+2025-09-15,U014,IT & Data,call,,149
+2025-09-15,U014,IT & Data,connect,,35
+2025-09-15,U014,IT & Data,email,,208
+2025-09-15,U014,IT & Data,client_meeting,,7
+2025-10-15,U014,IT & Data,call,,160
+2025-10-15,U014,IT & Data,connect,,29
+2025-10-15,U014,IT & Data,email,,224
+2025-10-15,U014,IT & Data,client_meeting,,3
+2025-11-15,U014,IT & Data,call,,146
+2025-11-15,U014,IT & Data,connect,,34
+2025-11-15,U014,IT & Data,email,,204
+2025-11-15,U014,IT & Data,client_meeting,,8
+2025-12-15,U014,IT & Data,call,,83
+2025-12-15,U014,IT & Data,connect,,18
+2025-12-15,U014,IT & Data,email,,116
+2025-12-15,U014,IT & Data,client_meeting,,4
+2025-01-15,U015,Engineering,call,,145
+2025-01-15,U015,Engineering,connect,,27
+2025-01-15,U015,Engineering,email,,203
+2025-01-15,U015,Engineering,client_meeting,,4
+2025-02-15,U015,Engineering,call,,169
+2025-02-15,U015,Engineering,connect,,48
+2025-02-15,U015,Engineering,email,,236
+2025-02-15,U015,Engineering,client_meeting,,10
+2025-03-15,U015,Engineering,call,,166
+2025-03-15,U015,Engineering,connect,,33
+2025-03-15,U015,Engineering,email,,232
+2025-03-15,U015,Engineering,client_meeting,,6
+2025-04-15,U015,Engineering,call,,97
+2025-04-15,U015,Engineering,connect,,20
+2025-04-15,U015,Engineering,email,,135
+2025-04-15,U015,Engineering,client_meeting,,4
+2025-05-15,U015,Engineering,call,,99
+2025-05-15,U015,Engineering,connect,,23
+2025-05-15,U015,Engineering,email,,138
+2025-05-15,U015,Engineering,client_meeting,,4
+2025-06-15,U015,Engineering,call,,37
+2025-06-15,U015,Engineering,connect,,9
+2025-06-15,U015,Engineering,email,,51
+2025-06-15,U015,Engineering,client_meeting,,1
+2025-07-15,U015,Engineering,call,,117
+2025-07-15,U015,Engineering,connect,,25
+2025-07-15,U015,Engineering,email,,163
+2025-07-15,U015,Engineering,client_meeting,,5
+2025-08-15,U015,Engineering,call,,69
+2025-08-15,U015,Engineering,connect,,19
+2025-08-15,U015,Engineering,email,,96
+2025-08-15,U015,Engineering,client_meeting,,4
+2025-09-15,U015,Engineering,call,,117
+2025-09-15,U015,Engineering,connect,,24
+2025-09-15,U015,Engineering,email,,163
+2025-09-15,U015,Engineering,client_meeting,,3
+2025-10-15,U015,Engineering,call,,143
+2025-10-15,U015,Engineering,connect,,30
+2025-10-15,U015,Engineering,email,,200
+2025-10-15,U015,Engineering,client_meeting,,6
+2025-11-15,U015,Engineering,call,,116
+2025-11-15,U015,Engineering,connect,,34
+2025-11-15,U015,Engineering,email,,162
+2025-11-15,U015,Engineering,client_meeting,,6
+2025-12-15,U015,Engineering,call,,66
+2025-12-15,U015,Engineering,connect,,13
+2025-12-15,U015,Engineering,email,,92
+2025-12-15,U015,Engineering,client_meeting,,2
+2025-01-15,U016,IT & Data,call,,46
+2025-01-15,U016,IT & Data,connect,,8
+2025-01-15,U016,IT & Data,email,,64
+2025-01-15,U016,IT & Data,client_meeting,,1
+2025-02-15,U016,IT & Data,call,,41
+2025-02-15,U016,IT & Data,connect,,8
+2025-02-15,U016,IT & Data,email,,57
+2025-02-15,U016,IT & Data,client_meeting,,1
+2025-03-15,U016,IT & Data,call,,21
+2025-03-15,U016,IT & Data,connect,,5
+2025-03-15,U016,IT & Data,email,,29
+2025-04-15,U016,IT & Data,call,,40
+2025-04-15,U016,IT & Data,connect,,11
+2025-04-15,U016,IT & Data,email,,56
+2025-04-15,U016,IT & Data,client_meeting,,1
+2025-05-15,U016,IT & Data,call,,36
+2025-05-15,U016,IT & Data,connect,,10
+2025-05-15,U016,IT & Data,email,,50
+2025-05-15,U016,IT & Data,client_meeting,,2
+2025-06-15,U016,IT & Data,call,,33
+2025-06-15,U016,IT & Data,connect,,9
+2025-06-15,U016,IT & Data,email,,46
+2025-06-15,U016,IT & Data,client_meeting,,1
+2025-07-15,U016,IT & Data,call,,43
+2025-07-15,U016,IT & Data,connect,,12
+2025-07-15,U016,IT & Data,email,,60
+2025-07-15,U016,IT & Data,client_meeting,,1
+2025-08-15,U016,IT & Data,call,,11
+2025-08-15,U016,IT & Data,connect,,2
+2025-08-15,U016,IT & Data,email,,15
+2025-09-15,U016,IT & Data,call,,45
+2025-09-15,U016,IT & Data,connect,,11
+2025-09-15,U016,IT & Data,email,,62
+2025-09-15,U016,IT & Data,client_meeting,,1
+2025-10-15,U016,IT & Data,call,,42
+2025-10-15,U016,IT & Data,connect,,9
+2025-10-15,U016,IT & Data,email,,58
+2025-10-15,U016,IT & Data,client_meeting,,2
+2025-11-15,U016,IT & Data,call,,35
+2025-11-15,U016,IT & Data,connect,,6
+2025-11-15,U016,IT & Data,email,,49
+2025-12-15,U016,IT & Data,call,,25
+2025-12-15,U016,IT & Data,connect,,7
+2025-12-15,U016,IT & Data,email,,35
+2025-12-15,U016,IT & Data,client_meeting,,1
+2025-01-15,U018,IT & Data,call,,95
+2025-01-15,U018,IT & Data,connect,,19
+2025-01-15,U018,IT & Data,email,,133
+2025-01-15,U018,IT & Data,client_meeting,,3
+2025-02-15,U018,IT & Data,call,,101
+2025-02-15,U018,IT & Data,connect,,22
+2025-02-15,U018,IT & Data,email,,141
+2025-02-15,U018,IT & Data,client_meeting,,5
+2025-03-15,U018,IT & Data,call,,136
+2025-03-15,U018,IT & Data,connect,,25
+2025-03-15,U018,IT & Data,email,,190
+2025-03-15,U018,IT & Data,client_meeting,,3
+2025-04-15,U018,IT & Data,call,,123
+2025-04-15,U018,IT & Data,connect,,28
+2025-04-15,U018,IT & Data,email,,172
+2025-04-15,U018,IT & Data,client_meeting,,6
+2025-05-15,U018,IT & Data,call,,166
+2025-05-15,U018,IT & Data,connect,,39
+2025-05-15,U018,IT & Data,email,,232
+2025-05-15,U018,IT & Data,client_meeting,,8
+2025-06-15,U018,IT & Data,call,,184
+2025-06-15,U018,IT & Data,connect,,53
+2025-06-15,U018,IT & Data,email,,257
+2025-06-15,U018,IT & Data,client_meeting,,6
+2025-07-15,U018,IT & Data,call,,157
+2025-07-15,U018,IT & Data,connect,,43
+2025-07-15,U018,IT & Data,email,,219
+2025-07-15,U018,IT & Data,client_meeting,,7
+2025-08-15,U018,IT & Data,call,,52
+2025-08-15,U018,IT & Data,connect,,11
+2025-08-15,U018,IT & Data,email,,72
+2025-08-15,U018,IT & Data,client_meeting,,1
+2025-09-15,U018,IT & Data,call,,75
+2025-09-15,U018,IT & Data,connect,,19
+2025-09-15,U018,IT & Data,email,,105
+2025-09-15,U018,IT & Data,client_meeting,,3
+2025-10-15,U018,IT & Data,call,,87
+2025-10-15,U018,IT & Data,connect,,22
+2025-10-15,U018,IT & Data,email,,121
+2025-10-15,U018,IT & Data,client_meeting,,3
+2025-11-15,U018,IT & Data,call,,192
+2025-11-15,U018,IT & Data,connect,,40
+2025-11-15,U018,IT & Data,email,,268
+2025-11-15,U018,IT & Data,client_meeting,,6
+2025-12-15,U018,IT & Data,call,,91
+2025-12-15,U018,IT & Data,connect,,22
+2025-12-15,U018,IT & Data,email,,127
+2025-12-15,U018,IT & Data,client_meeting,,4
+2025-01-15,U019,IT & Data,call,,124
+2025-01-15,U019,IT & Data,connect,,38
+2025-01-15,U019,IT & Data,email,,173
+2025-01-15,U019,IT & Data,client_meeting,,7
+2025-02-15,U019,IT & Data,call,,153
+2025-02-15,U019,IT & Data,connect,,40
+2025-02-15,U019,IT & Data,email,,214
+2025-02-15,U019,IT & Data,client_meeting,,7
+2025-03-15,U019,IT & Data,call,,177
+2025-03-15,U019,IT & Data,connect,,52
+2025-03-15,U019,IT & Data,email,,247
+2025-03-15,U019,IT & Data,client_meeting,,12
+2025-04-15,U019,IT & Data,call,,126
+2025-04-15,U019,IT & Data,connect,,30
+2025-04-15,U019,IT & Data,email,,176
+2025-04-15,U019,IT & Data,client_meeting,,4
+2025-05-15,U019,IT & Data,call,,93
+2025-05-15,U019,IT & Data,connect,,29
+2025-05-15,U019,IT & Data,email,,130
+2025-05-15,U019,IT & Data,client_meeting,,6
+2025-06-15,U019,IT & Data,call,,106
+2025-06-15,U019,IT & Data,connect,,28
+2025-06-15,U019,IT & Data,email,,148
+2025-06-15,U019,IT & Data,client_meeting,,3
+2025-07-15,U019,IT & Data,call,,116
+2025-07-15,U019,IT & Data,connect,,26
+2025-07-15,U019,IT & Data,email,,162
+2025-07-15,U019,IT & Data,client_meeting,,5
+2025-08-15,U019,IT & Data,call,,42
+2025-08-15,U019,IT & Data,connect,,9
+2025-08-15,U019,IT & Data,email,,58
+2025-08-15,U019,IT & Data,client_meeting,,2
+2025-09-15,U019,IT & Data,call,,172
+2025-09-15,U019,IT & Data,connect,,42
+2025-09-15,U019,IT & Data,email,,240
+2025-09-15,U019,IT & Data,client_meeting,,6
+2025-10-15,U019,IT & Data,call,,100
+2025-10-15,U019,IT & Data,connect,,30
+2025-10-15,U019,IT & Data,email,,140
+2025-10-15,U019,IT & Data,client_meeting,,4
+2025-11-15,U019,IT & Data,call,,131
+2025-11-15,U019,IT & Data,connect,,31
+2025-11-15,U019,IT & Data,email,,183
+2025-11-15,U019,IT & Data,client_meeting,,3
+2025-12-15,U019,IT & Data,call,,105
+2025-12-15,U019,IT & Data,connect,,31
+2025-12-15,U019,IT & Data,email,,147
+2025-12-15,U019,IT & Data,client_meeting,,7
+2025-01-15,U020,Life Sciences,call,,61
+2025-01-15,U020,Life Sciences,connect,,17
+2025-01-15,U020,Life Sciences,email,,85
+2025-01-15,U020,Life Sciences,client_meeting,,2
+2025-02-15,U020,Life Sciences,call,,144
+2025-02-15,U020,Life Sciences,connect,,29
+2025-02-15,U020,Life Sciences,email,,201
+2025-02-15,U020,Life Sciences,client_meeting,,5
+2025-03-15,U020,Life Sciences,call,,180
+2025-03-15,U020,Life Sciences,connect,,34
+2025-03-15,U020,Life Sciences,email,,251
+2025-03-15,U020,Life Sciences,client_meeting,,5
+2025-04-15,U020,Life Sciences,call,,114
+2025-04-15,U020,Life Sciences,connect,,35
+2025-04-15,U020,Life Sciences,email,,159
+2025-04-15,U020,Life Sciences,client_meeting,,4
+2025-05-15,U020,Life Sciences,call,,123
+2025-05-15,U020,Life Sciences,connect,,24
+2025-05-15,U020,Life Sciences,email,,172
+2025-05-15,U020,Life Sciences,client_meeting,,3
+2025-06-15,U020,Life Sciences,call,,144
+2025-06-15,U020,Life Sciences,connect,,38
+2025-06-15,U020,Life Sciences,email,,201
+2025-06-15,U020,Life Sciences,client_meeting,,8
+2025-07-15,U020,Life Sciences,call,,136
+2025-07-15,U020,Life Sciences,connect,,25
+2025-07-15,U020,Life Sciences,email,,190
+2025-07-15,U020,Life Sciences,client_meeting,,5
+2025-08-15,U020,Life Sciences,call,,61
+2025-08-15,U020,Life Sciences,connect,,14
+2025-08-15,U020,Life Sciences,email,,85
+2025-08-15,U020,Life Sciences,client_meeting,,2
+2025-09-15,U020,Life Sciences,call,,175
+2025-09-15,U020,Life Sciences,connect,,47
+2025-09-15,U020,Life Sciences,email,,244
+2025-09-15,U020,Life Sciences,client_meeting,,6
+2025-10-15,U020,Life Sciences,call,,168
+2025-10-15,U020,Life Sciences,connect,,46
+2025-10-15,U020,Life Sciences,email,,235
+2025-10-15,U020,Life Sciences,client_meeting,,7
+2025-11-15,U020,Life Sciences,call,,94
+2025-11-15,U020,Life Sciences,connect,,28
+2025-11-15,U020,Life Sciences,email,,131
+2025-11-15,U020,Life Sciences,client_meeting,,5
+2025-12-15,U020,Life Sciences,call,,107
+2025-12-15,U020,Life Sciences,connect,,31
+2025-12-15,U020,Life Sciences,email,,149
+2025-12-15,U020,Life Sciences,client_meeting,,7
+2025-01-15,U021,Public Sector,call,,169
+2025-01-15,U021,Public Sector,connect,,42
+2025-01-15,U021,Public Sector,email,,236
+2025-01-15,U021,Public Sector,client_meeting,,6
+2025-02-15,U021,Public Sector,call,,143
+2025-02-15,U021,Public Sector,connect,,35
+2025-02-15,U021,Public Sector,email,,200
+2025-02-15,U021,Public Sector,client_meeting,,8
+2025-03-15,U021,Public Sector,call,,144
+2025-03-15,U021,Public Sector,connect,,35
+2025-03-15,U021,Public Sector,email,,201
+2025-03-15,U021,Public Sector,client_meeting,,6
+2025-04-15,U021,Public Sector,call,,136
+2025-04-15,U021,Public Sector,connect,,34
+2025-04-15,U021,Public Sector,email,,190
+2025-04-15,U021,Public Sector,client_meeting,,4
+2025-05-15,U021,Public Sector,call,,132
+2025-05-15,U021,Public Sector,connect,,32
+2025-05-15,U021,Public Sector,email,,184
+2025-05-15,U021,Public Sector,client_meeting,,5
+2025-06-15,U021,Public Sector,call,,79
+2025-06-15,U021,Public Sector,connect,,22
+2025-06-15,U021,Public Sector,email,,110
+2025-06-15,U021,Public Sector,client_meeting,,2
+2025-07-15,U021,Public Sector,call,,211
+2025-07-15,U021,Public Sector,connect,,51
+2025-07-15,U021,Public Sector,email,,295
+2025-07-15,U021,Public Sector,client_meeting,,9
+2025-08-15,U021,Public Sector,call,,68
+2025-08-15,U021,Public Sector,connect,,14
+2025-08-15,U021,Public Sector,email,,95
+2025-08-15,U021,Public Sector,client_meeting,,2
+2025-09-15,U021,Public Sector,call,,94
+2025-09-15,U021,Public Sector,connect,,24
+2025-09-15,U021,Public Sector,email,,131
+2025-09-15,U021,Public Sector,client_meeting,,2
+2025-10-15,U021,Public Sector,call,,158
+2025-10-15,U021,Public Sector,connect,,36
+2025-10-15,U021,Public Sector,email,,221
+2025-10-15,U021,Public Sector,client_meeting,,6
+2025-11-15,U021,Public Sector,call,,105
+2025-11-15,U021,Public Sector,connect,,28
+2025-11-15,U021,Public Sector,email,,147
+2025-11-15,U021,Public Sector,client_meeting,,5
+2025-12-15,U021,Public Sector,call,,85
+2025-12-15,U021,Public Sector,connect,,15
+2025-12-15,U021,Public Sector,email,,118
+2025-12-15,U021,Public Sector,client_meeting,,2
+2025-01-15,U022,IT & Data,call,,157
+2025-01-15,U022,IT & Data,connect,,32
+2025-01-15,U022,IT & Data,email,,219
+2025-01-15,U022,IT & Data,client_meeting,,7
+2025-02-15,U022,IT & Data,call,,111
+2025-02-15,U022,IT & Data,connect,,28
+2025-02-15,U022,IT & Data,email,,155
+2025-02-15,U022,IT & Data,client_meeting,,6
+2025-03-15,U022,IT & Data,call,,106
+2025-03-15,U022,IT & Data,connect,,20
+2025-03-15,U022,IT & Data,email,,148
+2025-03-15,U022,IT & Data,client_meeting,,5
+2025-04-15,U022,IT & Data,call,,184
+2025-04-15,U022,IT & Data,connect,,54
+2025-04-15,U022,IT & Data,email,,257
+2025-04-15,U022,IT & Data,client_meeting,,12
+2025-05-15,U022,IT & Data,call,,102
+2025-05-15,U022,IT & Data,connect,,26
+2025-05-15,U022,IT & Data,email,,142
+2025-05-15,U022,IT & Data,client_meeting,,6
+2025-06-15,U022,IT & Data,call,,105
+2025-06-15,U022,IT & Data,connect,,31
+2025-06-15,U022,IT & Data,email,,147
+2025-06-15,U022,IT & Data,client_meeting,,7
+2025-07-15,U022,IT & Data,call,,122
+2025-07-15,U022,IT & Data,connect,,22
+2025-07-15,U022,IT & Data,email,,170
+2025-07-15,U022,IT & Data,client_meeting,,2
+2025-08-15,U022,IT & Data,call,,56
+2025-08-15,U022,IT & Data,connect,,13
+2025-08-15,U022,IT & Data,email,,78
+2025-08-15,U022,IT & Data,client_meeting,,2
+2025-09-15,U022,IT & Data,call,,42
+2025-09-15,U022,IT & Data,connect,,9
+2025-09-15,U022,IT & Data,email,,58
+2025-09-15,U022,IT & Data,client_meeting,,1
+2025-10-15,U022,IT & Data,call,,185
+2025-10-15,U022,IT & Data,connect,,39
+2025-10-15,U022,IT & Data,email,,259
+2025-10-15,U022,IT & Data,client_meeting,,8
+2025-11-15,U022,IT & Data,call,,170
+2025-11-15,U022,IT & Data,connect,,34
+2025-11-15,U022,IT & Data,email,,237
+2025-11-15,U022,IT & Data,client_meeting,,7
+2025-12-15,U022,IT & Data,call,,87
+2025-12-15,U022,IT & Data,connect,,25
+2025-12-15,U022,IT & Data,email,,121
+2025-12-15,U022,IT & Data,client_meeting,,6
