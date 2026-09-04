@@ -1,0 +1,122 @@
+placement_id,period,market,owner,priority,client,fee_pct,weekly_gp,contract_type,job_type,source,invoice_gp,ttf,job_owner
+5964,prior,Contract France Finance,Erika Matekete,B,Orange Bank FRANCE,17.39,1000,Original,,Linkedin,11600,,Erika Matekete
+5870,prior,Contract Brussels Finance/Support,Taniel Meydan,B,ORES,9.72,350,Original,,Linkedin,1400,,Antoine Francois
+5877,prior,Contract Brussels Construction/Engineering,Robin Josse,C,Takeda Belgium,12.18,475,Original,,Candidate Email Parser,6175,,Ghost_Bxl-Engineering
+5880,prior,Contract Brussels Construction/Engineering,Jeremy Jampsin,,AG Insurance,14.69,525,Original,,Linkedin,6090,,Jeremy Jampsin
+5882,prior,Contract Brussels IT Infrastructure,Malika Kheltent,B,Equans,19.46,725,Original,,ICTjob,18850,,Ghost_Bxl-IT-INFRA
+5883,prior,Contract France IT,Dogan De Smul,B,Equans,22.5,900,Original,,ICTjob,19260,,Tan-Alexis Nguyen
+5888,prior,Contract Belgium,Joakim Demeure,,Takeda Belgium,13.04,300,Original,,Linkedin,7620,,Joakim Demeure
+5889,prior,Contract Brussels IT,Amaury Van Reet,C,Pluxee Belgium SA,16.0,600,Original,,ICTjob,9600,,Amaury Van Reet
+5891,prior,Contract Brussels IT Dev,Ilya Kruglov,B,Ypto,20.78,800,Original,,ICTjob,12800,,Ilya Kruglov
+5894,prior,Contract Brussels IT,Maxime Metzgen,,Worldline SA,13.16,625,Original,,Job Board,9375,,Maxime Metzgen
+5895,prior,Contract Brussels IT Infrastructure,Malika Kheltent,A,AG Insurance,24.4,915,Original,,Linkedin,4026,,Ghost_Bxl-IT-INFRA
+5896,prior,Contract Brussels IT Dev,Ilya Kruglov,C,Equans,24.0,900,Original,,ICTjob,21060,,Ghost_Bxl-IT
+5898,prior,Contract France IT,Aymeric Guignet,,AXOR,19.35,480,Original,,Other,2400,,Aymeric Guignet
+5899,prior,Contract France IT,Aymeric Guignet,,ASAF AFPS GIEPS,15.0,375,Original,,Other,4875,,Aymeric Guignet
+5900,prior,Contract France IT,Aymeric Guignet,,ASAF AFPS GIEPS,25.25,625,Original,,Job Board,8125,,Aymeric Guignet
+5901,prior,Contract France IT,Aymeric Guignet,,LA RIVIERE SAS,20.0,500,Original,,Job Board,13000,,Aymeric Guignet
+5902,prior,Contract Brussels IT,Jordi Fernandez,,MSF International,20.0,375,Original,,Linkedin,4875,,Jordi Fernandez
+5903,prior,Contract Brussels IT Dev,Jordi Fernandez,C,AG Insurance,21.1,612,Original,,ICTjob,8565,,Jordi Fernandez
+5909,prior,Contract Brussels IT Dev,Malika Kheltent,C,ELIA,20.26,282,Original,,Other,6036,,Ghost_Bxl-IT
+5912,prior,Contract Brussels IT Dev,Maxime Metzgen,C,Euroclear SA/NV,20.0,675,Original,,Linkedin,8775,,Ghost_Bxl-IT
+5915,prior,Contract Brussels IT,Malika Kheltent,,Delhaize,18.46,600,Original,,Linkedin,7800,,Malika Kheltent
+5919,prior,Contract Belgium,Joakim Demeure,,KBC Bank,21.43,600,Original,,Other,7800,,Joakim Demeure
+5922,prior,Contract Brussels IT Dev,Jordi Fernandez,SPEC,AXA Belgium,26.67,1000,Original,,ICTjob,10000,,Jordi Fernandez
+5923,prior,Contract Brussels IT,Maxime Metzgen,,Worldline SA,13.16,625,Original,,Job Board,16250,,Maxime Metzgen
+5925,prior,Contract Brussels Finance/Support,Aleksandra Mazur,A,Carneti Sprl,12.99,500,Original,,Job Board,13000,,Aleksandra Mazur
+5926,prior,Contract Belgium,Joakim Demeure,,USG Solvus,19.44,700,Original,,Linkedin,4620,,Joakim Demeure
+5927,prior,Contract Brussels IT,Yassin Hadmoun,C,Euroclear SA/NV,15.66,650,Original,,Job Board,19500,,Yassin Hadmoun
+5930,prior,Contract France IT,Aymeric Guignet,,ROXANE Nord,40.0,1000,Original,,Turnover-IT,13000,,Aymeric Guignet
+5935,prior,Contract Middle-East,Malika Kheltent,,D'Ieteren Automotive,13.48,500,Original,,Job Board,2000,,Malika Kheltent
+5937,prior,Contract Brussels Finance/Support,Aleksandra Mazur,,Allianz Benelux,38.94,1353,Original,,Ad Response,23005,,Aleksandra Mazur
+5942,prior,Contract Morocco,Younes El Machaoud,,JESA SA,43.35,1368,Original,,Other,70862,,Younes El Machaoud
+5943,prior,Contract Morocco,Younes El Machaoud,,Vaneigens Maroc Sarl,100.0,88,Original,,Other,2188,,Younes El Machaoud
+5947,prior,Contract Brussels IT,Yassin Hadmoun,C,Euroclear SA/NV,19.23,750,Original,,Linkedin,39150,,Yassin Hadmoun
+5950,prior,Contract Brussels IT,Amaury Van Reet,A,Worldline SA,26.17,975,Original,,Linkedin,13650,,Amaury Van Reet
+5952,prior,Contract France Finance,Erika Matekete,,Aviva Investors France,16.67,1000,Original,,Linkedin,8800,,Erika Matekete
+5953,prior,Contract Morocco,Younes El Machaoud,C,JESA SA,13.17,585,Original,,Other,30672,,Younes El Machaoud
+5954,prior,Contract Brussels IT Data,Andrianina Ratovondrahona,B,TUC RAIL,17.86,500,Original,,Linkedin,3200,,Andrianina Ratovondrahona
+5958,prior,Contract France,Ghost France,,Treezor,22.54,160,Original,,Linkedin,1888,,Ghost France
+5959,prior,Contract Brussels IT Dev,Maxime Metzgen,C,Keytrade Bank,17.91,600,Original,,Linkedin,4200,,Ghost_Bxl-IT
+5962,prior,Contract Brussels IT Data,Andrianina Ratovondrahona,B,AG Insurance,17.14,600,Original,,Job Board,46200,,Andrianina Ratovondrahona
+5913,prior,Contract France,Romain Corbel,SPEC,Qualiconsult France,17.24,500,Original,,Turnover-IT,26100,,Ghost France
+8835,current,Contract Brussels IT Data,Andrianina Ratovondrahona,C,Belfius,12.5,500,Original,,Linkedin,6300,,Andrianina Ratovondrahona
+8839,current,Perm Belgium,Ghost_Antwerp-IT,B,Nxtport,20.0,750,Original,,ICTjob,9450,,Inne Veraart
+8855,current,Contract Brussels IT Dev,Ghost_Bxl-IT,C,D'Ieteren Automotive,15.09,560,Original,,Linkedin,7056,,Ghost_Bxl-IT
+8867,current,Contract Brussels IT Data,Andrianina Ratovondrahona,B,AG Insurance,9.68,375,Original,,Job Board,5325,,Andrianina Ratovondrahona
+8876,current,Contract Morocco,Achraf Sila,C,CGI Maroc,13.04,225,Original,,Linkedin,765,,Achraf Sila
+8886,current,Contract Brussels IT Dev,Ghost_Bxl-IT,C,Electrabel SA/NV,11.95,475,Original,,ICTjob,760,,Ghost_Bxl-IT
+8900,current,Contract Brussels IT Dev,Jordi Fernandez,,Euroclear SA/NV,28.0,1050,Original,,Linkedin,4200,,Jordi Fernandez
+9006,current,Contract Brussels IT Dev,Jordi Fernandez,,Euroclear SA/NV,19.14,710,Original,,ICTjob,8946,,Jordi Fernandez
+9008,current,Contract Brussels IT Infrastructure,Ghost_Bxl-IT-INFRA,A,AG Insurance,12.55,533,Original,,Linkedin,6721,,Ghost_Bxl-IT-INFRA
+9011,current,Contract Antwerp IT,Ghost_Antwerp-IT,SPEC,SGS Belgium NV,10.34,375,Original,,ICTjob,3225,,Ghost_Antwerp-IT
+9013,current,Contract Brussels IT Dev,Ghost_Bxl-IT,C,Euroclear SA/NV,16.67,500,Original,,Referral,6300,,Ghost_Bxl-IT
+9015,current,Contract Brussels IT Dev,Ghost_Bxl-IT-INFRA,C,BNP PARIBAS FORTIS,20.69,900,Original,,Linkedin,11340,,Ghost_Bxl-IT
+9019,current,Contract Brussels IT Dev,Ghost_Bxl-IT,A,BNP PARIBAS FORTIS,15.15,625,Original,,Linkedin,7875,,Ghost_Bxl-IT
+9020,current,Contract Brussels IT Dev,Ghost_Bxl-IT,C,BNP PARIBAS FORTIS,8.57,375,Original,,Linkedin,4725,,Ghost_Bxl-IT
+9026,current,Contract Brussels IT Dev,Ghost_Bxl-IT,SPEC,AXA Belgium,6.08,225,Original,,Linkedin,2475,,Ghost_Bxl-IT
+9027,current,Contract Brussels Construction/Engineering,Massimo Tripi,C,Fluxys,17.33,520,Original,,Linkedin,4160,,Massimo Tripi
+9030,current,Contract Brussels Finance/Support,Ghost_Bxl-HR,A,Fluxys,13.13,279,Original,,Linkedin,3515,,Aleksandra Mazur
+9031,current,Perm Belgium,Ghost_Antwerp-IT,B,Colruyt Group NV,10.26,400,Original,,Linkedin,6800,,Inne Veraart
+9036,current,Contract Brussels Construction/Engineering,Ghost_Bxl-Engineering,C,UCB,12.88,769,Original,,Linkedin,9695,,Olivier Dereppe
+9039,current,Contract Brussels IT Dev,Ghost_Bxl-IT,C,Electrabel SA/NV,6.67,250,Original,,Referral,2050,,Ghost_Bxl-IT
+9047,current,Contract Brussels IT Dev,Jordi Fernandez,C,Engie,11.43,400,Original,,Linkedin,3680,,Jordi Fernandez
+9050,current,Contract Brussels IT Data,Andrianina Ratovondrahona,B,Belfius,11.76,500,Original,,Linkedin,6300,,Andrianina Ratovondrahona
+9052,current,Contract Brussels Construction/Engineering,Ghost_Bxl-Engineering,C,Prayon NV,32.22,1450,Original,,Indeed,36830,,Ghost_Bxl-Engineering
+9054,current,Contract Brussels Construction/Engineering,Ghost_Bxl-Engineering,C,UCB,5.77,208,Original,,Linkedin,2621,,Jeremy Jampsin
+9066,current,Contract Brussels IT Dev,Ghost_Bxl-IT,A,Belins,11.41,425,Original,,LinkedIn,5355,,Ghost_Bxl-IT
+9067,current,Contract Brussels IT Dev,Ghost_Bxl-IT-INFRA,C,Belfius,5.56,250,Original,,Referral,3150,,Ghost_Bxl-IT
+9076,current,Contract Brussels Finance/Support,Aleksandra Mazur,C,BNP PARIBAS FORTIS,16.67,500,Original,,Linkedin,6300,,Aleksandra Mazur
+9077,current,Contract Brussels Finance/Support,Aleksandra Mazur,C,BNP PARIBAS FORTIS,21.38,775,Original,,Referral,9765,,Aleksandra Mazur
+9078,current,Contract Brussels Finance/Support,Aleksandra Mazur,A,BNP PARIBAS FORTIS,7.69,250,Original,,Referral,3150,,Aleksandra Mazur
+9080,current,Contract Antwerp Sr App & Data,Steven Otten,C,Ads & Data,15.0,510,Original,,Linkedin,5508,,Steven Otten
+9087,current,Contract Brussels IT Dev,Ghost_Bxl-IT,SPEC,ORES,9.86,450,Original,,ICTjob,5673,,Ghost_Bxl-IT
+9098,current,Contract Brussels IT Dev,Ghost_Bxl-IT,C,ELIA,9.46,350,Original,,Job Board,8890,,Ghost_Bxl-IT
+9105,current,Contract France IT,Ghost_Paris-IT,C,Union Financiere de France UFF,13.89,500,Original,,Turnover-IT,6300,,Ghost_Paris-IT
+9106,current,Contract France IT,Ghost_Paris-IT,C,Union Financiere de France UFF,14.48,525,Original,,Turnover-IT,6615,,Ghost_Paris-IT
+9109,current,Contract France IT,Ghost_Paris-IT,C,Engie Global Markets France,6.67,250,Original,,LinkedIn,2350,,Ghost_Paris-IT
+9112,current,Contract Antwerp IT,Ghost_Antwerp-IT,SPEC,ECS Corporate,19.05,600,Original,,ICTjob,7560,,Ghost_Antwerp-IT
+9113,current,Contract Brussels IT Dev,Ghost_Bxl-IT,SPEC,CAAMI,14.02,500,Original,,Linkedin,6300,,Ghost_Bxl-IT
+9115,current,Contract Brussels IT Data,Andrianina Ratovondrahona,C,Keytrade Bank,18.42,700,Original,,Candidate Email Parser,8820,,Andrianina Ratovondrahona
+9117,current,Contract France IT,Ghost_Paris-IT,C,Capital Fund Management,12.5,500,Original,,LinkedIn,6800,,Ghost_Paris-IT
+9118,current,Contract Brussels IT Dev,Ghost_Bxl-IT,A,Electrabel SA/NV,13.19,475,Original,,ICTjob,5985,,Ghost_Bxl-IT
+10639,current,Contract Brussels IT Data,Noemie Garcia,C,Federale Assurance,15.58,600,Original,Contract,Jobat,15840,51,Noemie Garcia
+10644,current,Contract Brussels Finance/Support,Karima Sbai,C,KBC Assurances,20.0,600,Original,Contract,Referral,18360,19,Ghost_Bxl-Finance
+10647,current,Contract Brussels IT Dev,Lemmy Chileshe,C,Engie,20.0,650,Original,Contract,Linkedin,8709,52,Lemmy Chileshe
+10649,current,Contract Brussels IT Data,Andrianina Ratovondrahona,SPEC,Yuzzu,9.44,342,Original,Opportunity,Linkedin,13614,105,Andrianina Ratovondrahona
+10650,current,Contract Brussels Construction/Engineering,Samuel Fondaire,SPEC,Tractebel (Engie) Brussels,9.09,350,Original,Contract,Job Board,18200,118,Samuel Fondaire
+10652,current,Contract Brussels IT Dev,Jordi Fernandez,C,Belfius,32.56,700,Original,Contract,Linkedin,16940,36,Jordi Fernandez
+10654,current,Contract France IT,Alexandre Leclerc,C,ENGIE,9.33,350,Original,Contract,Turnover-IT,18270,60,Alexandre Leclerc
+10655,current,Contract Brussels IT Dev,Jordi Fernandez,C,Cegeka,17.5,525,Original,Contract,Candidate Email Parser,20685,53,Jordi Fernandez
+10661,current,Contract Brussels IT Infrastructure,Yann Hugo,A,k-and-decide,31.85,1075,Original,Contract,Referral,12470,11,Yann Hugo
+10664,current,Contract Brussels Construction/Engineering,Michael Delval,C,Fluxys,28.46,905,Original,Contract,Linkedin,6154,24,Michael Delval
+10667,current,Contract Brussels Construction/Engineering,Margot Ouerdi,C,UCB,11.68,513,Original,Contract,Indeed,15275,84,Margot Ouerdi
+10674,current,Contract Brussels Construction/Engineering,Rayane Bouallou,B,Luminus,18.12,698,Original,Contract,Linkedin,17717,34,Rayane Bouallou
+10676,current,Contract Brussels IT Dev,Ghost_Bxl-IT-INFRA,A,Miris,21.95,225,Original,Contract,Other,23580,29,Ghost_Bxl-IT-INFRA
+10678,current,Contract Brussels Construction/Engineering,Massimo Tripi,A,Fluxys,16.94,415,Original,Contract,Linkedin,21663,42,Massimo Tripi
+10684,current,Contract France IT,Aymeric Guignet,B,SINARI TMS ENTREPRISE,21.82,600,Original,Contract,Other,16560,214,Aymeric Guignet
+10685,current,Contract Brussels Construction/Engineering,Samuel Fondaire,C,Equans,27.04,1060,Original,Contract,Other,27560,63,Samuel Fondaire
+10690,current,Contract Brussels Finance/Support,Aleksandra Mazur,C,ETHIAS,29.17,700,Original,Contract,Linkedin,9100,17,Aleksandra Mazur
+10691,current,Contract Luxembourg IT,Lorine Terracol,C,CHL Luxembourg,14.44,675,Original,Contract,Linkedin,19575,40,Lorine Terracol
+10694,current,Contract Brussels IT Infrastructure,Yvan Arkhurst,C,Securoad,23.61,850,Original,Temp-to-Perm,ICTjob,3740,32,Yvan Arkhurst
+10695,current,Contract Brussels Finance/Support,Sadji Tardieu,B,Alstom Belgium,17.14,600,Original,Contract,Job Board,23640,20,Sadji Tardieu
+10698,current,Contract Brussels IT Dev,Ghost_Bxl-IT,C,STIB,13.83,570,Original,Contract,Job Board,22458,4,Ghost_Bxl-IT
+10700,current,Contract Luxembourg IT,Carol Fabbri,C,Universal Investment IT Lux,13.89,500,Original,Contract,Turnover-IT,3500,53,Carol Fabbri
+10701,current,Contract Brussels IT Dev,Lemmy Chileshe,SPEC,Orange Belgium,34.92,1135,Contract Extension 1,Contract,Linkedin,3859,239,Lemmy Chileshe
+10702,current,Contract Brussels IT Infrastructure,Yann Hugo,A,Equans,28.57,800,Original,Contract,Linkedin,31520,35,Yann Hugo
+10708,current,Contract Brussels IT Infrastructure,Yann Hugo,A,k-and-decide,31.85,1075,Original,Contract,Referral,56330,47,Yann Hugo
+10715,current,Contract Brussels IT Infrastructure,Yann Hugo,A,Equans,25.93,700,Original,Contract,Linkedin,23660,55,Yann Hugo
+10718,current,Contract Luxembourg IT,Lorine Terracol,SPEC,BGL BNP Paribas Luxembourg,28.57,1200,Original,Contract,Linkedin,72720,29,Lorine Terracol
+10722,current,Contract Brussels IT Data,Andrianina Ratovondrahona,SPEC,Keytrade Bank,15.71,615,Original,Contract,Candidate Email Parser,21402,9,Andrianina Ratovondrahona
+10724,current,Contract Brussels Finance/Support,Sadji Tardieu,C,ELIA,16.67,700,Original,Contract,LinkedIn,24360,30,Sadji Tardieu
+10757,current,Contract Brussels IT Dev,Jordi Fernandez,A,Pluxee Belgium SA,27.91,600,Original,Contract,Linkedin,27120,222,Jordi Fernandez
+10598,current,Contract Brussels IT Dev,Jordi Fernandez,C,UCB,10.26,400,Original,Contract,Linkedin,12560,65,Jordi Fernandez
+10604,current,Contract Brussels IT Data,Victor Berger,B,Engie,15.58,600,Original,Opportunity,Linkedin,27480,20,Victor Berger
+10605,current,Contract Luxembourg IT,Carol Fabbri,C,FundsDLT (Luxembourg),13.29,575,Original,Contract,Linkedin,15065,44,Carol Fabbri
+10610,current,Contract Brussels Construction/Engineering,Massimo Tripi,C,Aperam Stainless Belgium,18.75,750,Original,Contract,Linkedin,7650,84,Massimo Tripi
+10613,current,Contract Brussels IT Data,Andrianina Ratovondrahona,C,AG Insurance,25.35,900,Original,Contract,Linkedin,94500,34,Andrianina Ratovondrahona
+10619,current,Contract Luxembourg IT,Lorine Terracol,A,Luxhub,35.56,1120,Original,Contract,Referral,14560,13,Lorine Terracol
+10621,current,Contract Brussels IT Data,Andrianina Ratovondrahona,SPEC,Luminus,27.01,925,Original,Opportunity,Linkedin,25345,40,Andrianina Ratovondrahona
+10629,current,Contract Brussels IT Data,Andrianina Ratovondrahona,B,Fugro,16.67,72,Original,Contract,Linkedin,3773,34,Andrianina Ratovondrahona
+10630,current,Contract Luxembourg IT,Lorine Terracol,C,FundsDLT (Luxembourg),23.53,1000,Original,Contract,LinkedIn,26000,31,Lorine Terracol
+10634,current,Contract Brussels IT Dev,Jordi Fernandez,C,ELIA,17.72,700,Original,Contract,Linkedin,8400,26,Jordi Fernandez

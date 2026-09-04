@@ -83,6 +83,35 @@ checks 10%. **The activity engine restarted; the qualification and perm engine d
 1.99→3.00 = +129 placements; A-jobs 6.7%→15% of jobs = +77; client calls 20.5k→61.6k
 (3.3→10.0 per head per day) = +514 but at the blended 7.3% fill rate, so the most expensive.
 
+### The contract book — the clean read (2026-09-04, row-level, 121 rows)
+
+Contract did NOT cross the March perm separation, so unlike perm these are performance
+numbers. `data/gentis/contract_placements_sample.csv`, analysed in `_contract_sample()`.
+
+**Contract margin is compressing: median fee 19.4% → 15.6% (−19%).** Mean 21.9% → 17.3%.
+26% of current contract placements sit below a 12% margin. Applied to €8.18M of contract
+GP a year, restoring the prior margin is worth roughly **€1.5M a year and needs no extra
+placements at all** — larger than any activity lever in `scenario()`. This is the single
+biggest number found in the whole exercise, and it is invisible on every OneView screen.
+
+**Owner attribution has collapsed: `Ghost_*` placeholders went from 2% to 36% of contract
+placements**, holding 14% of sampled GP (Ghost_Bxl-IT, Ghost_Paris-IT, Ghost_Antwerp-IT,
+Ghost_Bxl-IT-INFRA, Ghost_Bxl-Engineering, Ghost_Bxl-HR, Ghost France). Nobody is credited,
+nobody is accountable, and every leaderboard, commission and coaching number is wrong by
+that margin. Cheapest fix on the list.
+
+**Contract time-to-fill is 38 days median (p90 118), not the 578–593 OneView reports.**
+The reported metric measures through successive extensions. Contract delivery speed is a
+strength being reported as a disaster — do not "fix" it.
+
+**Desk margin does not follow desk volume.** Brussels IT Dev is the biggest contract desk
+by GP and the *lowest* margin (14.6%); Brussels IT Infrastructure earns 27.2% on a fraction
+of the volume. Luxembourg IT 19.0%. That mix is where the margin went.
+
+Also: 8% of contract jobs are typed "Opportunity" rather than a confirmed role; `Contract
+Type` cleanly separates "Original" from "Contract Extension 1"; and "Perm Belgium" rows
+appear inside a *contract* export (mis-grouped).
+
 ### Data quality — fix before quoting anything externally
 
 - **Billing contradiction**: contract €7.45M + perm €2.12M = €9.56M, but "Total Billing"
@@ -95,6 +124,9 @@ checks 10%. **The activity engine restarted; the qualification and perm engine d
   "Candidate Retainer"), median €5,000 against €15,400 for real placements. They inflate
   placement counts and flatter CV→placement, because a retainer needs no CV.
 - **4% of placements have €0 billing value.**
+- **New candidates never sent anywhere: 80% (77,584 of 96,955) in the 3y window, 85%
+  (10,104 of 11,876) in the last 12 months.** Sourcing volume that produces nothing, and
+  it was already the norm before the decline.
 - **`Ghost_*` owners** (Ghost_Bxl-IT, Ghost_Paris-IT, Ghost_Antwerp-IT, …) appear as
   placement *owner*, not just job owner — unattributable placements that break per-consultant
   analysis.

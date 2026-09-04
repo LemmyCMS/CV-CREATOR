@@ -244,6 +244,20 @@ footer p{margin:0 0 8px}
     <div class="grid" id="leverCards" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"></div>
   </section>
 
+  <section id="contract">
+    <div class="sec-head"><h2>The contract book</h2>
+      <span class="hint">The half of the business that did NOT cross the March separation — so this <em>is</em> performance.</span></div>
+    <p class="lede">Perm comparisons are compromised by the carve-out. Contract ones are not, which makes this the
+    cleanest read of how the business is actually running. Two things stand out, and neither is visible on any
+    OneView screen.</p>
+    <div class="grid g-2" id="contractCards"></div>
+    <div class="panel" style="margin-top:14px">
+      <h3>Contract desks by GP, with margin</h3>
+      <div class="sub">Most recent sample. Volume and margin do not line up — the biggest desk earns the least per euro billed.</div>
+      <svg class="chart" id="deskChart" role="img" aria-label="Contract desks by GP and margin"></svg>
+    </div>
+  </section>
+
   <section id="leaks">
     <div class="sec-head"><h2>Money already on the floor</h2>
       <span class="hint">Cube19's own actionable-insight counters, last 12 months.</span></div>
@@ -648,5 +662,78 @@ function current(){
     $("#curCards").appendChild(card);
   });
 }
-if (DATA) { masthead(); funnel(); ratios(); attainment(); current(); arithmetic(); levers(); leaks(); findings(); missing(); }
+function contractBook(){
+  const c = DATA.contract_sample;
+  if (!c || !c.rows) return;
+  const gpYear = DATA.gp.recent.contract_gp;
+  const cards = [
+    ["Contract margin is compressing",
+     c.margin_prior.median.toFixed(1) + "% → " + c.margin_current.median.toFixed(1) + "%",
+     "median fee %, " + c.prior_rows + " prior vs " + c.current_rows + " current rows",
+     "A " + Math.abs(Math.round(c.margin_change*100)) + "% fall in margin on the same kind of work. Applied to " +
+     eurM(gpYear) + " of contract GP a year, restoring the old margin would be worth roughly <b>" +
+     eurM(gpYear * Math.abs(c.margin_change)) + " a year</b> — more than any activity lever on this page, and it " +
+     "needs no extra placements at all. " + pct0(c.thin_margin_share) + " of current placements sit below a 12% margin.",
+     "crit"],
+    ["A third of contract placements have no real owner",
+     pct0(c.ghost_owner_share_prior) + " → " + pct0(c.ghost_owner_share_current),
+     "share of placements whose Owner is a Ghost_* placeholder",
+     "Placeholders like " + c.ghost_names.slice(0,3).join(", ") + " now hold " + pct0(c.ghost_gp_share) +
+     " of sampled GP. Nobody is credited, nobody is accountable, and every per-consultant number — leaderboards, " +
+     "commission, coaching — is wrong by that margin. This is the single easiest thing on the page to fix.",
+     "crit"],
+    ["Contract delivery is fast, not slow",
+     c.ttf_median + " days",
+     "median time to fill, against the " + Math.round(DATA.row_sample ? 578 : 578) + "-day figure OneView reports",
+     "The OneView contract time-to-fill is measured through successive extensions and is simply wrong. The real " +
+     "median is " + c.ttf_median + " days (p90 " + c.ttf_p90 + "). Contract delivery speed is a strength being " +
+     "reported as a catastrophe.",
+     "good"],
+    ["Job quality is unrecorded here too",
+     pct0(c.priority_mix.filter(p=>p.priority==="A"||p.priority==="A+").reduce((a,p)=>a+p.share,0)),
+     "share of contract placements with an A priority",
+     "Same pattern as perm: " + pct0(c.priority_mix.find(p=>p.priority==="C").share) + " are C-priority and " +
+     pct0(c.priority_mix.find(p=>p.priority==="(blank)").share) + " carry no priority at all. Separately, " +
+     pct0(c.job_types.find(j=>j.type==="Opportunity") ? c.job_types.find(j=>j.type==="Opportunity").share : 0) +
+     " of jobs are typed \"Opportunity\" rather than a confirmed role.",
+     "warn"],
+  ];
+  cards.forEach(x=>{
+    const card=el("div","panel");
+    card.appendChild(el("h3",null,x[0]));
+    const n=el("div","num"); n.style.cssText="font-size:30px;font-weight:600;letter-spacing:-.02em;margin:6px 0 2px";
+    n.textContent=x[1]; card.appendChild(n);
+    card.appendChild(el("div","sub",x[2]));
+    const w=el("div"); w.style.margin="4px 0 10px"; w.appendChild(chip(x[4], x[4]==="good"?"strength":x[4]==="warn"?"watch":"acting against you"));
+    card.appendChild(w);
+    const pp=el("p"); pp.style.cssText="font-size:12.5px;color:var(--ink-2);margin:0"; pp.innerHTML=x[3];
+    card.appendChild(pp);
+    $("#contractCards").appendChild(card);
+  });
+
+  // Desk chart: GP bars with margin as a separate marker on its own scale is a dual axis,
+  // so margin is direct-labelled instead and GP alone sets the bar length.
+  const rows=c.desks.filter(d=>d.n>=2);
+  const w=900,rowH=34,h=rows.length*rowH+30,labelW=270,barW=w-labelW-190;
+  const max=Math.max(...rows.map(d=>d.gp));
+  const s=$("#deskChart"); s.setAttribute("viewBox",`0 0 ${w} ${h}`); s.setAttribute("height",h);
+  rows.forEach((d,i)=>{
+    const y=i*rowH+14;
+    const tx=svg("text",{x:labelW-12,y:y+4,"text-anchor":"end",fill:cssv("--ink-2"),"font-size":"11.5"});
+    tx.textContent=d.desk.replace(/^Contract /,""); s.appendChild(tx);
+    const bw=Math.max((d.gp/max)*barW,2);
+    const bar=svg("rect",{x:labelW,y:y-7,width:bw,height:14,rx:4,fill:cssv("--s1"),opacity:0.88});
+    s.appendChild(bar);
+    const v=svg("text",{x:labelW+bw+10,y:y+4,class:"val"});
+    v.textContent=eur(d.gp); s.appendChild(v);
+    const m=svg("text",{x:w-8,y:y+4,"text-anchor":"end",class:"val",
+      fill: d.median_margin>=20?cssv("--good"):d.median_margin<15?cssv("--crit"):cssv("--ink-2")});
+    m.textContent=d.median_margin.toFixed(1)+"% margin"; s.appendChild(m);
+    hover(bar,d.desk,[["GP in sample",eur(d.gp)],["Placements",d.n],["Median margin",d.median_margin.toFixed(1)+"%"]]);
+  });
+  const note=svg("text",{x:labelW,y:h-4,fill:cssv("--ink-3"),"font-size":"10.5"});
+  note.textContent="bar = GP in the sampled rows · margin direct-labelled (a second axis would invent a correlation)";
+  s.appendChild(note);
+}
+if (DATA) { masthead(); funnel(); ratios(); attainment(); current(); arithmetic(); levers(); contractBook(); leaks(); findings(); missing(); }
 </script>

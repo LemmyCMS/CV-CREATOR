@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T19:10:35",
+  "generated_at": "2026-09-04T19:28:21",
   "company": "Gentis Consultancy",
   "source": "Cube19 OneView, company-wide aggregate",
   "periods": {
@@ -1018,6 +1018,153 @@
       {
         "source": "Indeed",
         "n": 1
+      }
+    ]
+  },
+  "contract_sample": {
+    "rows": 121,
+    "prior_rows": 41,
+    "current_rows": 80,
+    "margin_prior": {
+      "n": 41,
+      "median": 19.35,
+      "mean": 21.94609756097561,
+      "p10": 13.16,
+      "p90": 26.67
+    },
+    "margin_current": {
+      "n": 80,
+      "median": 15.645,
+      "mean": 17.343,
+      "p10": 9.33,
+      "p90": 28.57
+    },
+    "margin_change": -0.19147286821705434,
+    "thin_margin_share": 0.2625,
+    "ghost_owner_share_prior": 0.024390243902439025,
+    "ghost_owner_share_current": 0.3625,
+    "ghost_gp_share": 0.14134519865302805,
+    "ghost_names": [
+      "Ghost France",
+      "Ghost_Antwerp-IT",
+      "Ghost_Bxl-Engineering",
+      "Ghost_Bxl-HR",
+      "Ghost_Bxl-IT",
+      "Ghost_Bxl-IT-INFRA",
+      "Ghost_Paris-IT"
+    ],
+    "desks": [
+      {
+        "desk": "Contract Brussels IT Dev",
+        "n": 26,
+        "gp": 239071.0,
+        "median_margin": 14.55
+      },
+      {
+        "desk": "Contract Brussels IT Data",
+        "n": 11,
+        "gp": 228699.0,
+        "median_margin": 15.58
+      },
+      {
+        "desk": "Contract Brussels Construction/Engineering",
+        "n": 11,
+        "gp": 167525.0,
+        "median_margin": 17.33
+      },
+      {
+        "desk": "Contract Luxembourg IT",
+        "n": 6,
+        "gp": 151420.0,
+        "median_margin": 18.98
+      },
+      {
+        "desk": "Contract Brussels IT Infrastructure",
+        "n": 6,
+        "gp": 134441.0,
+        "median_margin": 27.25
+      },
+      {
+        "desk": "Contract Brussels Finance/Support",
+        "n": 8,
+        "gp": 98190.0,
+        "median_margin": 16.91
+      },
+      {
+        "desk": "Contract France IT",
+        "n": 6,
+        "gp": 56895.0,
+        "median_margin": 13.2
+      },
+      {
+        "desk": "Perm Belgium",
+        "n": 2,
+        "gp": 16250.0,
+        "median_margin": 15.13
+      },
+      {
+        "desk": "Contract Antwerp IT",
+        "n": 2,
+        "gp": 10785.0,
+        "median_margin": 14.7
+      },
+      {
+        "desk": "Contract Antwerp Sr App & Data",
+        "n": 1,
+        "gp": 5508.0,
+        "median_margin": 15.0
+      },
+      {
+        "desk": "Contract Morocco",
+        "n": 1,
+        "gp": 765.0,
+        "median_margin": 13.04
+      }
+    ],
+    "ttf_median": 38.0,
+    "ttf_p90": 118,
+    "job_types": [
+      {
+        "type": "Contract",
+        "n": 36,
+        "share": 0.9
+      },
+      {
+        "type": "Opportunity",
+        "n": 3,
+        "share": 0.075
+      },
+      {
+        "type": "Temp-to-Perm",
+        "n": 1,
+        "share": 0.025
+      }
+    ],
+    "priority_mix": [
+      {
+        "priority": "C",
+        "n": 54,
+        "share": 0.4462809917355372
+      },
+      {
+        "priority": "(blank)",
+        "n": 21,
+        "share": 0.17355371900826447
+      },
+      {
+        "priority": "A",
+        "n": 17,
+        "share": 0.14049586776859505
+      },
+      {
+        "priority": "B",
+        "n": 16,
+        "share": 0.1322314049586777
+      },
+      {
+        "priority": "SPEC",
+        "n": 13,
+        "share": 0.10743801652892562
       }
     ]
   },

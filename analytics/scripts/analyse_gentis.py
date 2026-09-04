@@ -71,6 +71,7 @@ def build() -> dict:
         "guards": cmp_["guards"],
         "broken_metrics": cmp_["broken_metrics"],
         "row_sample": rows,
+        "contract_sample": _contract_sample(),
         "current_window": {
             "label": current.label, "months": round(current.years * 12),
             "guards": cur_cmp["guards"], "comparable": cur_cmp["comparable"],
@@ -138,6 +139,65 @@ def _funnel(snap) -> list[dict]:
         {"label": "1st interviews", "value": snap.per_year(a.get("total_first_interviews", 0))},
         {"label": "Placements (funnel)", "value": snap.per_year(snap.funnel_placements or 0)},
     ]
+
+
+def _contract_sample() -> dict:
+    """Contract-side structural findings from the Slice & Dice pages.
+
+    The contract book is the half of the business that did NOT cross the March perm
+    separation, so unlike the perm figures these comparisons are about performance.
+    """
+    import csv, statistics
+    from collections import Counter, defaultdict
+    path = DATA / "contract_placements_sample.csv"
+    if not path.exists():
+        return {}
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    cur = [r for r in rows if r["period"] == "current"]
+    pri = [r for r in rows if r["period"] == "prior"]
+    fee = lambda r: float(r["fee_pct"])
+    gp = lambda r: float(r["invoice_gp"])
+
+    def margin(s):
+        f = sorted(fee(r) for r in s)
+        return {"n": len(f), "median": statistics.median(f), "mean": statistics.fmean(f),
+                "p10": f[int(0.1 * len(f))], "p90": f[int(0.9 * len(f))]}
+
+    desks = defaultdict(lambda: {"n": 0, "gp": 0.0, "fees": []})
+    for r in cur:
+        d = desks[r["market"]]
+        d["n"] += 1
+        d["gp"] += gp(r)
+        d["fees"].append(fee(r))
+    desk_rows = sorted(
+        ({"desk": m, "n": d["n"], "gp": round(d["gp"], 2),
+          "median_margin": round(statistics.median(d["fees"]), 2)} for m, d in desks.items()),
+        key=lambda r: -r["gp"])
+
+    ghost_cur = [r for r in cur if r["owner"].startswith("Ghost")]
+    ghost_pri = [r for r in pri if r["owner"].startswith("Ghost")]
+    ghost_all = [r for r in rows if r["owner"].startswith("Ghost")]
+    ttf = sorted(int(r["ttf"]) for r in rows if r["ttf"])
+    jt = Counter(r["job_type"] for r in rows if r["job_type"])
+    thin = [r for r in cur if fee(r) < 12]
+
+    m_pri, m_cur = margin(pri), margin(cur)
+    return {
+        "rows": len(rows), "prior_rows": len(pri), "current_rows": len(cur),
+        "margin_prior": m_pri, "margin_current": m_cur,
+        "margin_change": (m_cur["median"] - m_pri["median"]) / m_pri["median"],
+        "thin_margin_share": len(thin) / len(cur) if cur else 0,
+        "ghost_owner_share_prior": len(ghost_pri) / len(pri) if pri else 0,
+        "ghost_owner_share_current": len(ghost_cur) / len(cur) if cur else 0,
+        "ghost_gp_share": (sum(gp(r) for r in ghost_all) / sum(gp(r) for r in rows)) if rows else 0,
+        "ghost_names": sorted({r["owner"] for r in ghost_all}),
+        "desks": desk_rows,
+        "ttf_median": statistics.median(ttf) if ttf else None,
+        "ttf_p90": ttf[int(0.9 * len(ttf))] if ttf else None,
+        "job_types": [{"type": k, "n": n, "share": n / sum(jt.values())} for k, n in jt.most_common()],
+        "priority_mix": [{"priority": k or "(blank)", "n": n, "share": n / len(rows)}
+                         for k, n in Counter(r["priority"] or "(blank)" for r in rows).most_common()],
+    }
 
 
 def report(d: dict) -> None:
