@@ -217,6 +217,13 @@ when the CRM has none), Sending engine (warm-up caps, randomised windows, 3% bou
 Replies (AI classes → reply creates Opportunity, stops sequence, pushes to CRM), Opportunities
 board, Analytics, Workflow map, Data model. All data in it is fictional sample data;
 opportunity values use Gentis coefficients (€16,410 perm fee, €713/wk × 46 contractor year).
+**v2 (2026-09-24):** *Tasks & relances* ranks every follow-up by placement likelihood =
+base rate by trigger × FitScore × past placements × engagement × timing × PSL status, capped 90%
+(base rates `[PRIOR]` until 50 closed tasks). A "Not now" reply with a month becomes a dated
+relance three weeks before it (Lumen: relance 14 Dec, re-enrol 4 Jan). *Accounts & PSL* tracks a
+5-step supplier-account checklist and preferred-supplier listing (direct PSL, procurement panel,
+MSP portal); **an opportunity cannot move to Won unless the account is open and, where the
+client uses a PSL, we are listed.**
 
 ## Access constraints discovered (do not re-litigate these)
 

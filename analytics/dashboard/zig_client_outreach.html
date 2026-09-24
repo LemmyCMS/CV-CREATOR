@@ -293,6 +293,42 @@ mark.bad{background:var(--crit-bg);color:var(--crit);border-bottom:2px solid var
 .hr{height:1px;background:var(--line-soft);margin:14px 0}
 .boolean{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:6px;padding:10px;white-space:pre-wrap;word-break:break-word}
 
+/* tasks */
+.tasks{display:flex;flex-direction:column;gap:8px}
+.task{display:grid;grid-template-columns:28px 118px minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;text-align:left;width:100%}
+.task:hover{border-color:var(--info-mk)}
+.task.new{box-shadow:0 0 0 2px var(--ai)}
+.task.done{opacity:.55}
+.task .rk{font-family:Archivo,sans-serif;font-weight:700;font-size:17px;color:var(--ink-3);text-align:center}
+.task .lk{display:flex;flex-direction:column;gap:3px}
+.task .lk .p{font-family:Archivo,sans-serif;font-size:22px;font-weight:700;line-height:1}
+.task .lk .bar{height:6px;border-radius:3px;background:var(--line-soft);overflow:hidden}
+.task .lk .bar i{display:block;height:100%;border-radius:3px}
+.task .lk .u{font-size:10.5px;color:var(--ink-3)}
+.task .bd{display:flex;flex-direction:column;gap:3px;min-width:0}
+.task .ttl{font-weight:600;font-size:14px}
+.task .who{font-size:12.5px;color:var(--ink-2)}
+.task .why{font-size:12.5px;color:var(--ink-3)}
+.task .due{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.task .ev{font-size:12px;color:var(--ink-2)}
+.grp-h{display:flex;align-items:baseline;gap:10px;margin:20px 0 8px}
+.grp-h h3{font-size:15px}
+.grp-h .sub{font-size:12.5px;color:var(--ink-3)}
+.tl{display:flex;flex-direction:column;gap:10px}
+.tl-i{display:grid;grid-template-columns:10px 64px minmax(0,1fr);gap:10px;align-items:start;font-size:13px}
+.tl-i .dot{margin-top:5px}
+.tl-d{font-size:12px;color:var(--ink-2);padding-top:1px}
+.nba{display:flex;flex-direction:column}
+.nba button{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;border:0;border-bottom:1px solid var(--line-soft);background:none;padding:10px 0;text-align:left}
+.nba button:last-child{border-bottom:0}
+.nba button:hover .ttl{color:var(--info)}
+.nba .p{font-family:Archivo,sans-serif;font-weight:700;font-size:18px}
+@media (max-width:700px){
+  .task{grid-template-columns:24px minmax(0,1fr);gap:8px 12px}
+  .task > *:not(.rk){grid-column:2}
+  .task .due{flex-direction:row;align-items:center;justify-content:flex-start;flex-wrap:wrap}
+}
+
 @media (max-width:1180px){
   .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
   .rail{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -368,7 +404,7 @@ const companies = [
   contacts:[{id:"CT-2210",first:"Karel",last:"Peeters",role:"HR Manager",sen:"Manager",email:"valid",seq:"SEQ-C",score:88,ev:{o:5,c:3,r:1}},{id:"CT-2211",first:"Ines",last:"Maes",role:"Project Manager",sen:"Manager",email:"valid",seq:null,score:12,ev:{o:1,c:0,r:0}}]},
  {id:"CO-1043",name:"Lumen Grid Energy",industry:"Energy / Utilities",size:"1000+",sizeFit:12,country:"LU",city:"Luxembourg",segment:3,source:"CRM import",
   signals:["Digital transformation programme","Procurement framework renewal"],hiring:"Medium",stack:["SAP S/4HANA","ServiceNow"],
-  prior:{placements:0,lastContact:null},indRel:22,hireAct:18,dm:8,outreach:"In sequence",opp:null,desk:"Luxembourg IT",
+  prior:{placements:0,lastContact:"2026-09-23"},indRel:22,hireAct:18,dm:8,outreach:"In sequence",opp:null,desk:"Luxembourg IT",
   pains:["Supplier panel closes Nov","Needs SAP consultants"],tone:"corporate",
   contacts:[{id:"CT-2220",first:"Marc",last:"Weber",role:"CIO",sen:"C-level",email:"valid",seq:"SEQ-A",score:24,ev:{o:3,c:0,r:0}},{id:"CT-2221",first:"Sophie",last:"Klein",role:"Procurement",sen:"Manager",email:"valid",seq:"SEQ-A",score:40,ev:{o:3,c:1,r:0}}]},
  {id:"CO-1044",name:"Kestrel Talent Partners",industry:"Recruitment agency",size:"11–50",sizeFit:9,country:"FR",city:"Lille",segment:1,source:"LinkedIn signal",
@@ -426,7 +462,7 @@ let replies = [
  {id:"RP-95",ct:"CT-2240",co:"CO-1045",cls:"Unsubscribe",text:"Please remove me from your list.",mins:300,handled:false},
 ];
 const CLS = {"Interested":"good","Referral":"good","Not now":"warn","Out of office":"neutral","Unsubscribe":"crit","Bounce":"crit"};
-const CLS_ACTION = {"Interested":"Stop sequence · create opportunity","Referral":"Add new contact · personalise from reply","Not now":"Pause · re-enrol in January","Out of office":"Shift next step by return date","Unsubscribe":"Suppress domain contact · GDPR log"};
+const CLS_ACTION = {"Interested":"Stop sequence · create opportunity","Referral":"Add new contact · personalise from reply","Not now":"Pause · schedule a relance before the date they gave","Out of office":"Shift next step by return date","Unsubscribe":"Suppress domain contact · GDPR log"};
 
 const sequences = [
  {id:"SEQ-A",name:"Hiring signal · tech & engineering",fit:"Enterprises and startups with open roles",enrolled:64,sent:212,opens:104,clicks:21,replies:15,positive:6,opps:4,
@@ -506,6 +542,11 @@ function alerts(){
   if (due.length) a.push({tone:"warn",ic:"↻",t:`Repeat business: ${due.length} past client due a follow-up`,m:due.map(c=>`${c.name} · last contact ${c.prior.lastContact}`).join(", "),go:"companies"});
   const catchall = companies.flatMap(c=>c.contacts.filter(k=>k.email==="catch-all").map(k=>c.name));
   if (catchall.length) a.push({tone:"warn",ic:"?",t:`${catchall.length} catch-all address not enrolled`,m:"Catch-all domains cannot be verified. Sent only after LinkedIn confirmation.",go:"companies"});
+  const autoT = tasks.filter(t=>t.by==="system"&&t.src);
+  autoT.forEach(t=>a.push({tone:"info",ic:"↻",t:`Relance scheduled for ${coById(t.co).name}`,m:`From a “Not now” reply · email ${fmtD(parseD(t.due))} · sequence resumes ${fmtD(parseD(t.reenrol))}`,go:"tasks"}));
+  companies.filter(c=>opps.some(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage))&&!canBill(c)).forEach(c=>{const o=opps.find(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage)); a.push({tone:"crit",ic:"€",t:`${o.id} at ${c.name} cannot be invoiced`,m:`${o.stage} · ${eurk(o.value)} · ${billBlocker(c)}`,go:"accounts"});});
+  const od = tasks.filter(t=>t.status==="open"&&daysTo(t.due)<0);
+  if (od.length) a.push({tone:"crit",ic:"!",t:`${od.length} follow-up task overdue`,m:od.map(t=>coById(t.co).name+" · "+t.title).join(", "),go:"tasks"});
   if (send.sentToday/send.cap > .6) a.push({tone:"info",ic:"i",t:`Sending at ${send.sentToday}/${send.cap} of today's warm-up cap`,m:`${send.queued} queued in the afternoon window · bounce rate ${send.bounceRate}% (pause at 3%)`,go:"sending"});
   return a;
 }
@@ -519,6 +560,8 @@ const VIEWS = [
  {id:"sending",nm:"Sending engine",step:"5"},
  {id:"engagement",nm:"Replies & engagement",step:"6"},
  {id:"opportunities",nm:"Opportunities",step:"7"},
+ {id:"tasks",nm:"Tasks & relances",step:"8"},
+ {id:"accounts",nm:"Accounts & PSL",step:""},
  {sep:"Reference"},
  {id:"analytics",nm:"Analytics",step:""},
  {id:"workflow",nm:"Workflow map",step:""},
@@ -531,6 +574,8 @@ function navCounts(){
   const r = replies.filter(x=>!x.handled && (x.cls==="Interested"||x.cls==="Referral"));
   return {
     today:[alerts().filter(a=>a.tone==="crit").length,"crit"],
+    accounts:[companies.filter(c=>opps.some(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage))&&!canBill(c)).length,"crit"],
+    tasks:[tasks.filter(t=>t.status==="open"&&daysTo(t.due)<=0).length, tasks.some(t=>t.status==="open"&&daysTo(t.due)<0)?"crit":"warn"],
     engagement:[r.length, r.some(x=>x.mins>120)?"crit":"good"],
     opportunities:[opps.filter(o=>!["Won","Lost"].includes(o.stage)).length,"neutral"],
     companies:[companies.filter(c=>["Follow-up due","Bounced"].includes(c.outreach)).length,"warn"],
@@ -575,6 +620,10 @@ function vToday(){
       <div style="margin-top:10px"><button class="btn primary" data-go="engagement">Handle replies</button></div>
     </div>
   </div>
+  <div class="panel" style="margin-top:16px"><div class="panel-head"><h3>Next best actions</h3><span class="sub">due now · ranked by placement likelihood</span></div>
+    <div class="nba">${tasks.filter(t=>t.status==="open"&&daysTo(t.due)<=0).sort((a,b)=>scoreTask(b).p-scoreTask(a).p).slice(0,4).map(t=>{const s=scoreTask(t);const c=coById(t.co);return `<button data-task="${t.id}"><span class="p num" style="color:${likeTone(s.p)}">${Math.round(s.p*100)}%</span><span><span class="ttl" style="font-weight:600;display:block">${esc(t.title)}</span><span class="note">${esc(c.name)} · ${esc(t.type)} · ${eurk(s.ev)} expected</span></span>${dueChip(t)}</button>`}).join("")}</div>
+    <div style="margin-top:8px"><button class="btn" data-go="tasks">All tasks</button></div>
+  </div>
   <div class="panel" style="margin-top:16px"><div class="panel-head"><h3>Workflow right now</h3><span class="sub">companies at each step · click a step to open it</span></div>
     <div class="rail">${st.map((s,i)=>`<button class="rail-step" data-go="${s.go}"><div class="n">Step ${i+1}</div><div class="nm">${s.nm}</div><div class="c num">${s.c}</div><div class="u">${s.u}</div>${s.flag?`<span class="flag dot ${s.flag}" title="needs attention"></span>`:""}</button>`).join("")}</div>
   </div>`;
@@ -589,7 +638,7 @@ function stepCounts(){
     {nm:"Sending engine",c:send.sentToday,u:`sent today · ${send.queued} queued`,go:"sending",flag:send.held?"warn":""},
     {nm:"Engagement tracking",c:replies.length,u:"replies this week",go:"engagement"},
     {nm:"Opportunity creation",c:opps.filter(o=>o.stage!=="Lost").length,u:"opportunities",go:"opportunities",flag:opps.some(o=>o.crm==="error")?"crit":""},
-    {nm:"Follow-up logic",c:sequences.reduce((s,q)=>s+Math.round(q.enrolled*.3),0),u:"AI rewrites scheduled",go:"sequences"},
+    {nm:"Follow-up logic",c:tasks.filter(t=>t.status!=="done").length,u:"tasks & relances",go:"tasks",flag:tasks.some(t=>t.status==="open"&&daysTo(t.due)<0)?"crit":""},
   ];
 }
 
@@ -612,7 +661,7 @@ function vCompanies(){
     <button class="btn" data-act="import">Import list</button><button class="btn primary" data-act="add">Add company</button>
   </div>
   <div class="tbl-wrap"><table>
-    <thead><tr><th>Company</th><th>Segment</th><th>Hiring signals</th><th>FitScore</th><th>Decision makers</th><th>Outreach</th><th>Opportunity</th></tr></thead>
+    <thead><tr><th>Company</th><th>Segment</th><th>Hiring signals</th><th>FitScore</th><th>Decision makers</th><th>Account · PSL</th><th>Outreach</th><th>Opportunity</th></tr></thead>
     <tbody>${list.map(c=>{
       const bad = c.contacts.filter(k=>k.email!=="valid").length;
       return `<tr class="click" data-co="${c.id}" tabindex="0">
@@ -621,6 +670,7 @@ function vCompanies(){
       <td style="max-width:220px"><div class="chips">${c.signals.slice(0,2).map(s=>`<span class="chip sig">${esc(s)}</span>`).join("")}</div></td>
       <td><div class="fit"><span class="num">${c.fit}</span><span class="bar"><i style="width:${c.fit}%;background:${fitColor(c.fit)}"></i></span></div></td>
       <td>${c.contacts.length?`<span class="num">${c.contacts.length}</span> <span class="meta">found</span>${bad?` ${pill(c.contacts.some(k=>k.email==="invalid")?"crit":"warn",bad+" unverified")}`:""}`:pill("warn","Discovery pending")}</td>
+      <td><div style="display:flex;flex-direction:column;gap:4px;align-items:flex-start">${pill(...acctState(c))}${c.acct.psl.uses?pill(...pslState(c)):""}</div></td>
       <td>${pill(OUT[c.outreach],c.outreach)}</td>
       <td>${c.opp?pill(c.opp==="Lost"?"crit":c.opp==="Won"?"good":"info",c.opp):`<span class="muted">–</span>`}</td></tr>`}).join("")}
     </tbody></table></div>
@@ -644,6 +694,8 @@ function openCompany(id){
       <dt>Matching desk</dt><dd>${esc(c.desk)}</dd>
       <dt>History</dt><dd>${c.prior.placements?`${c.prior.placements} placement(s) · last contact ${c.prior.lastContact}`:c.prior.lastContact?`Contacted ${c.prior.lastContact}, no placement`:`<span class="muted">No previous interaction</span>`}</dd>
     </dl>
+    <div class="sect"><h4>Supplier account · ${acctN(c)}/5</h4><div class="chips" style="margin-bottom:8px">${pill(...acctState(c))} ${pill(...pslState(c))}${c.acct.psl.route?` <span class="chip">${esc(c.acct.psl.route)}</span>`:""}</div>${c.acct.psl.note?`<p class="note" style="margin:0 0 8px">${esc(c.acct.psl.note)}</p>`:""}
+      <div class="checks">${ACCT_STEPS.map((s,i)=>`<div><button class="ck ${c.acct.done[i]?"ok":"wa"}" style="border:0;cursor:pointer" data-astep="${c.id}:${i}" aria-label="${c.acct.done[i]?"Mark not done":"Mark done"}: ${s}">${c.acct.done[i]?"✓":i+1}</button><span>${s}</span></div>`).join("")}${c.acct.psl.uses?`<div><button class="ck ${c.acct.psl.member?"ok":"no"}" style="border:0;cursor:pointer" data-psl="${c.id}" aria-label="Toggle preferred-supplier listing">${c.acct.psl.member?"✓":"×"}</button><span>Listed on their ${esc(c.acct.psl.route.toLowerCase())}</span></div>`:""}</div></div>
     <div class="sect"><h4>Hiring signals</h4><div class="chips">${c.signals.map(s=>`<span class="chip sig">${esc(s)}</span>`).join("")}</div></div>
     <div class="sect"><h4>FitScore breakdown</h4>${brk.map(([l,v,m])=>`<div class="brk"><span>${l}</span><span class="bar"><i style="width:${100*v/m}%"></i></span><span class="num r">${v}/${m}</span></div>`).join("")}</div>
     <div class="sect"><h4>Decision makers</h4>${c.contacts.length?c.contacts.map(k=>`<div class="person"><span class="av">${initials(k)}</span><div><div style="font-weight:600">${esc(k.first+" "+k.last)}</div><div class="meta muted" style="font-size:12px">${esc(k.role)} · ${esc(k.sen)} · ${k.seq?`in ${k.seq}`:"not enrolled"}</div></div><div style="text-align:right">${pill(EMAIL[k.email][0],EMAIL[k.email][1])}<div class="num muted" style="font-size:11.5px;margin-top:3px">score ${k.score}</div></div></div>`).join(""):`<p class="muted">No contacts yet. Discovery searches for: ${roles.join(", ")}.</p>`}</div>
@@ -786,7 +838,7 @@ function vEngagement(){
   `<div class="grid g-main">
     <div class="panel"><div class="panel-head"><h3>Reply inbox</h3><span class="sub">${replies.filter(r=>!r.handled).length} to handle</span></div>
       ${replies.map(r=>{const [ct,co]=ctById(r.ct); return `<div class="reply" style="${r.handled?"opacity:.55":""}"><div><div class="who">${esc(co.name)} <span class="muted" style="font-weight:400;font-size:12.5px">· ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)}</span></div><div class="q">“${esc(r.text)}”</div><div class="note" style="margin-top:4px">${r.handled?"Handled · "+esc(r.done):"Next: "+esc(CLS_ACTION[r.cls])}</div></div>
-        <div class="acts">${pill(CLS[r.cls],r.cls)}${r.handled?"":`<span class="sla" style="color:var(--${slaTone(r.mins)})">${slaTxt(r.mins)}</span>${r.cls==="Interested"?`<button class="btn sm good" data-opp="${r.id}">Create opportunity</button>`:`<button class="btn sm" data-handle="${r.id}">Apply</button>`}`}</div></div>`}).join("")}
+        <div class="acts">${pill(CLS[r.cls],r.cls)}${r.handled?"":`<span class="sla" style="color:var(--${slaTone(r.mins)})">${slaTxt(r.mins)}</span>${r.cls==="Interested"?`<button class="btn sm good" data-opp="${r.id}">Create opportunity</button>`:(r.cls==="Not now"?`<button class="btn sm" data-relance="${r.id}">Schedule relance</button>`:`<button class="btn sm" data-handle="${r.id}">Apply</button>`)}`}</div></div>`}).join("")}
     </div>
     <div class="panel"><div class="panel-head"><h3>Interest score</h3><span class="sub">per contact</span></div>
       <div class="note" style="margin-bottom:8px">open +3 · click +8 · reply +25 · positive +40 · bounce resets to 0 · decays 10% a week</div>
@@ -811,7 +863,7 @@ function vOpps(){
     <div class="kpi neutral"><div class="k">Reply → opportunity</div><div class="v num">${pct(sequences.reduce((s,q)=>s+q.opps,0),sequences.reduce((s,q)=>s+q.replies,0),0)}</div><div class="d">of all replies</div></div>
   </div>
   <div class="board">${STAGES.map(s=>{const L = opps.filter(o=>o.stage===s); return `<div class="col"><div class="col-h" style="border-bottom-color:${STAGE_COL[s]}"><b>${s}</b><span class="num">${L.length} · ${eurk(L.reduce((a,o)=>a+o.value,0))}</span></div>
-    ${L.map(o=>{const co=coById(o.co); const [ct]=ctById(o.ct); const i=STAGES.indexOf(o.stage); return `<div class="opp ${o.id===freshOpp?"fresh":""}"><div class="row"><span class="nm">${esc(co.name)}</span></div><div class="muted" style="font-size:12px">${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</div><div class="row"><span class="num" style="font-weight:600">${eurk(o.value)}</span><span class="chip">${o.type}</span></div><div style="color:var(--ink-2)">${esc(o.notes)}</div><div class="row">${pill(CRM[o.crm][0],CRM[o.crm][1])}<span class="muted num" style="font-size:11px">${o.id} · ${o.age}</span></div>
+    ${L.map(o=>{const co=coById(o.co); const [ct]=ctById(o.ct); const i=STAGES.indexOf(o.stage); return `<div class="opp ${o.id===freshOpp?"fresh":""}"><div class="row"><span class="nm">${esc(co.name)}</span></div><div class="muted" style="font-size:12px">${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</div><div class="row"><span class="num" style="font-weight:600">${eurk(o.value)}</span><span class="chip">${o.type}</span></div><div style="color:var(--ink-2)">${esc(o.notes)}</div>${!["Won","Lost"].includes(o.stage)&&!canBill(co)?`<div style="color:var(--crit);font-weight:600;font-size:12px">Not billable: ${esc(billBlocker(co))}</div>`:""}<div class="row">${pill(CRM[o.crm][0],CRM[o.crm][1])}<span class="muted num" style="font-size:11px">${o.id} · ${o.age}</span></div>
       <div class="row">${i>0&&i<5?`<button class="btn sm" data-mv="${o.id}" data-d="-1" aria-label="Move back">←</button>`:"<span></span>"}${o.crm==="error"?`<button class="btn sm" data-retry="${o.id}">Retry sync</button>`:""}${i<4?`<button class="btn sm" data-mv="${o.id}" data-d="1">${STAGES[i+1]} →</button>`:""}</div></div>`}).join("")||`<p class="note">None</p>`}</div>`}).join("")}</div>
   <div class="panel" style="margin-top:16px"><h3 style="font-size:14px;margin-bottom:8px">Negotiation workflow · triggered when an opportunity reaches Negotiation</h3>
     <div class="states"><span class="pill info plain">Rates sent</span><span class="arrow">→</span><span class="pill info plain">Margin check ≥ 20% freelance · fee ≥ 18% perm</span><span class="arrow">→</span><span class="pill warn plain">Below floor: manager approval</span><span class="arrow">→</span><span class="pill info plain">Terms signed</span><span class="arrow">→</span><span class="pill good plain">Won · job created in CRM</span></div>
@@ -865,7 +917,7 @@ function vWorkflow(){
     ["Sending engine",["Warm-up caps per mailbox","Randomised windows, local hours","Bounce monitoring","Domain reputation guard"],"<b>Bounce ≥ 3%</b> → mailbox paused","crit"],
     ["Engagement tracking",["Opens and clicks","Replies classified by AI","Bounce classification","Interest score"],"Any reply → sequence stops","info"],
     ["Opportunity creation",["Create Opportunity","Assign stage and value","Push to CRM","Trigger negotiation workflow"],"<b>Sync error</b> → red alert until retried","good"],
-    ["Follow-up logic",["AI rewrites follow-up","Tone adjusted to response style","Next step scheduled","Incoming-business notification"],"Last step, no reply → recycle in 90 days","warn"],
+    ["Follow-up logic",["AI rewrites follow-up","Tone adjusted to response style","Next step scheduled","Incoming-business notification","“Not now” → dated relance task"],"Last step, no reply → recycle in 90 days","warn"],
   ];
   return head("Reference","Workflow map","The eight steps end to end, the rule that guards each one, and the branch that decides every contact's fate after a send.") +
   `<div class="wf">${W.map(([n,l,r,t],i)=>`<div class="wf-card"><div class="top"><span class="n">Step ${i+1}</span><span class="dot ${t}"></span></div><h4>${n}</h4><ul>${l.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="rule">${r}</div></div>`).join("")}</div>
@@ -884,11 +936,12 @@ function vWorkflow(){
 /* ---- Data model ---- */
 function vModel(){
   const M = [
-    ["Company","companies",[["CompanyID","pk","uuid"],["Name","","text"],["Industry","","enum"],["Size","","enum · employee band"],["Country","","ISO-3166 · BE LU FR"],["HiringSignals[]","","HiringSignal[]"],["Contacts[]","","Contact[]"],["OutreachStatus","","enum"],["OpportunityStatus","","enum · derived"],["FitScore","new","int 0–100 · with breakdown"],["Segment","new","enum · 6 client types"],["Source","new","import · signal · crm · manual · repeat"],["TechStack[]","new","text[]"],["PriorPlacements","new","int · from placements table"],["Desk","new","fk → desk crosswalk"]]],
+    ["Company","companies",[["CompanyID","pk","uuid"],["Name","","text"],["Industry","","enum"],["Size","","enum · employee band"],["Country","","ISO-3166 · BE LU FR"],["HiringSignals[]","","HiringSignal[]"],["Contacts[]","","Contact[]"],["OutreachStatus","","enum"],["OpportunityStatus","","enum · derived"],["FitScore","new","int 0–100 · with breakdown"],["AccountSteps[5]","new","bool[] · supplier account checklist"],["AccountOpenedAt","new","date · null until 5/5"],["UsesPSL","new","bool · null = unknown"],["PSLStatus","new","listed · not listed · applying"],["PSLRoute","new","direct PSL · procurement panel · MSP portal"],["PSLWindow / RenewAt","new","date"],["Segment","new","enum · 6 client types"],["Source","new","import · signal · crm · manual · repeat"],["TechStack[]","new","text[]"],["PriorPlacements","new","int · from placements table"],["Desk","new","fk → desk crosswalk"]]],
     ["Contact","contacts",[["ContactID","pk","uuid"],["CompanyID","fk","→ Company"],["FirstName","","text"],["LastName","","text"],["Role","","enum · CTO, CIO, HR…"],["Email","","text"],["EmailStatus","new","valid · catch-all · invalid"],["LinkedInURL","","url"],["Seniority","","C-level · Founder · Manager"],["SequenceID","fk","→ Sequence · null"],["EngagementScore","","int 0–100 · decays"],["Suppressed","new","bool · GDPR opt-out"]]],
     ["Opportunity","opportunities",[["OpportunityID","pk","uuid"],["CompanyID","fk","→ Company"],["ContactID","fk","→ Contact"],["Stage","","New · Contacted · Qualified · Negotiation · Won · Lost"],["ValueEstimate","","eur · perm fee or contractor year"],["Type","new","Perm · Freelance · Subcontract · Project"],["Notes","","text"],["SourceReplyID","new","fk → Reply"],["CrmSyncStatus","new","synced · pending · error"],["StageEnteredAt","new","timestamp per stage"]]],
     ["Sequence","sequences",[["SequenceID","pk","text"],["Name","","text"],["Segment","","enum"],["Steps[]","","{day, channel, blocks[], condition}"],["StopOnReply","","bool · always true"]]],
     ["Event","engagement_events",[["EventID","pk","uuid"],["ContactID","fk","→ Contact"],["StepIndex","","int"],["Type","","sent · open · click · reply · bounce"],["BounceClass","","hard · soft · block"],["At","","timestamp"]]],
+    ["Task","tasks",[["TaskID","pk","uuid"],["Type","","Reply · Relance · Call · Send · Re-enrol · Re-validate"],["CompanyID","fk","→ Company"],["ContactID","fk","→ Contact"],["SourceReplyID","fk","→ Reply · null"],["DueAt","","date · read from the reply when given"],["Likelihood","","0–0.9 · base × fit × history × engagement × timing"],["ExpectedValue","","eur · likelihood × deal value"],["Status","","open · scheduled · done"],["CreatedBy","","system · user"]]],
     ["Reply","replies",[["ReplyID","pk","uuid"],["ContactID","fk","→ Contact"],["Class","","Interested · Referral · Not now · OOO · Unsubscribe"],["Body","","text"],["HandledAt","","timestamp · SLA"]]],
   ];
   return head("Reference","Data model","The three spec objects, with the fields the workflow above needs added and marked +v1. Every stage change is stored as a timestamped event, because conversion ratios cannot be rebuilt from current status alone.") +
@@ -903,10 +956,249 @@ function vModel(){
     </tbody></table></div></div>`;
 }
 
+/* ---------------- tasks: relances and follow-ups, ranked by placement likelihood ---------------- */
+// [PRIOR] base rates are agency-norm estimates, not Zig outcomes. Recalibrate once 50 tasks have closed.
+const TODAY = new Date(2026,8,23);
+const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+const fmtD = d => d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year: d.getFullYear()!==TODAY.getFullYear()?"numeric":undefined});
+const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const parseD = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d); };
+const daysTo = s => Math.round((parseD(s)-TODAY)/864e5);
+const addDays = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
+const BASE = {"Negotiation":[.50,"Opportunity in negotiation"],"Qualified":[.35,"Qualified opportunity"],"Interested":[.28,"Interested reply"],"New opp":[.25,"New opportunity, past client"],"Referral":[.22,"Referred to the decision maker"],"Repeat client":[.20,"Past client, contract ended"],"Not now":[.10,"“Not now” with a date given"],"Engaged":[.08,"Opened 4 times, no reply"],"Out of office":[.06,"Out of office"],"Bounced":[.03,"Bounced address"]};
+const TIMING = {known:[1.3,"Buying window known"],now:[1,"Live now"],stale:[.8,"Signal older than 60 days"]};
+const TTYPE = {Account:"warn",Reply:"good",Relance:"ai",Call:"info","Re-enrol":"neutral","Re-validate":"crit","Send":"info"};
+let tasks = [
+ {id:"TK-401",type:"Reply",trigger:"Interested",co:"CO-1044",ct:"CT-2230",due:"2026-09-23",timing:"now",value:FREELANCE_YR,status:"open",by:"system",
+  title:"Send rates for a Brussels infra profile",why:"Asked for rates 38 minutes ago. Reply SLA is 2 hours.",
+  draft:"Hi Julien,\n\nThanks for coming back to me. For a Brussels infrastructure contractor the day rate usually sits between €650 and €780, depending on the Azure and Citrix depth you need.\n\nI can send two profiles by Friday. Which of the two roles is more urgent?\n\nBest,\nThe Zig"},
+ {id:"TK-402",type:"Call",trigger:"Negotiation",co:"CO-1049",ct:"CT-2280",due:"2026-09-23",timing:"known",value:3*FREELANCE_YR,status:"open",by:"system",
+  title:"Close margin terms for the tender team",why:"OP-302 has been in Negotiation 5 days. Tender staffing deadline is 2 October.",
+  draft:"Call agenda\n• Confirm 3 profiles and start dates\n• Margin floor 20% (below needs manager approval)\n• Payment terms and extension clause"},
+ {id:"TK-403",type:"Send",trigger:"Referral",co:"CO-1042",ct:"CT-2211",due:"2026-09-23",timing:"now",value:2*PERM_FEE,status:"open",by:"system",
+  title:"Write to Ines Maes, referred by Karel Peeters",why:"Karel copied Ines in 1h 35m ago. She runs the Q1 project.",
+  draft:"Dear Ines,\n\nKarel Peeters copied you in on his reply earlier today and mentioned you run the Q1 project.\n\nWe placed two engineers with Brabo last year. If you are staffing site engineers for Q1, I can share three profiles this week.\n\nKind regards,\nThe Zig"},
+ {id:"TK-404",type:"Relance",trigger:"Repeat client",co:"CO-1048",ct:"CT-2270",due:"2026-09-21",timing:"stale",value:FREELANCE_YR,status:"open",by:"system",
+  title:"Relance on the Salesforce admin gap",why:"Our contractor finished in June and was not extended. Nobody has written since.",
+  draft:"Dear Ann,\n\nOur Salesforce contractor finished with your team in June. I wanted to check whether the admin work has been covered since, or whether a short contract would help before year end.\n\nKind regards,\nThe Zig"},
+ {id:"TK-405",type:"Send",trigger:"Engaged",co:"CO-1047",ct:"CT-2260",due:"2026-09-24",timing:"now",value:PERM_FEE,status:"open",by:"system",
+  title:"Bring the case-study step forward",why:"Opened 4 times this week without replying. Validation roles have been open 45 days.",
+  draft:"Dear Hélène,\n\nOne recent example that may be relevant: we filled two validation-engineer roles for a Walloon manufacturer in 38 days.\n\nWould it help if I sent two profiles first?\n\nKind regards,\nThe Zig"},
+ {id:"TK-406",type:"Call",trigger:"New opp",co:"CO-1041",ct:"CT-2202",due:"2026-09-25",timing:"now",value:FREELANCE_YR,status:"open",by:"system",
+  title:"Book the call for a second DevOps profile",why:"OP-303 is new. First contractor placed here 18 days ago.",
+  draft:"Call agenda\n• Feedback on the first contractor\n• Second profile: stack and start date\n• Same rate card as OP-288"},
+ {id:"TK-407",type:"Re-enrol",trigger:"Out of office",co:"CO-1041",ct:"CT-2202",due:"2026-09-29",timing:"now",value:FREELANCE_YR,status:"scheduled",by:"system",
+  title:"Resume sequence after out-of-office",why:"Auto-reply says back on 29 September. Next step moved to that date.",draft:"No message. Sequence SEQ-A resumes at step 3."},
+ {id:"TK-409",type:"Account",trigger:"Negotiation",co:"CO-1049",ct:"CT-2280",due:"2026-09-22",timing:"known",value:3*FREELANCE_YR,status:"open",by:"system",
+  title:"Get the framework agreement signed",why:"Account opening is at 3/5 and has stalled for 13 days. OP-302 cannot move to Won until steps 4 and 5 are done.",
+  draft:"Dear Bram,\n\nTo have everything ready for the tender start, two items remain on our supplier set-up with Helix: the signed framework agreement and your PO reference.\n\nI have attached the agreement with the margin terms we discussed on Monday. Could you return it by Friday?\n\nBest,\nThe Zig\n\nReply \"stop\" and we will not contact you again."},
+ {id:"TK-411",type:"Account",trigger:"Engaged",co:"CO-1047",ct:"CT-2260",due:"2026-09-24",timing:"now",value:PERM_FEE,status:"open",by:"system",
+  title:"Apply to the MSP vendor portal",why:"Orbis buys all contingent labour through its MSP. We are not listed, so OP-296 cannot be invoiced even if they say yes.",
+  draft:"Portal application\n• Company details, VAT and BCE extract\n• RC Pro insurance certificate\n• Rate card for validation engineers\n• Fallback: subcontract through a listed supplier at a shared margin"},
+ {id:"TK-408",type:"Re-validate",trigger:"Bounced",co:"CO-1046",ct:"CT-2250",due:"2026-09-23",timing:"now",value:PERM_FEE,status:"open",by:"system",
+  title:"Find a working address for Lina Janssens",why:"Hard bounce on step 1. Contact removed from the sequence until re-validated.",draft:"Check LinkedIn for a current role, then re-run email validation."},
+];
+function scoreTask(t){
+  const c = coById(t.co);
+  const [b,bl] = BASE[t.trigger];
+  const fitM = .7 + .6*c.fit/100;
+  const histM = c.prior.placements ? 1.25 : 1;
+  const eng = Math.max(0,...c.contacts.map(k=>k.score));
+  const engM = .85 + .3*eng/100;
+  const [tm,tl] = TIMING[t.timing];
+  const [pm,pl] = pslFactor(c,t);
+  const p = Math.min(.9, b*fitM*histM*engM*tm*pm);
+  return {p, ev:p*t.value, parts:[[bl,b,true],["FitScore "+c.fit,fitM],[c.prior.placements?c.prior.placements+" past placement"+(c.prior.placements>1?"s":""):"No past placement",histM],["Best engagement score "+eng,engM],[tl,tm],[pl,pm]]};
+}
+function dueChip(t){
+  if (t.status==="done") return pill("good","Done");
+  const n = daysTo(t.due);
+  if (n<0) return pill("crit",`Overdue ${-n}d`);
+  if (n===0) return pill("warn","Due today");
+  if (n<=7) return pill("info",n===1?"Tomorrow":`In ${n} days`);
+  return pill("neutral","Scheduled "+fmtD(parseD(t.due)));
+}
+function likeTone(p){ return p>=.3?"var(--seq-4)":p>=.15?"var(--seq-3)":p>=.07?"var(--seq-2)":"var(--seq-1)"; }
+let lastAuto = null;
+/* A "Not now" reply becomes a dated relance: read the month they gave, write three weeks before it opens. */
+function createRelance(r, auto){
+  const [ct,co] = ctById(r.ct);
+  const txt = r.text.toLowerCase();
+  const mi = MONTHS.findIndex(m=>txt.includes(m));
+  let reopen, relance;
+  if (mi>=0){
+    const y = mi <= TODAY.getMonth() ? TODAY.getFullYear()+1 : TODAY.getFullYear();
+    reopen = new Date(y,mi,1); while (reopen.getDay()!==1) reopen = addDays(reopen,1);
+    relance = addDays(reopen,-21);
+  } else { relance = addDays(TODAY,90); reopen = addDays(relance,21); }
+  const id = "TK-" + (410 + tasks.length);
+  const peer = co.contacts.filter(k=>k.id!==ct.id && k.email==="valid").sort((a,b)=>b.score-a.score)[0];
+  const lost = opps.find(o=>o.co===co.id && o.stage==="Lost");
+  const t = {id,type:"Relance",trigger:"Not now",co:co.id,ct:ct.id,cc:peer?peer.id:null,due:iso(relance),timing:"known",value:2*FREELANCE_YR,status:"scheduled",by:auto?"system":"user",src:r.id,
+    reopen:iso(reopen),reenrol:iso(reopen),
+    title:`Relance before the panel reopens (${MONTHS[reopen.getMonth()].replace(/^./,c=>c.toUpperCase())})`,
+    why:`${ct.first} ${ct.last} replied “${r.text}” Relance lands three weeks before, so we are registered on day one.`+(peer?` ${peer.first} ${peer.last} (${peer.role}) is copied: she has opened ${peer.ev.o} emails and procurement owns panel registration.`:"")+(lost?` ${lost.id} was lost for this reason: the panel closed before we qualified.`:""),
+    draft:`Dear ${ct.first},\n\nIn September you told us the supplier panel reopens in ${MONTHS[reopen.getMonth()].replace(/^./,c=>c.toUpperCase())}. I am writing ahead of that so The Zig can be considered from the first day of registration.\n\n${VALUE[co.segment]}\n\nOne recent example: ${CASES[co.desk]||CASES["Brussels IT Dev"]}.\n\n${peer?`Is ${peer.first} ${peer.last} the right person for the registration documents? I can send them before the holidays.`:"Who should receive our registration documents?"}\n\nKind regards,\nThe Zig\n\nReply "stop" and we will not contact you again.`};
+  tasks.push(t);
+  r.handled = true; r.done = `relance ${id} scheduled for ${fmtD(relance)} · sequence paused until ${fmtD(reopen)}`;
+  co.outreach = "Paused"; ct.seq = null;
+  lastAuto = id;
+  return t;
+}
+
+let tSort = "p";
+function vTasks(){
+  const sc = t => scoreTask(t);
+  const open = tasks.filter(t=>t.status!=="done");
+  const dueNow = open.filter(t=>daysTo(t.due)<=0 && t.status==="open");
+  const week = open.filter(t=>!dueNow.includes(t) && daysTo(t.due)<=7);
+  const later = open.filter(t=>!dueNow.includes(t) && !week.includes(t));
+  const done = tasks.filter(t=>t.status==="done");
+  const key = {p:(a,b)=>sc(b).p-sc(a).p, ev:(a,b)=>sc(b).ev-sc(a).ev, due:(a,b)=>daysTo(a.due)-daysTo(b.due)}[tSort];
+  let rank = 0;
+  const row = t => { const s = sc(t); const c = coById(t.co); const [ct] = ctById(t.ct); rank += t.status==="done"?0:1;
+    return `<button class="task ${t.status==="done"?"done":""} ${t.id===lastAuto?"new":""}" data-task="${t.id}">
+      <span class="rk">${t.status==="done"?"✓":rank}</span>
+      <span class="lk"><span class="p num">${Math.round(s.p*100)}%</span><span class="bar"><i style="width:${Math.min(100,s.p/.6*100)}%;background:${likeTone(s.p)}"></i></span><span class="u">placement likelihood</span></span>
+      <span class="bd"><span class="chips">${pill(TTYPE[t.type],t.type)}${t.by==="system"?`<span class="chip">created by system</span>`:""}</span><span class="ttl">${esc(t.title)}</span><span class="who">${esc(c.name)} · ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)}</span><span class="why">${esc(t.why)}</span></span>
+      <span class="due">${dueChip(t)}<span class="num ev">${eurk(s.ev)} expected</span></span>
+    </button>`; };
+  const grp = (nm, sub, L) => L.length ? `<div class="grp-h"><h3>${nm}</h3><span class="sub">${sub}</span></div><div class="tasks">${L.sort(key).map(row).join("")}</div>` : "";
+  const auto = lastAuto && tasks.find(t=>t.id===lastAuto);
+  const evNow = dueNow.reduce((s,t)=>s+sc(t).ev,0);
+  return head("Step 8 · follow-up logic","Tasks & relances",
+    "Every follow-up the system has scheduled, ranked by how likely it is to end in a placement. Work Due now from the top; the rest are already dated and will surface on their own.") +
+  (auto?`<div class="alert info" style="margin-bottom:14px"><span class="ic" aria-hidden="true">↻</span><div><div class="t">Relance created from a “Not now” reply</div><div class="m">${esc(coById(auto.co).name)}: ${esc(auto.title)}. Email on ${fmtD(parseD(auto.due))}, sequence resumes ${fmtD(parseD(auto.reenrol))}.</div></div><button class="btn sm" data-task="${auto.id}">Open</button></div>`:"")+
+  `<div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi ${dueNow.some(t=>daysTo(t.due)<0)?"crit":"warn"}"><div class="k">Due now</div><div class="v num">${dueNow.length}</div><div class="d">${dueNow.filter(t=>daysTo(t.due)<0).length} overdue</div></div>
+    <div class="kpi info"><div class="k">Expected value due now</div><div class="v num">${eurk(evNow)}</div><div class="d">likelihood × deal value</div></div>
+    <div class="kpi neutral"><div class="k">Scheduled relances</div><div class="v num">${open.filter(t=>t.type==="Relance"&&daysTo(t.due)>0).length}</div><div class="d">dated from what clients told us</div></div>
+    <div class="kpi good"><div class="k">Done today</div><div class="v num">${done.length}</div><div class="d">of ${tasks.length} tasks</div></div>
+  </div>
+  <div class="toolbar"><span class="note">Rank by</span><div class="seg" role="group" aria-label="Rank tasks by">${[["p","Placement likelihood"],["ev","Expected value"],["due","Due date"]].map(([k,l])=>`<button data-tsort="${k}" aria-pressed="${tSort===k}">${l}</button>`).join("")}</div></div>
+  ${grp("Due now","highest likelihood first",dueNow)}
+  ${grp("This week","",week)}
+  ${grp("Scheduled","surfaces on its due date",later)}
+  ${grp("Done","",done)}
+  <p class="note" style="margin-top:14px">Likelihood = base rate for the trigger × FitScore (0.7–1.3) × past placements (1.25) × best engagement score (0.85–1.15) × timing (0.8–1.3) × preferred-supplier status (0.6 not listed, 0.8 if the window is known, 1.15 listed), capped at 90%. Base rates are [PRIOR] estimates until The Zig has 50 closed tasks to calibrate against.</p>`;
+}
+function openTask(id){
+  const t = tasks.find(x=>x.id===id); const s = scoreTask(t); const c = coById(t.co); const [ct] = ctById(t.ct); const cc = t.cc ? ctById(t.cc)[0] : null;
+  const checks = complianceChecks(t.draft, c);
+  const isMsg = /^(Dear|Hi) /.test(t.draft);
+  const tl = t.reopen ? [
+    ["good","23 Sep","Reply logged",`“${replies.find(r=>r.id===t.src)?.text||""}” · sequence paused`],
+    ...(acctN(c)<5?[["warn","By "+fmtD(addDays(parseD(t.due),-7)),"Prepare registration pack",`Supplier account ${acctN(c)}/5: ${ACCT_STEPS.filter((x,i)=>!c.acct.done[i]).slice(0,3).join(", ").toLowerCase()}, so documents go with the relance`]]:[]),
+    ["ai",fmtD(parseD(t.due)),"Relance email",`To ${ct.first} ${ct.last}${cc?`, cc ${cc.first} ${cc.last}`:""} · morning send window`],
+    ["info",fmtD(parseD(t.reenrol)),"Panel reopens · re-enrol","If no answer, back into SEQ-A at step 3 with a new AI intro"],
+    ["neutral","+14 days","Call task","Recruiter calls if the relance is opened but not answered"]] : null;
+  drawer(`
+    <div class="eyebrow">${t.id} · ${t.by==="system"?"created by system":"created by you"}</div>
+    <h3 style="margin:4px 0 8px">${esc(t.title)}</h3>
+    <div class="chips" style="margin-bottom:14px">${pill(TTYPE[t.type],t.type)} ${dueChip(t)}</div>
+    <dl class="dl"><dt>Company</dt><dd>${esc(c.name)}</dd><dt>Contact</dt><dd>${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</dd>${cc?`<dt>Copy</dt><dd>${esc(cc.first+" "+cc.last)} · ${esc(cc.role)}</dd>`:""}<dt>Deal value</dt><dd class="num">${eur(t.value)}</dd></dl>
+    <div class="sect"><h4>Why this task</h4><p style="margin:0">${esc(t.why)}</p></div>
+    <div class="sect"><h4>Placement likelihood · ${Math.round(s.p*100)}%</h4>
+      ${s.parts.map(([l,v,base])=>`<div class="brk" style="grid-template-columns:minmax(0,1fr) 64px"><span>${esc(l)}</span><span class="num r">${base?Math.round(v*100)+"% base":"× "+v.toFixed(2)}</span></div>`).join("")}
+      <div class="brk" style="grid-template-columns:minmax(0,1fr) 64px;border-top:1px solid var(--line);padding-top:6px;font-weight:600"><span>Expected value</span><span class="num r">${eurk(s.ev)}</span></div></div>
+    ${tl?`<div class="sect"><h4>What the system has scheduled</h4><div class="tl">${tl.map(([k,d,h,m])=>`<div class="tl-i"><span class="dot ${k}"></span><span class="num tl-d">${d}</span><div><b>${h}</b><div class="note">${esc(m)}</div></div></div>`).join("")}</div></div>`:""}
+    <div class="sect"><h4>${isMsg?"Draft relance":"Plan"}</h4><div class="msg">${esc(t.draft)}</div>
+      ${isMsg?`<div class="checks" style="margin-top:10px">${checks.map(([k,x])=>`<div><span class="ck ${k}">${k==="ok"?"✓":k==="no"?"×":"!"}</span><span>${esc(x)}</span></div>`).join("")}</div>`:""}</div>
+    ${t.status==="done"?"":`<div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+      <button class="btn primary" data-tapprove="${t.id}">${daysTo(t.due)>0?"Approve · send on "+fmtD(parseD(t.due)):isMsg?"Approve · send in next window":"Mark done"}</button>
+      <button class="btn" data-tsnooze="${t.id}">Snooze 7 days</button>
+      <button class="btn ghost" data-co="${c.id}">Open company</button></div>`}`);
+}
+
+/* ---------------- supplier accounts & preferred-supplier lists ---------------- */
+// Many clients only buy from suppliers with an open account, and some only through a preferred-supplier list (PSL),
+// a procurement panel or an MSP vendor portal. Without both, a "won" deal cannot be invoiced.
+const ACCT_STEPS = ["Company details, VAT & BCE extract","Insurance certificate (RC Pro)","GDPR data-processing agreement","Framework / supplier agreement signed","Vendor portal or PO set-up"];
+const ACCT = {
+ "CO-1041":{done:[1,1,1,1,1],since:"2026-09-02",psl:{uses:false}},
+ "CO-1042":{done:[1,1,1,1,1],since:"2025-04-14",psl:{uses:true,member:true,route:"Direct PSL",renew:"2027-03-31"}},
+ "CO-1043":{done:[0,0,0,0,0],psl:{uses:true,member:false,route:"Procurement panel",window:"2027-01-04",note:"Panel closed until January. Registration is run by procurement."}},
+ "CO-1044":{done:[1,0,0,0,0],since:"2026-09-23",psl:{uses:false}},
+ "CO-1045":{done:[0,0,0,0,0],psl:{uses:null}},
+ "CO-1046":{done:[0,0,0,0,0],psl:{uses:false}},
+ "CO-1047":{done:[0,0,0,0,0],psl:{uses:true,member:false,route:"MSP vendor portal",note:"All contingent labour goes through their MSP. Apply on the portal or subcontract to a listed supplier."}},
+ "CO-1048":{done:[1,1,1,1,1],since:"2025-10-01",psl:{uses:true,member:true,route:"MSP vendor portal",renew:"2026-11-30"}},
+ "CO-1049":{done:[1,1,1,0,0],since:"2026-09-10",psl:{uses:false}},
+ "CO-1050":{done:[0,0,0,0,0],psl:{uses:true,member:false,route:"Procurement panel",note:"Panel dates unknown. Ask at first reply."}},
+};
+companies.forEach(c => { c.acct = ACCT[c.id]; });
+const acctN = c => c.acct.done.filter(Boolean).length;
+function acctState(c){
+  const n = acctN(c);
+  if (n===5) return ["good","Account open"];
+  if (n===0) return ["neutral","No account"];
+  const age = -daysTo(c.acct.since);
+  return [age>10?"warn":"info",`Opening ${n}/5`+(age>10?` · ${age}d`:"")];
+}
+function pslState(c){
+  const p = c.acct.psl;
+  if (p.uses===null) return ["neutral","PSL unknown · ask"];
+  if (!p.uses) return ["neutral","No PSL · buys direct"];
+  if (p.member) { const d = daysTo(p.renew); return d<=90?["warn",`On PSL · renew ${fmtD(parseD(p.renew))}`]:["good","On PSL"]; }
+  if (p.window) return ["warn",`Not listed · opens ${fmtD(parseD(p.window))}`];
+  return ["crit","Not listed"];
+}
+function canBill(c){ return acctN(c)===5 && (!c.acct.psl.uses || c.acct.psl.member); }
+function billBlocker(c){
+  if (c.acct.psl.uses && !c.acct.psl.member) return `not on ${c.name}'s ${c.acct.psl.route.toLowerCase()}`;
+  if (acctN(c)<5) return `supplier account ${acctN(c)}/5 (next: ${ACCT_STEPS[c.acct.done.indexOf(0)].toLowerCase()})`;
+  return "";
+}
+function pslFactor(c, t){
+  const p = c.acct.psl;
+  if (p.uses && !p.member) return [t && t.timing==="known"?.8:.6, `Not on their ${p.route.toLowerCase()}`];
+  if (p.uses && p.member) return [1.15, "On their preferred-supplier list"];
+  if (acctN(c)===5) return [1.1, "Supplier account open"];
+  return [1, "No PSL; account not yet needed"];
+}
+
+function vAccounts(){
+  const L = companies.slice().sort((a,b)=>{ const r = c => (opps.some(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage))&&!canBill(c))?0:c.acct.psl.uses&&!c.acct.psl.member?1:acctN(c)%5?2:3; return r(a)-r(b); });
+  const open = companies.filter(c=>acctN(c)===5).length, opening = companies.filter(c=>acctN(c)>0&&acctN(c)<5).length;
+  const psl = companies.filter(c=>c.acct.psl.uses), listed = psl.filter(c=>c.acct.psl.member).length;
+  const blocked = companies.filter(c=>opps.some(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage)) && !canBill(c));
+  return head("Accounts & preferred suppliers","Accounts & PSL",
+    "A deal is only billable once our supplier account is open and, where the client works from a preferred-supplier list, we are on it. Deals that are live but not billable come first.") +
+  `<div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi good"><div class="k">Accounts open</div><div class="v num">${open}<small> / ${companies.length}</small></div><div class="d">can invoice today</div></div>
+    <div class="kpi ${companies.some(c=>acctState(c)[0]==="warn")?"warn":"info"}"><div class="k">Accounts opening</div><div class="v num">${opening}</div><div class="d">${companies.filter(c=>acctState(c)[0]==="warn").length} stalled over 10 days</div></div>
+    <div class="kpi ${listed<psl.length?"warn":"good"}"><div class="k">Clients using a PSL</div><div class="v num">${listed}<small> / ${psl.length} listed</small></div><div class="d">${psl.length-listed} where we cannot sell direct</div></div>
+    <div class="kpi ${blocked.length?"crit":"good"}"><div class="k">Live deals not billable</div><div class="v num">${blocked.length}</div><div class="d">${eurk(opps.filter(o=>blocked.some(c=>c.id===o.co)&&!["Won","Lost"].includes(o.stage)).reduce((s,o)=>s+o.value,0))} at risk</div></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Company</th><th>Supplier account</th><th>Opening progress</th><th>Preferred suppliers</th><th>Route to buy</th><th>What unblocks it</th></tr></thead>
+    <tbody>${L.map(c=>{const a=acctState(c), p=pslState(c), live=opps.find(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage)), blk=live&&!canBill(c);
+      const next = c.acct.psl.uses&&!c.acct.psl.member ? (c.acct.psl.window?`Register when the panel opens ${fmtD(parseD(c.acct.psl.window))}`:c.acct.psl.route.includes("MSP")?"Apply on the MSP portal, or subcontract via a listed supplier":"Ask procurement for the next panel date") : acctN(c)<5&&acctN(c)>0 ? ACCT_STEPS[c.acct.done.indexOf(0)] : acctN(c)===0 ? (live?"Start account opening now":"Open when the first deal qualifies") : c.acct.psl.member&&daysTo(c.acct.psl.renew)<=90 ? "Send renewal documents" : "Nothing";
+      return `<tr class="click" data-co="${c.id}" tabindex="0" ${blk?'style="box-shadow:inset 4px 0 0 var(--crit-mk)"':""}>
+      <td><div class="co">${esc(c.name)}</div><div class="meta">${live?`${live.id} · ${live.stage} · ${eurk(live.value)}`:c.opp?"Opportunity "+c.opp:"No live deal"}</div></td>
+      <td>${pill(a[0],a[1])}</td>
+      <td><div class="fit" style="min-width:120px"><span class="num">${acctN(c)}/5</span><span class="bar"><i style="width:${acctN(c)*20}%;background:${acctN(c)===5?"var(--good-mk)":"var(--info-mk)"}"></i></span></div></td>
+      <td>${pill(p[0],p[1])}</td>
+      <td class="meta" style="color:var(--ink-2)">${c.acct.psl.route?esc(c.acct.psl.route):c.acct.psl.uses===false?"Direct":"–"}</td>
+      <td style="max-width:260px">${blk?`<b style="color:var(--crit)">Can't invoice ${live.id}.</b> `:""}<span class="meta" style="color:var(--ink-2)">${esc(next)}</span></td></tr>`}).join("")}</tbody></table></div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="panel"><h3 style="font-size:14px;margin-bottom:8px">Rules this adds to the workflow</h3>
+      <div class="checks">
+        <div><span class="ck no">×</span>An opportunity cannot move to Won while the account is not open or we are not on the client's PSL</div>
+        <div><span class="ck wa">!</span>Negotiation starts account opening automatically, one task per missing document</div>
+        <div><span class="ck wa">!</span>Clients with a PSL we are not on get PSL-entry messaging (registration, panel dates), not role pitches</div>
+        <div><span class="ck wa">↻</span>PSL renewal inside 90 days creates a renewal task</div>
+        <div><span class="ck ok">✓</span>Placement likelihood: × 0.6 when not listed (× 0.8 if the window is known), × 1.15 when listed</div>
+      </div></div>
+    <div class="panel"><h3 style="font-size:14px;margin-bottom:8px">Account-opening checklist</h3>
+      <div class="checks">${ACCT_STEPS.map((s,i)=>`<div><span class="ck ok" style="background:var(--info-mk)">${i+1}</span><span>${s}</span></div>`).join("")}</div>
+      <p class="note" style="margin-top:8px">Stored once per client and re-used: documents already sent to one client are pre-attached for the next.</p></div>
+  </div>`;
+}
 /* ---------------- render & events ---------------- */
 function render(){
   renderNav();
-  const m = {today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
+  const m = {accounts:vAccounts,tasks:vTasks,today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
   $("#main").innerHTML = m();
   const sg = $("#seqgrid"); if (sg && innerWidth < 900) sg.style.gridTemplateColumns = "minmax(0,1fr)";
 }
@@ -924,6 +1216,7 @@ function createOpp(r){
   r.handled = true; r.done = "opportunity "+id+" created, sequence stopped, pushed to CRM";
   co.outreach = "Stopped"; co.opp = "New"; ct.score = Math.min(100, ct.score+40);
   freshOpp = id;
+  tasks.filter(t=>t.ct===ct.id && t.type==="Reply").forEach(t=>t.status="done");
   toast(`${id} created · sequence stopped for ${co.name} · pushed to CRM`);
 }
 
@@ -941,9 +1234,16 @@ document.addEventListener("click", e => {
   if (d.preview) { prevCo = d.preview; draftEdit = null; closeDrawer(); const c = coById(d.preview); const s = c.contacts.find(k=>k.seq); if (s) seqSel = s.seq; return go("sequences"); }
   if (d.enrol) { const c = coById(d.enrol); c.outreach = "In sequence"; c.contacts.filter(k=>k.email==="valid").forEach(k=>k.seq = c.segment===1?"SEQ-B":c.prior.placements?"SEQ-C":"SEQ-A"); closeDrawer(); toast(`${c.name} enrolled · first send in the next window`); return render(); }
   if (d.copy) { const txt = $("#"+d.copy).textContent; try { navigator.clipboard.writeText(txt).then(()=>toast("Search copied"),()=>selectText(d.copy)); } catch(err){ selectText(d.copy); } return; }
+  if (d.astep) { const [cid,i] = d.astep.split(":"); const c = coById(cid); c.acct.done[+i] = c.acct.done[+i]?0:1; if (!c.acct.since) c.acct.since = iso(TODAY); render(); openCompany(cid); toast(acctN(c)===5?`${c.name}: supplier account open`:`${c.name}: account ${acctN(c)}/5`); return; }
+  if (d.psl) { const c = coById(d.psl); c.acct.psl.member = !c.acct.psl.member; if (c.acct.psl.member) c.acct.psl.renew = iso(addDays(TODAY,365)); render(); openCompany(d.psl); toast(c.acct.psl.member?`${c.name}: listed as preferred supplier`:`${c.name}: removed from PSL`); return; }
+  if (d.task) { return openTask(d.task); }
+  if (d.tsort) { tSort = d.tsort; return render(); }
+  if (d.relance) { const t = createRelance(replies.find(r=>r.id===d.relance), false); toast(`${t.id}: relance on ${fmtD(parseD(t.due))} · sequence paused`); return render(); }
+  if (d.tapprove) { const t = tasks.find(x=>x.id===d.tapprove); const fut = daysTo(t.due)>0; if (!fut) t.status="done"; else t.status="scheduled"; t.approved=true; closeDrawer(); toast(fut?`${t.id} approved · sends ${fmtD(parseD(t.due))} in the morning window`:`${t.id} done`); return render(); }
+  if (d.tsnooze) { const t = tasks.find(x=>x.id===d.tsnooze); t.due = iso(addDays(parseD(t.due)<TODAY?TODAY:parseD(t.due),7)); closeDrawer(); toast(`${t.id} moved to ${fmtD(parseD(t.due))}`); return render(); }
   if (d.opp) { createOpp(replies.find(r=>r.id===d.opp)); return render(); }
   if (d.handle) { const r = replies.find(x=>x.id===d.handle); r.handled = true; r.done = CLS_ACTION[r.cls].toLowerCase(); const [ct,co] = ctById(r.ct); if (r.cls==="Unsubscribe") { ct.seq = null; ct.email = ct.email; } toast(`${co.name}: ${CLS_ACTION[r.cls]}`); return render(); }
-  if (d.mv) { const o = opps.find(x=>x.id===d.mv); const i = STAGES.indexOf(o.stage)+(+d.d); o.stage = STAGES[Math.max(0,Math.min(5,i))]; o.age="now"; coById(o.co).opp = o.stage; freshOpp = o.id; toast(`${o.id} → ${o.stage} · CRM updated${o.stage==="Negotiation"?" · negotiation workflow started":""}`); return render(); }
+  if (d.mv) { const o = opps.find(x=>x.id===d.mv); const i = STAGES.indexOf(o.stage)+(+d.d); if (STAGES[i]==="Won" && !canBill(coById(o.co))) { toast(`Blocked: ${o.id} cannot be Won yet · ${billBlocker(coById(o.co))}`); return; } o.stage = STAGES[Math.max(0,Math.min(5,i))]; o.age="now"; coById(o.co).opp = o.stage; freshOpp = o.id; toast(`${o.id} → ${o.stage} · CRM updated${o.stage==="Negotiation"?" · negotiation workflow started":""}`); return render(); }
   if (d.retry) { const o = opps.find(x=>x.id===d.retry); o.crm = "synced"; toast(`${o.id} synced to CRM`); return render(); }
   if (d.act==="edit") { if (draftEdit!=null) draftEdit = null; else { const c = coById(prevCo); const ct = c.contacts.find(k=>k.email==="valid")||c.contacts[0]; draftEdit = buildMessage(c,ct,sequences.find(s=>s.id===seqSel),prevStep,prevTone).body.replace(/<[^>]+>/g,""); } return render(); }
   if (d.act==="tryfake") { const c = coById(prevCo); const ct = c.contacts.find(k=>k.email==="valid")||c.contacts[0]; const base = draftEdit ?? buildMessage(c,ct,sequences.find(s=>s.id===seqSel),prevStep,prevTone).body.replace(/<[^>]+>/g,""); draftEdit = base.replace(/,\n\n/, ",\n\nAs discussed, "); return render(); }
@@ -971,6 +1271,7 @@ document.addEventListener("pointerover", e => { const el = e.target.closest("[da
 document.addEventListener("pointermove", e => { if (tip) { tip.style.left = (e.clientX+12)+"px"; tip.style.top = (e.clientY-30)+"px"; } });
 document.addEventListener("pointerout", e => { if (tip && e.target.closest("[data-tip]")) { tip.remove(); tip = null; } });
 
+createRelance(replies.find(r=>r.id==="RP-93"), true);
 render();
 })();
 </script>
