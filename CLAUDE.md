@@ -237,6 +237,12 @@ anonymised CV submissions (refs only, consent required before sending) and marke
 system assembles the client report on cadence and creates a YOU task to review and send; pre-send
 checks block CVs without consent and any candidate personal data. Reports pause when the deal is
 not billable (Orbis/MSP). "Sent out today" shows outreach emails, CVs and reports due.
+**v5:** the report's job is three sections — **(1) outreach done for candidates** (per channel
+approached/replied, interested / said no / no answer, and *why candidates said no*), **(2) what we
+found on the market** (rate or salary band and median against the client's budget, pool size,
+competition, availability), **(3) where the client may need to be flexible** — each point is
+lever · today · suggested · evidence · likely effect, derived from decline reasons or pool data,
+and the recruiter ticks which go into the report. Every flex point must cite evidence.
 
 ## Access constraints discovered (do not re-litigate these)
 
