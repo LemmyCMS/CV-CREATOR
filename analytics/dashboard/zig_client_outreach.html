@@ -153,6 +153,7 @@ tbody tr.click{cursor:pointer}
 tbody tr.click:hover td{background:var(--surface-2)}
 td .co{font-weight:600}
 td .meta{font-size:12px;color:var(--ink-3)}
+td.num{white-space:nowrap}
 .r{text-align:right}
 .fit{display:flex;align-items:center;gap:8px;min-width:110px}
 .fit .bar{flex:1;height:6px;border-radius:3px;background:var(--line-soft);overflow:hidden}
@@ -599,6 +600,7 @@ const VIEWS = [
  {id:"engagement",nm:"Replies & engagement",step:"6"},
  {id:"opportunities",nm:"Opportunities",step:"7"},
  {id:"tasks",nm:"Tasks & relances",step:"8"},
+ {id:"reports",nm:"Progress reports",step:"9"},
  {id:"accounts",nm:"Accounts & PSL",step:""},
  {sep:"Reference"},
  {id:"analytics",nm:"Analytics",step:""},
@@ -612,6 +614,7 @@ function navCounts(){
   const r = replies.filter(x=>!x.handled && (x.cls==="Interested"||x.cls==="Referral"));
   return {
     today:[mineNow().length, mineNow().some(t=>daysTo(t.due)<0||(t.sla!=null&&t.sla<60))?"crit":"warn"],
+    reports:[briefs.filter(b=>!b.paused&&daysTo(nextReport(b))<=0).length,"warn"],
     accounts:[companies.filter(c=>opps.some(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage))&&!canBill(c)).length,"crit"],
     tasks:[mine().length, tasks.some(t=>t.status==="open"&&daysTo(t.due)<0)?"crit":"warn"],
     engagement:[r.length, r.some(x=>x.mins>120)?"crit":"good"],
@@ -962,7 +965,7 @@ function vWorkflow(){
     ["Sequence assignment",["Pick sequence by segment","AI personalises each step","Insert case study by desk","Insert value proposition"],"<b>Pre-send checks</b> block implied prior contact","ai"],
     ["Sending engine",["Warm-up caps per mailbox","Randomised windows, local hours","Bounce monitoring","Domain reputation guard"],"<b>Bounce ≥ 3%</b> → mailbox paused","crit"],
     ["Engagement tracking",["Opens and clicks","Replies classified by AI","Bounce classification","Interest score"],"Any reply → sequence stops","info"],
-    ["Opportunity creation",["Create Opportunity","Assign stage and value","Push to CRM","Trigger negotiation workflow"],"<b>Sync error</b> → red alert until retried","good"],
+    ["Opportunity creation",["Create Opportunity","Assign stage and value","Push to CRM","Trigger negotiation workflow","Open a search with a report cadence"],"<b>Sync error</b> → red alert until retried","good"],
     ["Follow-up logic",["AI rewrites follow-up","Tone adjusted to response style","Next step scheduled","Incoming-business notification","“Not now” → dated relance task","Out-of-office → follow-up the day after return; named people added as contacts"],"Last step, no reply → recycle in 90 days","warn"],
   ];
   return head("Reference","Workflow map","The eight steps end to end, the rule that guards each one, and the branch that decides every contact's fate after a send.") +
@@ -988,6 +991,8 @@ function vModel(){
     ["Sequence","sequences",[["SequenceID","pk","text"],["Name","","text"],["Segment","","enum"],["Steps[]","","{day, channel, blocks[], condition}"],["StopOnReply","","bool · always true"]]],
     ["Event","engagement_events",[["EventID","pk","uuid"],["ContactID","fk","→ Contact"],["StepIndex","","int"],["Type","","sent · open · click · reply · bounce"],["BounceClass","","hard · soft · block"],["At","","timestamp"]]],
     ["Task","tasks",[["TaskID","pk","uuid"],["Type","","Reply · Relance · Call · Send · Re-enrol · Re-validate"],["CompanyID","fk","→ Company"],["ContactID","fk","→ Contact"],["SourceReplyID","fk","→ Reply · null"],["DueAt","","date · read from the reply when given"],["Likelihood","","0–0.9 · base × fit × history × engagement × timing"],["ExpectedValue","","eur · likelihood × deal value"],["Status","","open · scheduled · done"],["CreatedBy","","system · user"]]],
+    ["Search","briefs",[["BriefID","pk","uuid"],["OpportunityID","fk","→ Opportunity"],["Role","","text · headcount"],["Cadence","","daily · weekly day · custom"],["LastReportAt","","timestamp"],["Research","","mapped · approached · interested · screened (stage entries)"],["MarketNotes[]","","text[] · go into the report"],["Paused","","bool · e.g. not billable"]]],
+    ["CV submission","submissions",[["SubmissionID","pk","uuid"],["BriefID","fk","→ Search"],["CandidateRef","","anonymised · C-####"],["Headline","","role · years · city · languages"],["Rate / Salary","","eur"],["ConsentAt","","timestamp · required before sending"],["SentAt","","timestamp"],["Status","","screening · sent · interview · rejected · placed"],["FeedbackAt","","timestamp · chased in report"]]],
     ["Reply","replies",[["ReplyID","pk","uuid"],["ContactID","fk","→ Contact"],["Class","","Interested · Referral · Not now · OOO · Unsubscribe"],["Body","","text"],["HandledAt","","timestamp · SLA"]]],
   ];
   return head("Reference","Data model","The three spec objects, with the fields the workflow above needs added and marked +v1. Every stage change is stored as a timestamped event, because conversion ratios cannot be rebuilt from current status alone.") +
@@ -1102,6 +1107,7 @@ function completeTask(t){
   t.status = "done";
   const r = t.src && replies.find(x=>x.id===t.src);
   if (r && !r.handled) { if (r.cls==="Interested") createOpp(r); else { r.handled = true; r.done = "handled via "+t.id; } }
+  if (t.brief) { const b = briefs.find(x=>x.id===t.brief); b.last = iso(TODAY); b.wk = {approached:0,cvs:0}; toast(`Report sent to ${ctById(t.ct)[0].first} · next one ${fmtD(parseD(nextReport(b)))}`); return; }
   if (t.id==="TK-413") { const o = opps.find(o=>o.id==="OP-281"); if (o) o.crm = "synced"; }
   if (t.id==="TK-414") { const [ct] = ctById(t.ct); ct.email = "valid"; ct.seq = "SEQ-A"; }
   toast(`Done: ${t.act}`);
@@ -1348,12 +1354,122 @@ function vAccounts(){
       <p class="note" style="margin-top:8px">Stored once per client and re-used: documents already sent to one client are pre-attached for the next.</p></div>
   </div>`;
 }
+/* ---------------- delivery: searches, CVs and client progress reports ---------------- */
+// Candidates appear only as anonymised refs; a CV goes into a report only with the candidate's consent.
+const CV_ST = {sent:["info","Sent · awaiting feedback"],interview:["good","Interview"],rejected:["neutral","Rejected"],prep:["warn","Screening"],held:["crit","Held · no consent"],placed:["good","Placed"]};
+const briefs = [
+ {id:"BR-51",opp:"OP-302",role:"3 Azure/Citrix infrastructure freelancers",cadence:"Daily during the tender, to 2 Oct",cadDays:1,last:"2026-09-22",
+  r:{mapped:64,approached:31,interested:11,screened:7,cvs:5,interviews:2},wk:{approached:9,cvs:2},
+  notes:["Only 7 of the 64 profiles mapped combine Azure and Citrix; that combination sets the timeline","Day rates run €650–780. The three strongest ask €700 or more","4 of the 11 interested can start within two weeks"],
+  next:"Interviews for C-2050 (24 Sep) and C-2041 (25 Sep). Two more CVs by Friday.",
+  cvs:[{ref:"C-2041",h:"Citrix/Azure engineer · 9 yrs · Brussels · FR/EN",rate:"€720/day",av:"2 weeks",st:"interview",d:"25 Sep"},
+       {ref:"C-2050",h:"Citrix specialist · 12 yrs · Namur · FR",rate:"€780/day",av:"1 month",st:"interview",d:"24 Sep"},
+       {ref:"C-2044",h:"Azure infrastructure engineer · 6 yrs · Leuven · NL/EN",rate:"€650/day",av:"immediate",st:"sent",d:"21 Sep"},
+       {ref:"C-2057",h:"Citrix/VMware engineer · 8 yrs · Mechelen · NL/EN",rate:"€700/day",av:"2 weeks",st:"sent",d:"23 Sep"},
+       {ref:"C-2052",h:"Azure/Terraform engineer · 5 yrs · Brussels",rate:"€640/day",av:"immediate",st:"rejected",d:"no Citrix"},
+       {ref:"C-2061",h:"Azure/Citrix engineer · 7 yrs · Ghent",rate:"€690/day",av:"3 weeks",st:"held",d:"consent pending"}]},
+ {id:"BR-48",opp:"OP-301",role:"2 site engineers, permanent",cadence:"Weekly · Friday",cadDays:7,last:"2026-09-18",
+  r:{mapped:48,approached:26,interested:6,screened:4,cvs:3,interviews:1},wk:{approached:7,cvs:1},
+  notes:["Salary expectations €52–60k plus car; two candidates hold counter-offers","Candidates with Autodesk and SAP together are rare. Autodesk alone widens the pool 3×"],
+  next:"First interview for C-1987 on 29 Sep. Proposal: accept Autodesk-only profiles.",
+  cvs:[{ref:"C-1987",h:"Site engineer · 7 yrs · Antwerp · NL/EN · Autodesk, SAP",rate:"€58k + car",av:"1 month notice",st:"interview",d:"29 Sep"},
+       {ref:"C-1990",h:"Site engineer · 4 yrs · Mechelen · NL · Autodesk",rate:"€52k",av:"2 months notice",st:"sent",d:"17 Sep"},
+       {ref:"C-2003",h:"Site engineer · 10 yrs · Lier · NL/FR",rate:"€62k",av:"3 months notice",st:"sent",d:"22 Sep"}]},
+ {id:"BR-53",opp:"OP-303",role:"1 DevOps freelancer (second profile)",cadence:"Weekly · Monday",cadDays:7,last:null,first:"2026-09-28",
+  r:{mapped:22,approached:9,interested:3,screened:1,cvs:0,interviews:0},wk:{approached:9,cvs:0},
+  notes:["Kubernetes + Terraform freelancers in Brussels are mostly on contracts until year end","Rate for the first placement (€720/wk margin) holds for the profiles found so far"],
+  next:"First CV by 1 Oct once screening is done.",cvs:[{ref:"C-2066",h:"DevOps engineer · 6 yrs · Brussels · Kubernetes/Terraform",rate:"€680/day",av:"1 Nov",st:"prep",d:"screening 24 Sep"}]},
+ {id:"BR-45",opp:"OP-296",role:"Validation engineer, permanent",cadence:"Weekly · Friday",cadDays:7,last:"2026-09-11",paused:true,
+  r:{mapped:30,approached:14,interested:4,screened:2,cvs:0,interviews:0},wk:{approached:0,cvs:0},
+  notes:["Two screened candidates ready; they cannot be presented until we are listed on Orbis's MSP portal"],
+  next:"Resume once the MSP application (TK-411) is approved.",cvs:[{ref:"C-1971",h:"Validation engineer · 8 yrs · Wavre · FR/EN",rate:"€64k",av:"2 months notice",st:"held",d:"not listed on MSP"}]},
+];
+const cvDaily = [1,2,0,0,3,2,1,2,0,0,3,2,4,1];
+function nextReport(b){ if (b.paused) return null; if (!b.last) return b.first; let d = addDays(parseD(b.last), b.cadDays); while (d.getDay()===0||d.getDay()===6) d = addDays(d,1); return iso(d); }
+function repState(b){
+  if (b.paused) return ["crit","Paused · CVs held"];
+  const n = daysTo(nextReport(b));
+  if (n<0) return ["crit",`Report overdue ${-n}d`];
+  if (n===0) return ["warn","Report due today"];
+  return ["neutral",`Next report ${fmtD(parseD(nextReport(b)))}`];
+}
+function reportDraft(b){
+  const o = opps.find(x=>x.id===b.opp), c = coById(o.co), [ct] = ctById(o.ct), t = TONES[c.tone];
+  const sent = b.cvs.filter(v=>["sent","interview"].includes(v.st));
+  return `Subject: ${b.role} · progress update ${fmtD(TODAY)}\n\n${t.g} ${ct.first},\n\nHere is where the search for ${b.role} stands today.\n\nSearch so far\n• ${b.r.mapped} profiles mapped, ${b.r.approached} approached (${b.wk.approached} this ${b.cadDays===1?"period":"week"})\n• ${b.r.interested} interested, ${b.r.screened} passed our screening\n• ${b.r.cvs} CVs sent, ${b.r.interviews} interview${b.r.interviews===1?"":"s"} arranged\n\n${sent.length?"Profiles with you\n"+sent.map(v=>`• ${v.ref} · ${v.h} · ${v.rate} · available ${v.av} · ${v.st==="interview"?"interview "+v.d:"sent "+v.d}`).join("\n")+"\n\n":""}${b.cvs.some(v=>v.st==="sent")?`Could you share feedback on ${b.cvs.filter(v=>v.st==="sent").map(v=>v.ref).join(" and ")}? It helps us adjust the search.\n\n`:""}What the market is telling us\n${b.notes.map(n=>"• "+n).join("\n")}\n\nNext steps\n${b.next}\n\n${t.close},\nThe Zig`;
+}
+function reportChecks(b, txt){
+  const listed = b.cvs.filter(v=>txt.includes(v.ref));
+  return [
+    [listed.every(v=>v.st!=="held")?"ok":"no", listed.some(v=>v.st==="held")?"A CV without consent is in the report. Remove it.":`Every CV in the report has candidate consent (${listed.length})`],
+    [/@|\+\d{2}\s?\d/.test(txt.replace(/^Subject.*$/m,""))?"no":"ok","No candidate names, emails or phone numbers. Refs only"],
+    ["ok",`Counts match the CRM pipeline (${b.r.cvs} CVs, ${b.r.interviews} interviews)`],
+    [b.cvs.some(v=>v.st==="sent")?"wa":"ok", b.cvs.some(v=>v.st==="sent")?`${b.cvs.filter(v=>v.st==="sent").length} CV${b.cvs.filter(v=>v.st==="sent").length>1?"s":""} awaiting feedback: the report asks for it`:"No CV waiting on feedback"],
+  ];
+}
+/* report tasks: one per search when a report is due within a week */
+briefs.forEach((b,i)=>{
+  const o = opps.find(x=>x.id===b.opp), c = coById(o.co), [ct] = ctById(o.ct);
+  if (b.paused) { tasks.push({id:"TK-46"+i,type:"Report",trigger:"Admin",co:c.id,ct:ct.id,due:iso(TODAY),timing:"now",value:0,status:"open",by:"system",owner:"system",
+      title:"Progress report paused",act:`Progress report to ${c.name} paused: CVs held until we are on the MSP portal`,autoNote:"Two screened candidates are ready. The report and CVs resume when TK-411 is approved.",why:"Presenting CVs outside Orbis's MSP would breach their supplier rules and could not be invoiced.",draft:"No report while paused."}); return; }
+  const due = nextReport(b); if (daysTo(due)>7) return;
+  tasks.push({id:"TK-45"+i,type:"Report",trigger:o.stage==="Negotiation"?"Negotiation":o.stage==="Qualified"?"Qualified":"New opp",co:c.id,ct:ct.id,due,timing:"known",value:o.value,status:"open",by:"system",brief:b.id,
+    owner:"you",btn:"Review & send report",title:`${b.cadence} progress report`,act:`Send the progress report to ${ct.first} ${ct.last} (${c.name})`,
+    why:`${b.cadence}. ${b.r.cvs} CVs sent so far, ${b.wk.cvs} since the last report. The system has assembled the numbers, CVs and market notes.`,
+    steps:["Check the CV list and the market notes","Press Review & send report. The next report is scheduled automatically"],draft:reportDraft(b)});
+});
+TTYPE["Report"] = "info";
+let brSel = "BR-51";
+function cvChart(){
+  const W=560,H=150,P={l:26,r:8,t:10,b:22},max=5,bw=(W-P.l-P.r)/cvDaily.length,y=v=>P.t+(H-P.t-P.b)*(1-v/max);
+  let g=""; [0,1,2,3,4,5].forEach(v=>{g+=`<line class="grid-l" x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${P.l-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`;});
+  cvDaily.forEach((v,i)=>{const x=P.l+i*bw+3,w=bw-6,last=i===cvDaily.length-1; if(v) g+=`<path d="M${x},${y(0)} V${y(v)+4} q0,-4 4,-4 h${w-8} q4,0 4,4 V${y(0)} Z" fill="${last?"var(--s3)":"var(--seq-1)"}" data-tip="${DAYS[i]}${i?" Sep":""}: ${v} CV${v>1?"s":""} sent"/>`; if(i%2===0||last) g+=`<text x="${x+w/2}" y="${H-6}" text-anchor="middle">${DAYS[i].replace(" Sep","")}</text>`; if(last) g+=`<text x="${x+w/2}" y="${y(v)-6}" text-anchor="middle" style="fill:var(--ink);font-weight:600">${v}</text>`;});
+  g+=`<line class="base" x1="${P.l}" x2="${W-P.r}" y1="${y(0)}" y2="${y(0)}"/>`;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="CVs sent per day over the last two weeks, 4 today">${g}</svg>`;
+}
+function vReports(){
+  const b = briefs.find(x=>x.id===brSel), o = opps.find(x=>x.id===b.opp), c = coById(o.co), [ct] = ctById(o.ct);
+  const rt = tasks.find(t=>t.brief===b.id && t.status!=="done");
+  const txt = rt ? rt.draft : reportDraft(b);
+  const F = [["Mapped",b.r.mapped],["Approached",b.r.approached],["Interested",b.r.interested],["Screened",b.r.screened],["CVs sent",b.r.cvs],["Interviews",b.r.interviews]];
+  const today = briefs.flatMap(x=>x.cvs.filter(v=>v.st==="sent"&&v.d==="23 Sep").map(v=>[x,v]));
+  return head("Delivery","Progress reports",
+    "Each live search keeps its research, the CVs sent and the market feedback in one place. The system assembles the client report on its cadence; you review it and send.") +
+  `<div class="grid g2" style="margin-bottom:16px">
+    <div class="panel"><div class="panel-head"><h3>Sent out today</h3><span class="sub">23 Sep · all recruiters</span></div>
+      <div class="health" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div class="hc"><div class="k">Client outreach</div><div class="v num">${send.sentToday}</div><span class="note">emails</span></div>
+        <div class="hc"><div class="k">CVs sent so far</div><div class="v num">${cvDaily[cvDaily.length-1]}</div><span class="note">${briefs.reduce((s,x)=>s+x.r.cvs,0)} across live searches</span></div>
+        <div class="hc"><div class="k">Reports</div><div class="v num">${briefs.filter(x=>!x.paused&&daysTo(nextReport(x))<=0).length}</div><span class="note">due today</span></div>
+      </div>
+      <div class="note" style="margin-top:10px">${today.length?"CVs out today: "+today.map(([x,v])=>`${v.ref} → ${coById(opps.find(q=>q.id===x.opp).co).name}`).join(" · "):""}</div>
+    </div>
+    <div class="panel"><div class="panel-head"><h3>CVs sent per day</h3><span class="sub">last 14 days · plan anchor from Nov: 1.2 per recruiter-day</span></div>${cvChart()}</div>
+  </div>
+  <div class="grid" style="grid-template-columns:minmax(0,300px) minmax(0,1fr)" id="repgrid">
+    <div class="seq-list">${briefs.map(x=>{const oo=opps.find(q=>q.id===x.opp),cc=coById(oo.co),st=repState(x);return `<button class="seq-card" data-brief="${x.id}" aria-pressed="${x.id===brSel}"><div class="eyebrow">${x.id} · ${oo.id}</div><div class="nm">${esc(cc.name)}</div><div class="meta muted" style="font-size:12px">${esc(x.role)}</div><div class="st" style="align-items:center">${pill(st[0],st[1])}<span>${x.r.cvs} CVs · ${x.r.interviews} int.</span></div></button>`}).join("")}</div>
+    <div class="stack">
+      <div class="panel"><div class="panel-head"><div><div class="eyebrow">${b.id} · ${esc(b.cadence)}</div><h3 style="font-size:17px;margin-top:3px">${esc(c.name)} · ${esc(b.role)}</h3></div>${pill(...repState(b))}</div>
+        <div class="note" style="margin-bottom:10px">Report goes to ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)} · last sent ${b.last?fmtD(parseD(b.last)):"never"}${nextReport(b)?" · next "+fmtD(parseD(nextReport(b))):""}</div>
+        ${b.paused?`<div class="alert crit" style="margin-bottom:12px"><span class="ic">!</span><div><div class="t">CVs held: not billable</div><div class="m">${esc(billBlocker(c))}. Finish TK-411 to resume.</div></div><button class="btn sm" data-go="accounts">Open</button></div>`:""}
+        <div class="funnel">${F.map(([l,v],i)=>`<div class="fr"><span>${l}</span><span class="bar"><i style="width:${Math.max(1.5,100*v/b.r.mapped)}%;background:${i>=4?"var(--s3)":`var(--seq-${Math.min(4,1+i)})`}"></i></span><span class="v num">${v} <span>${i?pct(v,F[i-1][1],0):""}</span></span></div>`).join("")}</div>
+      </div>
+      <div class="tbl-wrap"><table><thead><tr><th>CV</th><th>Profile (anonymised)</th><th>Rate</th><th>Available</th><th>Status</th></tr></thead>
+        <tbody>${b.cvs.map(v=>`<tr><td class="num">${v.ref}</td><td>${esc(v.h)}</td><td class="num">${esc(v.rate)}</td><td>${esc(v.av)}</td><td>${pill(CV_ST[v.st][0],CV_ST[v.st][1]+(v.d?" · "+v.d:""))}</td></tr>`).join("")}</tbody></table></div>
+      <div class="panel"><div class="panel-head"><h3>Research and market notes</h3><span class="sub">goes into the report</span></div><ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px">${b.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul></div>
+      ${b.paused?"":`<div class="panel"><div class="panel-head"><h3>Report preview</h3><span class="sub">assembled by the system · ${rt?"your action: review and send":"sent"}</span></div>
+        <div class="msg">${esc(txt)}</div>
+        <div class="checks" style="margin-top:10px">${reportChecks(b,txt).map(([k,x])=>`<div><span class="ck ${k}">${k==="ok"?"✓":k==="no"?"×":"!"}</span><span>${esc(x)}</span></div>`).join("")}</div>
+        ${rt?`<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" data-tdo="${rt.id}">Send report to ${esc(ct.first)}</button>${pill(...deadline(rt))}</div>`:""}</div>`}
+    </div>
+  </div>`;
+}
 /* ---------------- render & events ---------------- */
 function render(){
   renderNav();
-  const m = {accounts:vAccounts,tasks:vTasks,today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
+  const m = {reports:vReports,accounts:vAccounts,tasks:vTasks,today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
   $("#main").innerHTML = m();
-  const sg = $("#seqgrid"); if (sg && innerWidth < 900) sg.style.gridTemplateColumns = "minmax(0,1fr)";
+  ["#seqgrid","#repgrid"].forEach(id=>{ const sg = $(id); if (sg && innerWidth < 900) sg.style.gridTemplateColumns = "minmax(0,1fr)"; });
 }
 function drawer(html){
   $("#layer").innerHTML = `<div class="scrim" data-close></div><aside class="drawer" role="dialog" aria-modal="true" aria-label="Details"><button class="x" data-close aria-label="Close">×</button>${html}</aside>`;
@@ -1389,6 +1505,7 @@ document.addEventListener("click", e => {
   if (d.copy) { const txt = $("#"+d.copy).textContent; try { navigator.clipboard.writeText(txt).then(()=>toast("Search copied"),()=>selectText(d.copy)); } catch(err){ selectText(d.copy); } return; }
   if (d.astep) { const [cid,i] = d.astep.split(":"); const c = coById(cid); c.acct.done[+i] = c.acct.done[+i]?0:1; if (!c.acct.since) c.acct.since = iso(TODAY); render(); openCompany(cid); toast(acctN(c)===5?`${c.name}: supplier account open`:`${c.name}: account ${acctN(c)}/5`); return; }
   if (d.psl) { const c = coById(d.psl); c.acct.psl.member = !c.acct.psl.member; if (c.acct.psl.member) c.acct.psl.renew = iso(addDays(TODAY,365)); render(); openCompany(d.psl); toast(c.acct.psl.member?`${c.name}: listed as preferred supplier`:`${c.name}: removed from PSL`); return; }
+  if (d.brief) { brSel = d.brief; return render(); }
   if (d.task) { return openTask(d.task); }
   if (d.tsort) { tSort = d.tsort; return render(); }
   if (d.relance) { const t = createRelance(replies.find(r=>r.id===d.relance), false); toast(`${t.id}: relance on ${fmtD(parseD(t.due))} · sequence paused`); return render(); }

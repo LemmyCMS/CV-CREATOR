@@ -231,6 +231,12 @@ on every view shows "N actions for you today · do next"; Today opens with the n
 Auto-replies are read: a **return date → follow-up on the next working day after return**, sent
 automatically; **people named in the reply → added as CRM contacts** (source recorded) with a YOU
 task to decide whether to write to them; first names matching existing contacts are linked.
+**v4 (2026-09-24):** *Progress reports* — each live opportunity has a Search (brief) with a report
+cadence, research counts (mapped → approached → interested → screened → CVs → interviews),
+anonymised CV submissions (refs only, consent required before sending) and market notes. The
+system assembles the client report on cadence and creates a YOU task to review and send; pre-send
+checks block CVs without consent and any candidate personal data. Reports pause when the deal is
+not billable (Orbis/MSP). "Sent out today" shows outreach emails, CVs and reports due.
 
 ## Access constraints discovered (do not re-litigate these)
 
