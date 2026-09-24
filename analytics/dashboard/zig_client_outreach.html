@@ -329,6 +329,44 @@ mark.bad{background:var(--crit-bg);color:var(--crit);border-bottom:2px solid var
   .task .due{flex-direction:row;align-items:center;justify-content:flex-start;flex-wrap:wrap}
 }
 
+/* action layer */
+.actbar{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;background:var(--ink);color:var(--surface);border-radius:10px;padding:12px 16px;margin-bottom:18px}
+.actbar.hot{box-shadow:inset 6px 0 0 var(--crit-mk);padding-left:22px}
+.ab-l{display:flex;align-items:center;gap:10px}
+.ab-n{font-family:Archivo,sans-serif;font-size:30px;font-weight:700;line-height:1}
+.ab-l b{display:block;font-size:14px}
+.ab-l span,.ab-next span{font-size:12.5px;opacity:.78}
+.ab-next{flex:1;min-width:220px;display:flex;flex-direction:column}
+.ab-next .ab-k{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;opacity:.65}
+.ab-next b{font-size:15px}
+.ab-d{font-weight:700;opacity:1}
+.ab-d.crit{color:var(--crit-mk)}.ab-d.warn{color:var(--warn-mk)}
+.ab-b{display:flex;gap:8px;flex-wrap:wrap}
+.actbar .btn.ab-all{background:transparent;color:var(--surface);border-color:var(--ink-3)}
+.own{font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:2px 7px;border-radius:4px;line-height:16px}
+.own.you{background:var(--ink);color:var(--surface)}
+.own.auto{border:1px solid var(--line);color:var(--ink-3)}
+.ya{display:grid;grid-template-columns:30px 22px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+.ya:last-child{border-bottom:0}
+.ya .n{font-family:Archivo,sans-serif;font-weight:700;color:var(--ink-3);font-size:15px;text-align:center}
+.ya .t{font-weight:700;font-size:15px}
+.ya .m{font-size:12.5px;color:var(--ink-2)}
+.ya .w{font-size:12.5px;color:var(--ink-3)}
+.ya .r{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.ydone{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);background:var(--surface);display:grid;place-items:center;font-size:13px;color:transparent;padding:0}
+.ydone:hover{border-color:var(--good-mk);color:var(--good-mk)}
+.auto-l{display:flex;flex-direction:column}
+.auto-i{display:grid;grid-template-columns:10px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid var(--line-soft);font-size:13px}
+.auto-i:last-child{border-bottom:0}
+.auto-i .dot{margin-top:6px}
+.yourbox{border:2px solid var(--ink);border-radius:10px;padding:14px 16px;margin-bottom:6px}
+.autobox{border:1px dashed var(--line);border-radius:10px;padding:14px 16px;margin-bottom:6px;background:var(--surface-2)}
+.yourbox .lbl,.autobox .lbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.yourbox .big{font-family:Archivo,sans-serif;font-size:18px;font-weight:700;margin:3px 0 8px}
+.yourbox ol{margin:10px 0 12px;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.task .go{font-size:12.5px;font-weight:700;color:var(--info)}
+@media (max-width:700px){.ya{grid-template-columns:26px minmax(0,1fr)}.ya .n{display:none}.ya > .r{grid-column:2;align-items:flex-start;flex-direction:row;flex-wrap:wrap}}
+
 @media (max-width:1180px){
   .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
   .rail{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -456,13 +494,13 @@ const STAGES = ["New","Contacted","Qualified","Negotiation","Won","Lost"];
 
 let replies = [
  {id:"RP-91",ct:"CT-2230",co:"CO-1044",cls:"Interested",text:"Yes, we have two Brussels roles we can't staff. Can you send rates for an infra profile?",mins:38,handled:false},
- {id:"RP-92",ct:"CT-2211",co:"CO-1042",cls:"Referral",text:"Not me, but Ines runs the Q1 project. Copying her in.",mins:95,handled:false},
+ {id:"RP-92",ct:"CT-2210",co:"CO-1042",cls:"Referral",text:"Not me, but Ines runs the Q1 project. Copying her in.",mins:95,handled:false},
  {id:"RP-93",ct:"CT-2220",co:"CO-1043",cls:"Not now",text:"We're locked until the panel reopens in January.",mins:180,handled:false},
- {id:"RP-94",ct:"CT-2202",co:"CO-1041",cls:"Out of office",text:"Back on 29 September.",mins:240,handled:false},
+ {id:"RP-94",ct:"CT-2202",co:"CO-1041",cls:"Out of office",text:"Back on 29 September. For anything urgent, please contact Sarah Lambert, Head of Platform, at sarah.lambert@nordvel.example.",mins:240,handled:false},
  {id:"RP-95",ct:"CT-2240",co:"CO-1045",cls:"Unsubscribe",text:"Please remove me from your list.",mins:300,handled:false},
 ];
 const CLS = {"Interested":"good","Referral":"good","Not now":"warn","Out of office":"neutral","Unsubscribe":"crit","Bounce":"crit"};
-const CLS_ACTION = {"Interested":"Stop sequence · create opportunity","Referral":"Add new contact · personalise from reply","Not now":"Pause · schedule a relance before the date they gave","Out of office":"Shift next step by return date","Unsubscribe":"Suppress domain contact · GDPR log"};
+const CLS_ACTION = {"Interested":"Stop sequence · create opportunity","Referral":"Add new contact · personalise from reply","Not now":"Pause · schedule a relance before the date they gave","Out of office":"Follow-up generated for the return date · named contacts added to the CRM","Unsubscribe":"Suppress domain contact · GDPR log"};
 
 const sequences = [
  {id:"SEQ-A",name:"Hiring signal · tech & engineering",fit:"Enterprises and startups with open roles",enrolled:64,sent:212,opens:104,clicks:21,replies:15,positive:6,opps:4,
@@ -542,7 +580,7 @@ function alerts(){
   if (due.length) a.push({tone:"warn",ic:"↻",t:`Repeat business: ${due.length} past client due a follow-up`,m:due.map(c=>`${c.name} · last contact ${c.prior.lastContact}`).join(", "),go:"companies"});
   const catchall = companies.flatMap(c=>c.contacts.filter(k=>k.email==="catch-all").map(k=>c.name));
   if (catchall.length) a.push({tone:"warn",ic:"?",t:`${catchall.length} catch-all address not enrolled`,m:"Catch-all domains cannot be verified. Sent only after LinkedIn confirmation.",go:"companies"});
-  const autoT = tasks.filter(t=>t.by==="system"&&t.src);
+  const autoT = tasks.filter(t=>t.by==="system"&&t.src&&t.reenrol);
   autoT.forEach(t=>a.push({tone:"info",ic:"↻",t:`Relance scheduled for ${coById(t.co).name}`,m:`From a “Not now” reply · email ${fmtD(parseD(t.due))} · sequence resumes ${fmtD(parseD(t.reenrol))}`,go:"tasks"}));
   companies.filter(c=>opps.some(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage))&&!canBill(c)).forEach(c=>{const o=opps.find(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage)); a.push({tone:"crit",ic:"€",t:`${o.id} at ${c.name} cannot be invoiced`,m:`${o.stage} · ${eurk(o.value)} · ${billBlocker(c)}`,go:"accounts"});});
   const od = tasks.filter(t=>t.status==="open"&&daysTo(t.due)<0);
@@ -573,9 +611,9 @@ try { const h = location.hash.slice(1); if (VIEWS.some(v=>v.id===h)) view = h; }
 function navCounts(){
   const r = replies.filter(x=>!x.handled && (x.cls==="Interested"||x.cls==="Referral"));
   return {
-    today:[alerts().filter(a=>a.tone==="crit").length,"crit"],
+    today:[mineNow().length, mineNow().some(t=>daysTo(t.due)<0||(t.sla!=null&&t.sla<60))?"crit":"warn"],
     accounts:[companies.filter(c=>opps.some(o=>o.co===c.id&&!["Won","Lost"].includes(o.stage))&&!canBill(c)).length,"crit"],
-    tasks:[tasks.filter(t=>t.status==="open"&&daysTo(t.due)<=0).length, tasks.some(t=>t.status==="open"&&daysTo(t.due)<0)?"crit":"warn"],
+    tasks:[mine().length, tasks.some(t=>t.status==="open"&&daysTo(t.due)<0)?"crit":"warn"],
     engagement:[r.length, r.some(x=>x.mins>120)?"crit":"good"],
     opportunities:[opps.filter(o=>!["Won","Lost"].includes(o.stage)).length,"neutral"],
     companies:[companies.filter(c=>["Follow-up due","Bounced"].includes(c.outreach)).length,"warn"],
@@ -588,8 +626,8 @@ function renderNav(){
 }
 function go(v){ view = v; try{ history.replaceState(null,"","#"+v);}catch(e){} render(); window.scrollTo(0,0); }
 
-function head(eyebrow, title, sub){
-  return `<div class="topbar"><div><div class="eyebrow">${eyebrow}</div><h2>${title}</h2>${sub?`<p>${sub}</p>`:""}</div><span class="sample">Sample data · fictional companies</span></div>`;
+function head(eyebrow, title, sub, noBar){
+  return (noBar?"":actionBar()) + `<div class="topbar"><div><div class="eyebrow">${eyebrow}</div><h2>${title}</h2>${sub?`<p>${sub}</p>`:""}</div><span class="sample">Sample data · fictional companies</span></div>`;
 }
 
 /* ---- Today ---- */
@@ -600,9 +638,20 @@ function vToday(){
   const al = alerts();
   const inq = replies.filter(r=>!r.handled && (r.cls==="Interested"||r.cls==="Referral"));
   const st = stepCounts();
+  const now = mineNow().sort(byUrgency), later = mine().filter(t=>daysTo(t.due)>0);
+  const auto = [...tasks.filter(t=>t.status!=="done"&&t.owner==="system").map(t=>["ai",t.act,t.autoNote||""]), ...replies.filter(r=>r.auto).map(r=>{const [ct,co]=ctById(r.ct);return ["neutral",`${co.name}: ${r.cls} reply handled`,r.done]})];
   return head("Wednesday 23 September 2026","Today",
-    "What needs a human now, then how the machine is doing. Everything red or amber links to the place you fix it.") +
-  `<div class="kpis">
+    "Your actions first, in the order to do them. Everything else on this page is handled by the system or is there to watch.", true) +
+  `<div class="grid g-main" style="margin-bottom:16px">
+    <div class="panel" style="border:2px solid var(--ink)"><div class="panel-head"><h3 style="font-size:17px">Your actions today · ${now.length}</h3><span class="sub">reply deadlines first, then highest placement likelihood</span></div>
+      ${now.length?now.map((t,i)=>{const c=coById(t.co),[ct]=ctById(t.ct),d=deadline(t);return `<div class="ya"><button class="ydone" data-tdo="${t.id}" aria-label="Mark done: ${esc(t.act)}">✓</button><span class="n">${i+1}</span><div><div class="t">${esc(t.act)}</div><div class="m">${esc(c.name)} · ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)} · ${likeTxt(t)}</div><div class="w">${esc(t.why)}</div></div><div class="r">${pill(d[0],d[1])}<button class="btn primary" data-task="${t.id}">${esc(t.btn)}</button></div></div>`}).join(""):`<p style="margin:0">Nothing needs you right now.</p>`}
+      <div class="note" style="margin-top:10px">${later.length?`Later: ${later.map(t=>`${esc(t.act)} (${esc(deadline(t)[1].replace(/^By /,"by "))})`).join(" · ")}. `:""}<button class="btn sm ghost" data-go="tasks">All tasks</button></div>
+    </div>
+    <div class="panel"><div class="panel-head"><h3>Handled by the system</h3><span class="sub">no action needed</span></div>
+      <div class="auto-l">${auto.map(([k,t,m])=>`<div class="auto-i"><span class="dot ${k}"></span><div><b style="font-weight:600">${esc(t)}</b><div class="note">${esc(m)}</div></div></div>`).join("")}</div>
+    </div>
+  </div>
+  <div class="kpis">
     <div class="kpi info"><div class="k">Outreaches today</div><div class="v num">${send.sentToday}<small> / ${send.cap} cap</small></div><div class="meter"><i style="width:${100*send.sentToday/send.cap}%"></i></div></div>
     <div class="kpi ${repT/sentT>=.05?"good":"warn"}"><div class="k">Reply rate · 30 days</div><div class="v num">${pct(repT,sentT)}</div><div class="d">${repT} replies from ${sentT} sends</div></div>
     <div class="kpi good"><div class="k">Positive replies</div><div class="v num">${pct(posT,sentT)}</div><div class="d">${posT} interested or referral</div></div>
@@ -610,7 +659,7 @@ function vToday(){
     <div class="kpi info"><div class="k">Open pipeline</div><div class="v num">${eurk(pipe)}</div><div class="d">${act.length} opportunities · ${oppT} created in 30 days</div></div>
   </div>
   <div class="grid g-main">
-    <div class="panel"><div class="panel-head"><h3>Alerts</h3><span class="sub">sorted by urgency</span></div>
+    <div class="panel"><div class="panel-head"><h3>Watch list</h3><span class="sub">what is going on · your actions above already cover the red items</span></div>
       <div class="alerts">${al.sort((a,b)=>"crit good warn info".indexOf(a.tone)-"crit good warn info".indexOf(b.tone)).map(a=>`
         <div class="alert ${a.tone}"><span class="ic" aria-hidden="true">${a.ic}</span><div><div class="t">${esc(a.t)}</div><div class="m">${esc(a.m)}</div></div><button class="btn sm" data-go="${a.go}">Open</button></div>`).join("")}
       </div>
@@ -619,10 +668,6 @@ function vToday(){
       ${inq.length?inq.map(r=>{const [ct,co]=ctById(r.ct);return `<div class="reply"><div><div class="who">${esc(co.name)}</div><div class="meta muted" style="font-size:12px">${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</div><div class="q">“${esc(r.text)}”</div></div><div class="acts">${pill(CLS[r.cls],r.cls)}<span class="sla" style="color:var(--${slaTone(r.mins)})">${slaTxt(r.mins)} waiting</span></div></div>`}).join(""):`<p class="muted">Nothing waiting. New interested replies appear here with a timer.</p>`}
       <div style="margin-top:10px"><button class="btn primary" data-go="engagement">Handle replies</button></div>
     </div>
-  </div>
-  <div class="panel" style="margin-top:16px"><div class="panel-head"><h3>Next best actions</h3><span class="sub">due now · ranked by placement likelihood</span></div>
-    <div class="nba">${tasks.filter(t=>t.status==="open"&&daysTo(t.due)<=0).sort((a,b)=>scoreTask(b).p-scoreTask(a).p).slice(0,4).map(t=>{const s=scoreTask(t);const c=coById(t.co);return `<button data-task="${t.id}"><span class="p num" style="color:${likeTone(s.p)}">${Math.round(s.p*100)}%</span><span><span class="ttl" style="font-weight:600;display:block">${esc(t.title)}</span><span class="note">${esc(c.name)} · ${esc(t.type)} · ${eurk(s.ev)} expected</span></span>${dueChip(t)}</button>`}).join("")}</div>
-    <div style="margin-top:8px"><button class="btn" data-go="tasks">All tasks</button></div>
   </div>
   <div class="panel" style="margin-top:16px"><div class="panel-head"><h3>Workflow right now</h3><span class="sub">companies at each step · click a step to open it</span></div>
     <div class="rail">${st.map((s,i)=>`<button class="rail-step" data-go="${s.go}"><div class="n">Step ${i+1}</div><div class="nm">${s.nm}</div><div class="c num">${s.c}</div><div class="u">${s.u}</div>${s.flag?`<span class="flag dot ${s.flag}" title="needs attention"></span>`:""}</button>`).join("")}</div>
@@ -698,7 +743,7 @@ function openCompany(id){
       <div class="checks">${ACCT_STEPS.map((s,i)=>`<div><button class="ck ${c.acct.done[i]?"ok":"wa"}" style="border:0;cursor:pointer" data-astep="${c.id}:${i}" aria-label="${c.acct.done[i]?"Mark not done":"Mark done"}: ${s}">${c.acct.done[i]?"✓":i+1}</button><span>${s}</span></div>`).join("")}${c.acct.psl.uses?`<div><button class="ck ${c.acct.psl.member?"ok":"no"}" style="border:0;cursor:pointer" data-psl="${c.id}" aria-label="Toggle preferred-supplier listing">${c.acct.psl.member?"✓":"×"}</button><span>Listed on their ${esc(c.acct.psl.route.toLowerCase())}</span></div>`:""}</div></div>
     <div class="sect"><h4>Hiring signals</h4><div class="chips">${c.signals.map(s=>`<span class="chip sig">${esc(s)}</span>`).join("")}</div></div>
     <div class="sect"><h4>FitScore breakdown</h4>${brk.map(([l,v,m])=>`<div class="brk"><span>${l}</span><span class="bar"><i style="width:${100*v/m}%"></i></span><span class="num r">${v}/${m}</span></div>`).join("")}</div>
-    <div class="sect"><h4>Decision makers</h4>${c.contacts.length?c.contacts.map(k=>`<div class="person"><span class="av">${initials(k)}</span><div><div style="font-weight:600">${esc(k.first+" "+k.last)}</div><div class="meta muted" style="font-size:12px">${esc(k.role)} · ${esc(k.sen)} · ${k.seq?`in ${k.seq}`:"not enrolled"}</div></div><div style="text-align:right">${pill(EMAIL[k.email][0],EMAIL[k.email][1])}<div class="num muted" style="font-size:11.5px;margin-top:3px">score ${k.score}</div></div></div>`).join(""):`<p class="muted">No contacts yet. Discovery searches for: ${roles.join(", ")}.</p>`}</div>
+    <div class="sect"><h4>Decision makers</h4>${c.contacts.length?c.contacts.map(k=>`<div class="person"><span class="av">${initials(k)}</span><div><div style="font-weight:600">${esc(k.first+" "+k.last)}</div><div class="meta muted" style="font-size:12px">${esc(k.role)} · ${esc(k.sen)} · ${k.seq?`in ${k.seq}`:"not enrolled"}</div>${k.addr?`<div class="meta mono" style="font-size:11.5px">${esc(k.addr)}</div>`:""}${k.src?`<span class="pill ai" style="margin-top:3px">${esc(k.src)}</span>`:""}</div><div style="text-align:right">${pill(EMAIL[k.email][0],EMAIL[k.email][1])}<div class="num muted" style="font-size:11.5px;margin-top:3px">score ${k.score}</div></div></div>`).join(""):`<p class="muted">No contacts yet. Discovery searches for: ${roles.join(", ")}.</p>`}</div>
     <div class="sect"><h4>People search · LinkedIn boolean</h4><div class="boolean" id="bool">${esc(bool)}</div><button class="btn sm" style="margin-top:6px" data-copy="bool">Copy search</button></div>
     <div class="sect"><h4>AI read of this company</h4><div class="ai-box"><div class="lbl">Detected pain points</div>${c.pains.map(p=>`• ${esc(p)}`).join("<br>")}<div class="lbl" style="margin-top:10px">Suggested tone</div>${esc(c.tone)} · based on company type${c.contacts.some(k=>k.ev.r)?" and reply style":""}</div></div>
     <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
@@ -758,6 +803,7 @@ function vSequences(){
           <div><span class="ck ok">✓</span>Interested reply → opportunity created, CRM push</div>
           <div><span class="ck wa">↻</span>No open after 2 steps → AI rewrites subject and tone</div>
           <div><span class="ck wa">↻</span>Opened, no reply → case-study step brought forward</div>
+          <div><span class="ck ok">✓</span>Out-of-office with a date → follow-up generated for the next working day; named contacts added to the CRM</div>
           <div><span class="ck no">×</span>Hard bounce → contact removed, domain checked</div>
         </div></div>
     </div>
@@ -837,7 +883,7 @@ function vEngagement(){
     "Replies are classified by AI and routed. Interested replies become opportunities in one click; the rest pause, re-time or suppress the sequence.") +
   `<div class="grid g-main">
     <div class="panel"><div class="panel-head"><h3>Reply inbox</h3><span class="sub">${replies.filter(r=>!r.handled).length} to handle</span></div>
-      ${replies.map(r=>{const [ct,co]=ctById(r.ct); return `<div class="reply" style="${r.handled?"opacity:.55":""}"><div><div class="who">${esc(co.name)} <span class="muted" style="font-weight:400;font-size:12.5px">· ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)}</span></div><div class="q">“${esc(r.text)}”</div><div class="note" style="margin-top:4px">${r.handled?"Handled · "+esc(r.done):"Next: "+esc(CLS_ACTION[r.cls])}</div></div>
+      ${replies.map(r=>{const [ct,co]=ctById(r.ct); return `<div class="reply" style="${r.handled?"opacity:.55":""}"><div><div class="who">${esc(co.name)} <span class="muted" style="font-weight:400;font-size:12.5px">· ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)}</span></div><div class="q">“${esc(r.text)}”</div><div class="note" style="margin-top:4px">${r.handled?(r.auto?"Handled by the system · ":"Handled · ")+esc(r.done):"Next: "+esc(CLS_ACTION[r.cls])}</div>${r.found&&(r.found.back||r.found.people)?`<div class="chips" style="margin-top:5px">${r.found.back?`<span class="pill ai">Return date · ${fmtD(r.found.back)}</span>`:""}${(r.found.people||[]).map(x=>`<span class="pill ai">New contact · ${esc(x.first+" "+x.last)}</span>`).join("")}</div>`:""}</div>
         <div class="acts">${pill(CLS[r.cls],r.cls)}${r.handled?"":`<span class="sla" style="color:var(--${slaTone(r.mins)})">${slaTxt(r.mins)}</span>${r.cls==="Interested"?`<button class="btn sm good" data-opp="${r.id}">Create opportunity</button>`:(r.cls==="Not now"?`<button class="btn sm" data-relance="${r.id}">Schedule relance</button>`:`<button class="btn sm" data-handle="${r.id}">Apply</button>`)}`}</div></div>`}).join("")}
     </div>
     <div class="panel"><div class="panel-head"><h3>Interest score</h3><span class="sub">per contact</span></div>
@@ -917,14 +963,14 @@ function vWorkflow(){
     ["Sending engine",["Warm-up caps per mailbox","Randomised windows, local hours","Bounce monitoring","Domain reputation guard"],"<b>Bounce ≥ 3%</b> → mailbox paused","crit"],
     ["Engagement tracking",["Opens and clicks","Replies classified by AI","Bounce classification","Interest score"],"Any reply → sequence stops","info"],
     ["Opportunity creation",["Create Opportunity","Assign stage and value","Push to CRM","Trigger negotiation workflow"],"<b>Sync error</b> → red alert until retried","good"],
-    ["Follow-up logic",["AI rewrites follow-up","Tone adjusted to response style","Next step scheduled","Incoming-business notification","“Not now” → dated relance task"],"Last step, no reply → recycle in 90 days","warn"],
+    ["Follow-up logic",["AI rewrites follow-up","Tone adjusted to response style","Next step scheduled","Incoming-business notification","“Not now” → dated relance task","Out-of-office → follow-up the day after return; named people added as contacts"],"Last step, no reply → recycle in 90 days","warn"],
   ];
   return head("Reference","Workflow map","The eight steps end to end, the rule that guards each one, and the branch that decides every contact's fate after a send.") +
   `<div class="wf">${W.map(([n,l,r,t],i)=>`<div class="wf-card"><div class="top"><span class="n">Step ${i+1}</span><span class="dot ${t}"></span></div><h4>${n}</h4><ul>${l.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="rule">${r}</div></div>`).join("")}</div>
   <div class="decision">After each send: did the contact reply?</div>
   <div class="branch">
     <div class="br yes"><h4>Reply received</h4><ol><li>Sequence stops for everyone at that company</li><li>AI classifies the reply</li><li>Interested → Opportunity created (stage New)</li><li>Pushed to CRM with contact and company</li><li>Recruiter notified; 2-hour response timer starts</li><li>Negotiation workflow triggered at stage Negotiation</li></ol></div>
-    <div class="br no"><h4>No reply</h4><ol><li>Wait for the step's delay</li><li>No open → AI rewrites subject and opening</li><li>Opened → case-study step brought forward</li><li>Tone adjusted (corporate, startup, agency, or mirror)</li><li>New step scheduled in the next send window</li><li>Sequence ends → company recycled in 90 days</li></ol></div>
+    <div class="br no"><h4>No reply</h4><ol><li>Wait for the step's delay</li><li>Out-of-office with a date → follow-up on the next working day after return; anyone named for “urgent matters” becomes a CRM contact</li><li>No open → AI rewrites subject and opening</li><li>Opened → case-study step brought forward</li><li>Tone adjusted (corporate, startup, agency, or mirror)</li><li>New step scheduled in the next send window</li><li>Sequence ends → company recycled in 90 days</li></ol></div>
   </div>
   <div class="panel" style="margin-top:16px"><h3 style="font-size:14px;margin-bottom:10px">Status machines</h3>
     <div class="stack" style="gap:10px">
@@ -937,7 +983,7 @@ function vWorkflow(){
 function vModel(){
   const M = [
     ["Company","companies",[["CompanyID","pk","uuid"],["Name","","text"],["Industry","","enum"],["Size","","enum · employee band"],["Country","","ISO-3166 · BE LU FR"],["HiringSignals[]","","HiringSignal[]"],["Contacts[]","","Contact[]"],["OutreachStatus","","enum"],["OpportunityStatus","","enum · derived"],["FitScore","new","int 0–100 · with breakdown"],["AccountSteps[5]","new","bool[] · supplier account checklist"],["AccountOpenedAt","new","date · null until 5/5"],["UsesPSL","new","bool · null = unknown"],["PSLStatus","new","listed · not listed · applying"],["PSLRoute","new","direct PSL · procurement panel · MSP portal"],["PSLWindow / RenewAt","new","date"],["Segment","new","enum · 6 client types"],["Source","new","import · signal · crm · manual · repeat"],["TechStack[]","new","text[]"],["PriorPlacements","new","int · from placements table"],["Desk","new","fk → desk crosswalk"]]],
-    ["Contact","contacts",[["ContactID","pk","uuid"],["CompanyID","fk","→ Company"],["FirstName","","text"],["LastName","","text"],["Role","","enum · CTO, CIO, HR…"],["Email","","text"],["EmailStatus","new","valid · catch-all · invalid"],["LinkedInURL","","url"],["Seniority","","C-level · Founder · Manager"],["SequenceID","fk","→ Sequence · null"],["EngagementScore","","int 0–100 · decays"],["Suppressed","new","bool · GDPR opt-out"]]],
+    ["Contact","contacts",[["ContactID","pk","uuid"],["CompanyID","fk","→ Company"],["FirstName","","text"],["LastName","","text"],["Role","","enum · CTO, CIO, HR…"],["Email","","text"],["EmailStatus","new","valid · catch-all · invalid"],["LinkedInURL","","url"],["Seniority","","C-level · Founder · Manager"],["SequenceID","fk","→ Sequence · null"],["EngagementScore","","int 0–100 · decays"],["Suppressed","new","bool · GDPR opt-out"],["Source","new","import · discovery · reply · auto-reply"]]],
     ["Opportunity","opportunities",[["OpportunityID","pk","uuid"],["CompanyID","fk","→ Company"],["ContactID","fk","→ Contact"],["Stage","","New · Contacted · Qualified · Negotiation · Won · Lost"],["ValueEstimate","","eur · perm fee or contractor year"],["Type","new","Perm · Freelance · Subcontract · Project"],["Notes","","text"],["SourceReplyID","new","fk → Reply"],["CrmSyncStatus","new","synced · pending · error"],["StageEnteredAt","new","timestamp per stage"]]],
     ["Sequence","sequences",[["SequenceID","pk","text"],["Name","","text"],["Segment","","enum"],["Steps[]","","{day, channel, blocks[], condition}"],["StopOnReply","","bool · always true"]]],
     ["Event","engagement_events",[["EventID","pk","uuid"],["ContactID","fk","→ Contact"],["StepIndex","","int"],["Type","","sent · open · click · reply · bounce"],["BounceClass","","hard · soft · block"],["At","","timestamp"]]],
@@ -960,7 +1006,7 @@ function vModel(){
 // [PRIOR] base rates are agency-norm estimates, not Zig outcomes. Recalibrate once 50 tasks have closed.
 const TODAY = new Date(2026,8,23);
 const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
-const fmtD = d => d.toLocaleDateString("en-GB",{day:"numeric",month:"short",year: d.getFullYear()!==TODAY.getFullYear()?"numeric":undefined});
+const fmtD = d => d.getDate()+" "+["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+(d.getFullYear()!==TODAY.getFullYear()?" "+d.getFullYear():"");
 const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 const parseD = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d); };
 const daysTo = s => Math.round((parseD(s)-TODAY)/864e5);
@@ -998,6 +1044,115 @@ let tasks = [
  {id:"TK-408",type:"Re-validate",trigger:"Bounced",co:"CO-1046",ct:"CT-2250",due:"2026-09-23",timing:"now",value:PERM_FEE,status:"open",by:"system",
   title:"Find a working address for Lina Janssens",why:"Hard bounce on step 1. Contact removed from the sequence until re-validated.",draft:"Check LinkedIn for a current role, then re-run email validation."},
 ];
+/* Who does what: "you" = a recruiter must act; "system" = runs on its own, shown so nobody duplicates it. */
+BASE["Admin"] = [.02,"Admin, no deal attached"];
+tasks.push(
+ {id:"TK-413",type:"CRM",trigger:"Admin",co:"CO-1043",ct:"CT-2221",due:"2026-09-23",timing:"now",value:0,status:"open",by:"system",
+  title:"CRM sync failed for OP-281",why:"The CRM rejected the update for a lost deal. Until it syncs, Lumen's history in the CRM is wrong.",draft:"Press Retry. If it fails again, the CRM error log is attached to the contact card."},
+ {id:"TK-414",type:"Re-validate",trigger:"Admin",co:"CO-1041",ct:"CT-2203",due:"2026-09-25",timing:"now",value:0,status:"open",by:"system",
+  title:"Catch-all address held",why:"Nordvel's mail server accepts every address, so we cannot prove this one exists. She is held out of the sequence until confirmed.",draft:"Check her LinkedIn profile still lists Nordvel, then confirm."}
+);
+const ACT = {
+ "TK-401":{owner:"you",act:"Send rates to Julien Moreau",btn:"Review & send",sla:82,src:"RP-91",steps:["Check the day-rate range in the draft","Press Send. This also creates the opportunity and stops the sequence"]},
+ "TK-402":{owner:"you",act:"Call Bram Goossens to close margin terms",btn:"Log the call",steps:["Call him (number on the contact card)","Hold the 20% margin floor. Anything lower needs manager approval","Log the outcome here"]},
+ "TK-403":{owner:"you",act:"Send an intro to Ines Maes",btn:"Review & send",sla:25,src:"RP-92",steps:["Read the draft. It names Karel, who referred her","Press Send"]},
+ "TK-404":{owner:"you",act:"Send the relance to Ann Claes",btn:"Review & send",steps:["Read the draft","Press Send"]},
+ "TK-405":{owner:"system",act:"Case-study email to Hélène Dubois sends tomorrow at 09:40",btn:"Stop this send",stoppable:true,autoNote:"Brought forward because she opened 4 times without replying. Nothing to do unless you want to stop it."},
+ "TK-406":{owner:"you",act:"Book a call with Tom Declercq",btn:"Mark booked",due:"2026-09-29",why:"OP-303 is new and the first contractor started here 18 days ago. He is out of office until 29 September.",steps:["Send a calendar invite for 29 or 30 September","Mark booked"]},
+ "TK-407":{owner:"system",act:"SEQ-A resumes for Tom Declercq on 29 Sep",autoNote:"Moved automatically from his out-of-office reply."},
+ "TK-408":{owner:"you",act:"Find a working email for Lina Janssens",btn:"Mark found",steps:["Check her LinkedIn for a current role","Paste the new address on the contact card. It is validated before any send"]},
+ "TK-409":{owner:"you",act:"Send the framework agreement to Bram Goossens",btn:"Review & send",steps:["Attach the framework agreement (step 4 of 5)","Ask for the PO reference in the same email (step 5)","Press Send"]},
+ "TK-411":{owner:"you",act:"Apply on Orbis's MSP vendor portal",btn:"Mark submitted",steps:["Upload company details, VAT and BCE extract","Upload the RC Pro insurance certificate","Add the rate card for validation engineers","If it is refused, subcontract through a listed supplier"]},
+ "TK-413":{owner:"you",act:"Retry the CRM sync for OP-281",btn:"Retry sync",steps:["Press Retry sync"]},
+ "TK-414":{owner:"you",act:"Confirm Nadia Haddad's email on LinkedIn",btn:"Confirm",steps:["Check her LinkedIn still lists Nordvel as employer","Press Confirm to release her into the sequence"]},
+};
+tasks.forEach(t=>Object.assign(t, ACT[t.id]||{}));
+const mine = () => tasks.filter(t=>t.status!=="done" && t.owner==="you");
+const mineNow = () => mine().filter(t=>daysTo(t.due)<=0);
+const byUrgency = (a,b) => ((a.sla!=null&&a.sla<60)?0:1)-((b.sla!=null&&b.sla<60)?0:1) || scoreTask(b).p-scoreTask(a).p;
+function deadline(t){
+  if (t.status==="done") return ["good","Done"];
+  if (t.sla!=null && daysTo(t.due)<=0) return [t.sla<30?"crit":"warn",`Reply deadline · ${slaTxt(t.sla)} left`];
+  const n = daysTo(t.due);
+  if (n<0) return ["crit",`Overdue ${-n} day${n<-1?"s":""}`];
+  if (n===0) return ["warn","Do today"];
+  if (n<=7) return ["info",n===1?"Tomorrow":`By ${fmtD(parseD(t.due))}`];
+  return ["neutral",`By ${fmtD(parseD(t.due))}`];
+}
+const likeTxt = t => t.trigger==="Admin" ? "no deal impact" : Math.round(scoreTask(t).p*100)+"% placement likelihood";
+function actionBar(){
+  const now = mineNow().sort(byUrgency), next = now[0];
+  const urgent = now.filter(t=>daysTo(t.due)<0 || (t.sla!=null&&t.sla<60)).length;
+  const later = mine().length - now.length, auto = tasks.filter(t=>t.status!=="done"&&t.owner==="system").length;
+  if (!next) return `<div class="actbar"><div class="ab-l"><span class="ab-n">0</span><div><b>actions for you today</b><span>The system is handling ${auto} items. ${later} due later.</span></div></div></div>`;
+  const c = coById(next.co), d = deadline(next);
+  return `<div class="actbar ${urgent?"hot":""}" role="region" aria-label="Your actions">
+    <div class="ab-l"><span class="ab-n">${now.length}</span><div><b>action${now.length>1?"s":""} for you today</b><span>${urgent} urgent · ${later} later · ${auto} handled by the system</span></div></div>
+    <div class="ab-next"><span class="ab-k">Do next</span><b>${esc(next.act)}</b><span>${esc(c.name)} · <span class="ab-d ${d[0]}">${esc(d[1])}</span></span></div>
+    <div class="ab-b"><button class="btn primary" data-task="${next.id}">${esc(next.btn)}</button><button class="btn ab-all" data-go="today">All my actions</button></div>
+  </div>`;
+}
+function completeTask(t){
+  if (t.type==="Relance" && daysTo(t.due)>0) {
+    const [ct] = ctById(t.ct);
+    t.status = "scheduled"; t.owner = "system"; t.act = `Relance to ${ct.first} ${ct.last} sends ${fmtD(parseD(t.due))}`;
+    t.autoNote = `Approved. Sends on ${fmtD(parseD(t.due))} in the morning window; ${coById(t.co).name} re-enrols on ${fmtD(parseD(t.reenrol))} if there is no answer.`;
+    toast(`Approved · sends ${fmtD(parseD(t.due))}. Nothing more to do.`); return;
+  }
+  t.status = "done";
+  const r = t.src && replies.find(x=>x.id===t.src);
+  if (r && !r.handled) { if (r.cls==="Interested") createOpp(r); else { r.handled = true; r.done = "handled via "+t.id; } }
+  if (t.id==="TK-413") { const o = opps.find(o=>o.id==="OP-281"); if (o) o.crm = "synced"; }
+  if (t.id==="TK-414") { const [ct] = ctById(t.ct); ct.email = "valid"; ct.seq = "SEQ-A"; }
+  toast(`Done: ${t.act}`);
+}
+/* Auto-replies: a return date becomes a follow-up on the next working day; people named in the reply become CRM contacts. */
+BASE["Delegate"] = [.12,"Named as the contact in an auto-reply"];
+const cap = s => s.replace(/^./,c=>c.toUpperCase());
+function readReply(r){
+  const [, co] = ctById(r.ct);
+  const found = {};
+  const dm = r.text.match(/(\d{1,2})\s+(january|february|march|april|may|june|july|august|september|october|november|december)/i);
+  if (dm){ const mi = MONTHS.indexOf(dm[2].toLowerCase()); let d = new Date(TODAY.getFullYear(),mi,+dm[1]); if (d<TODAY) d = new Date(TODAY.getFullYear()+1,mi,+dm[1]); found.back = d; }
+  const pm = r.text.match(/contact ([A-ZÀ-Ý][\wà-ÿ-]+) ([A-ZÀ-Ý][\wà-ÿ-]+),?\s*(?:([^,@]+?),\s*)?(?:at\s+)?([\w.+-]+@[\w.-]+\w)/);
+  if (pm) found.people = [{first:pm[1],last:pm[2],role:(pm[3]||"Unknown role").trim(),addr:pm[4]}];
+  // first names that match an existing contact at the company ("Ines runs the Q1 project")
+  found.linked = co.contacts.filter(k=>k.id!==r.ct && new RegExp("\\b"+k.first+"\\b").test(r.text)).map(k=>k.id);
+  return found;
+}
+function processAutoReply(r){
+  const [ct, co] = ctById(r.ct);
+  const f = readReply(r); r.found = f; const done = [];
+  if (f.back){
+    let fu = addDays(f.back,1); while (fu.getDay()===0||fu.getDay()===6) fu = addDays(fu,1);
+    const id = "TK-" + (430 + tasks.length);
+    tasks.push({id,type:"Send",trigger:"Out of office",co:co.id,ct:ct.id,due:iso(fu),timing:"known",value:FREELANCE_YR,status:"scheduled",by:"system",src:r.id,
+      owner:"system",stoppable:true,btn:"Stop this send",title:"Follow-up generated from an out-of-office reply",
+      act:`Follow-up to ${ct.first} ${ct.last} sends ${fmtD(fu)}, the day after he is back`,
+      autoNote:`Generated from the auto-reply (back ${fmtD(f.back)}). The sequence resumes after it. Stop it if you would rather call.`,
+      why:`Auto-reply: “${r.text}” The follow-up goes out on his first full day back, not the day he returns to a full inbox.`,
+      draft:`${TONES[co.tone].g} ${ct.first},\n\nWelcome back. Before you left I wrote about the DevOps roles ${co.name} is advertising. We started a contractor with your team this month, and I can put forward a second profile this week if that helps.\n\n${TONES[co.tone].cta}\n\n${TONES[co.tone].close},\nThe Zig\n\nReply "stop" and we will not contact you again.`});
+    ct.seq = null;
+    done.push(`follow-up ${id} set for ${fmtD(fu)}`);
+  }
+  (f.people||[]).forEach(p=>{
+    if (co.contacts.some(k=>k.first===p.first&&k.last===p.last)) return;
+    const nid = "CT-" + (2290 + co.contacts.length + companies.indexOf(co));
+    const k = {id:nid,first:p.first,last:p.last,role:p.role,sen:/head|director|chief|vp|cto|cio/i.test(p.role)?"Head":"Manager",email:"valid",addr:p.addr,seq:null,score:10,ev:{o:0,c:0,r:0},src:`Added from ${ct.first} ${ct.last}'s auto-reply`};
+    co.contacts.push(k);
+    const tid = "TK-" + (430 + tasks.length);
+    tasks.push({id:tid,type:"Send",trigger:"Delegate",co:co.id,ct:nid,due:iso(TODAY),timing:"now",value:FREELANCE_YR,status:"open",by:"system",src:r.id,
+      owner:"you",btn:"Review & send",title:"Contact named in an auto-reply",
+      act:`Decide whether to write to ${p.first} ${p.last} while ${ct.first} is away`,
+      why:`${ct.first}'s auto-reply names ${p.first} (${p.role}) for urgent matters${f.back?" until "+fmtD(f.back):""}. She is now a contact in the CRM, address validated.`,
+      steps:[`Decide if this is urgent enough to go to ${p.first} now. If not, press Snooze: the follow-up to ${ct.first} already covers it`,"Read the draft. It says where her name came from","Press Send"],
+      draft:`Dear ${p.first},\n\n${ct.first} ${ct.last}'s out-of-office message names you as the contact${f.back?" until "+fmtD(f.back):""}. I am writing about the DevOps roles ${co.name} is advertising, in case they cannot wait for his return.\n\nWe started a contractor with the team this month and can put forward a second profile this week.\n\nWould a short call be useful, or should I wait for ${ct.first}?\n\nKind regards,\nThe Zig\n\nReply "stop" and we will not contact you again.`});
+    done.push(`${p.first} ${p.last} added as a contact (${nid})`);
+  });
+  f.linked.forEach(id=>{ const [k] = ctById(id); done.push(`${k.first} ${k.last} already in the CRM, linked to this reply`); });
+  r.handled = true; r.auto = true; r.done = done.join(" · ") || "no date or contact found; left for you";
+  return done;
+}
 function scoreTask(t){
   const c = coById(t.co);
   const [b,bl] = BASE[t.trigger];
@@ -1039,18 +1194,20 @@ function createRelance(r, auto){
     title:`Relance before the panel reopens (${MONTHS[reopen.getMonth()].replace(/^./,c=>c.toUpperCase())})`,
     why:`${ct.first} ${ct.last} replied “${r.text}” Relance lands three weeks before, so we are registered on day one.`+(peer?` ${peer.first} ${peer.last} (${peer.role}) is copied: she has opened ${peer.ev.o} emails and procurement owns panel registration.`:"")+(lost?` ${lost.id} was lost for this reason: the panel closed before we qualified.`:""),
     draft:`Dear ${ct.first},\n\nIn September you told us the supplier panel reopens in ${MONTHS[reopen.getMonth()].replace(/^./,c=>c.toUpperCase())}. I am writing ahead of that so The Zig can be considered from the first day of registration.\n\n${VALUE[co.segment]}\n\nOne recent example: ${CASES[co.desk]||CASES["Brussels IT Dev"]}.\n\n${peer?`Is ${peer.first} ${peer.last} the right person for the registration documents? I can send them before the holidays.`:"Who should receive our registration documents?"}\n\nKind regards,\nThe Zig\n\nReply "stop" and we will not contact you again.`};
+  Object.assign(t,{owner:"you",act:`Approve the relance to ${ct.first} ${ct.last}`,btn:"Approve draft",steps:[...(acctN(co)<5?[`By ${fmtD(addDays(relance,-7))}: prepare the registration pack (${ACCT_STEPS.filter((x,i)=>!co.acct.done[i]).slice(0,3).join(", ").toLowerCase()})`]:[]),"Read the draft below and press Approve draft",`The system sends it on ${fmtD(relance)} and re-enrols ${co.name} on ${fmtD(reopen)}`]});
   tasks.push(t);
-  r.handled = true; r.done = `relance ${id} scheduled for ${fmtD(relance)} · sequence paused until ${fmtD(reopen)}`;
+  r.handled = true; r.auto = !!auto; r.done = `relance ${id} scheduled for ${fmtD(relance)} · sequence paused until ${fmtD(reopen)}`;
   co.outreach = "Paused"; ct.seq = null;
   lastAuto = id;
   return t;
 }
 
-let tSort = "p";
+let tSort = "p", tOwn = "you";
 function vTasks(){
   const sc = t => scoreTask(t);
-  const open = tasks.filter(t=>t.status!=="done");
+  const open = tasks.filter(t=>t.status!=="done" && (tOwn==="all" || t.owner===tOwn));
   const dueNow = open.filter(t=>daysTo(t.due)<=0 && t.status==="open");
+  const allOpen = tasks.filter(t=>t.status!=="done");
   const week = open.filter(t=>!dueNow.includes(t) && daysTo(t.due)<=7);
   const later = open.filter(t=>!dueNow.includes(t) && !week.includes(t));
   const done = tasks.filter(t=>t.status==="done");
@@ -1059,9 +1216,9 @@ function vTasks(){
   const row = t => { const s = sc(t); const c = coById(t.co); const [ct] = ctById(t.ct); rank += t.status==="done"?0:1;
     return `<button class="task ${t.status==="done"?"done":""} ${t.id===lastAuto?"new":""}" data-task="${t.id}">
       <span class="rk">${t.status==="done"?"✓":rank}</span>
-      <span class="lk"><span class="p num">${Math.round(s.p*100)}%</span><span class="bar"><i style="width:${Math.min(100,s.p/.6*100)}%;background:${likeTone(s.p)}"></i></span><span class="u">placement likelihood</span></span>
-      <span class="bd"><span class="chips">${pill(TTYPE[t.type],t.type)}${t.by==="system"?`<span class="chip">created by system</span>`:""}</span><span class="ttl">${esc(t.title)}</span><span class="who">${esc(c.name)} · ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)}</span><span class="why">${esc(t.why)}</span></span>
-      <span class="due">${dueChip(t)}<span class="num ev">${eurk(s.ev)} expected</span></span>
+      <span class="lk"><span class="p num">${t.trigger==="Admin"?"–":Math.round(s.p*100)+"%"}</span><span class="bar"><i style="width:${Math.min(100,s.p/.6*100)}%;background:${likeTone(s.p)}"></i></span><span class="u">${t.trigger==="Admin"?"no deal impact":"placement likelihood"}</span></span>
+      <span class="bd"><span class="chips">${t.owner==="you"?`<span class="own you">YOU</span>`:`<span class="own auto">AUTO</span>`}${pill(TTYPE[t.type]||"neutral",t.type)}</span><span class="ttl">${esc(t.act)}</span><span class="who">${esc(c.name)} · ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)}</span><span class="why">${esc(t.why)}</span></span>
+      <span class="due">${pill(...deadline(t))}<span class="num ev">${t.value?eurk(s.ev)+" expected":""}</span>${t.status!=="done"?`<span class="go">${t.owner==="you"?esc(t.btn)+" →":"View"}</span>`:""}</span>
     </button>`; };
   const grp = (nm, sub, L) => L.length ? `<div class="grp-h"><h3>${nm}</h3><span class="sub">${sub}</span></div><div class="tasks">${L.sort(key).map(row).join("")}</div>` : "";
   const auto = lastAuto && tasks.find(t=>t.id===lastAuto);
@@ -1075,8 +1232,8 @@ function vTasks(){
     <div class="kpi neutral"><div class="k">Scheduled relances</div><div class="v num">${open.filter(t=>t.type==="Relance"&&daysTo(t.due)>0).length}</div><div class="d">dated from what clients told us</div></div>
     <div class="kpi good"><div class="k">Done today</div><div class="v num">${done.length}</div><div class="d">of ${tasks.length} tasks</div></div>
   </div>
-  <div class="toolbar"><span class="note">Rank by</span><div class="seg" role="group" aria-label="Rank tasks by">${[["p","Placement likelihood"],["ev","Expected value"],["due","Due date"]].map(([k,l])=>`<button data-tsort="${k}" aria-pressed="${tSort===k}">${l}</button>`).join("")}</div></div>
-  ${grp("Due now","highest likelihood first",dueNow)}
+  <div class="toolbar"><div class="seg" role="group" aria-label="Whose tasks">${[["you","Mine · "+mine().length],["system","Automatic · "+allOpen.filter(t=>t.owner==="system").length],["all","All"]].map(([k,l])=>`<button data-town="${k}" aria-pressed="${tOwn===k}">${l}</button>`).join("")}</div><span class="note">Rank by</span><div class="seg" role="group" aria-label="Rank tasks by">${[["p","Placement likelihood"],["ev","Expected value"],["due","Due date"]].map(([k,l])=>`<button data-tsort="${k}" aria-pressed="${tSort===k}">${l}</button>`).join("")}</div></div>
+  ${grp(tOwn==="system"?"Running now":"Do today",tOwn==="system"?"":"reply deadlines first, then highest likelihood",dueNow)}
   ${grp("This week","",week)}
   ${grp("Scheduled","surfaces on its due date",later)}
   ${grp("Done","",done)}
@@ -1093,21 +1250,17 @@ function openTask(id){
     ["info",fmtD(parseD(t.reenrol)),"Panel reopens · re-enrol","If no answer, back into SEQ-A at step 3 with a new AI intro"],
     ["neutral","+14 days","Call task","Recruiter calls if the relance is opened but not answered"]] : null;
   drawer(`
-    <div class="eyebrow">${t.id} · ${t.by==="system"?"created by system":"created by you"}</div>
-    <h3 style="margin:4px 0 8px">${esc(t.title)}</h3>
-    <div class="chips" style="margin-bottom:14px">${pill(TTYPE[t.type],t.type)} ${dueChip(t)}</div>
-    <dl class="dl"><dt>Company</dt><dd>${esc(c.name)}</dd><dt>Contact</dt><dd>${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</dd>${cc?`<dt>Copy</dt><dd>${esc(cc.first+" "+cc.last)} · ${esc(cc.role)}</dd>`:""}<dt>Deal value</dt><dd class="num">${eur(t.value)}</dd></dl>
+    <div class="eyebrow">${t.id} · ${esc(t.title)}</div>
+    <div style="margin:10px 0 14px">${t.status==="done"?`<div class="autobox"><div class="lbl">Done</div>${esc(t.act)}</div>`:t.owner==="you"?`<div class="yourbox"><div class="lbl">Your action</div><div class="big">${esc(t.act)}</div>${pill(...deadline(t))}<ol>${(t.steps||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ol><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" data-tdo="${t.id}">${esc(t.btn)}</button><button class="btn" data-tsnooze="${t.id}">Snooze 7 days</button></div></div>`:`<div class="autobox"><div class="lbl">No action needed · the system does this</div><div style="font-weight:600;margin:3px 0">${esc(t.act)}</div><div class="note">${esc(t.autoNote||"")}</div>${t.stoppable?`<button class="btn sm" style="margin-top:8px" data-tstop="${t.id}">${esc(t.btn)}</button>`:""}</div>`}</div>
+    <dl class="dl"><dt>Company</dt><dd>${esc(c.name)}</dd><dt>Contact</dt><dd>${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</dd>${cc?`<dt>Copy</dt><dd>${esc(cc.first+" "+cc.last)} · ${esc(cc.role)}</dd>`:""}${t.value?`<dt>Deal value</dt><dd class="num">${eur(t.value)}</dd>`:""}</dl>
     <div class="sect"><h4>Why this task</h4><p style="margin:0">${esc(t.why)}</p></div>
-    <div class="sect"><h4>Placement likelihood · ${Math.round(s.p*100)}%</h4>
+    ${t.trigger==="Admin"?"":`<div class="sect"><h4>Placement likelihood · ${Math.round(s.p*100)}%</h4>
       ${s.parts.map(([l,v,base])=>`<div class="brk" style="grid-template-columns:minmax(0,1fr) 64px"><span>${esc(l)}</span><span class="num r">${base?Math.round(v*100)+"% base":"× "+v.toFixed(2)}</span></div>`).join("")}
-      <div class="brk" style="grid-template-columns:minmax(0,1fr) 64px;border-top:1px solid var(--line);padding-top:6px;font-weight:600"><span>Expected value</span><span class="num r">${eurk(s.ev)}</span></div></div>
+      <div class="brk" style="grid-template-columns:minmax(0,1fr) 64px;border-top:1px solid var(--line);padding-top:6px;font-weight:600"><span>Expected value</span><span class="num r">${eurk(s.ev)}</span></div></div>`}
     ${tl?`<div class="sect"><h4>What the system has scheduled</h4><div class="tl">${tl.map(([k,d,h,m])=>`<div class="tl-i"><span class="dot ${k}"></span><span class="num tl-d">${d}</span><div><b>${h}</b><div class="note">${esc(m)}</div></div></div>`).join("")}</div></div>`:""}
     <div class="sect"><h4>${isMsg?"Draft relance":"Plan"}</h4><div class="msg">${esc(t.draft)}</div>
       ${isMsg?`<div class="checks" style="margin-top:10px">${checks.map(([k,x])=>`<div><span class="ck ${k}">${k==="ok"?"✓":k==="no"?"×":"!"}</span><span>${esc(x)}</span></div>`).join("")}</div>`:""}</div>
-    ${t.status==="done"?"":`<div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
-      <button class="btn primary" data-tapprove="${t.id}">${daysTo(t.due)>0?"Approve · send on "+fmtD(parseD(t.due)):isMsg?"Approve · send in next window":"Mark done"}</button>
-      <button class="btn" data-tsnooze="${t.id}">Snooze 7 days</button>
-      <button class="btn ghost" data-co="${c.id}">Open company</button></div>`}`);
+    <div style="margin-top:18px"><button class="btn ghost" data-co="${c.id}">Open company</button></div>`);
 }
 
 /* ---------------- supplier accounts & preferred-supplier lists ---------------- */
@@ -1239,6 +1392,9 @@ document.addEventListener("click", e => {
   if (d.task) { return openTask(d.task); }
   if (d.tsort) { tSort = d.tsort; return render(); }
   if (d.relance) { const t = createRelance(replies.find(r=>r.id===d.relance), false); toast(`${t.id}: relance on ${fmtD(parseD(t.due))} · sequence paused`); return render(); }
+  if (d.tdo) { completeTask(tasks.find(x=>x.id===d.tdo)); closeDrawer(); return render(); }
+  if (d.tstop) { const t = tasks.find(x=>x.id===d.tstop); t.status = "done"; t.act = "Stopped: "+t.act; closeDrawer(); toast("Stopped. That email will not send."); return render(); }
+  if (d.town) { tOwn = d.town; return render(); }
   if (d.tapprove) { const t = tasks.find(x=>x.id===d.tapprove); const fut = daysTo(t.due)>0; if (!fut) t.status="done"; else t.status="scheduled"; t.approved=true; closeDrawer(); toast(fut?`${t.id} approved · sends ${fmtD(parseD(t.due))} in the morning window`:`${t.id} done`); return render(); }
   if (d.tsnooze) { const t = tasks.find(x=>x.id===d.tsnooze); t.due = iso(addDays(parseD(t.due)<TODAY?TODAY:parseD(t.due),7)); closeDrawer(); toast(`${t.id} moved to ${fmtD(parseD(t.due))}`); return render(); }
   if (d.opp) { createOpp(replies.find(r=>r.id===d.opp)); return render(); }
@@ -1272,6 +1428,11 @@ document.addEventListener("pointermove", e => { if (tip) { tip.style.left = (e.c
 document.addEventListener("pointerout", e => { if (tip && e.target.closest("[data-tip]")) { tip.remove(); tip = null; } });
 
 createRelance(replies.find(r=>r.id==="RP-93"), true);
+tasks = tasks.filter(t=>!["TK-406","TK-407"].includes(t.id));
+processAutoReply(replies.find(r=>r.id==="RP-94"));
+processAutoReply(replies.find(r=>r.id==="RP-92")); replies.find(r=>r.id==="RP-92").done += " · your task: send her the intro (TK-403)";
+tasks.forEach(t=>{ if (/^(Dear|Hi) /.test(t.draft) && !/stop/i.test(t.draft)) t.draft += "\n\nReply \"stop\" and we will not contact you again."; });
+[["RP-95","contact suppressed and logged for GDPR; never contacted again"]].forEach(([id,txt])=>{ const r = replies.find(x=>x.id===id); r.handled = true; r.auto = true; r.done = txt; const [ct] = ctById(r.ct); ct.seq = null; });
 render();
 })();
 </script>

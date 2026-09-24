@@ -224,6 +224,13 @@ relance three weeks before it (Lumen: relance 14 Dec, re-enrol 4 Jan). *Accounts
 5-step supplier-account checklist and preferred-supplier listing (direct PSL, procurement panel,
 MSP portal); **an opportunity cannot move to Won unless the account is open and, where the
 client uses a PSL, we are listed.**
+**v3 (2026-09-24):** every task has an owner — **YOU** (verb-first action, deadline, steps, one
+button) or **AUTO** (system does it, shown so nobody duplicates it, stoppable). A dark action bar
+on every view shows "N actions for you today · do next"; Today opens with the numbered list
+(reply deadlines under 60 min first, then placement likelihood) beside "Handled by the system".
+Auto-replies are read: a **return date → follow-up on the next working day after return**, sent
+automatically; **people named in the reply → added as CRM contacts** (source recorded) with a YOU
+task to decide whether to write to them; first names matching existing contacts are linked.
 
 ## Access constraints discovered (do not re-litigate these)
 
