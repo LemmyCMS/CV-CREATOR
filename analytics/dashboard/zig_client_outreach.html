@@ -1,0 +1,976 @@
+<title>Zig Client Prospector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#eef0f3; --surface:#ffffff; --surface-2:#f6f7f9; --line:#dcdfe5; --line-soft:#e9ebef;
+  --ink:#11151b; --ink-2:#525b68; --ink-3:#747d8b;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --good:#0f7a53; --warn:#9a5c00; --crit:#b3261e; --info:#1f63b5; --neutral:#5f6875;
+  --good-bg:#e4f4ec; --warn-bg:#fbf0dc; --crit-bg:#fbe6e4; --info-bg:#e3eefb; --neutral-bg:#eceef1;
+  --good-mk:#0ca30c; --warn-mk:#e8a200; --crit-mk:#d03b3b; --info-mk:#2a78d6; --neutral-mk:#9aa2ad;
+  --seq-1:#86b6ef; --seq-2:#5598e7; --seq-3:#2a78d6; --seq-4:#1c5cab;
+  --ai:#5a47c2; --ai-bg:#eeebfb;
+  --focus:#2a78d6; --shadow:0 1px 2px rgba(17,21,27,.06),0 8px 24px rgba(17,21,27,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+    --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#8d949e;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --info:#7fb2f0; --neutral:#98a0ac;
+    --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --info-bg:#172a42; --neutral-bg:#26282c;
+    --good-mk:#0ca30c; --warn-mk:#fab219; --crit-mk:#e66767; --info-mk:#3987e5; --neutral-mk:#6b727c;
+    --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#86b6ef;
+    --ai:#a99cf2; --ai-bg:#27223f;
+    --focus:#6da7ec; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#111214; --surface:#1a1a19; --surface-2:#212223; --line:#33353a; --line-soft:#282a2e;
+  --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#8d949e;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --info:#7fb2f0; --neutral:#98a0ac;
+  --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --info-bg:#172a42; --neutral-bg:#26282c;
+  --good-mk:#0ca30c; --warn-mk:#fab219; --crit-mk:#e66767; --info-mk:#3987e5; --neutral-mk:#6b727c;
+  --seq-1:#184f95; --seq-2:#256abf; --seq-3:#3987e5; --seq-4:#86b6ef;
+  --ai:#a99cf2; --ai-bg:#27223f;
+  --focus:#6da7ec; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:Archivo,"Public Sans",Arial,sans-serif;margin:0;text-wrap:balance;letter-spacing:-.012em}
+.num,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* shell */
+.app{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:100%}
+.side{background:var(--surface);border-right:1px solid var(--line);padding:20px 12px;position:sticky;top:env(safe-area-inset-top,0px);height:100vh;overflow:auto}
+.brand{padding:0 10px 18px;border-bottom:1px solid var(--line-soft);margin-bottom:12px}
+.brand .eyebrow{margin-bottom:4px}
+.brand h1{font-size:18px;font-weight:700}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;border:0;background:none;padding:8px 10px;border-radius:6px;color:var(--ink-2);font-weight:500}
+.nav button:hover{background:var(--surface-2);color:var(--ink)}
+.nav button[aria-current="page"]{background:var(--info-bg);color:var(--info);font-weight:600}
+.nav .step{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);width:28px;display:inline-block;white-space:nowrap}
+.nav button > span:first-child{white-space:nowrap}
+.nav .cnt{font-size:11px;font-family:"IBM Plex Mono",monospace;padding:0 6px;border-radius:9px;background:var(--neutral-bg);color:var(--ink-2)}
+.nav .cnt.crit{background:var(--crit-bg);color:var(--crit)}
+.nav .cnt.warn{background:var(--warn-bg);color:var(--warn)}
+.nav .cnt.good{background:var(--good-bg);color:var(--good)}
+.nav-sep{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;padding:14px 10px 4px}
+.legend-box{margin:18px 4px 0;padding:12px;border-radius:8px;background:var(--surface-2);font-size:12px;display:flex;flex-direction:column;gap:6px}
+.legend-box b{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.legend-row{display:flex;gap:8px;align-items:center;color:var(--ink-2)}
+
+.main{padding:22px 28px 80px;min-width:0}
+.topbar{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:18px}
+.topbar h2{font-size:24px;font-weight:700}
+.topbar p{margin:4px 0 0;color:var(--ink-2);max-width:70ch}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sample{font-size:12px;color:var(--warn);background:var(--warn-bg);padding:4px 10px;border-radius:12px;font-weight:500}
+
+/* status atoms */
+.dot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+.dot.good{background:var(--good-mk)}.dot.warn{background:var(--warn-mk)}.dot.crit{background:var(--crit-mk)}.dot.info{background:var(--info-mk)}.dot.neutral{background:var(--neutral-mk)}.dot.ai{background:var(--ai)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:2px 9px 2px 8px;border-radius:11px;white-space:nowrap;line-height:18px}
+.pill.good{background:var(--good-bg);color:var(--good)}.pill.warn{background:var(--warn-bg);color:var(--warn)}.pill.crit{background:var(--crit-bg);color:var(--crit)}.pill.info{background:var(--info-bg);color:var(--info)}.pill.neutral{background:var(--neutral-bg);color:var(--neutral)}.pill.ai{background:var(--ai-bg);color:var(--ai)}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.plain::before{display:none}
+.chip{display:inline-block;font-size:11.5px;padding:1px 8px;border-radius:4px;background:var(--surface-2);border:1px solid var(--line-soft);color:var(--ink-2);white-space:nowrap}
+.chip.sig{border-color:transparent;background:var(--info-bg);color:var(--info)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+
+/* panels */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.panel h3{font-size:15px;font-weight:600}
+.panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.panel-head .sub{color:var(--ink-3);font-size:12.5px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g-main{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.stack{display:flex;flex-direction:column;gap:16px}
+
+/* KPI tiles */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--neutral-mk)}
+.kpi.good::before{background:var(--good-mk)}.kpi.warn::before{background:var(--warn-mk)}.kpi.crit::before{background:var(--crit-mk)}.kpi.info::before{background:var(--info-mk)}
+.kpi .k{font-size:11.5px;color:var(--ink-3);font-weight:600;letter-spacing:.04em}
+.kpi .v{font-family:Archivo,sans-serif;font-size:26px;font-weight:700;margin-top:2px;letter-spacing:-.02em}
+.kpi .v small{font-size:13px;color:var(--ink-3);font-weight:500;font-family:"Public Sans",sans-serif;letter-spacing:0}
+.kpi .d{font-size:12px;color:var(--ink-2);margin-top:2px}
+.meter{height:6px;border-radius:3px;background:var(--line-soft);margin-top:8px;overflow:hidden}
+.meter i{display:block;height:100%;border-radius:3px;background:var(--info-mk)}
+
+/* alerts */
+.alerts{display:flex;flex-direction:column;gap:8px}
+.alert{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 12px;border-radius:8px;border:1px solid var(--line-soft);background:var(--surface-2)}
+.alert.crit{background:var(--crit-bg);border-color:transparent}
+.alert.warn{background:var(--warn-bg);border-color:transparent}
+.alert.good{background:var(--good-bg);border-color:transparent}
+.alert.info{background:var(--info-bg);border-color:transparent}
+.alert .ic{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;font-family:Archivo,sans-serif}
+.alert.crit .ic{background:var(--crit-mk)}.alert.warn .ic{background:var(--warn-mk);color:#1a1300}.alert.good .ic{background:var(--good-mk)}.alert.info .ic{background:var(--info-mk)}
+.alert .t{font-weight:600;font-size:13.5px}
+.alert .m{font-size:12.5px;color:var(--ink-2)}
+.alert.crit .t{color:var(--crit)}.alert.warn .t{color:var(--warn)}.alert.good .t{color:var(--good)}.alert.info .t{color:var(--info)}
+
+.btn{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:6px;font-weight:600;font-size:12.5px;white-space:nowrap}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--info-mk);border-color:transparent;color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.good{background:var(--good-mk);color:#fff;border-color:transparent}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--info)}
+.btn.sm{padding:3px 9px;font-size:12px}
+
+/* workflow rail */
+.rail{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+.rail-step{background:var(--surface-2);border-radius:8px;padding:10px 10px 12px;position:relative;border:1px solid var(--line-soft);cursor:pointer;text-align:left}
+.rail-step:hover{border-color:var(--info-mk)}
+.rail-step .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3)}
+.rail-step .nm{font-weight:600;font-size:12.5px;line-height:1.25;margin:2px 0 6px;min-height:32px}
+.rail-step .c{font-family:Archivo,sans-serif;font-size:20px;font-weight:700}
+.rail-step .u{font-size:11px;color:var(--ink-3)}
+.rail-step .flag{position:absolute;top:9px;right:9px}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap;background:var(--surface-2)}
+td{padding:10px 12px;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+tbody tr.click{cursor:pointer}
+tbody tr.click:hover td{background:var(--surface-2)}
+td .co{font-weight:600}
+td .meta{font-size:12px;color:var(--ink-3)}
+.r{text-align:right}
+.fit{display:flex;align-items:center;gap:8px;min-width:110px}
+.fit .bar{flex:1;height:6px;border-radius:3px;background:var(--line-soft);overflow:hidden}
+.fit .bar i{display:block;height:100%}
+.fit .num{font-size:12.5px;font-weight:500;width:24px;text-align:right}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;padding:6px 11px;font-size:12.5px;font-weight:500;color:var(--ink-2);border-right:1px solid var(--line-soft)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--info-bg);color:var(--info);font-weight:600}
+select,input[type="text"],input[type="number"],textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 9px}
+textarea{width:100%;resize:vertical;font-family:"IBM Plex Mono",monospace;font-size:12.5px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink-3);font-weight:600}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(10,12,16,.38);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--surface);z-index:41;overflow:auto;box-shadow:var(--shadow);padding:22px 22px calc(40px + env(safe-area-inset-bottom,0px));padding-top:calc(22px + env(safe-area-inset-top,0px))}
+.drawer h3{font-size:20px}
+.dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:6px 12px;font-size:13px}
+.dl dt{color:var(--ink-3)}
+.dl dd{margin:0}
+.sect{margin-top:20px}
+.sect > h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:8px}
+.brk{display:grid;grid-template-columns:130px minmax(0,1fr) 44px;gap:8px;align-items:center;font-size:12.5px;margin-bottom:5px}
+.brk .bar{height:8px;background:var(--line-soft);border-radius:4px;overflow:hidden}
+.brk .bar i{display:block;height:100%;background:var(--seq-3);border-radius:4px}
+.person{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line-soft)}
+.av{width:34px;height:34px;border-radius:50%;background:var(--neutral-bg);display:grid;place-items:center;font-weight:600;font-size:12px;color:var(--ink-2)}
+.ai-box{background:var(--ai-bg);border-radius:8px;padding:12px 14px;font-size:13px}
+.ai-box .lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ai);margin-bottom:4px}
+.x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;border:0;background:var(--surface-2);width:32px;height:32px;border-radius:50%;font-size:17px}
+
+/* sequence */
+.seq-list{display:flex;flex-direction:column;gap:8px}
+.seq-card{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--surface);text-align:left;width:100%}
+.seq-card[aria-pressed="true"]{border-color:var(--info-mk);box-shadow:0 0 0 1px var(--info-mk)}
+.seq-card .nm{font-weight:600}
+.seq-card .st{display:flex;gap:12px;font-size:12px;color:var(--ink-3);margin-top:4px;flex-wrap:wrap}
+.steps{display:flex;flex-direction:column;gap:0;position:relative}
+.stp{display:grid;grid-template-columns:62px minmax(0,1fr);gap:12px;padding-bottom:14px;position:relative}
+.stp::before{content:"";position:absolute;left:30px;top:30px;bottom:0;width:2px;background:var(--line)}
+.stp:last-child::before{display:none}
+.stp .day{width:62px;text-align:center}
+.stp .day b{display:grid;place-items:center;width:34px;height:34px;margin:0 auto;border-radius:50%;background:var(--info-bg);color:var(--info);font-family:Archivo,sans-serif;font-size:13px;position:relative;z-index:1}
+.stp .day span{font-size:11px;color:var(--ink-3);display:block;margin-top:2px;position:relative;z-index:1;background:var(--surface);padding:1px 0}
+.stp .bd{border:1px solid var(--line-soft);border-radius:8px;padding:10px 12px;background:var(--surface-2)}
+.stp .bd .h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+.stp .bd .h b{font-size:13.5px}
+.msg{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:13.5px;line-height:1.6;white-space:pre-wrap}
+.msg .sub{font-weight:600;display:block;margin-bottom:8px;white-space:normal}
+mark.ai{background:var(--ai-bg);color:inherit;border-bottom:2px solid var(--ai);padding:0 2px;border-radius:2px}
+mark.cs{background:var(--good-bg);color:inherit;border-bottom:2px solid var(--good-mk);padding:0 2px;border-radius:2px}
+mark.vp{background:var(--info-bg);color:inherit;border-bottom:2px solid var(--info-mk);padding:0 2px;border-radius:2px}
+mark.bad{background:var(--crit-bg);color:var(--crit);border-bottom:2px solid var(--crit-mk);padding:0 2px;border-radius:2px}
+.checks{display:flex;flex-direction:column;gap:6px;font-size:12.5px}
+.checks div{display:flex;gap:8px;align-items:flex-start}
+.ck{width:18px;height:18px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;margin-top:1px}
+.ck.ok{background:var(--good-mk)}.ck.no{background:var(--crit-mk)}.ck.wa{background:var(--warn-mk);color:#1a1300}
+
+/* sending timeline */
+.day-track{position:relative;height:74px;border-radius:8px;background:var(--surface-2);margin-top:8px}
+.win{position:absolute;top:10px;bottom:22px;background:var(--info-bg);border-radius:4px}
+.tick{position:absolute;bottom:4px;font-size:10.5px;color:var(--ink-3);transform:translateX(-50%);font-family:"IBM Plex Mono",monospace}
+.sd{position:absolute;top:22px;width:10px;height:10px;border-radius:50%;transform:translateX(-50%);border:2px solid var(--surface-2)}
+.now{position:absolute;top:4px;bottom:18px;width:2px;background:var(--ink)}
+.now::after{content:"now";position:absolute;top:-2px;left:5px;font-size:10px;font-weight:600}
+.health{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.hc{border:1px solid var(--line-soft);border-radius:8px;padding:10px 12px;background:var(--surface-2)}
+.hc .k{font-size:11.5px;color:var(--ink-3);font-weight:600}
+.hc .v{font-size:17px;font-weight:600;font-family:Archivo,sans-serif;margin:2px 0}
+
+/* kanban */
+.board{display:grid;grid-template-columns:repeat(6,minmax(170px,1fr));gap:10px;overflow-x:auto;padding-bottom:6px}
+.col{background:var(--surface-2);border:1px solid var(--line-soft);border-radius:10px;padding:10px;min-height:160px;display:flex;flex-direction:column;gap:8px}
+.col-h{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:2px 2px 6px;border-bottom:3px solid var(--line)}
+.col-h b{font-size:13px}
+.col-h .num{font-size:12px;color:var(--ink-3)}
+.opp{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:12.5px;display:flex;flex-direction:column;gap:5px}
+.opp .nm{font-weight:600;font-size:13px}
+.opp .row{display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap}
+.opp.fresh{box-shadow:0 0 0 2px var(--good-mk)}
+
+/* inbox */
+.reply{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line-soft);align-items:start}
+.reply:last-child{border-bottom:0}
+.reply .who{font-weight:600}
+.reply .q{font-size:13px;color:var(--ink-2);margin-top:3px}
+.reply .acts{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.sla{font-size:11.5px;font-family:"IBM Plex Mono",monospace}
+
+/* charts */
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.chart text{fill:var(--ink-3);font-size:11px;font-family:"IBM Plex Mono",monospace}
+.chart .grid-l{stroke:var(--line-soft);stroke-width:1}
+.chart .base{stroke:var(--line);stroke-width:1}
+.funnel{display:flex;flex-direction:column;gap:6px}
+.fr{display:grid;grid-template-columns:130px minmax(0,1fr) 110px;gap:10px;align-items:center;font-size:13px}
+.fr .bar{height:22px;background:var(--line-soft);border-radius:4px;overflow:hidden}
+.fr .bar i{display:block;height:100%;border-radius:0 4px 4px 0}
+.fr .v{font-size:12.5px;text-align:right}
+.fr .v span{color:var(--ink-3)}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12px;padding:6px 9px;border-radius:6px;z-index:60;white-space:nowrap;box-shadow:var(--shadow)}
+
+/* workflow diagram */
+.wf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.wf-card{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:14px;display:flex;flex-direction:column;gap:8px}
+.wf-card .top{display:flex;justify-content:space-between;align-items:center}
+.wf-card .top .n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
+.wf-card h4{font-size:15px}
+.wf-card ul{margin:0;padding-left:18px;font-size:12.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:2px}
+.wf-card .rule{font-size:12px;border-top:1px dashed var(--line);padding-top:8px;color:var(--ink-2)}
+.wf-card .rule b{color:var(--ink)}
+.branch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:12px}
+.br{border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.br.yes{background:var(--good-bg)}
+.br.no{background:var(--warn-bg)}
+.br h4{font-size:15px}
+.br.yes h4{color:var(--good)}.br.no h4{color:var(--warn)}
+.br ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:3px;font-size:13px}
+.decision{margin:14px auto 0;text-align:center;font-family:Archivo,sans-serif;font-weight:600;font-size:14px;padding:10px 18px;border:2px solid var(--ink-3);border-radius:8px;width:max-content;max-width:100%;background:var(--surface)}
+.states{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px}
+.states .arrow{color:var(--ink-3)}
+
+/* data model */
+.model{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.model h4{padding:12px 14px;background:var(--surface-2);border-bottom:1px solid var(--line);font-size:14px;display:flex;justify-content:space-between}
+.model h4 span{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);font-weight:400}
+.model dl{margin:0;padding:6px 14px 12px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:12.5px}
+.model dt{font-family:"IBM Plex Mono",monospace;color:var(--ink)}
+.model dd{margin:0;color:var(--ink-3);font-family:"IBM Plex Mono",monospace;font-size:12px}
+.model dt.pk::after{content:" PK";color:var(--warn);font-size:10.5px}
+.model dt.fk::after{content:" FK";color:var(--info);font-size:10.5px}
+.model dt.new::after{content:" +v1";color:var(--ai);font-size:10.5px}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:10px 16px;border-radius:8px;font-size:13px;z-index:70;box-shadow:var(--shadow);max-width:calc(100% - 32px)}
+.note{font-size:12.5px;color:var(--ink-3)}
+.muted{color:var(--ink-3)}
+.hr{height:1px;background:var(--line-soft);margin:14px 0}
+.boolean{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--surface-2);border:1px solid var(--line-soft);border-radius:6px;padding:10px;white-space:pre-wrap;word-break:break-word}
+
+@media (max-width:1180px){
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rail{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .wf{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .health{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:sticky;top:env(safe-area-inset-top,0px);height:auto;z-index:30;padding:10px 16px;border-right:0;border-bottom:1px solid var(--line)}
+  .brand{display:none}
+  .nav{flex-direction:row;overflow-x:auto;gap:4px}
+  .nav button{flex:none}
+  .nav-sep,.legend-box{display:none}
+  .main{padding:18px 16px 80px}
+  .g2,.g3,.g-main{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wf,.branch{grid-template-columns:minmax(0,1fr)}
+  .fr{grid-template-columns:96px minmax(0,1fr) 92px}
+  .dl{grid-template-columns:100px minmax(0,1fr)}
+  .brk{grid-template-columns:104px minmax(0,1fr) 40px}
+}
+</style>
+
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <div class="eyebrow">The Zig CRM · V1</div>
+      <h1>Client Prospector</h1>
+    </div>
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+    <div class="legend-box" aria-label="Colour key">
+      <b>Colour key</b>
+      <div class="legend-row"><span class="dot crit"></span>Act now · risk or loss</div>
+      <div class="legend-row"><span class="dot warn"></span>Needs attention</div>
+      <div class="legend-row"><span class="dot good"></span>Interest · won · healthy</div>
+      <div class="legend-row"><span class="dot info"></span>In progress</div>
+      <div class="legend-row"><span class="dot neutral"></span>Not started · paused</div>
+      <div class="legend-row"><span class="dot ai"></span>Written by AI</div>
+    </div>
+  </aside>
+  <main class="main" id="main"></main>
+</div>
+<div id="layer"></div>
+
+<script>
+(function(){
+"use strict";
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const eur = n => "€" + Math.round(n).toLocaleString("en-GB");
+const eurk = n => n >= 1000 ? "€" + (n/1000).toFixed(n >= 100000 ? 0 : 1) + "k" : eur(n);
+const pct = (a,b,d=1) => b ? (100*a/b).toFixed(d) + "%" : "–";
+
+/* ---------------- sample data (fictional companies) ---------------- */
+// Value estimates use Gentis coefficients: avg perm fee €16,410; contractor €713/wk ≈ €32.8k/yr at 46 weeks.
+const PERM_FEE = 16410, FREELANCE_YR = 713*46;
+
+const SEGMENTS = ["Hiring freelancers/employees","Agency needing subcontractors","Startup needing project support","Enterprise needing consultants","Long-term partner","Workflow automation"];
+
+const companies = [
+ {id:"CO-1041",name:"Nordvel Data Systems",industry:"Software / SaaS",size:"201–500",sizeFit:15,country:"BE",city:"Brussels",segment:3,source:"Job board signal",
+  signals:["6 open DevOps roles · 9 days","New CTO appointed","Series C announced"],hiring:"High",stack:["Azure","Kubernetes","Terraform"],
+  prior:{placements:0,lastContact:null},indRel:28,hireAct:28,dm:10,outreach:"In sequence",opp:null,desk:"Brussels IT Infrastructure",
+  pains:["Infra roles open > 30 days","Scaling after funding round"],tone:"startup",
+  contacts:[{id:"CT-2201",first:"Elise",last:"Vermeulen",role:"CTO",sen:"C-level",email:"valid",seq:"SEQ-A",score:62,ev:{o:4,c:2,r:0}},{id:"CT-2202",first:"Tom",last:"Declercq",role:"Engineering Manager",sen:"Manager",email:"valid",seq:"SEQ-A",score:31,ev:{o:2,c:0,r:0}},{id:"CT-2203",first:"Nadia",last:"Haddad",role:"HR Manager",sen:"Manager",email:"catch-all",seq:null,score:0,ev:{o:0,c:0,r:0}}]},
+ {id:"CO-1042",name:"Brabo Bouw & Techniek",industry:"Construction / Engineering",size:"501–1000",sizeFit:14,country:"BE",city:"Antwerp",segment:0,source:"Repeat business",
+  signals:["Past client · 2 perm placements","3 site-engineer roles on job boards"],hiring:"Medium",stack:["Autodesk","SAP"],
+  prior:{placements:2,lastContact:"2026-03-12"},indRel:26,hireAct:20,dm:10,outreach:"Replied",opp:"Qualified",desk:"Brussels Construction",
+  pains:["Site engineers hard to source","Project start in Q1 2027"],tone:"corporate",
+  contacts:[{id:"CT-2210",first:"Karel",last:"Peeters",role:"HR Manager",sen:"Manager",email:"valid",seq:"SEQ-C",score:88,ev:{o:5,c:3,r:1}},{id:"CT-2211",first:"Ines",last:"Maes",role:"Project Manager",sen:"Manager",email:"valid",seq:null,score:12,ev:{o:1,c:0,r:0}}]},
+ {id:"CO-1043",name:"Lumen Grid Energy",industry:"Energy / Utilities",size:"1000+",sizeFit:12,country:"LU",city:"Luxembourg",segment:3,source:"CRM import",
+  signals:["Digital transformation programme","Procurement framework renewal"],hiring:"Medium",stack:["SAP S/4HANA","ServiceNow"],
+  prior:{placements:0,lastContact:null},indRel:22,hireAct:18,dm:8,outreach:"In sequence",opp:null,desk:"Luxembourg IT",
+  pains:["Supplier panel closes Nov","Needs SAP consultants"],tone:"corporate",
+  contacts:[{id:"CT-2220",first:"Marc",last:"Weber",role:"CIO",sen:"C-level",email:"valid",seq:"SEQ-A",score:24,ev:{o:3,c:0,r:0}},{id:"CT-2221",first:"Sophie",last:"Klein",role:"Procurement",sen:"Manager",email:"valid",seq:"SEQ-A",score:40,ev:{o:3,c:1,r:0}}]},
+ {id:"CO-1044",name:"Kestrel Talent Partners",industry:"Recruitment agency",size:"11–50",sizeFit:9,country:"FR",city:"Lille",segment:1,source:"LinkedIn signal",
+  signals:["Posting BE freelance roles they cannot fill","No Belgian entity"],hiring:"High",stack:["Bullhorn"],
+  prior:{placements:0,lastContact:null},indRel:24,hireAct:26,dm:10,outreach:"Replied",opp:null,desk:"Brussels IT Infrastructure",
+  pains:["No local contractor bench","Payroll for BE contractors"],tone:"agency",
+  contacts:[{id:"CT-2230",first:"Julien",last:"Moreau",role:"Founder",sen:"Founder",email:"valid",seq:"SEQ-B",score:79,ev:{o:3,c:2,r:1}}]},
+ {id:"CO-1045",name:"Fjord Logistics Benelux",industry:"Logistics",size:"201–500",sizeFit:15,country:"BE",city:"Ghent",segment:5,source:"Manual entry",
+  signals:["Hiring 'automation analyst'","Warehouse system migration"],hiring:"Low",stack:["Python","Power Automate"],
+  prior:{placements:0,lastContact:null},indRel:16,hireAct:10,dm:6,outreach:"Not started",opp:null,desk:"Brussels IT Dev",
+  pains:["Manual order routing"],tone:"corporate",
+  contacts:[{id:"CT-2240",first:"Pieter",last:"Wouters",role:"Manager",sen:"Manager",email:"invalid",seq:null,score:0,ev:{o:0,c:0,r:0}}]},
+ {id:"CO-1046",name:"Parcelwise",industry:"Software / SaaS",size:"11–50",sizeFit:8,country:"BE",city:"Brussels",segment:2,source:"Job board signal",
+  signals:["Hiring first 2 backend engineers","Seed round · 4 months ago"],hiring:"Medium",stack:["Node.js","AWS"],
+  prior:{placements:0,lastContact:null},indRel:24,hireAct:18,dm:10,outreach:"Bounced",opp:null,desk:"Brussels IT Dev",
+  pains:["No in-house recruiter"],tone:"startup",
+  contacts:[{id:"CT-2250",first:"Lina",last:"Janssens",role:"Co-founder",sen:"Founder",email:"invalid",seq:"SEQ-A",score:0,ev:{o:0,c:0,r:0,b:1}}]},
+ {id:"CO-1047",name:"Orbis Medical Devices",industry:"Life sciences",size:"501–1000",sizeFit:14,country:"BE",city:"Wavre",segment:0,source:"Hiring signal (Indeed)",
+  signals:["11 roles open","Validation engineers · 45 days open"],hiring:"High",stack:["MES","Veeva"],
+  prior:{placements:0,lastContact:"2025-11-02"},indRel:20,hireAct:28,dm:8,outreach:"In sequence",opp:null,desk:"Brussels Construction/Engineering",
+  pains:["Validation roles open 45 days"],tone:"corporate",
+  contacts:[{id:"CT-2260",first:"Hélène",last:"Dubois",role:"HR Manager",sen:"Manager",email:"valid",seq:"SEQ-A",score:47,ev:{o:4,c:1,r:0}}]},
+ {id:"CO-1048",name:"Veldmark Retail Group",industry:"Retail",size:"1000+",sizeFit:12,country:"BE",city:"Mechelen",segment:3,source:"Repeat business",
+  signals:["Past client · contract ended June","Contractor not extended"],hiring:"Low",stack:["Salesforce"],
+  prior:{placements:1,lastContact:"2026-06-20"},indRel:14,hireAct:8,dm:10,outreach:"Follow-up due",opp:null,desk:"Brussels IT Dev",
+  pains:["Salesforce admin gap"],tone:"corporate",
+  contacts:[{id:"CT-2270",first:"Ann",last:"Claes",role:"Project Manager",sen:"Manager",email:"valid",seq:"SEQ-C",score:18,ev:{o:2,c:0,r:0}}]},
+ {id:"CO-1049",name:"Helix Cloud Consulting",industry:"IT consultancy",size:"51–200",sizeFit:11,country:"BE",city:"Leuven",segment:4,source:"LinkedIn signal",
+  signals:["Won public-sector tender","Subcontracts infra work"],hiring:"Medium",stack:["Azure","Citrix"],
+  prior:{placements:0,lastContact:null},indRel:26,hireAct:20,dm:10,outreach:"Replied",opp:"Negotiation",desk:"Brussels IT Infrastructure",
+  pains:["Tender staffing deadline"],tone:"agency",
+  contacts:[{id:"CT-2280",first:"Bram",last:"Goossens",role:"Founder",sen:"Founder",email:"valid",seq:"SEQ-B",score:92,ev:{o:6,c:4,r:2}}]},
+ {id:"CO-1050",name:"Solace Insurance Lux",industry:"Financial services",size:"201–500",sizeFit:15,country:"LU",city:"Luxembourg",segment:3,source:"CRM import",
+  signals:["Regulatory reporting project"],hiring:"Low",stack:["Java","Oracle"],
+  prior:{placements:0,lastContact:null},indRel:18,hireAct:8,dm:4,outreach:"Not started",opp:null,desk:"Luxembourg IT",
+  pains:["Unknown · enrichment pending"],tone:"corporate",contacts:[]},
+];
+companies.forEach(c => { c.fit = Math.min(100, c.indRel + c.hireAct + c.sizeFit + Math.min(15, c.prior.placements*6 + (c.prior.lastContact?3:0)) + c.dm); });
+
+let opps = [
+ {id:"OP-301",co:"CO-1042",ct:"CT-2210",stage:"Qualified",type:"Perm",value:2*PERM_FEE,notes:"Two site engineers, start Q1. Fee agreed at last terms.",crm:"synced",age:"2d"},
+ {id:"OP-302",co:"CO-1049",ct:"CT-2280",stage:"Negotiation",type:"Freelance",value:3*FREELANCE_YR,notes:"3 Azure/Citrix freelancers for tender. Negotiating margin: target ≥ 20%.",crm:"synced",age:"5d"},
+ {id:"OP-303",co:"CO-1041",ct:"CT-2202",stage:"New",type:"Freelance",value:FREELANCE_YR,notes:"Second DevOps profile after the first placement. Awaiting call slot.",crm:"pending",age:"4h"},
+ {id:"OP-296",co:"CO-1047",ct:"CT-2260",stage:"Contacted",type:"Perm",value:PERM_FEE,notes:"Re-engaged after Nov contact.",crm:"synced",age:"9d"},
+ {id:"OP-288",co:"CO-1041",ct:"CT-2201",stage:"Won",type:"Freelance",value:FREELANCE_YR,notes:"1 DevOps contractor, €720/wk margin.",crm:"synced",age:"18d"},
+ {id:"OP-281",co:"CO-1043",ct:"CT-2221",stage:"Lost",type:"Freelance",value:2*FREELANCE_YR,notes:"Panel closed before we qualified. Re-approach at renewal.",crm:"error",age:"21d"},
+];
+const STAGES = ["New","Contacted","Qualified","Negotiation","Won","Lost"];
+
+let replies = [
+ {id:"RP-91",ct:"CT-2230",co:"CO-1044",cls:"Interested",text:"Yes, we have two Brussels roles we can't staff. Can you send rates for an infra profile?",mins:38,handled:false},
+ {id:"RP-92",ct:"CT-2211",co:"CO-1042",cls:"Referral",text:"Not me, but Ines runs the Q1 project. Copying her in.",mins:95,handled:false},
+ {id:"RP-93",ct:"CT-2220",co:"CO-1043",cls:"Not now",text:"We're locked until the panel reopens in January.",mins:180,handled:false},
+ {id:"RP-94",ct:"CT-2202",co:"CO-1041",cls:"Out of office",text:"Back on 29 September.",mins:240,handled:false},
+ {id:"RP-95",ct:"CT-2240",co:"CO-1045",cls:"Unsubscribe",text:"Please remove me from your list.",mins:300,handled:false},
+];
+const CLS = {"Interested":"good","Referral":"good","Not now":"warn","Out of office":"neutral","Unsubscribe":"crit","Bounce":"crit"};
+const CLS_ACTION = {"Interested":"Stop sequence · create opportunity","Referral":"Add new contact · personalise from reply","Not now":"Pause · re-enrol in January","Out of office":"Shift next step by return date","Unsubscribe":"Suppress domain contact · GDPR log"};
+
+const sequences = [
+ {id:"SEQ-A",name:"Hiring signal · tech & engineering",fit:"Enterprises and startups with open roles",enrolled:64,sent:212,opens:104,clicks:21,replies:15,positive:6,opps:4,
+  steps:[
+   {d:0,ch:"Email",nm:"Signal-led intro",blocks:["AI intro line","Value prop"],stop:true},
+   {d:3,ch:"LinkedIn",nm:"Connect, no pitch",blocks:["AI note ≤ 280 chars"],stop:true},
+   {d:6,ch:"Email",nm:"Case study",blocks:["Case study","AI pain point"],stop:true},
+   {d:11,ch:"Email",nm:"AI rewrite if no open",blocks:["Tone shift","New subject"],stop:true,cond:"only if 0 opens"},
+   {d:18,ch:"Email",nm:"Polite close",blocks:["Opt-out line"],stop:true}]},
+ {id:"SEQ-B",name:"Agency & consultancy subcontracting",fit:"Agencies and consultancies needing a bench",enrolled:22,sent:71,opens:40,clicks:9,replies:8,positive:4,opps:3,
+  steps:[
+   {d:0,ch:"Email",nm:"Partner intro",blocks:["AI intro line","Value prop: BE bench"],stop:true},
+   {d:4,ch:"Email",nm:"Margin & payroll model",blocks:["Value prop: contractor payroll"],stop:true},
+   {d:9,ch:"LinkedIn",nm:"Founder-to-founder note",blocks:["AI note"],stop:true},
+   {d:15,ch:"Email",nm:"Polite close",blocks:["Opt-out line"],stop:true}]},
+ {id:"SEQ-C",name:"Repeat business · past clients",fit:"Clients with prior placements or ended contracts",enrolled:14,sent:30,opens:22,clicks:6,replies:5,positive:3,opps:2,
+  steps:[
+   {d:0,ch:"Email",nm:"Check-in on last placement",blocks:["History line (real)","Value prop"],stop:true},
+   {d:5,ch:"Call task",nm:"Recruiter call",blocks:["Talking points"],stop:true},
+   {d:12,ch:"Email",nm:"New roles we see",blocks:["Hiring signals"],stop:true}]},
+];
+
+const CASES = {
+ "Brussels IT Infrastructure":"we placed three Azure infrastructure contractors for a Brussels software company in under five weeks, all still on site after their first extension",
+ "Brussels Construction":"we filled two site-engineer roles for an Antwerp contractor that had been open for over two months",
+ "Brussels Construction/Engineering":"we filled two validation-engineer roles for a Walloon manufacturer in 38 days",
+ "Luxembourg IT":"we supplied SAP consultants to a Luxembourg financial group through their supplier panel",
+ "Brussels IT Dev":"we delivered a Salesforce contractor to a Flemish retailer within three weeks",
+};
+const VALUE = {
+ 0:"We source freelance and permanent profiles in Belgium, Luxembourg and northern France, with a shortlist inside ten working days.",
+ 1:"We can act as your Belgian contractor bench: local profiles, local payroll and compliance, and you keep the client relationship.",
+ 2:"We help early teams hire their first engineers without a full-time recruiter, paid only on a placement.",
+ 3:"We provide vetted consultants on short notice and work within your procurement framework.",
+ 4:"We look for a small number of long-term partners where we can share a bench and forecast demand together.",
+ 5:"We place automation and data profiles who have already migrated similar workflows.",
+};
+const TONES = {
+ corporate:{g:"Dear",close:"Kind regards",cta:"Would a 20-minute call next week be useful?"},
+ startup:{g:"Hi",close:"Cheers",cta:"Worth a quick 15 minutes?"},
+ agency:{g:"Hi",close:"Best",cta:"Open to comparing notes on a call?"},
+ mirror:{g:"Hello",close:"Best regards",cta:"Would it help if I sent two profiles first?"},
+};
+const FAKE_FAMILIARITY = ["as discussed","following up on our conversation","great speaking","as promised","per our call","nice to reconnect","thanks for your time last"];
+
+/* sending */
+const send = {cap:40,warmDay:23,sentToday:27,queued:9,held:2,bounceRate:1.8,complaint:0.02,spf:true,dkim:true,dmarc:true,reputation:"Good",
+  mailboxes:[{nm:"Recruiter 1 mailbox",sent:14,cap:20,warm:"Day 23 / 30"},{nm:"Recruiter 2 mailbox",sent:13,cap:20,warm:"Day 23 / 30"}],
+  daily:[18,22,0,0,24,28,31,30,0,0,33,36,35,27] };
+const DAYS = ["10 Sep","11","12","13","14","15","16","17","18","19","20","21","22","23 Sep"];
+
+/* ---------------- helpers ---------------- */
+const coById = id => companies.find(c => c.id === id);
+const ctById = id => { for (const c of companies) { const x = c.contacts.find(k => k.id === id); if (x) return [x, c]; } return [null, null]; };
+const fitTone = f => f >= 75 ? "good" : f >= 55 ? "info" : f >= 40 ? "warn" : "crit";
+const fitColor = f => ({good:"var(--good-mk)",info:"var(--info-mk)",warn:"var(--warn-mk)",crit:"var(--crit-mk)"})[fitTone(f)];
+const OUT = {"Not started":"neutral","In sequence":"info","Replied":"good","Follow-up due":"warn","Bounced":"crit","Stopped":"neutral","Paused":"neutral"};
+const EMAIL = {"valid":["good","Valid"],"catch-all":["warn","Catch-all"],"invalid":["crit","Invalid"]};
+const CRM = {"synced":["good","Synced"],"pending":["warn","Pending push"],"error":["crit","Sync error"]};
+const STAGE_COL = {New:"var(--seq-1)",Contacted:"var(--seq-2)",Qualified:"var(--seq-3)",Negotiation:"var(--seq-4)",Won:"var(--good-mk)",Lost:"var(--crit-mk)"};
+const pill = (tone, txt, extra="") => `<span class="pill ${tone} ${extra}">${esc(txt)}</span>`;
+const initials = c => (c.first[0] + c.last[0]).toUpperCase();
+function slaTone(m){ return m > 120 ? "crit" : m > 60 ? "warn" : "good"; }
+function slaTxt(m){ const h = Math.floor(m/60), mm = m%60; return (h ? h + "h " : "") + mm + "m"; }
+function toast(t){ const el = document.createElement("div"); el.className="toast"; el.setAttribute("role","status"); el.textContent=t; document.body.appendChild(el); setTimeout(()=>el.remove(),3600); }
+
+/* derived alerts: the page's colour-coded "what is going on" */
+function alerts(){
+  const a = [];
+  const open = replies.filter(r => !r.handled && (r.cls==="Interested"||r.cls==="Referral"));
+  open.forEach(r => { const [ct,co] = ctById(r.ct); a.push({tone: slaTone(r.mins)==="crit"?"crit":"good", ic:"!", t:`${r.cls} reply from ${co.name}`, m:`${ct.first} ${ct.last} · ${ct.role} · waiting ${slaTxt(r.mins)} · respond within 2h`, go:"engagement"}); });
+  const bounced = companies.filter(c => c.outreach==="Bounced");
+  if (bounced.length) a.push({tone:"crit",ic:"×",t:`${bounced.length} hard bounce held · contact removed from sequence`,m:bounced.map(c=>c.name).join(", ")+" · re-validate before any resend",go:"companies"});
+  const err = opps.filter(o => o.crm==="error");
+  if (err.length) a.push({tone:"crit",ic:"⟳",t:`${err.length} opportunity failed to sync to CRM`,m:err.map(o=>o.id+" · "+coById(o.co).name).join(", "),go:"opportunities"});
+  const due = companies.filter(c => c.outreach==="Follow-up due");
+  if (due.length) a.push({tone:"warn",ic:"↻",t:`Repeat business: ${due.length} past client due a follow-up`,m:due.map(c=>`${c.name} · last contact ${c.prior.lastContact}`).join(", "),go:"companies"});
+  const catchall = companies.flatMap(c=>c.contacts.filter(k=>k.email==="catch-all").map(k=>c.name));
+  if (catchall.length) a.push({tone:"warn",ic:"?",t:`${catchall.length} catch-all address not enrolled`,m:"Catch-all domains cannot be verified. Sent only after LinkedIn confirmation.",go:"companies"});
+  if (send.sentToday/send.cap > .6) a.push({tone:"info",ic:"i",t:`Sending at ${send.sentToday}/${send.cap} of today's warm-up cap`,m:`${send.queued} queued in the afternoon window · bounce rate ${send.bounceRate}% (pause at 3%)`,go:"sending"});
+  return a;
+}
+
+/* ---------------- views ---------------- */
+const VIEWS = [
+ {id:"today",nm:"Today",step:""},
+ {sep:"Workflow"},
+ {id:"companies",nm:"Companies",step:"1–3"},
+ {id:"sequences",nm:"Sequences & AI",step:"4"},
+ {id:"sending",nm:"Sending engine",step:"5"},
+ {id:"engagement",nm:"Replies & engagement",step:"6"},
+ {id:"opportunities",nm:"Opportunities",step:"7"},
+ {sep:"Reference"},
+ {id:"analytics",nm:"Analytics",step:""},
+ {id:"workflow",nm:"Workflow map",step:""},
+ {id:"model",nm:"Data model",step:""},
+];
+let view = "today";
+try { const h = location.hash.slice(1); if (VIEWS.some(v=>v.id===h)) view = h; } catch(e){}
+
+function navCounts(){
+  const r = replies.filter(x=>!x.handled && (x.cls==="Interested"||x.cls==="Referral"));
+  return {
+    today:[alerts().filter(a=>a.tone==="crit").length,"crit"],
+    engagement:[r.length, r.some(x=>x.mins>120)?"crit":"good"],
+    opportunities:[opps.filter(o=>!["Won","Lost"].includes(o.stage)).length,"neutral"],
+    companies:[companies.filter(c=>["Follow-up due","Bounced"].includes(c.outreach)).length,"warn"],
+  };
+}
+function renderNav(){
+  const n = navCounts();
+  $("#nav").innerHTML = VIEWS.map(v => v.sep ? `<div class="nav-sep">${v.sep}</div>` :
+    `<button data-v="${v.id}" ${v.id===view?'aria-current="page"':''}><span><span class="step">${v.step}</span>${v.nm}</span>${n[v.id]&&n[v.id][0]?`<span class="cnt ${n[v.id][1]}">${n[v.id][0]}</span>`:""}</button>`).join("");
+}
+function go(v){ view = v; try{ history.replaceState(null,"","#"+v);}catch(e){} render(); window.scrollTo(0,0); }
+
+function head(eyebrow, title, sub){
+  return `<div class="topbar"><div><div class="eyebrow">${eyebrow}</div><h2>${title}</h2>${sub?`<p>${sub}</p>`:""}</div><span class="sample">Sample data · fictional companies</span></div>`;
+}
+
+/* ---- Today ---- */
+function vToday(){
+  const act = opps.filter(o=>!["Won","Lost"].includes(o.stage));
+  const pipe = act.reduce((s,o)=>s+o.value,0);
+  const sentT = sequences.reduce((s,q)=>s+q.sent,0), repT = sequences.reduce((s,q)=>s+q.replies,0), posT = sequences.reduce((s,q)=>s+q.positive,0), oppT = sequences.reduce((s,q)=>s+q.opps,0);
+  const al = alerts();
+  const inq = replies.filter(r=>!r.handled && (r.cls==="Interested"||r.cls==="Referral"));
+  const st = stepCounts();
+  return head("Wednesday 23 September 2026","Today",
+    "What needs a human now, then how the machine is doing. Everything red or amber links to the place you fix it.") +
+  `<div class="kpis">
+    <div class="kpi info"><div class="k">Outreaches today</div><div class="v num">${send.sentToday}<small> / ${send.cap} cap</small></div><div class="meter"><i style="width:${100*send.sentToday/send.cap}%"></i></div></div>
+    <div class="kpi ${repT/sentT>=.05?"good":"warn"}"><div class="k">Reply rate · 30 days</div><div class="v num">${pct(repT,sentT)}</div><div class="d">${repT} replies from ${sentT} sends</div></div>
+    <div class="kpi good"><div class="k">Positive replies</div><div class="v num">${pct(posT,sentT)}</div><div class="d">${posT} interested or referral</div></div>
+    <div class="kpi ${inq.some(r=>r.mins>120)?"crit":"good"}"><div class="k">Incoming business waiting</div><div class="v num">${inq.length}</div><div class="d">oldest ${inq.length?slaTxt(Math.max(...inq.map(r=>r.mins))):"–"} · target &lt; 2h</div></div>
+    <div class="kpi info"><div class="k">Open pipeline</div><div class="v num">${eurk(pipe)}</div><div class="d">${act.length} opportunities · ${oppT} created in 30 days</div></div>
+  </div>
+  <div class="grid g-main">
+    <div class="panel"><div class="panel-head"><h3>Alerts</h3><span class="sub">sorted by urgency</span></div>
+      <div class="alerts">${al.sort((a,b)=>"crit good warn info".indexOf(a.tone)-"crit good warn info".indexOf(b.tone)).map(a=>`
+        <div class="alert ${a.tone}"><span class="ic" aria-hidden="true">${a.ic}</span><div><div class="t">${esc(a.t)}</div><div class="m">${esc(a.m)}</div></div><button class="btn sm" data-go="${a.go}">Open</button></div>`).join("")}
+      </div>
+    </div>
+    <div class="panel"><div class="panel-head"><h3>Incoming business</h3><span class="sub">reply SLA 2h</span></div>
+      ${inq.length?inq.map(r=>{const [ct,co]=ctById(r.ct);return `<div class="reply"><div><div class="who">${esc(co.name)}</div><div class="meta muted" style="font-size:12px">${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</div><div class="q">“${esc(r.text)}”</div></div><div class="acts">${pill(CLS[r.cls],r.cls)}<span class="sla" style="color:var(--${slaTone(r.mins)})">${slaTxt(r.mins)} waiting</span></div></div>`}).join(""):`<p class="muted">Nothing waiting. New interested replies appear here with a timer.</p>`}
+      <div style="margin-top:10px"><button class="btn primary" data-go="engagement">Handle replies</button></div>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:16px"><div class="panel-head"><h3>Workflow right now</h3><span class="sub">companies at each step · click a step to open it</span></div>
+    <div class="rail">${st.map((s,i)=>`<button class="rail-step" data-go="${s.go}"><div class="n">Step ${i+1}</div><div class="nm">${s.nm}</div><div class="c num">${s.c}</div><div class="u">${s.u}</div>${s.flag?`<span class="flag dot ${s.flag}" title="needs attention"></span>`:""}</button>`).join("")}</div>
+  </div>`;
+}
+function stepCounts(){
+  const cts = companies.flatMap(c=>c.contacts);
+  return [
+    {nm:"Company intake",c:companies.length,u:"companies imported",go:"companies"},
+    {nm:"Qualification",c:companies.filter(c=>c.fit>=55).length,u:"FitScore ≥ 55",go:"companies",flag:companies.some(c=>c.fit<40)?"warn":""},
+    {nm:"Contact discovery",c:cts.filter(k=>k.email==="valid").length,u:`valid of ${cts.length} contacts`,go:"companies",flag:cts.some(k=>k.email==="invalid")?"crit":""},
+    {nm:"Sequence assignment",c:cts.filter(k=>k.seq).length,u:"contacts enrolled",go:"sequences"},
+    {nm:"Sending engine",c:send.sentToday,u:`sent today · ${send.queued} queued`,go:"sending",flag:send.held?"warn":""},
+    {nm:"Engagement tracking",c:replies.length,u:"replies this week",go:"engagement"},
+    {nm:"Opportunity creation",c:opps.filter(o=>o.stage!=="Lost").length,u:"opportunities",go:"opportunities",flag:opps.some(o=>o.crm==="error")?"crit":""},
+    {nm:"Follow-up logic",c:sequences.reduce((s,q)=>s+Math.round(q.enrolled*.3),0),u:"AI rewrites scheduled",go:"sequences"},
+  ];
+}
+
+/* ---- Companies ---- */
+let coFilter = "all", coSort = "fit";
+function vCompanies(){
+  const filters = [["all","All"],["hot","FitScore ≥ 75"],["attention","Needs attention"],["repeat","Repeat business"],["new","Not started"]];
+  let list = companies.slice();
+  if (coFilter==="hot") list = list.filter(c=>c.fit>=75);
+  if (coFilter==="attention") list = list.filter(c=>["Bounced","Follow-up due"].includes(c.outreach) || c.contacts.some(k=>k.email!=="valid"));
+  if (coFilter==="repeat") list = list.filter(c=>c.prior.placements>0);
+  if (coFilter==="new") list = list.filter(c=>c.outreach==="Not started");
+  list.sort((a,b)=> coSort==="fit" ? b.fit-a.fit : a.name.localeCompare(b.name));
+  return head("Steps 1–3 · intake, qualification, contact discovery","Companies",
+    "Every company arrives from an import, a hiring signal, the CRM, manual entry or a repeat-business trigger. It is enriched, scored and given decision makers before anyone writes to it.") +
+  `<div class="toolbar">
+    <div class="seg" role="group" aria-label="Filter companies">${filters.map(([k,l])=>`<button data-cof="${k}" aria-pressed="${coFilter===k}">${l}</button>`).join("")}</div>
+    <div class="seg" role="group" aria-label="Sort"><button data-cos="fit" aria-pressed="${coSort==="fit"}">Sort by fit</button><button data-cos="name" aria-pressed="${coSort==="name"}">A–Z</button></div>
+    <span style="flex:1"></span>
+    <button class="btn" data-act="import">Import list</button><button class="btn primary" data-act="add">Add company</button>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Company</th><th>Segment</th><th>Hiring signals</th><th>FitScore</th><th>Decision makers</th><th>Outreach</th><th>Opportunity</th></tr></thead>
+    <tbody>${list.map(c=>{
+      const bad = c.contacts.filter(k=>k.email!=="valid").length;
+      return `<tr class="click" data-co="${c.id}" tabindex="0">
+      <td><div class="co">${esc(c.name)}</div><div class="meta">${esc(c.industry)} · ${esc(c.size)} · ${esc(c.city)}, ${c.country}</div><div class="meta">${esc(c.source)}${c.prior.placements?` · <span style="color:var(--good)">${c.prior.placements} past placement${c.prior.placements>1?"s":""}</span>`:""}</div></td>
+      <td style="max-width:150px"><span class="meta" style="color:var(--ink-2)">${esc(SEGMENTS[c.segment])}</span></td>
+      <td style="max-width:220px"><div class="chips">${c.signals.slice(0,2).map(s=>`<span class="chip sig">${esc(s)}</span>`).join("")}</div></td>
+      <td><div class="fit"><span class="num">${c.fit}</span><span class="bar"><i style="width:${c.fit}%;background:${fitColor(c.fit)}"></i></span></div></td>
+      <td>${c.contacts.length?`<span class="num">${c.contacts.length}</span> <span class="meta">found</span>${bad?` ${pill(c.contacts.some(k=>k.email==="invalid")?"crit":"warn",bad+" unverified")}`:""}`:pill("warn","Discovery pending")}</td>
+      <td>${pill(OUT[c.outreach],c.outreach)}</td>
+      <td>${c.opp?pill(c.opp==="Lost"?"crit":c.opp==="Won"?"good":"info",c.opp):`<span class="muted">–</span>`}</td></tr>`}).join("")}
+    </tbody></table></div>
+  <p class="note" style="margin-top:10px">FitScore = industry relevance (30) + hiring activity (30) + size fit (15) + previous interactions (15) + decision maker found (10). Green ≥ 75 · blue ≥ 55 · amber ≥ 40 · red below 40 is not enrolled.</p>`;
+}
+function openCompany(id){
+  const c = coById(id);
+  const brk = [["Industry relevance",c.indRel,30],["Hiring activity",c.hireAct,30],["Size fit",c.sizeFit,15],["Previous interactions",Math.min(15,c.prior.placements*6+(c.prior.lastContact?3:0)),15],["Decision maker found",c.dm,10]];
+  const roles = ["CTO","CIO","Engineering Manager","HR Manager","Procurement","Founder","Co-founder","Project Manager","Manager"];
+  const title = c.industry.includes("Construction")||c.industry.includes("Life") ? `("HR Manager" OR "Talent" OR "Project Manager" OR "Engineering Manager")` : `("CTO" OR "CIO" OR "Head of Infrastructure" OR "Engineering Manager" OR "Founder")`;
+  const bool = `site:linkedin.com/in\n"${c.name}"\nAND ${title}\nAND ("${c.city}" OR "${c.country==="BE"?"Belgium":c.country==="LU"?"Luxembourg":"France"}")\nNOT (recruiter OR "talent acquisition partner" OR intern)`;
+  drawer(`
+    <div class="eyebrow">${c.id} · ${esc(c.source)}</div>
+    <h3 style="margin:4px 0 6px">${esc(c.name)}</h3>
+    <div class="chips" style="margin-bottom:14px">${pill(OUT[c.outreach],c.outreach)} ${pill(fitTone(c.fit),"FitScore "+c.fit)} ${c.opp?pill("info","Opportunity: "+c.opp):""}</div>
+    <dl class="dl">
+      <dt>Industry</dt><dd>${esc(c.industry)}</dd><dt>Size</dt><dd>${esc(c.size)} employees</dd>
+      <dt>Location</dt><dd>${esc(c.city)}, ${c.country}</dd><dt>Segment</dt><dd>${esc(SEGMENTS[c.segment])}</dd>
+      <dt>Hiring activity</dt><dd>${pill(c.hiring==="High"?"good":c.hiring==="Medium"?"info":"neutral",c.hiring,"plain")}</dd>
+      <dt>Tech stack</dt><dd><div class="chips">${c.stack.map(s=>`<span class="chip">${esc(s)}</span>`).join("")}</div></dd>
+      <dt>Matching desk</dt><dd>${esc(c.desk)}</dd>
+      <dt>History</dt><dd>${c.prior.placements?`${c.prior.placements} placement(s) · last contact ${c.prior.lastContact}`:c.prior.lastContact?`Contacted ${c.prior.lastContact}, no placement`:`<span class="muted">No previous interaction</span>`}</dd>
+    </dl>
+    <div class="sect"><h4>Hiring signals</h4><div class="chips">${c.signals.map(s=>`<span class="chip sig">${esc(s)}</span>`).join("")}</div></div>
+    <div class="sect"><h4>FitScore breakdown</h4>${brk.map(([l,v,m])=>`<div class="brk"><span>${l}</span><span class="bar"><i style="width:${100*v/m}%"></i></span><span class="num r">${v}/${m}</span></div>`).join("")}</div>
+    <div class="sect"><h4>Decision makers</h4>${c.contacts.length?c.contacts.map(k=>`<div class="person"><span class="av">${initials(k)}</span><div><div style="font-weight:600">${esc(k.first+" "+k.last)}</div><div class="meta muted" style="font-size:12px">${esc(k.role)} · ${esc(k.sen)} · ${k.seq?`in ${k.seq}`:"not enrolled"}</div></div><div style="text-align:right">${pill(EMAIL[k.email][0],EMAIL[k.email][1])}<div class="num muted" style="font-size:11.5px;margin-top:3px">score ${k.score}</div></div></div>`).join(""):`<p class="muted">No contacts yet. Discovery searches for: ${roles.join(", ")}.</p>`}</div>
+    <div class="sect"><h4>People search · LinkedIn boolean</h4><div class="boolean" id="bool">${esc(bool)}</div><button class="btn sm" style="margin-top:6px" data-copy="bool">Copy search</button></div>
+    <div class="sect"><h4>AI read of this company</h4><div class="ai-box"><div class="lbl">Detected pain points</div>${c.pains.map(p=>`• ${esc(p)}`).join("<br>")}<div class="lbl" style="margin-top:10px">Suggested tone</div>${esc(c.tone)} · based on company type${c.contacts.some(k=>k.ev.r)?" and reply style":""}</div></div>
+    <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap">
+      <button class="btn primary" data-preview="${c.id}">Preview personalised email</button>
+      ${c.outreach==="Not started"&&c.fit>=40&&c.contacts.some(k=>k.email==="valid")?`<button class="btn" data-enrol="${c.id}">Enrol in sequence</button>`:""}
+    </div>`);
+}
+
+/* ---- Sequences & AI ---- */
+let seqSel = "SEQ-A", prevCo = "CO-1041", prevTone = "auto", prevStep = 0, draftEdit = null;
+function buildMessage(c, ct, seq, stepIdx, tone){
+  const t = TONES[tone==="auto"?c.tone:tone];
+  const step = seq.steps[stepIdx];
+  const hasHistory = c.prior.placements>0 || !!c.prior.lastContact;
+  const sig = c.signals[0];
+  const intro = hasHistory && c.prior.placements
+    ? `It has been a few months since we placed ${c.prior.placements===1?"a consultant":"two engineers"} with your team, and I noticed you are hiring again.`
+    : `I noticed ${c.name} currently has ${sig.toLowerCase().replace(/ · .*/,"")} advertised${c.signals[1]?`, shortly after the news that the company ${c.signals[1].toLowerCase().includes("cto")?"appointed a new CTO":"is growing"}`:""}.`;
+  const pain = `Roles like these in ${c.city} often stay open for weeks because the ${c.stack[0]} market is thin.`;
+  const sub = stepIdx===0 ? `${c.signals[0].replace(/ · .*/,"")} at ${c.name}` : stepIdx===3 ? `A different idea for ${c.name}` : `Re: ${c.name} hiring`;
+  let body = `${t.g} ${ct.first},\n\n`;
+  body += `<mark class="ai">${esc(intro)}</mark>\n\n`;
+  if (step.blocks.some(b=>b.includes("pain"))||stepIdx===0) body += `<mark class="ai">${esc(pain)}</mark> `;
+  body += `<mark class="vp">${esc(VALUE[c.segment])}</mark>\n\n`;
+  if (step.blocks.some(b=>b.toLowerCase().includes("case"))||stepIdx===2) body += `One recent example: <mark class="cs">${esc(CASES[c.desk]||CASES["Brussels IT Dev"])}</mark>.\n\n`;
+  body += `${t.cta}\n\n${t.close},\nThe Zig\n\n<span class="muted" style="font-size:12px">You are receiving this because your role matches B2B services we offer. Reply "stop" and we will not contact you again.</span>`;
+  return {sub, body, hasHistory};
+}
+function complianceChecks(html, c){
+  const plain = html.replace(/<[^>]+>/g,"").toLowerCase();
+  const hasHistory = c.prior.placements>0 || !!c.prior.lastContact;
+  const fake = FAKE_FAMILIARITY.filter(p=>plain.includes(p));
+  return [
+    [fake.length && !hasHistory ? "no" : "ok", fake.length && !hasHistory ? `Implies prior contact that never happened: “${fake.join("”, “")}”. Blocked from sending.` : "No implied prior contact. Claims only what the CRM knows."],
+    [plain.includes("stop") ? "ok" : "no", "Opt-out line present (B2B legitimate interest, GDPR Art. 6(1)(f))"],
+    [/guarantee|100%|best in/.test(plain) ? "wa" : "ok", /guarantee|100%|best in/.test(plain) ? "Absolute claim found. Soften it." : "No absolute or unverifiable claims"],
+    [plain.length < 1400 ? "ok" : "wa", `Length ${plain.length} characters${plain.length<1400?" · under 1,400":" · shorten"}`],
+    [c.contacts.some(k=>k.email==="valid") ? "ok" : "no", "Recipient address validated"],
+  ];
+}
+function vSequences(){
+  const seq = sequences.find(s=>s.id===seqSel);
+  const c = coById(prevCo); const ct = c.contacts.find(k=>k.email==="valid") || c.contacts[0];
+  const msg = buildMessage(c, ct, seq, prevStep, prevTone);
+  const bodyHTML = draftEdit!=null ? esc(draftEdit).replace(new RegExp("("+FAKE_FAMILIARITY.join("|")+")","gi"),'<mark class="bad">$1</mark>') : msg.body;
+  const checks = complianceChecks(draftEdit!=null?draftEdit:msg.body, c);
+  const blocked = checks.some(x=>x[0]==="no");
+  const cos = companies.filter(x=>x.contacts.length);
+  return head("Step 4 · sequence assignment and personalisation","Sequences & AI",
+    "Each sequence is a set of timed steps. AI writes the company-specific lines; value propositions and case studies come from an approved library. Any reply stops the sequence.") +
+  `<div class="grid" style="grid-template-columns:minmax(0,300px) minmax(0,1fr)" id="seqgrid">
+    <div class="stack">
+      <div class="seq-list">${sequences.map(s=>`<button class="seq-card" data-seq="${s.id}" aria-pressed="${s.id===seqSel}"><div class="eyebrow">${s.id}</div><div class="nm">${esc(s.name)}</div><div class="meta muted" style="font-size:12px">${esc(s.fit)}</div><div class="st"><span>${s.enrolled} enrolled</span><span style="color:var(--good)">${pct(s.replies,s.sent)} reply</span><span>${s.opps} opps</span></div></button>`).join("")}</div>
+      <div class="panel"><h3 style="font-size:14px;margin-bottom:8px">Follow-up logic</h3>
+        <div class="checks">
+          <div><span class="ck ok">✓</span>Reply of any kind → sequence stops for the whole company</div>
+          <div><span class="ck ok">✓</span>Interested reply → opportunity created, CRM push</div>
+          <div><span class="ck wa">↻</span>No open after 2 steps → AI rewrites subject and tone</div>
+          <div><span class="ck wa">↻</span>Opened, no reply → case-study step brought forward</div>
+          <div><span class="ck no">×</span>Hard bounce → contact removed, domain checked</div>
+        </div></div>
+    </div>
+    <div class="stack">
+      <div class="panel"><div class="panel-head"><h3>${esc(seq.name)}</h3><span class="sub">${seq.steps.length} steps · ${seq.steps[seq.steps.length-1].d} days</span></div>
+        <div class="steps">${seq.steps.map((s,i)=>`<div class="stp"><div class="day"><b>D${s.d}</b><span>${s.ch}</span></div><div class="bd" style="${i===prevStep?"border-color:var(--info-mk)":""}"><div class="h"><b>${esc(s.nm)}</b><span>${s.cond?pill("warn",s.cond):""} <button class="btn sm ghost" data-step="${i}">${i===prevStep?"Previewing":"Preview"}</button></span></div><div class="chips" style="margin-top:6px">${s.blocks.map(b=>`<span class="chip" style="${/AI|Tone/.test(b)?"background:var(--ai-bg);color:var(--ai);border-color:transparent":/Case/.test(b)?"background:var(--good-bg);color:var(--good);border-color:transparent":/Value/.test(b)?"background:var(--info-bg);color:var(--info);border-color:transparent":""}">${esc(b)}</span>`).join("")}<span class="chip">stops on reply</span></div></div></div>`).join("")}</div>
+      </div>
+      <div class="panel"><div class="panel-head"><h3>Personalised preview</h3>
+        <div class="toolbar" style="margin:0">
+          <label class="f">Company<select id="pv-co">${cos.map(x=>`<option value="${x.id}" ${x.id===prevCo?"selected":""}>${esc(x.name)}</option>`).join("")}</select></label>
+          <label class="f">Tone<select id="pv-tone">${["auto","corporate","startup","agency","mirror"].map(t=>`<option value="${t}" ${t===prevTone?"selected":""}>${t==="auto"?"Auto ("+c.tone+")":t==="mirror"?"Mirror reply style":t}</option>`).join("")}</select></label>
+        </div></div>
+        <div class="chips" style="margin-bottom:10px;font-size:12px"><span><mark class="ai">AI line</mark></span><span><mark class="vp">Value proposition</mark></span><span><mark class="cs">Case study</mark></span><span><mark class="bad">Blocked phrase</mark></span></div>
+        <div class="msg"><span class="sub">Subject: ${esc(msg.sub)}</span><span class="muted" style="font-size:12px">To: ${esc(ct.first+" "+ct.last)} · ${esc(ct.role)} · ${esc(c.name)}</span>\n\n${bodyHTML}</div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <button class="btn" data-act="edit">${draftEdit!=null?"Reset to AI draft":"Edit draft"}</button>
+          <button class="btn" data-act="tryfake">Test: add “as discussed”</button>
+          <button class="btn ${blocked?"":"good"}" data-act="approve" ${blocked?"disabled style='opacity:.55;cursor:not-allowed'":""}>${blocked?"Blocked · fix checks":"Approve step"}</button>
+        </div>
+        ${draftEdit!=null?`<label class="f" style="margin-top:10px">Edit (plain text)<textarea id="draft" rows="9">${esc(draftEdit)}</textarea></label>`:""}
+        <div class="hr"></div>
+        <h4 style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px">Pre-send checks</h4>
+        <div class="checks">${checks.map(([k,t])=>`<div><span class="ck ${k}">${k==="ok"?"✓":k==="no"?"×":"!"}</span><span>${esc(t)}</span></div>`).join("")}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ---- Sending ---- */
+function vSending(){
+  const start = 7*60, end = 18*60, W = end-start, pos = m => (100*(m-start)/W);
+  const wins = [[8*60+40,11*60+30],[13*60+30,16*60+15]];
+  let seed = 7; const rnd = () => (seed = (seed*9301+49297)%233280)/233280;
+  const now = 14*60+5; const dots = [];
+  for (let i=0;i<38;i++){ const w = wins[i<22?0:1]; const m = w[0] + rnd()*(w[1]-w[0]); dots.push(m); }
+  dots.sort((a,b)=>a-b);
+  const heldIdx = [24,25];
+  return head("Step 5 · sending engine","Sending engine",
+    "Sends are spread across two randomised windows per mailbox, capped by the warm-up schedule, and paused automatically when bounces or complaints rise.") +
+  `<div class="health" style="margin-bottom:16px">
+    <div class="hc"><div class="k">Domain reputation</div><div class="v" style="color:var(--good)">${send.reputation}</div>${pill("good","SPF · DKIM · DMARC pass")}</div>
+    <div class="hc"><div class="k">Hard bounce rate · 7d</div><div class="v num">${send.bounceRate}%</div>${pill(send.bounceRate>=3?"crit":send.bounceRate>=2?"warn":"good",send.bounceRate>=3?"Paused":"Pause at 3%")}</div>
+    <div class="hc"><div class="k">Spam complaints · 7d</div><div class="v num">${send.complaint}%</div>${pill("good","Limit 0.1%")}</div>
+    <div class="hc"><div class="k">Warm-up</div><div class="v num">Day ${send.warmDay}</div>${pill("info","Cap rises +2/day to 50")}</div>
+  </div>
+  <div class="panel"><div class="panel-head"><h3>Today's send windows</h3><span class="sub">each dot is one email · jitter ± 7 min, never two within 90 s</span></div>
+    <div class="day-track" role="img" aria-label="Send schedule for today, ${send.sentToday} sent, ${send.queued} queued, ${send.held} held">
+      ${wins.map(w=>`<div class="win" style="left:${pos(w[0])}%;width:${pos(w[1])-pos(w[0])}%"></div>`).join("")}
+      ${dots.map((m,i)=>{const st = heldIdx.includes(i)?"crit":m<now?"good":"info"; return `<span class="sd" style="left:${pos(m)}%;background:var(--${st}-mk)" data-tip="${String(Math.floor(m/60)).padStart(2,"0")}:${String(Math.floor(m%60)).padStart(2,"0")} · ${st==="good"?"sent":st==="crit"?"held: catch-all":"scheduled"}"></span>`}).join("")}
+      <span class="now" style="left:${pos(now)}%"></span>
+      ${[8,10,12,14,16,18].map(h=>`<span class="tick" style="left:${pos(h*60)}%">${h}:00</span>`).join("")}
+    </div>
+    <div class="chips" style="margin-top:10px;gap:14px;font-size:12px;color:var(--ink-2)"><span><span class="dot good"></span> Sent</span><span><span class="dot info"></span> Scheduled</span><span><span class="dot crit"></span> Held</span><span><span style="display:inline-block;width:14px;height:9px;background:var(--info-bg);border-radius:2px"></span> Send window</span></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="panel"><div class="panel-head"><h3>Mailboxes</h3><span class="sub">2 half-time recruiters</span></div>
+      ${send.mailboxes.map(m=>`<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between"><b>${m.nm}</b><span class="num">${m.sent} / ${m.cap}</span></div><div class="meter"><i style="width:${100*m.sent/m.cap}%"></i></div><div class="note">Warm-up ${m.warm}</div></div>`).join("")}
+    </div>
+    <div class="panel"><div class="panel-head"><h3>Protection rules</h3></div>
+      <div class="stack" style="gap:10px">
+        <label class="f">Daily cap per mailbox<input type="number" id="cap" value="${send.cap/2}" min="5" max="50"></label>
+        <div class="checks">
+          <div><span class="ck ok">✓</span>Validate every address before first send; catch-all held until LinkedIn confirms</div>
+          <div><span class="ck ok">✓</span>Pause mailbox if hard bounces ≥ 3% over the last 50 sends</div>
+          <div><span class="ck ok">✓</span>Pause all sending if complaints ≥ 0.1% or a blocklist hit</div>
+          <div><span class="ck ok">✓</span>Max 2 contacts per company per day; never the same person twice in 72 h</div>
+          <div><span class="ck ok">✓</span>Local business hours of the recipient only (BE, LU, FR); no weekends</div>
+        </div>
+      </div></div>
+  </div>`;
+}
+
+/* ---- Engagement ---- */
+function vEngagement(){
+  const cts = companies.flatMap(c=>c.contacts.filter(k=>k.seq).map(k=>({k,c}))).sort((a,b)=>b.k.score-a.k.score);
+  return head("Step 6 · engagement tracking","Replies & engagement",
+    "Replies are classified by AI and routed. Interested replies become opportunities in one click; the rest pause, re-time or suppress the sequence.") +
+  `<div class="grid g-main">
+    <div class="panel"><div class="panel-head"><h3>Reply inbox</h3><span class="sub">${replies.filter(r=>!r.handled).length} to handle</span></div>
+      ${replies.map(r=>{const [ct,co]=ctById(r.ct); return `<div class="reply" style="${r.handled?"opacity:.55":""}"><div><div class="who">${esc(co.name)} <span class="muted" style="font-weight:400;font-size:12.5px">· ${esc(ct.first+" "+ct.last)}, ${esc(ct.role)}</span></div><div class="q">“${esc(r.text)}”</div><div class="note" style="margin-top:4px">${r.handled?"Handled · "+esc(r.done):"Next: "+esc(CLS_ACTION[r.cls])}</div></div>
+        <div class="acts">${pill(CLS[r.cls],r.cls)}${r.handled?"":`<span class="sla" style="color:var(--${slaTone(r.mins)})">${slaTxt(r.mins)}</span>${r.cls==="Interested"?`<button class="btn sm good" data-opp="${r.id}">Create opportunity</button>`:`<button class="btn sm" data-handle="${r.id}">Apply</button>`}`}</div></div>`}).join("")}
+    </div>
+    <div class="panel"><div class="panel-head"><h3>Interest score</h3><span class="sub">per contact</span></div>
+      <div class="note" style="margin-bottom:8px">open +3 · click +8 · reply +25 · positive +40 · bounce resets to 0 · decays 10% a week</div>
+      ${cts.map(({k,c})=>`<div class="brk" style="grid-template-columns:minmax(0,1fr) 90px 34px"><span><b style="font-weight:600">${esc(k.first+" "+k.last)}</b><span class="muted" style="font-size:12px"> · ${esc(c.name)}</span></span><span class="bar"><i style="width:${k.score}%;background:${k.score>=70?"var(--good-mk)":k.score>=35?"var(--info-mk)":"var(--neutral-mk)"}"></i></span><span class="num r">${k.score}</span></div>`).join("")}
+    </div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:16px"><table>
+    <thead><tr><th>Contact</th><th>Company</th><th class="r">Opens</th><th class="r">Clicks</th><th class="r">Replies</th><th>Bounce</th><th>Status</th></tr></thead>
+    <tbody>${companies.flatMap(c=>c.contacts.map(k=>`<tr><td><b style="font-weight:600">${esc(k.first+" "+k.last)}</b><div class="meta">${esc(k.role)}</div></td><td>${esc(c.name)}</td><td class="r num">${k.ev.o}</td><td class="r num">${k.ev.c}</td><td class="r num">${k.ev.r}</td><td>${k.ev.b?pill("crit","Hard · invalid"):k.email==="catch-all"?pill("warn","Risk · catch-all"):`<span class="muted">–</span>`}</td><td>${k.ev.r?pill("good","Replied"):k.ev.b?pill("crit","Removed"):k.seq?pill("info","In sequence"):pill("neutral","Not enrolled")}</td></tr>`)).join("")}</tbody></table></div>`;
+}
+
+/* ---- Opportunities ---- */
+let freshOpp = null;
+function vOpps(){
+  const act = opps.filter(o=>!["Won","Lost"].includes(o.stage));
+  return head("Step 7 · opportunity engine","Opportunities",
+    "Interested replies become opportunities with a stage, a value estimate and a CRM sync status. Values use Gentis coefficients: €16,410 per perm fee, €32.8k a year per contractor.") +
+  `<div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi info"><div class="k">Open pipeline</div><div class="v num">${eurk(act.reduce((s,o)=>s+o.value,0))}</div><div class="d">${act.length} open</div></div>
+    <div class="kpi good"><div class="k">Won · 30 days</div><div class="v num">${eurk(opps.filter(o=>o.stage==="Won").reduce((s,o)=>s+o.value,0))}</div><div class="d">${opps.filter(o=>o.stage==="Won").length} won</div></div>
+    <div class="kpi ${opps.some(o=>o.crm!=="synced")?"warn":"good"}"><div class="k">CRM sync</div><div class="v num">${opps.filter(o=>o.crm==="synced").length}<small> / ${opps.length}</small></div><div class="d">${opps.filter(o=>o.crm==="error").length} error · ${opps.filter(o=>o.crm==="pending").length} pending</div></div>
+    <div class="kpi neutral"><div class="k">Reply → opportunity</div><div class="v num">${pct(sequences.reduce((s,q)=>s+q.opps,0),sequences.reduce((s,q)=>s+q.replies,0),0)}</div><div class="d">of all replies</div></div>
+  </div>
+  <div class="board">${STAGES.map(s=>{const L = opps.filter(o=>o.stage===s); return `<div class="col"><div class="col-h" style="border-bottom-color:${STAGE_COL[s]}"><b>${s}</b><span class="num">${L.length} · ${eurk(L.reduce((a,o)=>a+o.value,0))}</span></div>
+    ${L.map(o=>{const co=coById(o.co); const [ct]=ctById(o.ct); const i=STAGES.indexOf(o.stage); return `<div class="opp ${o.id===freshOpp?"fresh":""}"><div class="row"><span class="nm">${esc(co.name)}</span></div><div class="muted" style="font-size:12px">${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}</div><div class="row"><span class="num" style="font-weight:600">${eurk(o.value)}</span><span class="chip">${o.type}</span></div><div style="color:var(--ink-2)">${esc(o.notes)}</div><div class="row">${pill(CRM[o.crm][0],CRM[o.crm][1])}<span class="muted num" style="font-size:11px">${o.id} · ${o.age}</span></div>
+      <div class="row">${i>0&&i<5?`<button class="btn sm" data-mv="${o.id}" data-d="-1" aria-label="Move back">←</button>`:"<span></span>"}${o.crm==="error"?`<button class="btn sm" data-retry="${o.id}">Retry sync</button>`:""}${i<4?`<button class="btn sm" data-mv="${o.id}" data-d="1">${STAGES[i+1]} →</button>`:""}</div></div>`}).join("")||`<p class="note">None</p>`}</div>`}).join("")}</div>
+  <div class="panel" style="margin-top:16px"><h3 style="font-size:14px;margin-bottom:8px">Negotiation workflow · triggered when an opportunity reaches Negotiation</h3>
+    <div class="states"><span class="pill info plain">Rates sent</span><span class="arrow">→</span><span class="pill info plain">Margin check ≥ 20% freelance · fee ≥ 18% perm</span><span class="arrow">→</span><span class="pill warn plain">Below floor: manager approval</span><span class="arrow">→</span><span class="pill info plain">Terms signed</span><span class="arrow">→</span><span class="pill good plain">Won · job created in CRM</span></div>
+  </div>`;
+}
+
+/* ---- Analytics ---- */
+function barChart(){
+  const W=640,H=200,P={l:34,r:10,t:12,b:26}, max=50, bw=(W-P.l-P.r)/send.daily.length;
+  const y = v => P.t + (H-P.t-P.b)*(1-v/max);
+  let g = "";
+  [0,10,20,30,40,50].forEach(v=>{ g += `<line class="grid-l" x1="${P.l}" x2="${W-P.r}" y1="${y(v)}" y2="${y(v)}"/><text x="${P.l-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`; });
+  send.daily.forEach((v,i)=>{ const x = P.l+i*bw+3, w = bw-6; const last = i===send.daily.length-1;
+    if (v) g += `<path d="M${x},${y(0)} V${y(v)+4} q0,-4 4,-4 h${w-8} q4,0 4,4 V${y(0)} Z" fill="${last?"var(--s1)":"var(--seq-1)"}" data-tip="${DAYS[i]}${i?" Sep":""}: ${v} sent"/>`;
+    else g += `<text x="${x+w/2}" y="${y(0)-4}" text-anchor="middle" style="font-size:9px">wknd</text>`;
+    if (i%2===0 || last) g += `<text x="${x+w/2}" y="${H-8}" text-anchor="middle">${DAYS[i].replace(" Sep","")}</text>`;
+    if (last) g += `<text x="${x+w/2}" y="${y(v)-6}" text-anchor="middle" style="fill:var(--ink);font-weight:600">${v}</text>`;
+  });
+  g += `<line class="base" x1="${P.l}" x2="${W-P.r}" y1="${y(0)}" y2="${y(0)}"/>`;
+  g += `<line x1="${P.l}" x2="${W-P.r}" y1="${y(40)}" y2="${y(40)}" stroke="var(--warn-mk)" stroke-width="1.5" stroke-dasharray="4 4"/><text x="${W-P.r}" y="${y(40)-5}" text-anchor="end" style="fill:var(--warn)">cap 40</text>`;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Outreaches per working day, last two weeks, rising from 18 to 36 against a cap of 40">${g}</svg>`;
+}
+function vAnalytics(){
+  const T = k => sequences.reduce((s,q)=>s+q[k],0);
+  const sent=T("sent"), op=T("opens"), cl=T("clicks"), re=T("replies"), po=T("positive"), oc=T("opps"), won=opps.filter(o=>o.stage==="Won").length;
+  const F = [["Emails sent",sent,sent],["Opened",op,sent],["Clicked",cl,op],["Replied",re,sent],["Positive reply",po,re],["Opportunity",oc,po],["Won",won,oc]];
+  return head("Analytics","Ratios & reporting",
+    "Outreach volume, the conversion chain from send to won business, and which sequence earns its place. Ratios are step-on-step, so a weak link is visible where it happens.") +
+  `<div class="grid g2">
+    <div class="panel"><div class="panel-head"><h3>Outreaches per day</h3><span class="sub">last 14 days · both mailboxes</span></div>${barChart()}</div>
+    <div class="panel"><div class="panel-head"><h3>Conversion chain · 30 days</h3><span class="sub">count · step ratio</span></div>
+      <div class="funnel">${F.map(([l,v,base],i)=>`<div class="fr"><span>${l}</span><span class="bar"><i style="width:${Math.max(1.5,100*v/sent)}%;background:${i===F.length-1?"var(--good-mk)":`var(--seq-${Math.min(4,1+Math.floor(i/2))})`}"></i></span><span class="v num">${v} <span>${i?pct(v,base):""}</span></span></div>`).join("")}</div>
+      <p class="note" style="margin-top:10px">Bars are to scale against sends. Opened and clicked are shown for deliverability only; replies are the ratio that matters, because Apple Mail privacy inflates opens.</p>
+    </div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:16px"><table>
+    <thead><tr><th>Sequence</th><th class="r">Enrolled</th><th class="r">Sent</th><th class="r">Open</th><th class="r">Reply</th><th class="r">Positive / reply</th><th class="r">Opps</th><th class="r">Sends per opp</th><th>Verdict</th></tr></thead>
+    <tbody>${sequences.map(s=>{const rr=s.replies/s.sent; const v=rr>=.12?["good","Scale up"]:rr>=.06?["info","Keep"]:["warn","Rewrite step 1"]; return `<tr><td><b style="font-weight:600">${esc(s.name)}</b><div class="meta">${s.id}</div></td><td class="r num">${s.enrolled}</td><td class="r num">${s.sent}</td><td class="r num">${pct(s.opens,s.sent,0)}</td><td class="r num">${pct(s.replies,s.sent)}</td><td class="r num">${pct(s.positive,s.replies,0)}</td><td class="r num">${s.opps}</td><td class="r num">${Math.round(s.sent/s.opps)}</td><td>${pill(v[0],v[1])}</td></tr>`}).join("")}</tbody></table></div>
+  <div class="grid g3" style="margin-top:16px">
+    ${companies.slice().sort((a,b)=>b.contacts.reduce((s,k)=>s+k.score,0)-a.contacts.reduce((s,k)=>s+k.score,0)).slice(0,3).map((c,i)=>`<div class="panel"><div class="eyebrow">Most engaged company #${i+1}</div><h3 style="margin:4px 0">${esc(c.name)}</h3><div class="note">${c.contacts.reduce((s,k)=>s+k.ev.o,0)} opens · ${c.contacts.reduce((s,k)=>s+k.ev.c,0)} clicks · ${c.contacts.reduce((s,k)=>s+k.ev.r,0)} replies</div></div>`).join("")}
+  </div>`;
+}
+
+/* ---- Workflow map ---- */
+function vWorkflow(){
+  const W = [
+    ["Company intake",["Import list · CSV or CRM API","Hiring signals: job boards, LinkedIn, Indeed","Manual entry","Repeat-business trigger from past placements"],"Duplicate domain → merge, never a second record","info"],
+    ["Qualification",["Industry relevance","Hiring activity","Company size","FitScore calculated"],"<b>FitScore &lt; 40</b> → parked, not enrolled","warn"],
+    ["Contact discovery",["Find decision makers (CTO, HR, Procurement…)","LinkedIn boolean people search","Validate emails","Tag role and seniority"],"<b>Invalid</b> → dropped · <b>catch-all</b> → held","warn"],
+    ["Sequence assignment",["Pick sequence by segment","AI personalises each step","Insert case study by desk","Insert value proposition"],"<b>Pre-send checks</b> block implied prior contact","ai"],
+    ["Sending engine",["Warm-up caps per mailbox","Randomised windows, local hours","Bounce monitoring","Domain reputation guard"],"<b>Bounce ≥ 3%</b> → mailbox paused","crit"],
+    ["Engagement tracking",["Opens and clicks","Replies classified by AI","Bounce classification","Interest score"],"Any reply → sequence stops","info"],
+    ["Opportunity creation",["Create Opportunity","Assign stage and value","Push to CRM","Trigger negotiation workflow"],"<b>Sync error</b> → red alert until retried","good"],
+    ["Follow-up logic",["AI rewrites follow-up","Tone adjusted to response style","Next step scheduled","Incoming-business notification"],"Last step, no reply → recycle in 90 days","warn"],
+  ];
+  return head("Reference","Workflow map","The eight steps end to end, the rule that guards each one, and the branch that decides every contact's fate after a send.") +
+  `<div class="wf">${W.map(([n,l,r,t],i)=>`<div class="wf-card"><div class="top"><span class="n">Step ${i+1}</span><span class="dot ${t}"></span></div><h4>${n}</h4><ul>${l.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="rule">${r}</div></div>`).join("")}</div>
+  <div class="decision">After each send: did the contact reply?</div>
+  <div class="branch">
+    <div class="br yes"><h4>Reply received</h4><ol><li>Sequence stops for everyone at that company</li><li>AI classifies the reply</li><li>Interested → Opportunity created (stage New)</li><li>Pushed to CRM with contact and company</li><li>Recruiter notified; 2-hour response timer starts</li><li>Negotiation workflow triggered at stage Negotiation</li></ol></div>
+    <div class="br no"><h4>No reply</h4><ol><li>Wait for the step's delay</li><li>No open → AI rewrites subject and opening</li><li>Opened → case-study step brought forward</li><li>Tone adjusted (corporate, startup, agency, or mirror)</li><li>New step scheduled in the next send window</li><li>Sequence ends → company recycled in 90 days</li></ol></div>
+  </div>
+  <div class="panel" style="margin-top:16px"><h3 style="font-size:14px;margin-bottom:10px">Status machines</h3>
+    <div class="stack" style="gap:10px">
+      <div class="states"><b style="width:130px">OutreachStatus</b>${["Not started:neutral","In sequence:info","Follow-up due:warn","Replied:good","Bounced:crit","Stopped:neutral"].map(s=>{const [a,b]=s.split(":");return pill(b,a)}).join('<span class="arrow">·</span>')}</div>
+      <div class="states"><b style="width:130px">Opportunity.Stage</b>${STAGES.map(s=>pill(s==="Won"?"good":s==="Lost"?"crit":"info",s)).join('<span class="arrow">→</span>')}</div>
+    </div></div>`;
+}
+
+/* ---- Data model ---- */
+function vModel(){
+  const M = [
+    ["Company","companies",[["CompanyID","pk","uuid"],["Name","","text"],["Industry","","enum"],["Size","","enum · employee band"],["Country","","ISO-3166 · BE LU FR"],["HiringSignals[]","","HiringSignal[]"],["Contacts[]","","Contact[]"],["OutreachStatus","","enum"],["OpportunityStatus","","enum · derived"],["FitScore","new","int 0–100 · with breakdown"],["Segment","new","enum · 6 client types"],["Source","new","import · signal · crm · manual · repeat"],["TechStack[]","new","text[]"],["PriorPlacements","new","int · from placements table"],["Desk","new","fk → desk crosswalk"]]],
+    ["Contact","contacts",[["ContactID","pk","uuid"],["CompanyID","fk","→ Company"],["FirstName","","text"],["LastName","","text"],["Role","","enum · CTO, CIO, HR…"],["Email","","text"],["EmailStatus","new","valid · catch-all · invalid"],["LinkedInURL","","url"],["Seniority","","C-level · Founder · Manager"],["SequenceID","fk","→ Sequence · null"],["EngagementScore","","int 0–100 · decays"],["Suppressed","new","bool · GDPR opt-out"]]],
+    ["Opportunity","opportunities",[["OpportunityID","pk","uuid"],["CompanyID","fk","→ Company"],["ContactID","fk","→ Contact"],["Stage","","New · Contacted · Qualified · Negotiation · Won · Lost"],["ValueEstimate","","eur · perm fee or contractor year"],["Type","new","Perm · Freelance · Subcontract · Project"],["Notes","","text"],["SourceReplyID","new","fk → Reply"],["CrmSyncStatus","new","synced · pending · error"],["StageEnteredAt","new","timestamp per stage"]]],
+    ["Sequence","sequences",[["SequenceID","pk","text"],["Name","","text"],["Segment","","enum"],["Steps[]","","{day, channel, blocks[], condition}"],["StopOnReply","","bool · always true"]]],
+    ["Event","engagement_events",[["EventID","pk","uuid"],["ContactID","fk","→ Contact"],["StepIndex","","int"],["Type","","sent · open · click · reply · bounce"],["BounceClass","","hard · soft · block"],["At","","timestamp"]]],
+    ["Reply","replies",[["ReplyID","pk","uuid"],["ContactID","fk","→ Contact"],["Class","","Interested · Referral · Not now · OOO · Unsubscribe"],["Body","","text"],["HandledAt","","timestamp · SLA"]]],
+  ];
+  return head("Reference","Data model","The three spec objects, with the fields the workflow above needs added and marked +v1. Every stage change is stored as a timestamped event, because conversion ratios cannot be rebuilt from current status alone.") +
+  `<div class="grid g3">${M.map(([n,t,f])=>`<div class="model"><h4>${n}<span>${t}</span></h4><dl>${f.map(([a,k,b])=>`<dt class="${k}">${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl></div>`).join("")}</div>
+  <div class="panel" style="margin-top:16px"><h3 style="font-size:14px;margin-bottom:8px">CRM sync layer</h3>
+    <div class="tbl-wrap" style="border:0"><table><thead><tr><th>Object</th><th>Direction</th><th>When</th><th>On failure</th></tr></thead><tbody>
+      <tr><td>Company</td><td>push</td><td>on enrolment, on status change</td><td>${pill("warn","retry ×3, then alert")}</td></tr>
+      <tr><td>Contact</td><td>push</td><td>on validation, on suppression</td><td>${pill("warn","retry ×3, then alert")}</td></tr>
+      <tr><td>Opportunity</td><td>push</td><td>on create, on every stage change</td><td>${pill("crit","red alert on Today")}</td></tr>
+      <tr><td>Status</td><td>pull</td><td>every 15 min · placements, job status</td><td>${pill("neutral","stale flag after 1h")}</td></tr>
+      <tr><td>ATS / LinkedIn</td><td>optional</td><td>job import · profile lookup</td><td>${pill("neutral","manual fallback")}</td></tr>
+    </tbody></table></div></div>`;
+}
+
+/* ---------------- render & events ---------------- */
+function render(){
+  renderNav();
+  const m = {today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
+  $("#main").innerHTML = m();
+  const sg = $("#seqgrid"); if (sg && innerWidth < 900) sg.style.gridTemplateColumns = "minmax(0,1fr)";
+}
+function drawer(html){
+  $("#layer").innerHTML = `<div class="scrim" data-close></div><aside class="drawer" role="dialog" aria-modal="true" aria-label="Details"><button class="x" data-close aria-label="Close">×</button>${html}</aside>`;
+  $(".drawer .x").focus();
+}
+function closeDrawer(){ $("#layer").innerHTML = ""; }
+
+function createOpp(r){
+  const [ct,co] = ctById(r.ct);
+  const id = "OP-" + (310 + opps.length);
+  if (opps.some(o=>o.co===co.id && !["Won","Lost"].includes(o.stage))) { r.handled = true; r.done = "linked to the open opportunity"; toast("Reply linked to the open opportunity for "+co.name); return; }
+  opps.unshift({id,co:co.id,ct:ct.id,stage:"New",type:co.segment===1?"Subcontract":"Freelance",value:FREELANCE_YR,notes:"From reply: “"+r.text+"”",crm:"synced",age:"now"});
+  r.handled = true; r.done = "opportunity "+id+" created, sequence stopped, pushed to CRM";
+  co.outreach = "Stopped"; co.opp = "New"; ct.score = Math.min(100, ct.score+40);
+  freshOpp = id;
+  toast(`${id} created · sequence stopped for ${co.name} · pushed to CRM`);
+}
+
+document.addEventListener("click", e => {
+  const t = e.target.closest("button,[data-co],[data-close]"); if (!t) return;
+  const d = t.dataset;
+  if ("close" in d) return closeDrawer();
+  if (d.v) return go(d.v);
+  if (d.go) { closeDrawer(); return go(d.go); }
+  if (d.co) return openCompany(d.co);
+  if (d.cof) { coFilter = d.cof; return render(); }
+  if (d.cos) { coSort = d.cos; return render(); }
+  if (d.seq) { seqSel = d.seq; prevStep = 0; draftEdit = null; return render(); }
+  if (d.step) { prevStep = +d.step; draftEdit = null; return render(); }
+  if (d.preview) { prevCo = d.preview; draftEdit = null; closeDrawer(); const c = coById(d.preview); const s = c.contacts.find(k=>k.seq); if (s) seqSel = s.seq; return go("sequences"); }
+  if (d.enrol) { const c = coById(d.enrol); c.outreach = "In sequence"; c.contacts.filter(k=>k.email==="valid").forEach(k=>k.seq = c.segment===1?"SEQ-B":c.prior.placements?"SEQ-C":"SEQ-A"); closeDrawer(); toast(`${c.name} enrolled · first send in the next window`); return render(); }
+  if (d.copy) { const txt = $("#"+d.copy).textContent; try { navigator.clipboard.writeText(txt).then(()=>toast("Search copied"),()=>selectText(d.copy)); } catch(err){ selectText(d.copy); } return; }
+  if (d.opp) { createOpp(replies.find(r=>r.id===d.opp)); return render(); }
+  if (d.handle) { const r = replies.find(x=>x.id===d.handle); r.handled = true; r.done = CLS_ACTION[r.cls].toLowerCase(); const [ct,co] = ctById(r.ct); if (r.cls==="Unsubscribe") { ct.seq = null; ct.email = ct.email; } toast(`${co.name}: ${CLS_ACTION[r.cls]}`); return render(); }
+  if (d.mv) { const o = opps.find(x=>x.id===d.mv); const i = STAGES.indexOf(o.stage)+(+d.d); o.stage = STAGES[Math.max(0,Math.min(5,i))]; o.age="now"; coById(o.co).opp = o.stage; freshOpp = o.id; toast(`${o.id} → ${o.stage} · CRM updated${o.stage==="Negotiation"?" · negotiation workflow started":""}`); return render(); }
+  if (d.retry) { const o = opps.find(x=>x.id===d.retry); o.crm = "synced"; toast(`${o.id} synced to CRM`); return render(); }
+  if (d.act==="edit") { if (draftEdit!=null) draftEdit = null; else { const c = coById(prevCo); const ct = c.contacts.find(k=>k.email==="valid")||c.contacts[0]; draftEdit = buildMessage(c,ct,sequences.find(s=>s.id===seqSel),prevStep,prevTone).body.replace(/<[^>]+>/g,""); } return render(); }
+  if (d.act==="tryfake") { const c = coById(prevCo); const ct = c.contacts.find(k=>k.email==="valid")||c.contacts[0]; const base = draftEdit ?? buildMessage(c,ct,sequences.find(s=>s.id===seqSel),prevStep,prevTone).body.replace(/<[^>]+>/g,""); draftEdit = base.replace(/,\n\n/, ",\n\nAs discussed, "); return render(); }
+  if (d.act==="approve") { toast("Step approved · queued for the next send window"); return; }
+  if (d.act==="import") { toast("Import accepts CSV or a CRM list: name, domain, country. Enrichment runs on arrival."); return; }
+  if (d.act==="add") { toast("Manual entry: a company needs a name and a domain; the rest is enriched."); return; }
+});
+function selectText(id){ const r = document.createRange(); r.selectNodeContents($("#"+id)); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected · press Ctrl+C to copy"); }
+document.addEventListener("keydown", e => {
+  if (e.key==="Escape") closeDrawer();
+  if (e.key==="Enter" && e.target.matches("tr[data-co]")) openCompany(e.target.dataset.co);
+});
+document.addEventListener("change", e => {
+  if (e.target.id==="pv-co") { prevCo = e.target.value; draftEdit = null; render(); }
+  if (e.target.id==="pv-tone") { prevTone = e.target.value; draftEdit = null; render(); }
+  if (e.target.id==="cap") { const v = Math.max(5,Math.min(50,+e.target.value||20)); send.cap = v*2; send.mailboxes.forEach(m=>m.cap=v); toast(`Cap set to ${v} per mailbox · ${v*2} a day`); render(); }
+});
+let draftTimer;
+document.addEventListener("input", e => {
+  if (e.target.id==="draft") { draftEdit = e.target.value; clearTimeout(draftTimer); draftTimer = setTimeout(()=>{ const pos = e.target.selectionStart; render(); const ta = $("#draft"); if (ta){ ta.focus(); ta.setSelectionRange(pos,pos);} }, 500); }
+});
+/* hover tooltips on chart marks and send dots */
+let tip;
+document.addEventListener("pointerover", e => { const el = e.target.closest("[data-tip]"); if (!el) return; tip = document.createElement("div"); tip.className="tip"; tip.textContent = el.dataset.tip; document.body.appendChild(tip); });
+document.addEventListener("pointermove", e => { if (tip) { tip.style.left = (e.clientX+12)+"px"; tip.style.top = (e.clientY-30)+"px"; } });
+document.addEventListener("pointerout", e => { if (tip && e.target.closest("[data-tip]")) { tip.remove(); tip = null; } });
+
+render();
+})();
+</script>

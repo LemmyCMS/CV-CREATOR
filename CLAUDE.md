@@ -205,6 +205,19 @@ downstream forecast live. Persist the team's chosen values with the artifact `db
 same targets and they can be read back here. The forecast maths already exists in
 `dashboard/zig_year1.json` and `oneview.py: scenario()` — this is a UI layer over it.
 
+### Client Outreach Prospector — V1 UI prototype (2026-09-24)
+
+Client-side prospection tool for the Zig CRM (commercial opportunities, not candidates).
+Prototype: `analytics/dashboard/zig_client_outreach.html`, published at
+https://claude.ai/artifact/B4azrYiPvRyHfJgiqPVM1E . Views: Today (colour-coded alerts,
+incoming-business SLA, 8-step workflow rail), Companies (FitScore = industry 30 + hiring 30 +
+size 15 + prior interactions 15 + decision maker 10; drawer with enrichment, decision makers,
+LinkedIn boolean), Sequences & AI (pre-send checks **block phrases that imply prior contact**
+when the CRM has none), Sending engine (warm-up caps, randomised windows, 3% bounce pause),
+Replies (AI classes → reply creates Opportunity, stops sequence, pushes to CRM), Opportunities
+board, Analytics, Workflow map, Data model. All data in it is fictional sample data;
+opportunity values use Gentis coefficients (€16,410 perm fee, €713/wk × 46 contractor year).
+
 ## Access constraints discovered (do not re-litigate these)
 
 - `app.cube19.io` is **blocked by the container's egress proxy** (403 on CONNECT), and
