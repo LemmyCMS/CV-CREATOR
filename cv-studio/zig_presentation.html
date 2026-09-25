@@ -6,23 +6,50 @@
 /* App chrome around the document: follows the viewer's theme */
 :root{
   color-scheme: light;
-  --ground:#e9eaec; --surface:#ffffff; --line:#d5d7db; --ink:#15171c; --ink-2:#5b6068; --focus:#2a78d6;
+  --ground:#e9eaec; --surface:#ffffff; --surface-2:#f5f6f7; --line:#d5d7db; --ink:#15171c; --ink-2:#5b6068; --zig:#d9501d; --zig-soft:#fbe9e1; --focus:#2a78d6;
 }
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ color-scheme: dark; --ground:#141518; --surface:#1d1f22; --line:#34373c; --ink:#f4f5f6; --ink-2:#b3b8c0; --focus:#6da7ec; }
+  :root:not([data-theme="light"]){ color-scheme: dark; --ground:#141518; --surface:#1d1f22; --surface-2:#25272b; --line:#34373c; --ink:#f4f5f6; --ink-2:#b3b8c0; --zig:#f07a4a; --zig-soft:#3a2118; --focus:#6da7ec; }
 }
-:root[data-theme="dark"]{ color-scheme: dark; --ground:#141518; --surface:#1d1f22; --line:#34373c; --ink:#f4f5f6; --ink-2:#b3b8c0; --focus:#6da7ec; }
+:root[data-theme="dark"]{ color-scheme: dark; --ground:#141518; --surface:#1d1f22; --surface-2:#25272b; --line:#34373c; --ink:#f4f5f6; --ink-2:#b3b8c0; --zig:#f07a4a; --zig-soft:#3a2118; --focus:#6da7ec; }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{margin:0; background:var(--ground); color:var(--ink); font-family:"Libre Franklin","Helvetica Neue",Arial,sans-serif; font-size:14px; line-height:1.5}
 :focus-visible{outline:2px solid var(--focus); outline-offset:2px}
+button,select,input{font:inherit; color:inherit}
 .bar{position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--surface); border-bottom:1px solid var(--line)}
 .bar-in{max-width:900px; margin:0 auto; padding:10px 16px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; justify-content:space-between}
 .bar b{font-size:15px}
 .bar span{color:var(--ink-2); font-size:12.5px}
-.btn{border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:7px; padding:6px 12px; font:inherit; font-size:13px; font-weight:600; cursor:pointer}
+.btn{border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:7px; padding:6px 12px; font-size:13px; font-weight:600; cursor:pointer}
 .btn:hover{border-color:var(--ink-2)}
-.pages{padding-block:24px 60px; padding-inline:16px; display:flex; flex-direction:column; align-items:center; gap:24px}
+.btn:disabled{opacity:.5; cursor:not-allowed}
+
+/* send-to panel */
+.send{max-width:794px; margin:20px auto 0; padding-inline:16px}
+.send-in{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 16px; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px 24px}
+@media (max-width:680px){ .send-in{grid-template-columns:minmax(0,1fr)} }
+.lbl{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); font-weight:700}
+.field{display:flex; flex-direction:column; gap:4px; margin-top:10px}
+.field label{font-size:12px; font-weight:600; color:var(--ink-2)}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+select,input[type=text]{width:100%; background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:7px 9px; font-size:13px}
+.result{border-left:3px solid var(--zig); padding-left:16px; display:flex; flex-direction:column; gap:8px}
+@media (max-width:680px){ .result{border-left:0; border-top:3px solid var(--zig); padding:12px 0 0} }
+.big{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.big .code{font-family:Archivo,Arial,sans-serif; font-weight:800; font-size:34px; line-height:1; color:var(--zig)}
+.big .name{font-size:18px; font-weight:700}
+.conf{display:inline-block; font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:99px; background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line)}
+.conf.high{background:var(--zig-soft); color:var(--zig); border-color:transparent}
+.why{font-size:13px; color:var(--ink)}
+.tip{font-size:12px; color:var(--ink-2)}
+.seg{display:inline-flex; border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.seg button{border:0; background:var(--surface); padding:6px 12px; font-size:13px; font-weight:700; cursor:pointer; color:var(--ink-2)}
+.seg button + button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink); color:var(--surface)}
+.missing{font-size:12.5px; background:var(--surface-2); border:1px dashed var(--line); border-radius:7px; padding:8px 10px; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between}
+
+.pages{padding-block:20px 60px; padding-inline:16px; display:flex; flex-direction:column; align-items:center; gap:24px}
 .scaler{width:100%; max-width:794px}
 .pagelabel{max-width:794px; width:100%; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); font-weight:600; margin-bottom:-14px}
 
@@ -39,23 +66,33 @@ body{margin:0; background:var(--ground); color:var(--ink); font-family:"Libre Fr
 .mast .meta{font-size:10pt; color:var(--g); text-align:right}
 .mast .meta b{color:var(--o); font-weight:700}
 
-.kicker{margin-top:9mm; font-size:10.5pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--o)}
+.kicker{margin-top:6mm; font-size:10.5pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--o)}
 .head{font-family:Newsreader,Georgia,"Times New Roman",serif; font-weight:600; font-size:36pt; line-height:1.05; letter-spacing:-.01em; margin:2mm 0 0; text-wrap:balance}
 .deck{font-size:14.5pt; line-height:1.4; margin:4mm 0 0; color:var(--k); max-width:160mm}
 
-.facts{display:grid; grid-template-columns:repeat(4,1fr); margin-top:8mm; border-top:.3mm solid var(--g); border-bottom:.3mm solid var(--g)}
+.facts{display:grid; grid-template-columns:repeat(4,1fr); margin-top:7mm; border-top:.3mm solid var(--g)}
 .facts > div{padding:3.5mm 3mm 3.5mm 0}
 .facts > div + div{padding-left:4mm; border-left:.3mm solid var(--g)}
 .facts .l{font-size:9.5pt; color:var(--g); font-weight:600}
 .facts .v{font-size:15pt; font-weight:700; line-height:1.2; margin-top:.5mm}
 
-.h{font-size:10.5pt; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:8mm 0 3mm; color:var(--k)}
-.can{list-style:none; margin:0; padding:0; display:grid; gap:2.6mm}
+/* languages: a full row of their own, as prominent as the facts */
+.langs{display:flex; flex-wrap:wrap; align-items:center; gap:3mm 10mm; padding:3.2mm 0; border-top:.3mm solid var(--g); border-bottom:.3mm solid var(--g)}
+.langs .t{font-size:9.5pt; color:var(--g); font-weight:600; min-width:22mm}
+.lang{display:flex; flex-direction:column; gap:1.4mm}
+.lang .n{font-size:15pt; font-weight:700; line-height:1.1}
+.lang .n .lv{font-weight:500; font-size:12pt; margin-left:1.6mm}
+.meter{display:flex; gap:.9mm}
+.meter i{width:7mm; height:1.8mm; border-radius:.4mm; background:#e4e5e8}
+.meter i.on{background:var(--o)}
+
+.h{font-size:10.5pt; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:7mm 0 3mm; color:var(--k)}
+.can{list-style:none; margin:0; padding:0; display:grid; gap:1.8mm}
 .can li{display:grid; grid-template-columns:6mm 1fr; align-items:baseline}
 .can li::before{content:"✓"; color:var(--o); font-weight:800; font-size:13pt}
 
 .two{display:grid; grid-template-columns:1fr 1fr; gap:12mm}
-.sk{display:flex; justify-content:space-between; align-items:center; padding:1.3mm 0; border-bottom:.3mm solid #e6e7e9}
+.sk{display:flex; justify-content:space-between; align-items:center; padding:1.2mm 0; border-bottom:.3mm solid #e4e5e8}
 .sk:last-of-type{border-bottom:0}
 .sk span:first-child{font-weight:600}
 .stars{display:inline-flex; gap:.6mm; cursor:pointer; flex:none}
@@ -63,19 +100,15 @@ body{margin:0; background:var(--ground); color:var(--ink); font-family:"Libre Fr
 .stars .on{fill:var(--o)}
 .stars .off{fill:none; stroke:var(--g); stroke-width:1.4}
 .key{font-size:9pt; color:var(--g); margin-top:2mm}
-.job{padding:1.3mm 0 2.4mm; border-bottom:.3mm solid #e6e7e9}
+.job{padding:1.2mm 0 2.2mm; border-bottom:.3mm solid #e4e5e8}
 .job:last-child{border-bottom:0}
 .job .y{font-size:10pt; font-weight:700; color:var(--o)}
 .job.prev .y{color:var(--g)}
 .job .r{font-weight:700; line-height:1.3}
 .job .o{color:var(--g); font-size:11pt}
 
-.line{margin-top:6mm; font-size:11.5pt}
+.line{margin-top:5mm; font-size:11.5pt}
 .line b{font-size:10.5pt; letter-spacing:.14em; text-transform:uppercase; margin-right:2mm}
-.line + .line{margin-top:2.4mm}
-.line .lg > span:first-child{font-weight:700}
-.line .lv{color:var(--k)}
-.line .sep{color:var(--g)}
 
 .foot{margin-top:auto; padding:5mm 0 9mm; border-top:.6mm solid var(--k); display:flex; justify-content:space-between; gap:6mm; font-size:10.5pt}
 .foot .who b{display:block; font-size:12pt}
@@ -96,7 +129,7 @@ body{margin:0; background:var(--ground); color:var(--ink); font-family:"Libre Fr
 @media print{
   @page{size:A4; margin:0}
   body{background:#fff}
-  .bar,.pagelabel{display:none!important}
+  .bar,.pagelabel,.send{display:none!important}
   .pages{padding:0; gap:0}
   .scaler{max-width:none; height:auto!important}
   .a4{box-shadow:none; transform:none!important; break-after:page}
@@ -108,43 +141,80 @@ body{margin:0; background:var(--ground); color:var(--ink); font-family:"Libre Fr
   <div style="display:flex; gap:8px"><button class="btn" type="button" id="dl" hidden>Save .html</button></div>
 </div></div>
 
+<section class="send" id="send" aria-label="Choose the CV language">
+  <div class="send-in">
+    <div>
+      <div class="lbl">Send to</div>
+      <div class="field"><label for="contact">Client contact</label><select id="contact"></select></div>
+      <div class="row2">
+        <div class="field"><label for="c-city">City</label><input type="text" id="c-city"></div>
+        <div class="field"><label for="c-pref">Language in CRM</label>
+          <select id="c-pref"><option value="">Not recorded</option><option value="en">English</option><option value="fr">French</option><option value="nl">Dutch</option></select></div>
+      </div>
+      <div class="field"><label for="c-email">Email</label><input type="text" id="c-email"></div>
+    </div>
+    <div class="result">
+      <div class="lbl">Send this CV in</div>
+      <div class="big"><span class="code" id="r-code">EN</span><span class="name" id="r-name">English</span><span class="conf" id="r-conf">Certain</span></div>
+      <div class="why" id="r-why"></div>
+      <div class="tip" id="r-tip"></div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center">
+        <span class="tip">Override:</span>
+        <div class="seg" role="group" aria-label="Override language">
+          <button type="button" data-l="auto" aria-pressed="true">Auto</button><button type="button" data-l="en" aria-pressed="false">EN</button><button type="button" data-l="fr" aria-pressed="false">FR</button><button type="button" data-l="nl" aria-pressed="false">NL</button>
+        </div>
+      </div>
+      <div class="missing" id="missing" hidden><span id="missing-t"></span><button class="btn" type="button" id="translate">Translate with Claude</button></div>
+    </div>
+  </div>
+</section>
+
 <div class="pages" id="pages"></div>
 
 <script type="application/json" id="data">
 {
-  "type": "Permanent",
-  "date": "September 2026",
   "firstName": "Sofia",
-  "role": "Data Engineer",
-  "deck": "Builds the systems that collect a company's data and make it ready for reports. Seven years of experience, most recently at a Belgian insurer.",
-  "facts": [
-    {"l":"Salary + car","v":"€68–72k"},
-    {"l":"Can start","v":"In 2 months"},
-    {"l":"Interviews","v":"Tue & Thu"},
-    {"l":"Experience","v":"7 years"}
-  ],
-  "can": [
-    "Built an insurer's new data platform on Azure, replacing 140 old jobs.",
-    "Made the nightly data load 7 times faster: from 6 hours to 50 minutes.",
-    "Checks data quality automatically, so reports can be trusted.",
-    "Talks the language of finance teams after 3 years as a BI analyst."
-  ],
-  "skills": [
-    {"name":"Azure Databricks","stars":5},
-    {"name":"Python","stars":5},
-    {"name":"SQL","stars":5},
-    {"name":"Azure Data Factory","stars":4},
-    {"name":"Power BI","stars":4},
-    {"name":"CI/CD","stars":3}
-  ],
-  "experience": [
-    {"y":"2021 – now","r":"Senior Data Engineer","o":"Insurance group, Brussels"},
-    {"y":"2019 – 2021","r":"Data Engineer","o":"Energy supplier, Antwerp"},
-    {"y":"2016 – 2019","r":"BI Analyst","o":"Retail chain, Ghent","prev":true}
-  ],
-  "languages": [{"name":"Dutch","level":"native"},{"name":"English","level":"fluent"},{"name":"French","level":"good, business meetings"}],
-  "education": "MSc Business Engineering · Databricks Data Engineer Professional (2024)",
+  "stars": [5, 5, 5, 4, 4, 3],
+  "langDots": [5, 4, 3],
   "consultant": {"name":"[Consultant name]","contact":"[email]@thezig.io · [phone]"},
+  "contacts": [
+    {"name":"Mark Evans","role":"Engineering Manager","company":"Atlas Insurance","city":"Brussels","email":"mark.evans@atlas-insurance.com","pref":"en"},
+    {"name":"Pieter Janssens","role":"Head of IT","company":"Haven Logistics","city":"Antwerpen","email":"pieter.janssens@havenlogistics.be","pref":""},
+    {"name":"Claire Dumont","role":"CTO","company":"Meuse Énergie","city":"Liège","email":"c.dumont@meuse-energie.be","pref":""},
+    {"name":"Sam Peeters","role":"IT Director","company":"Banque du Parc","city":"Bruxelles","email":"s.peeters@banqueduparc.be","pref":""}
+  ],
+  "content": {
+    "en": {
+      "type":"Permanent","date":"September 2026","role":"Data Engineer",
+      "deck":"Builds the systems that collect a company's data and make it ready for reports. Seven years of experience, most recently at a Belgian insurer.",
+      "facts":[{"l":"Salary + car","v":"€68–72k"},{"l":"Can start","v":"In 2 months"},{"l":"Interviews","v":"Tue & Thu"},{"l":"Experience","v":"7 years"}],
+      "can":["Built an insurer's new data platform on Azure, replacing 140 old jobs.","Made the nightly data load 7 times faster: from 6 hours to 50 minutes.","Checks data quality automatically, so reports can be trusted.","Talks the language of finance teams after 3 years as a BI analyst."],
+      "skills":["Azure Databricks","Python","SQL","Azure Data Factory","Power BI","CI/CD"],
+      "experience":[{"y":"2021 – now","r":"Senior Data Engineer","o":"Insurance group, Brussels"},{"y":"2019 – 2021","r":"Data Engineer","o":"Energy supplier, Antwerp"},{"y":"2016 – 2019","r":"BI Analyst","o":"Retail chain, Ghent","prev":true}],
+      "languages":[{"n":"Dutch","lv":"native"},{"n":"English","lv":"fluent"},{"n":"French","lv":"good"}],
+      "education":"MSc Business Engineering · Databricks Data Engineer Professional (2024)"
+    },
+    "fr": {
+      "type":"CDI","date":"Septembre 2026","role":"Data Engineer",
+      "deck":"Construit les systèmes qui collectent les données d'une entreprise et les préparent pour les rapports. Sept ans d'expérience, dernièrement chez un assureur belge.",
+      "facts":[{"l":"Salaire + voiture","v":"68–72 k€"},{"l":"Disponible","v":"Dans 2 mois"},{"l":"Entretiens","v":"Mar. et jeu."},{"l":"Expérience","v":"7 ans"}],
+      "can":["A construit la nouvelle plateforme de données d'un assureur sur Azure, en remplaçant 140 anciens traitements.","A rendu le chargement de nuit 7 fois plus rapide : de 6 heures à 50 minutes.","Contrôle automatiquement la qualité des données, pour des rapports fiables.","Parle le langage des équipes financières après 3 ans comme analyste BI."],
+      "skills":["Azure Databricks","Python","SQL","Azure Data Factory","Power BI","CI/CD"],
+      "experience":[{"y":"2021 – auj.","r":"Senior Data Engineer","o":"Groupe d'assurance, Bruxelles"},{"y":"2019 – 2021","r":"Data Engineer","o":"Fournisseur d'énergie, Anvers"},{"y":"2016 – 2019","r":"Analyste BI","o":"Chaîne de magasins, Gand","prev":true}],
+      "languages":[{"n":"Néerlandais","lv":"langue maternelle"},{"n":"Anglais","lv":"courant"},{"n":"Français","lv":"bon"}],
+      "education":"Master ingénieur de gestion · Databricks Data Engineer Professional (2024)"
+    },
+    "nl": {
+      "type":"Vast contract","date":"September 2026","role":"Data Engineer",
+      "deck":"Bouwt de systemen die de data van een bedrijf verzamelen en klaarmaken voor rapportering. Zeven jaar ervaring, recent bij een Belgische verzekeraar.",
+      "facts":[{"l":"Loon + wagen","v":"€68–72k"},{"l":"Beschikbaar","v":"Over 2 maanden"},{"l":"Gesprekken","v":"Di & do"},{"l":"Ervaring","v":"7 jaar"}],
+      "can":["Bouwde het nieuwe dataplatform van een verzekeraar op Azure en verving 140 oude jobs.","Maakte de nachtelijke dataload 7 keer sneller: van 6 uur naar 50 minuten.","Controleert de datakwaliteit automatisch, zodat rapporten betrouwbaar zijn.","Spreekt de taal van financeteams na 3 jaar als BI-analist."],
+      "skills":["Azure Databricks","Python","SQL","Azure Data Factory","Power BI","CI/CD"],
+      "experience":[{"y":"2021 – nu","r":"Senior Data Engineer","o":"Verzekeringsgroep, Brussel"},{"y":"2019 – 2021","r":"Data Engineer","o":"Energieleverancier, Antwerpen"},{"y":"2016 – 2019","r":"BI-analist","o":"Winkelketen, Gent","prev":true}],
+      "languages":[{"n":"Nederlands","lv":"moedertaal"},{"n":"Engels","lv":"vloeiend"},{"n":"Frans","lv":"goed"}],
+      "education":"Master handelsingenieur · Databricks Data Engineer Professional (2024)"
+    }
+  },
   "appendix": {"kind":"html","html":"<h2>SOFIA</h2><p><i>Data Engineer</i></p><div class='redacted'>Contact details, address and date of birth removed by The Zig. Contact via your Zig consultant.</div><h3>Profile</h3><p>Data engineer with seven years of experience, three of them in BI. I like building platforms that analysts trust.</p><h3>Experience</h3><p><b>Insurance group, Brussels</b> · Senior Data Engineer · 2021 – now</p><ul><li>Designed and built the Azure Databricks platform replacing 140 SSIS packages</li><li>Moved nightly loads to incremental Delta Lake, 6 h → 50 min</li><li>Introduced Great Expectations tests and lineage for 300+ pipelines</li><li>Mentoring two junior engineers</li></ul><p><b>Energy supplier, Antwerp</b> · Data Engineer · 2019 – 2021</p><ul><li>Smart-meter ingestion, 40M rows a day, Python and Azure Synapse</li><li>Reporting warehouse on SQL Server</li></ul><p><b>Retail chain, Ghent</b> · BI Analyst · 2016 – 2019</p><ul><li>Power BI dashboards for finance and store operations</li></ul><h3>Education</h3><p>MSc Business Engineering</p><h3>Certifications</h3><p>Databricks Certified Data Engineer Professional (2024) · Azure Data Engineer Associate DP-203 (2022)</p><h3>Languages</h3><p>Dutch (native), English (fluent), French (good)</p><h3>Interests</h3><p>Cycling, board games, volunteering at a coding school</p>"}
 }
 </script>
@@ -155,47 +225,122 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt
 const STAR = 'M12 2.6l2.85 6 6.55.8-4.85 4.55 1.28 6.5L12 17.2l-5.83 3.25 1.28-6.5L2.6 9.4l6.55-.8z';
 const stars = n => `<span class="stars" role="img" aria-label="${n} of 5">${[1,2,3,4,5].map(i => `<svg viewBox="0 0 24 24" data-i="${i}"><path class="${i <= n ? "on" : "off"}" d="${STAR}"/></svg>`).join("")}</span>`;
 const LOGO = (s, bg, fg) => `<svg width="${s}" height="${s}" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="${bg}"/><polyline points="9,12 31,12 9,28 31,28" fill="none" stroke="${fg}" stroke-width="4.5" stroke-linejoin="miter" stroke-linecap="square"/></svg>`;
-const CE = ' contenteditable="true" spellcheck="false"';
 
-function page1(){
-  return `<article class="a4" aria-label="Candidate presentation, page 1">
+/* Fixed words on the page, per language */
+const T = {
+  en:{ doc:"Candidate presentation", can:n => `What ${n} can do`, skills:"Skills", exp:"Experience", langs:"Languages", edu:"Education",
+       key:"5 stars: expert · 3 stars: solid · 1 star: basic", consultant:"Your Zig consultant",
+       note:"Contact details are held by The Zig. The full CV, anonymised, is on the next page.", orig:"Original CV · anonymised", name:"English" },
+  fr:{ doc:"Présentation de candidat", can:n => `Ce que ${n} sait faire`, skills:"Compétences", exp:"Expérience", langs:"Langues", edu:"Formation",
+       key:"5 étoiles : expert · 3 : solide · 1 : notions", consultant:"Votre consultant Zig",
+       note:"Les coordonnées sont conservées par The Zig. Le CV complet, anonymisé, figure en page suivante.", orig:"CV original · anonymisé", name:"French" },
+  nl:{ doc:"Kandidaatvoorstelling", can:n => `Wat ${n} kan`, skills:"Vaardigheden", exp:"Ervaring", langs:"Talen", edu:"Opleiding",
+       key:"5 sterren: expert · 3: goed · 1: basis", consultant:"Uw Zig-consultant",
+       note:"Contactgegevens worden bewaard door The Zig. Het volledige, geanonimiseerde cv staat op de volgende pagina.", orig:"Origineel cv · geanonimiseerd", name:"Dutch" }
+};
+
+/* ---------- which language should this CV go out in? ---------- */
+const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+const NL_CITIES = ["antwerpen","antwerp","anvers","gent","ghent","gand","brugge","bruges","leuven","louvain","mechelen","malines","hasselt","kortrijk","courtrai","aalst","sint-niklaas","genk","roeselare","oostende","ostend","turnhout","vilvoorde","zaventem","diegem","machelen","lier","geel","beveren","dendermonde","amsterdam","rotterdam","den haag","the hague","utrecht","eindhoven"];
+const FR_CITIES = ["liege","luik","namur","namen","charleroi","mons","bergen","wavre","waver","louvain-la-neuve","ottignies","tournai","doornik","nivelles","arlon","la louviere","verviers","gembloux","luxembourg","luxemburg","paris","lille","lyon"];
+const BXL = ["brussels","bruxelles","brussel","etterbeek","ixelles","elsene","uccle","ukkel","woluwe","anderlecht","schaerbeek","schaarbeek","evere","forest","vorst","saint-gilles","sint-gillis","auderghem","oudergem","molenbeek","jette"];
+const TLD = { nl:"nl", fr:"fr", lu:"fr", uk:"en", ie:"en", us:"en", de:"en" };
+
+function detect(c){
+  const names = { en:"English", fr:"French", nl:"Dutch" };
+  if (c.pref) return { lang:c.pref, conf:"high", why:`${names[c.pref]} is recorded as this contact's language in the CRM.`, tip:"" };
+  const city = norm(c.city);
+  const tld = (norm(c.email).match(/\.([a-z]{2,})$/) || [])[1] || "";
+  if (city && NL_CITIES.some(x => city === x || city.startsWith(x + " "))) return { lang:"nl", conf:"likely", why:`The contact works in ${c.city}, where business runs in Dutch.`, tip:"Save the contact's answer in the CRM so next time it is certain." };
+  if (city && FR_CITIES.some(x => city === x || city.startsWith(x + " "))) return { lang:"fr", conf:"likely", why:`The contact works in ${c.city}, where business runs in French.`, tip:"Save the contact's answer in the CRM so next time it is certain." };
+  if (TLD[tld]) return { lang:TLD[tld], conf:"likely", why:`The contact's email ends in .${tld}.`, tip:"Save the contact's answer in the CRM so next time it is certain." };
+  if (city && BXL.some(x => city === x || city.startsWith(x))) return { lang:"en", conf:"guess", why:`Brussels is bilingual and no language is recorded, so English is the safe choice.`, tip:"Ask the contact which language they prefer, then record it in the CRM. Names are not used to guess: they are not a reliable guide." };
+  return { lang:"en", conf:"guess", why:"No language signal for this contact, so English is the safe choice.", tip:"Ask the contact which language they prefer, then record it in the CRM." };
+}
+
+const state = { contact:0, override:"auto", lang:"en" };
+
+function initSend(){
+  document.getElementById("send").hidden = !D.contacts?.length;
+  if (!D.contacts?.length) return;
+  document.getElementById("contact").innerHTML = D.contacts.map((c, i) => `<option value="${i}">${esc(c.name)} · ${esc(c.role)}, ${esc(c.company)}</option>`).join("");
+  loadContact(0);
+}
+function loadContact(i){
+  state.contact = i; const c = D.contacts[i];
+  document.getElementById("contact").value = i;
+  document.getElementById("c-city").value = c.city || "";
+  document.getElementById("c-email").value = c.email || "";
+  document.getElementById("c-pref").value = c.pref || "";
+  update();
+}
+function update(){
+  const c = D.contacts?.[state.contact];
+  let r = { lang:"en", conf:"high", why:"", tip:"" };
+  if (c) r = detect({ ...c, city:document.getElementById("c-city").value, email:document.getElementById("c-email").value, pref:document.getElementById("c-pref").value });
+  state.lang = state.override === "auto" ? r.lang : state.override;
+  document.getElementById("r-code").textContent = state.lang.toUpperCase();
+  document.getElementById("r-name").textContent = T[state.lang].name;
+  const conf = document.getElementById("r-conf");
+  if (state.override !== "auto") { conf.textContent = "Chosen by you"; conf.className = "conf high"; }
+  else { conf.textContent = { high:"Certain", likely:"Likely", guess:"Best guess" }[r.conf]; conf.className = "conf" + (r.conf === "high" ? " high" : ""); }
+  document.getElementById("r-why").textContent = state.override === "auto" ? r.why : `Detected ${T[r.lang].name}: ${r.why}`;
+  document.getElementById("r-tip").textContent = state.override === "auto" ? r.tip : "";
+  document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === state.override)));
+  render();
+}
+
+/* ---------- page rendering ---------- */
+const CE = p => ` contenteditable="true" spellcheck="false" data-p="${p}"`;
+function page1(C, t){
+  const n = D.firstName;
+  return `<article class="a4" aria-label="Candidate presentation, page 1" lang="${state.lang}">
   <header class="mast">
     <div class="logo">${LOGO(30, "#15171c", "#d9501d")}THE ZIG</div>
-    <div class="meta">Candidate presentation · <b${CE}>${esc(D.type)}</b><br><span${CE}>${esc(D.date)}</span></div>
+    <div class="meta">${esc(t.doc)} · <b${CE("type")}>${esc(C.type)}</b><br><span${CE("date")}>${esc(C.date)}</span></div>
   </header>
-  <div class="kicker"${CE}>${esc(D.firstName)}</div>
-  <h1 class="head"${CE}>${esc(D.role)}</h1>
-  <p class="deck"${CE}>${esc(D.deck)}</p>
-  <div class="facts">${D.facts.map(f => `<div><div class="l">${esc(f.l)}</div><div class="v"${CE}>${esc(f.v)}</div></div>`).join("")}</div>
-  <h2 class="h">What ${esc(D.firstName)} can do</h2>
-  <ul class="can">${D.can.map(c => `<li${CE}>${esc(c)}</li>`).join("")}</ul>
+  <div class="kicker">${esc(n)}</div>
+  <h1 class="head"${CE("role")}>${esc(C.role)}</h1>
+  <p class="deck"${CE("deck")}>${esc(C.deck)}</p>
+  <div class="facts">${C.facts.map((f, i) => `<div><div class="l"${CE(`facts.${i}.l`)}>${esc(f.l)}</div><div class="v"${CE(`facts.${i}.v`)}>${esc(f.v)}</div></div>`).join("")}</div>
+  <div class="langs"><span class="t">${esc(t.langs)}</span>${C.languages.map((l, i) => `<div class="lang"><div class="n"><span${CE(`languages.${i}.n`)}>${esc(l.n)}</span><span class="lv"${CE(`languages.${i}.lv`)}>${esc(l.lv)}</span></div><div class="meter" data-lg="${i}" aria-label="${D.langDots[i] || 0} of 5">${[1,2,3,4,5].map(k => `<i class="${k <= (D.langDots[i] || 0) ? "on" : ""}"></i>`).join("")}</div></div>`).join("")}</div>
+  <h2 class="h">${esc(t.can(n))}</h2>
+  <ul class="can">${C.can.map((c, i) => `<li${CE(`can.${i}`)}>${esc(c)}</li>`).join("")}</ul>
   <div class="two">
-    <section><h2 class="h">Skills</h2>
-      ${D.skills.map((s, i) => `<div class="sk"><span${CE}>${esc(s.name)}</span><span data-s="${i}">${stars(s.stars)}</span></div>`).join("")}
-      <div class="key">5 stars: expert · 3 stars: solid · 1 star: basic</div>
+    <section><h2 class="h">${esc(t.skills)}</h2>
+      ${C.skills.map((s, i) => `<div class="sk"><span${CE(`skills.${i}`)}>${esc(s)}</span><span data-s="${i}">${stars(D.stars[i] || 0)}</span></div>`).join("")}
+      <div class="key">${esc(t.key)}</div>
     </section>
-    <section><h2 class="h">Experience</h2>
-      ${D.experience.map(j => `<div class="job${j.prev ? " prev" : ""}"><div class="y"${CE}>${esc(j.y)}</div><div class="r"${CE}>${esc(j.r)}</div><div class="o"${CE}>${esc(j.o)}</div></div>`).join("")}
+    <section><h2 class="h">${esc(t.exp)}</h2>
+      ${C.experience.map((j, i) => `<div class="job${j.prev ? " prev" : ""}"><div class="y"${CE(`experience.${i}.y`)}>${esc(j.y)}</div><div class="r"${CE(`experience.${i}.r`)}>${esc(j.r)}</div><div class="o"${CE(`experience.${i}.o`)}>${esc(j.o)}</div></div>`).join("")}
     </section>
   </div>
-  <p class="line"><b>Languages</b>${(D.languages || []).map(l => `<span class="lg"><span${CE}>${esc(l.name)}</span> <span class="lv"${CE}>${esc(l.level)}</span></span>`).join('<span class="sep"> · </span>')}</p>
-  <p class="line"><b>Education</b><span${CE}>${esc(D.education)}</span></p>
+  <p class="line"><b>${esc(t.edu)}</b><span${CE("education")}>${esc(C.education)}</span></p>
   <footer class="foot">
-    <div class="who"><span>Your Zig consultant</span><b${CE}>${esc(D.consultant.name)}</b><span${CE}>${esc(D.consultant.contact)}</span></div>
-    <div class="note">Contact details are held by The Zig. The full CV, anonymised, is on the next page.</div>
+    <div class="who"><span>${esc(t.consultant)}</span><b contenteditable="true" spellcheck="false" data-c="name">${esc(D.consultant.name)}</b><span contenteditable="true" spellcheck="false" data-c="contact">${esc(D.consultant.contact)}</span></div>
+    <div class="note">${esc(t.note)}</div>
   </footer>
 </article>`;
 }
 
-function page2(){
+function page2(t){
   const a = D.appendix || {};
-  const tag = `<div class="origtag">${LOGO(14, "#d9501d", "#15171c")}Original CV · anonymised</div>`;
+  const tag = `<div class="origtag">${LOGO(14, "#d9501d", "#15171c")}${esc(t.orig)}</div>`;
   if (a.kind === "image") return `<article class="a4 orig" aria-label="Original CV, anonymised"><img src="${a.src}" alt="Candidate's original CV with personal contact details removed">${tag}</article>`;
   return `<article class="a4 orig" aria-label="Original CV, anonymised"><div class="plain">${a.html || ""}</div>${tag}</article>`;
 }
 
+function sourceLang(){ return ["en","fr","nl"].find(l => D.content[l]); }
 function render(){
-  document.getElementById("pages").innerHTML = `<div class="pagelabel">Page 1 · Zig presentation</div><div class="scaler">${page1()}</div><div class="pagelabel">Page 2 · Candidate's own CV, anonymised</div><div class="scaler">${page2()}</div>`;
+  const t = T[state.lang];
+  const C = D.content[state.lang];
+  const miss = document.getElementById("missing");
+  if (!C) {
+    miss.hidden = false;
+    document.getElementById("missing-t").textContent = `There is no ${t.name} version of this page yet. Showing ${T[sourceLang()].name}.`;
+  } else miss.hidden = true;
+  const shown = C || D.content[sourceLang()];
+  document.getElementById("pages").innerHTML = `<div class="pagelabel">Page 1 · Zig presentation</div><div class="scaler">${page1(shown, C ? t : T[sourceLang()])}</div><div class="pagelabel">Page 2 · Candidate's own CV, anonymised (kept in its original language)</div><div class="scaler">${page2(t)}</div>`;
   fit();
 }
 /* scale the A4 sheets down to the viewport on small screens */
@@ -209,15 +354,44 @@ function fit(){
 }
 addEventListener("resize", fit);
 
+/* keep edits in the data, so switching language does not lose them */
+document.addEventListener("input", e => {
+  const el = e.target.closest("[data-p],[data-c]"); if (!el) return;
+  if (el.dataset.c) { D.consultant[el.dataset.c] = el.innerText.trim(); return; }
+  const C = D.content[state.lang]; if (!C) return;
+  const path = el.dataset.p.split("."); let o = C;
+  while (path.length > 1) o = o[path.shift()];
+  o[path[0]] = el.innerText.trim();
+});
 document.addEventListener("click", e => {
-  const svg = e.target.closest(".stars svg"); if (!svg) return;
-  const holder = svg.closest("[data-s]");
-  const item = D.skills[+holder.dataset.s], n = +svg.dataset.i;
-  item.stars = item.stars === n ? n - 1 : n;
-  holder.innerHTML = stars(item.stars);
+  const svg = e.target.closest(".stars svg");
+  if (svg) { const h = svg.closest("[data-s]"), i = +h.dataset.s, n = +svg.dataset.i; D.stars[i] = D.stars[i] === n ? n - 1 : n; h.innerHTML = stars(D.stars[i]); return; }
+  const seg = e.target.closest(".seg button");
+  if (seg) { state.override = seg.dataset.l; update(); }
+});
+document.getElementById("contact").addEventListener("change", e => loadContact(+e.target.value));
+["c-city", "c-email", "c-pref"].forEach(id => document.getElementById(id).addEventListener("input", update));
+document.getElementById("c-pref").addEventListener("change", update);
+
+/* translate the page with Claude when a language version is missing */
+document.getElementById("translate").addEventListener("click", async () => {
+  const btn = document.getElementById("translate"), msg = document.getElementById("missing-t");
+  const sample = await (window.claude?.use ? window.claude.use("sample") : Promise.resolve(null));
+  if (!sample) { msg.textContent = "Translation needs Claude access, which this view does not have."; return; }
+  const target = state.lang, from = sourceLang();
+  btn.disabled = true; msg.textContent = `Translating into ${T[target].name}…`;
+  try {
+    const out = await sample.json(`Translate this recruitment candidate summary from ${T[from].name} into ${T[target].name} as used in Belgian business. Keep it short and plain, at the same reading level. Keep technology names, company names, numbers and years unchanged. Use gender-neutral wording where the language allows; keep job titles in English if a gendered form would be needed. Reply with only the JSON object, same keys and array lengths, values translated.\n\n${JSON.stringify(D.content[from])}`);
+    const ok = out && out.deck && Array.isArray(out.can) && out.can.length === D.content[from].can.length && Array.isArray(out.facts) && Array.isArray(out.languages);
+    if (!ok) throw { code:"invalid_json" };
+    D.content[target] = out; render();
+  } catch (e) {
+    msg.textContent = e && e.code === "not_granted" ? "Claude access was not allowed for this page." : "Translation did not come back in the right shape. Try again.";
+  } finally { btn.disabled = false; }
 });
 
-render();
+initSend();
+if (!D.contacts?.length) render();
 
 (async () => {
   const downloads = await (window.claude?.use ? window.claude.use("downloads") : Promise.resolve(null));
@@ -225,8 +399,8 @@ render();
   const b = document.getElementById("dl"); b.hidden = false;
   b.onclick = async () => {
     const css = [...document.querySelectorAll("style")].map(s => s.textContent).join("\n");
-    const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>The Zig · ${esc(D.firstName)} · ${esc(D.role)}</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"><style>${css}</style></head><body><div class="pages">${[...document.querySelectorAll(".scaler")].map(s => s.innerHTML.replace(/ contenteditable="true" spellcheck="false"/g, "").replace(/style="transform:[^"]*"/g, "")).join("")}</div></body></html>`;
-    try { const r = await downloads.save({ filename: `zig-presentation_${D.firstName}_${D.role}.html`.replace(/[^\w.-]+/g, "-"), data: new Blob([html], { type: "text/html" }) }); if (r.status === "saved") { b.textContent = "Saved"; setTimeout(() => b.textContent = "Save .html", 1800); } }
+    const html = `<!doctype html><html lang="${state.lang}"><head><meta charset="utf-8"><title>The Zig · ${esc(D.firstName)} · ${esc(state.lang.toUpperCase())}</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"><style>${css}</style></head><body><div class="pages">${[...document.querySelectorAll(".scaler")].map(s => s.innerHTML.replace(/ contenteditable="true" spellcheck="false"/g, "").replace(/style="transform:[^"]*"/g, "")).join("")}</div></body></html>`;
+    try { const r = await downloads.save({ filename: `zig-presentation_${D.firstName}_${state.lang}.html`.replace(/[^\w.-]+/g, "-"), data: new Blob([html], { type: "text/html" }) }); if (r.status === "saved") { b.textContent = "Saved"; setTimeout(() => b.textContent = "Save .html", 1800); } }
     catch (err) { if (err && err.code === "unavailable") b.hidden = true; }
   };
 })();
