@@ -77,22 +77,22 @@ select,input[type=text]{width:100%; background:var(--surface-2); border:1px soli
 .facts .v{font-size:15pt; font-weight:700; line-height:1.2; margin-top:.5mm}
 
 /* languages: a full row of their own, as prominent as the facts */
-.langs{display:flex; flex-wrap:wrap; align-items:center; gap:3mm 10mm; padding:3.2mm 0; border-top:.3mm solid var(--g); border-bottom:.3mm solid var(--g)}
-.langs .t{font-size:9.5pt; color:var(--g); font-weight:600; min-width:22mm}
+.langs{display:flex; flex-wrap:wrap; align-items:center; gap:3mm 7mm; padding:3.2mm 0; border-top:.3mm solid var(--g); border-bottom:.3mm solid var(--g)}
+.langs .t{font-size:9.5pt; color:var(--g); font-weight:600; min-width:18mm}
 .lang{display:flex; flex-direction:column; gap:1.4mm}
-.lang .n{font-size:15pt; font-weight:700; line-height:1.1}
-.lang .n .lv{font-weight:500; font-size:12pt; margin-left:1.6mm}
+.lang .n{font-size:14pt; font-weight:700; line-height:1.1; white-space:nowrap}
+.lang .n .lv{font-weight:500; font-size:11pt; margin-left:1.4mm}
 .meter{display:flex; gap:.9mm}
-.meter i{width:7mm; height:1.8mm; border-radius:.4mm; background:#e4e5e8}
+.meter i{width:6mm; height:1.8mm; border-radius:.4mm; background:#e4e5e8}
 .meter i.on{background:var(--o)}
 
-.h{font-size:10.5pt; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:7mm 0 3mm; color:var(--k)}
+.h{font-size:10.5pt; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:6mm 0 2.6mm; color:var(--k)}
 .can{list-style:none; margin:0; padding:0; display:grid; gap:1.8mm}
 .can li{display:grid; grid-template-columns:6mm 1fr; align-items:baseline}
 .can li::before{content:"✓"; color:var(--o); font-weight:800; font-size:13pt}
 
 .two{display:grid; grid-template-columns:1fr 1fr; gap:12mm}
-.sk{display:flex; justify-content:space-between; align-items:center; padding:1.2mm 0; border-bottom:.3mm solid #e4e5e8}
+.sk{display:flex; justify-content:space-between; align-items:center; gap:2mm; padding:.9mm 0; border-bottom:.3mm solid #e4e5e8}
 .sk:last-of-type{border-bottom:0}
 .sk span:first-child{font-weight:600}
 .stars{display:inline-flex; gap:.6mm; cursor:pointer; flex:none}
@@ -100,6 +100,11 @@ select,input[type=text]{width:100%; background:var(--surface-2); border:1px soli
 .stars .on{fill:var(--o)}
 .stars .off{fill:none; stroke:var(--g); stroke-width:1.4}
 .key{font-size:9pt; color:var(--g); margin-top:2mm}
+.mk{width:15px; height:15px; flex:none; display:block; cursor:pointer}
+.key .kk{display:inline-flex; align-items:center; gap:1mm; margin-right:2.4mm; white-space:nowrap}
+.key .mk{width:10px; height:10px; cursor:default}
+.exsel{display:flex; gap:6px; align-items:center; font-size:12.5px; color:var(--ink-2)}
+.exsel select{width:auto; padding:5px 8px}
 .job{padding:1.2mm 0 2.2mm; border-bottom:.3mm solid #e4e5e8}
 .job:last-child{border-bottom:0}
 .job .y{font-size:10pt; font-weight:700; color:var(--o)}
@@ -107,10 +112,11 @@ select,input[type=text]{width:100%; background:var(--surface-2); border:1px soli
 .job .r{font-weight:700; line-height:1.3}
 .job .o{color:var(--g); font-size:11pt}
 
-.line{margin-top:5mm; font-size:11.5pt}
+.line{margin-top:4.5mm; font-size:11.5pt}
+.tools{margin:0; font-size:11pt; line-height:1.5}
 .line b{font-size:10.5pt; letter-spacing:.14em; text-transform:uppercase; margin-right:2mm}
 
-.foot{margin-top:auto; padding:5mm 0 9mm; border-top:.6mm solid var(--k); display:flex; justify-content:space-between; gap:6mm; font-size:10.5pt}
+.foot{margin-top:auto; padding:4.5mm 0 8mm; border-top:.6mm solid var(--k); display:flex; justify-content:space-between; gap:6mm; font-size:10.5pt}
 .foot .who b{display:block; font-size:12pt}
 .foot .who span{color:var(--g)}
 .foot .note{color:var(--g); text-align:right; max-width:78mm; font-size:9.5pt}
@@ -137,8 +143,8 @@ select,input[type=text]{width:100%; background:var(--surface-2); border:1px soli
 </style>
 
 <div class="bar"><div class="bar-in">
-  <div><b>Zig candidate presentation</b> <span>· Click any text to edit it. Click the stars to re-rate a skill.</span></div>
-  <div style="display:flex; gap:8px"><button class="btn" type="button" id="dl" hidden>Save .html</button></div>
+  <div><b>Zig candidate presentation</b> <span>· Click any text to edit it. Click stars or task markers to change a level.</span></div>
+  <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap"><label class="exsel" id="exsel" hidden>Example <select id="ex"></select></label><button class="btn" type="button" id="dl" hidden>Save .html</button></div>
 </div></div>
 
 <section class="send" id="send" aria-label="Choose the CV language">
@@ -173,69 +179,590 @@ select,input[type=text]{width:100%; background:var(--surface-2); border:1px soli
 
 <script type="application/json" id="data">
 {
-  "firstName": "Sofia",
-  "stars": [5, 5, 5, 4, 4, 3],
-  "langDots": [5, 4, 3],
-  "consultant": {"name":"[Consultant name]","contact":"[email]@thezig.io · [phone]"},
-  "contacts": [
-    {"name":"Mark Evans","role":"Engineering Manager","company":"Atlas Insurance","city":"Brussels","email":"mark.evans@atlas-insurance.com","pref":"en"},
-    {"name":"Pieter Janssens","role":"Head of IT","company":"Haven Logistics","city":"Antwerpen","email":"pieter.janssens@havenlogistics.be","pref":""},
-    {"name":"Claire Dumont","role":"CTO","company":"Meuse Énergie","city":"Liège","email":"c.dumont@meuse-energie.be","pref":""},
-    {"name":"Sam Peeters","role":"IT Director","company":"Banque du Parc","city":"Bruxelles","email":"s.peeters@banqueduparc.be","pref":""}
-  ],
-  "content": {
+ "examples": [
+  {
+   "firstName": "Sofia",
+   "stars": [
+    5,
+    5,
+    5,
+    4,
+    4,
+    3
+   ],
+   "langDots": [
+    5,
+    4,
+    3
+   ],
+   "consultant": {
+    "name": "[Consultant name]",
+    "contact": "[email]@thezig.io · [phone]"
+   },
+   "contacts": [
+    {
+     "name": "Mark Evans",
+     "role": "Engineering Manager",
+     "company": "Atlas Insurance",
+     "city": "Brussels",
+     "email": "mark.evans@atlas-insurance.com",
+     "pref": "en"
+    },
+    {
+     "name": "Pieter Janssens",
+     "role": "Head of IT",
+     "company": "Haven Logistics",
+     "city": "Antwerpen",
+     "email": "pieter.janssens@havenlogistics.be",
+     "pref": ""
+    },
+    {
+     "name": "Claire Dumont",
+     "role": "CTO",
+     "company": "Meuse Énergie",
+     "city": "Liège",
+     "email": "c.dumont@meuse-energie.be",
+     "pref": ""
+    },
+    {
+     "name": "Sam Peeters",
+     "role": "IT Director",
+     "company": "Banque du Parc",
+     "city": "Bruxelles",
+     "email": "s.peeters@banqueduparc.be",
+     "pref": ""
+    }
+   ],
+   "content": {
     "en": {
-      "type":"Permanent","date":"September 2026","role":"Data Engineer",
-      "deck":"Builds the systems that collect a company's data and make it ready for reports. Seven years of experience, most recently at a Belgian insurer.",
-      "facts":[{"l":"Salary + car","v":"€68–72k"},{"l":"Can start","v":"In 2 months"},{"l":"Interviews","v":"Tue & Thu"},{"l":"Experience","v":"7 years"}],
-      "can":["Built an insurer's new data platform on Azure, replacing 140 old jobs.","Made the nightly data load 7 times faster: from 6 hours to 50 minutes.","Checks data quality automatically, so reports can be trusted.","Talks the language of finance teams after 3 years as a BI analyst."],
-      "skills":["Azure Databricks","Python","SQL","Azure Data Factory","Power BI","CI/CD"],
-      "experience":[{"y":"2021 – now","r":"Senior Data Engineer","o":"Insurance group, Brussels"},{"y":"2019 – 2021","r":"Data Engineer","o":"Energy supplier, Antwerp"},{"y":"2016 – 2019","r":"BI Analyst","o":"Retail chain, Ghent","prev":true}],
-      "languages":[{"n":"Dutch","lv":"native"},{"n":"English","lv":"fluent"},{"n":"French","lv":"good"}],
-      "education":"MSc Business Engineering · Databricks Data Engineer Professional (2024)"
+     "type": "Permanent",
+     "date": "September 2026",
+     "role": "Data Engineer",
+     "deck": "Builds the systems that collect a company's data and make it ready for reports. Seven years of experience, most recently at a Belgian insurer.",
+     "facts": [
+      {
+       "l": "Salary + car",
+       "v": "€68–72k"
+      },
+      {
+       "l": "Can start",
+       "v": "In 2 months"
+      },
+      {
+       "l": "Interviews",
+       "v": "Tue & Thu"
+      },
+      {
+       "l": "Experience",
+       "v": "7 years"
+      }
+     ],
+     "can": [
+      "Built an insurer's new data platform on Azure, replacing 140 old jobs.",
+      "Made the nightly data load 7 times faster: from 6 hours to 50 minutes.",
+      "Checks data quality automatically, so reports can be trusted.",
+      "Talks the language of finance teams after 3 years as a BI analyst."
+     ],
+     "skills": [
+      "Azure Databricks",
+      "Python",
+      "SQL",
+      "Azure Data Factory",
+      "Power BI",
+      "CI/CD"
+     ],
+     "experience": [
+      {
+       "y": "2021 – now",
+       "r": "Senior Data Engineer",
+       "o": "Insurance group, Brussels"
+      },
+      {
+       "y": "2019 – 2021",
+       "r": "Data Engineer",
+       "o": "Energy supplier, Antwerp"
+      },
+      {
+       "y": "2016 – 2019",
+       "r": "BI Analyst",
+       "o": "Retail chain, Ghent",
+       "prev": true
+      }
+     ],
+     "languages": [
+      {
+       "n": "Dutch",
+       "lv": "native"
+      },
+      {
+       "n": "English",
+       "lv": "fluent"
+      },
+      {
+       "n": "French",
+       "lv": "good"
+      }
+     ],
+     "education": "MSc Business Engineering · Databricks Data Engineer Professional (2024)"
     },
     "fr": {
-      "type":"CDI","date":"Septembre 2026","role":"Data Engineer",
-      "deck":"Construit les systèmes qui collectent les données d'une entreprise et les préparent pour les rapports. Sept ans d'expérience, dernièrement chez un assureur belge.",
-      "facts":[{"l":"Salaire + voiture","v":"68–72 k€"},{"l":"Disponible","v":"Dans 2 mois"},{"l":"Entretiens","v":"Mar. et jeu."},{"l":"Expérience","v":"7 ans"}],
-      "can":["A construit la nouvelle plateforme de données d'un assureur sur Azure, en remplaçant 140 anciens traitements.","A rendu le chargement de nuit 7 fois plus rapide : de 6 heures à 50 minutes.","Contrôle automatiquement la qualité des données, pour des rapports fiables.","Parle le langage des équipes financières après 3 ans comme analyste BI."],
-      "skills":["Azure Databricks","Python","SQL","Azure Data Factory","Power BI","CI/CD"],
-      "experience":[{"y":"2021 – auj.","r":"Senior Data Engineer","o":"Groupe d'assurance, Bruxelles"},{"y":"2019 – 2021","r":"Data Engineer","o":"Fournisseur d'énergie, Anvers"},{"y":"2016 – 2019","r":"Analyste BI","o":"Chaîne de magasins, Gand","prev":true}],
-      "languages":[{"n":"Néerlandais","lv":"langue maternelle"},{"n":"Anglais","lv":"courant"},{"n":"Français","lv":"bon"}],
-      "education":"Master ingénieur de gestion · Databricks Data Engineer Professional (2024)"
+     "type": "CDI",
+     "date": "Septembre 2026",
+     "role": "Data Engineer",
+     "deck": "Construit les systèmes qui collectent les données d'une entreprise et les préparent pour les rapports. Sept ans d'expérience, dernièrement chez un assureur belge.",
+     "facts": [
+      {
+       "l": "Salaire + voiture",
+       "v": "68–72 k€"
+      },
+      {
+       "l": "Disponible",
+       "v": "Dans 2 mois"
+      },
+      {
+       "l": "Entretiens",
+       "v": "Mar. et jeu."
+      },
+      {
+       "l": "Expérience",
+       "v": "7 ans"
+      }
+     ],
+     "can": [
+      "A construit la nouvelle plateforme de données d'un assureur sur Azure, en remplaçant 140 anciens traitements.",
+      "A rendu le chargement de nuit 7 fois plus rapide : de 6 heures à 50 minutes.",
+      "Contrôle automatiquement la qualité des données, pour des rapports fiables.",
+      "Parle le langage des équipes financières après 3 ans comme analyste BI."
+     ],
+     "skills": [
+      "Azure Databricks",
+      "Python",
+      "SQL",
+      "Azure Data Factory",
+      "Power BI",
+      "CI/CD"
+     ],
+     "experience": [
+      {
+       "y": "2021 – auj.",
+       "r": "Senior Data Engineer",
+       "o": "Groupe d'assurance, Bruxelles"
+      },
+      {
+       "y": "2019 – 2021",
+       "r": "Data Engineer",
+       "o": "Fournisseur d'énergie, Anvers"
+      },
+      {
+       "y": "2016 – 2019",
+       "r": "Analyste BI",
+       "o": "Chaîne de magasins, Gand",
+       "prev": true
+      }
+     ],
+     "languages": [
+      {
+       "n": "Néerlandais",
+       "lv": "langue maternelle"
+      },
+      {
+       "n": "Anglais",
+       "lv": "courant"
+      },
+      {
+       "n": "Français",
+       "lv": "bon"
+      }
+     ],
+     "education": "Master ingénieur de gestion · Databricks Data Engineer Professional (2024)"
     },
     "nl": {
-      "type":"Vast contract","date":"September 2026","role":"Data Engineer",
-      "deck":"Bouwt de systemen die de data van een bedrijf verzamelen en klaarmaken voor rapportering. Zeven jaar ervaring, recent bij een Belgische verzekeraar.",
-      "facts":[{"l":"Loon + wagen","v":"€68–72k"},{"l":"Beschikbaar","v":"Over 2 maanden"},{"l":"Gesprekken","v":"Di & do"},{"l":"Ervaring","v":"7 jaar"}],
-      "can":["Bouwde het nieuwe dataplatform van een verzekeraar op Azure en verving 140 oude jobs.","Maakte de nachtelijke dataload 7 keer sneller: van 6 uur naar 50 minuten.","Controleert de datakwaliteit automatisch, zodat rapporten betrouwbaar zijn.","Spreekt de taal van financeteams na 3 jaar als BI-analist."],
-      "skills":["Azure Databricks","Python","SQL","Azure Data Factory","Power BI","CI/CD"],
-      "experience":[{"y":"2021 – nu","r":"Senior Data Engineer","o":"Verzekeringsgroep, Brussel"},{"y":"2019 – 2021","r":"Data Engineer","o":"Energieleverancier, Antwerpen"},{"y":"2016 – 2019","r":"BI-analist","o":"Winkelketen, Gent","prev":true}],
-      "languages":[{"n":"Nederlands","lv":"moedertaal"},{"n":"Engels","lv":"vloeiend"},{"n":"Frans","lv":"goed"}],
-      "education":"Master handelsingenieur · Databricks Data Engineer Professional (2024)"
+     "type": "Vast contract",
+     "date": "September 2026",
+     "role": "Data Engineer",
+     "deck": "Bouwt de systemen die de data van een bedrijf verzamelen en klaarmaken voor rapportering. Zeven jaar ervaring, recent bij een Belgische verzekeraar.",
+     "facts": [
+      {
+       "l": "Loon + wagen",
+       "v": "€68–72k"
+      },
+      {
+       "l": "Beschikbaar over", "v": "2 maanden"
+      },
+      {
+       "l": "Gesprekken",
+       "v": "Di & do"
+      },
+      {
+       "l": "Ervaring",
+       "v": "7 jaar"
+      }
+     ],
+     "can": [
+      "Bouwde het nieuwe dataplatform van een verzekeraar op Azure en verving 140 oude jobs.",
+      "Maakte de nachtelijke dataload 7 keer sneller: van 6 uur naar 50 minuten.",
+      "Controleert de datakwaliteit automatisch, zodat rapporten betrouwbaar zijn.",
+      "Spreekt de taal van financeteams na 3 jaar als BI-analist."
+     ],
+     "skills": [
+      "Azure Databricks",
+      "Python",
+      "SQL",
+      "Azure Data Factory",
+      "Power BI",
+      "CI/CD"
+     ],
+     "experience": [
+      {
+       "y": "2021 – nu",
+       "r": "Senior Data Engineer",
+       "o": "Verzekeringsgroep, Brussel"
+      },
+      {
+       "y": "2019 – 2021",
+       "r": "Data Engineer",
+       "o": "Energieleverancier, Antwerpen"
+      },
+      {
+       "y": "2016 – 2019",
+       "r": "BI-analist",
+       "o": "Winkelketen, Gent",
+       "prev": true
+      }
+     ],
+     "languages": [
+      {
+       "n": "Nederlands",
+       "lv": "moedertaal"
+      },
+      {
+       "n": "Engels",
+       "lv": "vloeiend"
+      },
+      {
+       "n": "Frans",
+       "lv": "goed"
+      }
+     ],
+     "education": "Master handelsingenieur · Databricks Data Engineer Professional (2024)"
     }
+   },
+   "appendix": {
+    "kind": "html",
+    "html": "<h2>SOFIA<\/h2><p><i>Data Engineer<\/i><\/p><div class='redacted'>Contact details, address and date of birth removed by The Zig. Contact via your Zig consultant.<\/div><h3>Profile<\/h3><p>Data engineer with seven years of experience, three of them in BI. I like building platforms that analysts trust.<\/p><h3>Experience<\/h3><p><b>Insurance group, Brussels<\/b> · Senior Data Engineer · 2021 – now<\/p><ul><li>Designed and built the Azure Databricks platform replacing 140 SSIS packages<\/li><li>Moved nightly loads to incremental Delta Lake, 6 h → 50 min<\/li><li>Introduced Great Expectations tests and lineage for 300+ pipelines<\/li><li>Mentoring two junior engineers<\/li><\/ul><p><b>Energy supplier, Antwerp<\/b> · Data Engineer · 2019 – 2021<\/p><ul><li>Smart-meter ingestion, 40M rows a day, Python and Azure Synapse<\/li><li>Reporting warehouse on SQL Server<\/li><\/ul><p><b>Retail chain, Ghent<\/b> · BI Analyst · 2016 – 2019<\/p><ul><li>Power BI dashboards for finance and store operations<\/li><\/ul><h3>Education<\/h3><p>MSc Business Engineering<\/p><h3>Certifications<\/h3><p>Databricks Certified Data Engineer Professional (2024) · Azure Data Engineer Associate DP-203 (2022)<\/p><h3>Languages<\/h3><p>Dutch (native), English (fluent), French (good)<\/p><h3>Interests<\/h3><p>Cycling, board games, volunteering at a coding school<\/p>"
+   }
   },
-  "appendix": {"kind":"html","html":"<h2>SOFIA</h2><p><i>Data Engineer</i></p><div class='redacted'>Contact details, address and date of birth removed by The Zig. Contact via your Zig consultant.</div><h3>Profile</h3><p>Data engineer with seven years of experience, three of them in BI. I like building platforms that analysts trust.</p><h3>Experience</h3><p><b>Insurance group, Brussels</b> · Senior Data Engineer · 2021 – now</p><ul><li>Designed and built the Azure Databricks platform replacing 140 SSIS packages</li><li>Moved nightly loads to incremental Delta Lake, 6 h → 50 min</li><li>Introduced Great Expectations tests and lineage for 300+ pipelines</li><li>Mentoring two junior engineers</li></ul><p><b>Energy supplier, Antwerp</b> · Data Engineer · 2019 – 2021</p><ul><li>Smart-meter ingestion, 40M rows a day, Python and Azure Synapse</li><li>Reporting warehouse on SQL Server</li></ul><p><b>Retail chain, Ghent</b> · BI Analyst · 2016 – 2019</p><ul><li>Power BI dashboards for finance and store operations</li></ul><h3>Education</h3><p>MSc Business Engineering</p><h3>Certifications</h3><p>Databricks Certified Data Engineer Professional (2024) · Azure Data Engineer Associate DP-203 (2022)</p><h3>Languages</h3><p>Dutch (native), English (fluent), French (good)</p><h3>Interests</h3><p>Cycling, board games, volunteering at a coding school</p>"}
+  {
+   "firstName": "Nadia",
+   "taskLv": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2,
+    1
+   ],
+   "langDots": [
+    5,
+    3,
+    3
+   ],
+   "consultant": {
+    "name": "[Consultant name]",
+    "contact": "[email]@thezig.io · [phone]"
+   },
+   "contacts": [
+    {
+     "name": "Mark Evans",
+     "role": "Engineering Manager",
+     "company": "Atlas Insurance",
+     "city": "Brussels",
+     "email": "mark.evans@atlas-insurance.com",
+     "pref": "en"
+    },
+    {
+     "name": "Pieter Janssens",
+     "role": "Head of IT",
+     "company": "Haven Logistics",
+     "city": "Antwerpen",
+     "email": "pieter.janssens@havenlogistics.be",
+     "pref": ""
+    },
+    {
+     "name": "Claire Dumont",
+     "role": "CTO",
+     "company": "Meuse Énergie",
+     "city": "Liège",
+     "email": "c.dumont@meuse-energie.be",
+     "pref": ""
+    },
+    {
+     "name": "Sam Peeters",
+     "role": "IT Director",
+     "company": "Banque du Parc",
+     "city": "Bruxelles",
+     "email": "s.peeters@banqueduparc.be",
+     "pref": ""
+    }
+   ],
+   "content": {
+    "en": {
+     "type": "Permanent",
+     "date": "September 2026",
+     "role": "Accountant",
+     "deck": "Keeps a company's books accurate and closes them on time. Nine years of experience, five of them as a company's only accountant.",
+     "facts": [
+      {
+       "l": "Salary + car",
+       "v": "€52–56k"
+      },
+      {
+       "l": "Can start",
+       "v": "In 3 months"
+      },
+      {
+       "l": "Interviews",
+       "v": "Mon & Fri"
+      },
+      {
+       "l": "Experience",
+       "v": "9 years"
+      }
+     ],
+     "can": [
+      "Closes the monthly books in 5 working days, down from 12.",
+      "Files VAT returns and annual accounts on time: no late penalties in 5 years.",
+      "Runs the accounts of a €40M-revenue company alone.",
+      "Explains the numbers clearly to managers who are not finance people."
+     ],
+     "tasks": [
+      "Month-end closing",
+      "VAT returns & client listing",
+      "Annual accounts (NBB filing)",
+      "Supplier & customer accounts",
+      "Bank reconciliations",
+      "Fixed assets & depreciation",
+      "Payroll checks",
+      "Consolidation / IFRS reporting"
+     ],
+     "tools": "Exact Online · Winbooks · SAP FI (user) · Excel (advanced)",
+     "experience": [
+      {
+       "y": "2020 – now",
+       "r": "Accountant",
+       "o": "Distribution company, Wavre"
+      },
+      {
+       "y": "2017 – 2020",
+       "r": "Junior Accountant",
+       "o": "Accounting firm, Namur"
+      },
+      {
+       "y": "2015 – 2017",
+       "r": "Accounting Assistant",
+       "o": "Real-estate group, Brussels",
+       "prev": true
+      }
+     ],
+     "languages": [
+      {
+       "n": "French",
+       "lv": "native"
+      },
+      {
+       "n": "Dutch",
+       "lv": "good"
+      },
+      {
+       "n": "English",
+       "lv": "good"
+      }
+     ],
+     "education": "Bachelor in Accounting · ITAA accountant exam, in progress"
+    },
+    "fr": {
+     "type": "CDI",
+     "date": "Septembre 2026",
+     "role": "Comptable",
+     "deck": "Tient une comptabilité précise et la clôture dans les délais. Neuf ans d'expérience, dont cinq comme unique comptable d'une entreprise.",
+     "facts": [
+      {
+       "l": "Salaire + voiture",
+       "v": "52–56 k€"
+      },
+      {
+       "l": "Disponible",
+       "v": "Dans 3 mois"
+      },
+      {
+       "l": "Entretiens",
+       "v": "Lun. et ven."
+      },
+      {
+       "l": "Expérience",
+       "v": "9 ans"
+      }
+     ],
+     "can": [
+      "Clôture le mois en 5 jours ouvrables, contre 12 auparavant.",
+      "Dépose TVA et comptes annuels à temps : aucune pénalité de retard en 5 ans.",
+      "Gère sans aide la comptabilité d'une entreprise de 40 M€ de chiffre d'affaires.",
+      "Explique clairement les chiffres aux managers non financiers."
+     ],
+     "tasks": [
+      "Clôture mensuelle",
+      "Déclarations TVA et listing clients",
+      "Comptes annuels (dépôt BNB)",
+      "Comptes fournisseurs et clients",
+      "Rapprochements bancaires",
+      "Immobilisations et amortissements",
+      "Contrôle de la paie",
+      "Consolidation / reporting IFRS"
+     ],
+     "tools": "Exact Online · Winbooks · SAP FI (utilisation) · Excel avancé",
+     "experience": [
+      {
+       "y": "2020 – auj.",
+       "r": "Comptable",
+       "o": "Entreprise de distribution, Wavre"
+      },
+      {
+       "y": "2017 – 2020",
+       "r": "Comptable junior",
+       "o": "Fiduciaire, Namur"
+      },
+      {
+       "y": "2015 – 2017",
+       "r": "Aide-comptable",
+       "o": "Groupe immobilier, Bruxelles",
+       "prev": true
+      }
+     ],
+     "languages": [
+      {
+       "n": "Français",
+       "lv": "langue maternelle"
+      },
+      {
+       "n": "Néerlandais",
+       "lv": "bon"
+      },
+      {
+       "n": "Anglais",
+       "lv": "bon"
+      }
+     ],
+     "education": "Bachelier en comptabilité · Examen ITAA en cours"
+    },
+    "nl": {
+     "type": "Vast contract",
+     "date": "September 2026",
+     "role": "Boekhouder",
+     "deck": "Houdt de boekhouding correct bij en sluit ze tijdig af. Negen jaar ervaring, waarvan vijf als enige boekhouder van een bedrijf.",
+     "facts": [
+      {
+       "l": "Loon + wagen",
+       "v": "€52–56k"
+      },
+      {
+       "l": "Beschikbaar over", "v": "3 maanden"
+      },
+      {
+       "l": "Gesprekken",
+       "v": "Ma & vr"
+      },
+      {
+       "l": "Ervaring",
+       "v": "9 jaar"
+      }
+     ],
+     "can": [
+      "Sluit de maand af in 5 werkdagen, vroeger 12.",
+      "Dient btw-aangiftes en jaarrekeningen tijdig in: geen boetes in 5 jaar.",
+      "Voert alleen de boekhouding van een bedrijf met €40 miljoen omzet.",
+      "Legt cijfers helder uit aan managers zonder financiële achtergrond."
+     ],
+     "tasks": [
+      "Maandafsluiting",
+      "Btw-aangiftes en klantenlisting",
+      "Jaarrekening (neerlegging NBB)",
+      "Leveranciers en klanten",
+      "Bankafstemmingen",
+      "Vaste activa en afschrijvingen",
+      "Looncontrole",
+      "Consolidatie / IFRS-rapportering"
+     ],
+     "tools": "Exact Online · Winbooks · SAP FI (gebruiker) · Excel gevorderd",
+     "experience": [
+      {
+       "y": "2020 – nu",
+       "r": "Boekhouder",
+       "o": "Distributiebedrijf, Waver"
+      },
+      {
+       "y": "2017 – 2020",
+       "r": "Junior boekhouder",
+       "o": "Boekhoudkantoor, Namen"
+      },
+      {
+       "y": "2015 – 2017",
+       "r": "Boekhoudkundig assistent",
+       "o": "Vastgoedgroep, Brussel",
+       "prev": true
+      }
+     ],
+     "languages": [
+      {
+       "n": "Frans",
+       "lv": "moedertaal"
+      },
+      {
+       "n": "Nederlands",
+       "lv": "goed"
+      },
+      {
+       "n": "Engels",
+       "lv": "goed"
+      }
+     ],
+     "education": "Bachelor boekhouden · ITAA-examen lopende"
+    }
+   },
+   "appendix": {
+    "kind": "html",
+    "html": "<h2>NADIA<\/h2><p><i>Comptable<\/i><\/p><div class='redacted'>Coordonnées, adresse et date de naissance supprimées par The Zig. Contact via votre consultant Zig.<\/div><h3>Profil<\/h3><p>Comptable rigoureuse avec neuf ans d'expérience en PME et en fiduciaire. J'aime les chiffres justes et les clôtures qui tombent à l'heure.<\/p><h3>Expérience<\/h3><p><b>Entreprise de distribution, Wavre<\/b> · Comptable · 2020 – aujourd'hui<\/p><ul><li>Seule comptable : comptabilité générale, fournisseurs, clients, trésorerie<\/li><li>Clôtures mensuelles ramenées de 12 à 5 jours ouvrables<\/li><li>Déclarations TVA mensuelles, listing clients, relevé intracommunautaire<\/li><li>Préparation des comptes annuels et dépôt à la BNB avec l'expert-comptable<\/li><li>Contrôle des fiches de paie avec le secrétariat social (45 salariés)<\/li><\/ul><p><b>Fiduciaire, Namur<\/b> · Comptable junior · 2017 – 2020<\/p><ul><li>Portefeuille de 35 clients PME et indépendants<\/li><li>Encodage, TVA trimestrielle, préparation des bilans<\/li><\/ul><p><b>Groupe immobilier, Bruxelles<\/b> · Aide-comptable · 2015 – 2017<\/p><ul><li>Factures fournisseurs, rapprochements bancaires, relances clients<\/li><\/ul><h3>Formation<\/h3><p>Bachelier en comptabilité · Stage ITAA en cours<\/p><h3>Logiciels<\/h3><p>Exact Online, Winbooks, SAP FI (utilisatrice), Excel avancé (tableaux croisés dynamiques, RECHERCHEX)<\/p><h3>Langues<\/h3><p>Français (langue maternelle), néerlandais (bon), anglais (bon)<\/p><h3>Centres d'intérêt<\/h3><p>Course à pied, cuisine, trésorière d'un club de basket<\/p>"
+   }
+  }
+ ]
 }
 </script>
 
 <script>
-const D = JSON.parse(document.getElementById("data").textContent);
+const RAW = JSON.parse(document.getElementById("data").textContent);
+const EX = RAW.examples || [RAW];
+let D = EX[0];
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const STAR = 'M12 2.6l2.85 6 6.55.8-4.85 4.55 1.28 6.5L12 17.2l-5.83 3.25 1.28-6.5L2.6 9.4l6.55-.8z';
 const stars = n => `<span class="stars" role="img" aria-label="${n} of 5">${[1,2,3,4,5].map(i => `<svg viewBox="0 0 24 24" data-i="${i}"><path class="${i <= n ? "on" : "off"}" d="${STAR}"/></svg>`).join("")}</span>`;
+/* task level: 3 = does it alone (full), 2 = with support (half), 1 = some exposure (empty) */
+const mark = n => `<svg class="mk" viewBox="0 0 16 16" role="img" aria-label="level ${n} of 3"><circle cx="8" cy="8" r="6.2" fill="${n === 3 ? "#d9501d" : "none"}" stroke="${n === 1 ? "#8b8f96" : "#d9501d"}" stroke-width="1.6"/>${n === 2 ? '<path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="#d9501d"/>' : ""}</svg>`;
 const LOGO = (s, bg, fg) => `<svg width="${s}" height="${s}" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="${bg}"/><polyline points="9,12 31,12 9,28 31,28" fill="none" stroke="${fg}" stroke-width="4.5" stroke-linejoin="miter" stroke-linecap="square"/></svg>`;
 
 /* Fixed words on the page, per language */
 const T = {
   en:{ doc:"Candidate presentation", can:n => `What ${n} can do`, skills:"Skills", exp:"Experience", langs:"Languages", edu:"Education",
        key:"5 stars: expert · 3 stars: solid · 1 star: basic", consultant:"Your Zig consultant",
+       tasks:"Tasks", lv:["some exposure","with support","does it alone"], tools:"Software",
        note:"Contact details are held by The Zig. The full CV, anonymised, is on the next page.", orig:"Original CV · anonymised", name:"English" },
   fr:{ doc:"Présentation de candidat", can:n => `Ce que ${n} sait faire`, skills:"Compétences", exp:"Expérience", langs:"Langues", edu:"Formation",
        key:"5 étoiles : expert · 3 : solide · 1 : notions", consultant:"Votre consultant Zig",
+       tasks:"Tâches", lv:["notions","avec soutien","en autonomie"], tools:"Logiciels",
        note:"Les coordonnées sont conservées par The Zig. Le CV complet, anonymisé, figure en page suivante.", orig:"CV original · anonymisé", name:"French" },
   nl:{ doc:"Kandidaatvoorstelling", can:n => `Wat ${n} kan`, skills:"Vaardigheden", exp:"Ervaring", langs:"Talen", edu:"Opleiding",
        key:"5 sterren: expert · 3: goed · 1: basis", consultant:"Uw Zig-consultant",
+       tasks:"Taken", lv:["basiskennis","met begeleiding","zelfstandig"], tools:"Software",
        note:"Contactgegevens worden bewaard door The Zig. Het volledige, geanonimiseerde cv staat op de volgende pagina.", orig:"Origineel cv · geanonimiseerd", name:"Dutch" }
 };
 
@@ -307,12 +834,16 @@ function page1(C, t){
   <h2 class="h">${esc(t.can(n))}</h2>
   <ul class="can">${C.can.map((c, i) => `<li${CE(`can.${i}`)}>${esc(c)}</li>`).join("")}</ul>
   <div class="two">
-    <section><h2 class="h">${esc(t.skills)}</h2>
+    ${C.tasks ? `<section><h2 class="h">${esc(t.tasks)}</h2>
+      ${C.tasks.map((s, i) => `<div class="sk"><span${CE(`tasks.${i}`)}>${esc(s)}</span><span data-t="${i}">${mark(D.taskLv[i] || 1)}</span></div>`).join("")}
+      <div class="key">${[3,2,1].map(k => `<span class="kk">${mark(k)} ${esc(t.lv[k - 1])}</span>`).join(" ")}</div>
+    </section>` : `<section><h2 class="h">${esc(t.skills)}</h2>
       ${C.skills.map((s, i) => `<div class="sk"><span${CE(`skills.${i}`)}>${esc(s)}</span><span data-s="${i}">${stars(D.stars[i] || 0)}</span></div>`).join("")}
       <div class="key">${esc(t.key)}</div>
-    </section>
+    </section>`}
     <section><h2 class="h">${esc(t.exp)}</h2>
       ${C.experience.map((j, i) => `<div class="job${j.prev ? " prev" : ""}"><div class="y"${CE(`experience.${i}.y`)}>${esc(j.y)}</div><div class="r"${CE(`experience.${i}.r`)}>${esc(j.r)}</div><div class="o"${CE(`experience.${i}.o`)}>${esc(j.o)}</div></div>`).join("")}
+      ${C.tools ? `<h2 class="h">${esc(t.tools)}</h2><p class="tools"${CE("tools")}>${esc(C.tools)}</p>` : ""}
     </section>
   </div>
   <p class="line"><b>${esc(t.edu)}</b><span${CE("education")}>${esc(C.education)}</span></p>
@@ -366,6 +897,8 @@ document.addEventListener("input", e => {
 document.addEventListener("click", e => {
   const svg = e.target.closest(".stars svg");
   if (svg) { const h = svg.closest("[data-s]"), i = +h.dataset.s, n = +svg.dataset.i; D.stars[i] = D.stars[i] === n ? n - 1 : n; h.innerHTML = stars(D.stars[i]); return; }
+  const mk = e.target.closest("[data-t] .mk");
+  if (mk) { const h = mk.closest("[data-t]"), i = +h.dataset.t; D.taskLv[i] = D.taskLv[i] === 1 ? 3 : D.taskLv[i] - 1; h.innerHTML = mark(D.taskLv[i]); return; }
   const seg = e.target.closest(".seg button");
   if (seg) { state.override = seg.dataset.l; update(); }
 });
@@ -390,6 +923,12 @@ document.getElementById("translate").addEventListener("click", async () => {
   } finally { btn.disabled = false; }
 });
 
+if (EX.length > 1) {
+  const sel = document.getElementById("ex");
+  sel.innerHTML = EX.map((x, i) => `<option value="${i}">${esc(x.firstName)} · ${esc((x.content.en || Object.values(x.content)[0]).role)}</option>`).join("");
+  document.getElementById("exsel").hidden = false;
+  sel.addEventListener("change", () => { D = EX[+sel.value]; state.override = "auto"; initSend(); if (!D.contacts?.length) render(); });
+}
 initSend();
 if (!D.contacts?.length) render();
 
