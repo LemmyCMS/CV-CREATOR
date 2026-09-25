@@ -11,3 +11,7 @@ __pycache__/
 venv/
 .DS_Store
 analytics/dashboard/dashboard.json
+
+# CV archives and what is measured from them contain personal data (GDPR). Never commit.
+cv-studio/market/corpus/
+cv-studio/market/playbooks.json

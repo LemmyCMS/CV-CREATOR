@@ -1,0 +1,109 @@
+{
+  "about": "Starting knowledge per market and position, before any CV archive has been analysed. Every note is a [PRIOR]: recruiter knowledge to be confirmed or overturned by measure_markets.py once real CVs are in. Patterns match accent-free, lowercase text.",
+  "playbooks": [
+    {
+      "market": "BE", "position": "accounting", "label": "Belgium · Accounting",
+      "cv_languages": ["fr", "nl"],
+      "conventions": [
+        {"key": "itaa", "label": "ITAA status", "pattern": "\\bitaa\\b|\\biec\\b|\\bipcf\\b|\\bbibf\\b|\\biab\\b",
+         "why": "The Belgian professional body for accountants and tax advisers (IEC and IPCF merged into ITAA in 2019). Clients read it as a level: trainee, certified accountant, tax adviser."},
+        {"key": "full_cycle", "label": "Full-cycle bookkeeping (\"comptabilité de A à Z\")", "pattern": "de a a z|van a tot z|a to z|full[- ]cycle",
+         "why": "The phrase Belgian clients look for: the person can run the books alone, from entry to annual accounts."},
+        {"key": "fiduciaire", "label": "Accounting-firm experience (fiduciaire / boekhoudkantoor)", "pattern": "fiduciaire|boekhoudkantoor|accountantskantoor|bureau comptable|accounting firm",
+         "why": "Firm experience means many clients, many sectors and deadline discipline. SMEs value it; it is a different profile from in-house."},
+        {"key": "vat", "label": "VAT returns (TVA / btw), client listing", "pattern": "\\btva\\b|\\bbtw\\b|intervat|listing|releve intracommunautaire|intracommunautaire opgave",
+         "why": "Monthly or quarterly VAT is core Belgian work; Intervat is the filing platform."},
+        {"key": "corporate_tax", "label": "Tax returns (ISOC / IPP, vennootschapsbelasting)", "pattern": "\\bisoc\\b|\\bipp\\b|biztax|vennootschapsbelasting|personenbelasting|impot des societes",
+         "why": "Separates bookkeepers from people who can close and file."},
+        {"key": "nbb", "label": "Annual accounts filed with the National Bank (BNB / NBB)", "pattern": "\\bbnb\\b|\\bnbb\\b|banque nationale|nationale bank|comptes annuels|jaarrekening",
+         "why": "Filing the annual accounts is the end of the cycle; mentioning it proves the full cycle."},
+        {"key": "pcmn", "label": "Belgian chart of accounts (PCMN / MAR)", "pattern": "\\bpcmn\\b|\\bmar\\b|minimumrekeningenstelsel|plan comptable",
+         "why": "Signals Belgian GAAP rather than IFRS or French PCG."},
+        {"key": "social_secretariat", "label": "Payroll via a social secretariat", "pattern": "secretariat social|sociaal secretariaat|sd worx|partena|securex|acerta|liantis|group s",
+         "why": "In Belgium payroll runs through a social secretariat; accountants check it rather than compute it."},
+        {"key": "be_software", "label": "Belgian accounting software", "pattern": "winbooks|\\bbob\\b|bob 50|exact online|octopus|\\byuki\\b|horus|popsy|adfinity|expert/m",
+         "why": "Clients filter on the package they run. Winbooks, BOB and Exact are the common ones."}
+      ],
+      "vocabulary": {
+        "full-cycle accounting": {"fr": "comptabilité de A à Z", "nl": "boekhouding van A tot Z", "en": "full-cycle accounting"},
+        "accounting firm":       {"fr": "fiduciaire", "nl": "boekhoudkantoor", "en": "accounting firm"},
+        "VAT return":            {"fr": "déclaration TVA", "nl": "btw-aangifte", "en": "VAT return"},
+        "annual accounts":       {"fr": "comptes annuels (dépôt BNB)", "nl": "jaarrekening (neerlegging NBB)", "en": "annual accounts (NBB filing)"},
+        "social secretariat":    {"fr": "secrétariat social", "nl": "sociaal secretariaat", "en": "social secretariat"}
+      },
+      "credentials": ["ITAA stagiaire / expert-comptable / conseiller fiscal", "Bachelier en comptabilité / Bachelor boekhouden", "Graduaat boekhouden"],
+      "software": ["Winbooks", "BOB 50", "Exact Online", "Octopus", "Yuki", "Horus", "Popsy"],
+      "notes": [
+        {"text": "Say whether the experience is in a fiduciaire or in-house: clients hire for one or the other.", "source": "PRIOR"},
+        {"text": "State the ITAA stage precisely (trainee, certified, tax adviser). Never translate the acronym.", "source": "PRIOR"},
+        {"text": "If the candidate did the books alone, use the local phrase: comptabilité de A à Z / boekhouding van A tot Z.", "source": "PRIOR"},
+        {"text": "Name the software. It is often the first filter.", "source": "PRIOR"},
+        {"text": "Brussels and Wallonia clients read French; Flanders reads Dutch. Bilingual candidates are worth flagging up front.", "source": "PRIOR"}
+      ],
+      "avoid": [
+        "Calling a Belgian fiduciaire a 'cabinet': that is French usage.",
+        "French titles such as expert-comptable diplômé or DCG/DSCG unless the candidate really holds them.",
+        "IFRS as a headline unless the role is group or subsidiary reporting."
+      ]
+    },
+    {
+      "market": "LU", "position": "accounting", "label": "Luxembourg · Accounting",
+      "cv_languages": ["en", "fr"],
+      "conventions": [
+        {"key": "fund", "label": "Fund accounting (UCITS, AIF, NAV)", "pattern": "fund accounting|ucits|opcvm|\\baif\\b|\\bnav\\b|net asset value|sicav|raif",
+         "why": "The fund industry is a large share of accounting jobs in Luxembourg."},
+        {"key": "cssf", "label": "CSSF regulatory reporting", "pattern": "\\bcssf\\b",
+         "why": "The Luxembourg financial regulator; reporting experience is a strong signal."},
+        {"key": "luxgaap", "label": "Lux GAAP / IFRS", "pattern": "lux gaap|luxgaap|\\bifrs\\b",
+         "why": "Clients want to know which standard the candidate has closed under."},
+        {"key": "rcs", "label": "RCS / eCDF filing", "pattern": "\\brcs\\b|ecdf",
+         "why": "Local filing platforms; proves hands-on Luxembourg closing."}
+      ],
+      "vocabulary": {},
+      "credentials": ["Expert-comptable (OEC Luxembourg)", "Réviseur d'entreprises", "ACCA", "CFA for fund roles"],
+      "software": ["Multifonds", "Sage", "SAP", "Microsoft Dynamics"],
+      "notes": [
+        {"text": "English is the default working language in fund services; state French and German levels separately.", "source": "PRIOR"},
+        {"text": "Say whether the experience is fund, corporate (Soparfi) or SME: they are different markets.", "source": "PRIOR"}
+      ],
+      "avoid": ["Belgian-specific terms (ITAA, Winbooks, BNB) as selling points in Luxembourg."]
+    },
+    {
+      "market": "FR", "position": "accounting", "label": "France · Accounting",
+      "cv_languages": ["fr"],
+      "conventions": [
+        {"key": "cabinet", "label": "Firm experience (cabinet d'expertise comptable)", "pattern": "cabinet|expertise comptable",
+         "why": "France says 'cabinet' where Belgium says 'fiduciaire'."},
+        {"key": "diplomas", "label": "DCG / DSCG / DEC", "pattern": "\\bdcg\\b|\\bdscg\\b|\\bdec\\b|expert-comptable",
+         "why": "The French qualification ladder; clients read the level from it."},
+        {"key": "liasse", "label": "Liasse fiscale / bilan", "pattern": "liasse fiscale|\\bbilan\\b",
+         "why": "The French end-of-year deliverable."}
+      ],
+      "vocabulary": {},
+      "credentials": ["DCG", "DSCG", "DEC (expert-comptable)"],
+      "software": ["Sage", "Cegid", "Quadratus", "ACD"],
+      "notes": [{"text": "French CVs often run to two pages with a longer education section; keep the Zig page to one.", "source": "PRIOR"}],
+      "avoid": ["Belgian terms (fiduciaire, ITAA, TVA listing) for French clients."]
+    },
+    {
+      "market": "BE", "position": "it-dev", "label": "Belgium · Software development",
+      "cv_languages": ["en", "fr", "nl"],
+      "conventions": [
+        {"key": "freelance_status", "label": "Freelance status (indépendant / zelfstandige, own company)", "pattern": "freelance|independant|zelfstandige|srl|bv\\b|sprl|bvba",
+         "why": "Belgian IT contracting often runs through the consultant's own company; clients want to know how to contract."},
+        {"key": "clients_named", "label": "Named end clients", "pattern": "client:|klant:|mission|opdracht",
+         "why": "Belgian consultants list missions per end client; clients read the sector from them."},
+        {"key": "cefr", "label": "Language levels (CEFR)", "pattern": "\\b[abc][12]\\b",
+         "why": "Belgian clients expect FR/NL/EN levels, ideally A1-C2."}
+      ],
+      "vocabulary": {},
+      "credentials": ["Cloud certifications (Azure, AWS)", "ISTQB for testers", "Scrum certifications"],
+      "software": [],
+      "notes": [
+        {"text": "Give the daily rate and whether the candidate invoices through a company.", "source": "PRIOR"},
+        {"text": "English CVs are normal in IT; the Zig page can still follow the contact's language.", "source": "PRIOR"}
+      ],
+      "avoid": []
+    }
+  ]
+}

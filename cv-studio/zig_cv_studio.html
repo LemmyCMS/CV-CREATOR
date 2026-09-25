@@ -81,6 +81,12 @@ button,select,input,textarea{font:inherit; color:inherit}
 select,input[type=text],textarea{width:100%; background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-size:13px}
 textarea{resize:vertical; line-height:1.45; font-size:12.5px}
 textarea.cvsrc{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px}
+.mrules{margin-top:10px; border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:var(--surface-2); font-size:12.5px}
+.mrules .mh{display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:space-between; margin-bottom:6px}
+.mrules b{font-size:12.5px}
+.mrules ul{margin:4px 0 0; padding-left:18px; display:grid; gap:3px}
+.mrules .sub{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-top:8px}
+.mrules .share{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3)}
 details.id{margin-top:12px; border:1px dashed var(--line); border-radius:8px; padding:8px 10px; background:var(--surface-2)}
 details.id summary{cursor:pointer; font-size:12.5px; font-weight:600; color:var(--ink-2)}
 details.id[open] summary{margin-bottom:4px}
@@ -198,6 +204,7 @@ dialog::backdrop{background:rgba(10,12,16,.55)}
 }
 </style>
 
+<script type="application/json" id="playbooks">{"playbooks": [{"market": "BE", "position": "accounting", "label": "Belgium · Accounting", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "Say whether the experience is in a fiduciaire or in-house: clients hire for one or the other.", "source": "PRIOR"}, {"text": "State the ITAA stage precisely (trainee, certified, tax adviser). Never translate the acronym.", "source": "PRIOR"}, {"text": "If the candidate did the books alone, use the local phrase: comptabilité de A à Z / boekhouding van A tot Z.", "source": "PRIOR"}, {"text": "Name the software. It is often the first filter.", "source": "PRIOR"}, {"text": "Brussels and Wallonia clients read French; Flanders reads Dutch. Bilingual candidates are worth flagging up front.", "source": "PRIOR"}], "vocabulary": {"full-cycle accounting": {"fr": "comptabilité de A à Z", "nl": "boekhouding van A tot Z", "en": "full-cycle accounting"}, "accounting firm": {"fr": "fiduciaire", "nl": "boekhoudkantoor", "en": "accounting firm"}, "VAT return": {"fr": "déclaration TVA", "nl": "btw-aangifte", "en": "VAT return"}, "annual accounts": {"fr": "comptes annuels (dépôt BNB)", "nl": "jaarrekening (neerlegging NBB)", "en": "annual accounts (NBB filing)"}, "social secretariat": {"fr": "secrétariat social", "nl": "sociaal secretariaat", "en": "social secretariat"}}, "avoid": ["Calling a Belgian fiduciaire a 'cabinet': that is French usage.", "French titles such as expert-comptable diplômé or DCG/DSCG unless the candidate really holds them.", "IFRS as a headline unless the role is group or subsidiary reporting."], "credentials": ["ITAA stagiaire / expert-comptable / conseiller fiscal", "Bachelier en comptabilité / Bachelor boekhouden", "Graduaat boekhouden"], "software": ["Winbooks", "BOB 50", "Exact Online", "Octopus", "Yuki", "Horus", "Popsy"], "conventions": [{"key": "itaa", "label": "ITAA status", "why": "The Belgian professional body for accountants and tax advisers (IEC and IPCF merged into ITAA in 2019). Clients read it as a level: trainee, certified accountant, tax adviser.", "source": "PRIOR"}, {"key": "full_cycle", "label": "Full-cycle bookkeeping (\"comptabilité de A à Z\")", "why": "The phrase Belgian clients look for: the person can run the books alone, from entry to annual accounts.", "source": "PRIOR"}, {"key": "fiduciaire", "label": "Accounting-firm experience (fiduciaire / boekhoudkantoor)", "why": "Firm experience means many clients, many sectors and deadline discipline. SMEs value it; it is a different profile from in-house.", "source": "PRIOR"}, {"key": "vat", "label": "VAT returns (TVA / btw), client listing", "why": "Monthly or quarterly VAT is core Belgian work; Intervat is the filing platform.", "source": "PRIOR"}, {"key": "corporate_tax", "label": "Tax returns (ISOC / IPP, vennootschapsbelasting)", "why": "Separates bookkeepers from people who can close and file.", "source": "PRIOR"}, {"key": "nbb", "label": "Annual accounts filed with the National Bank (BNB / NBB)", "why": "Filing the annual accounts is the end of the cycle; mentioning it proves the full cycle.", "source": "PRIOR"}, {"key": "pcmn", "label": "Belgian chart of accounts (PCMN / MAR)", "why": "Signals Belgian GAAP rather than IFRS or French PCG.", "source": "PRIOR"}, {"key": "social_secretariat", "label": "Payroll via a social secretariat", "why": "In Belgium payroll runs through a social secretariat; accountants check it rather than compute it.", "source": "PRIOR"}, {"key": "be_software", "label": "Belgian accounting software", "why": "Clients filter on the package they run. Winbooks, BOB and Exact are the common ones.", "source": "PRIOR"}]}, {"market": "BE", "position": "it-dev", "label": "Belgium · Software development", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "Give the daily rate and whether the candidate invoices through a company.", "source": "PRIOR"}, {"text": "English CVs are normal in IT; the Zig page can still follow the contact's language.", "source": "PRIOR"}], "vocabulary": {}, "avoid": [], "credentials": ["Cloud certifications (Azure, AWS)", "ISTQB for testers", "Scrum certifications"], "software": [], "conventions": [{"key": "freelance_status", "label": "Freelance status (indépendant / zelfstandige, own company)", "why": "Belgian IT contracting often runs through the consultant's own company; clients want to know how to contract.", "source": "PRIOR"}, {"key": "clients_named", "label": "Named end clients", "why": "Belgian consultants list missions per end client; clients read the sector from them.", "source": "PRIOR"}, {"key": "cefr", "label": "Language levels (CEFR)", "why": "Belgian clients expect FR/NL/EN levels, ideally A1-C2.", "source": "PRIOR"}]}, {"market": "FR", "position": "accounting", "label": "France · Accounting", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "French CVs often run to two pages with a longer education section; keep the Zig page to one.", "source": "PRIOR"}], "vocabulary": {}, "avoid": ["Belgian terms (fiduciaire, ITAA, TVA listing) for French clients."], "credentials": ["DCG", "DSCG", "DEC (expert-comptable)"], "software": ["Sage", "Cegid", "Quadratus", "ACD"], "conventions": [{"key": "cabinet", "label": "Firm experience (cabinet d'expertise comptable)", "why": "France says 'cabinet' where Belgium says 'fiduciaire'.", "source": "PRIOR"}, {"key": "diplomas", "label": "DCG / DSCG / DEC", "why": "The French qualification ladder; clients read the level from it.", "source": "PRIOR"}, {"key": "liasse", "label": "Liasse fiscale / bilan", "why": "The French end-of-year deliverable.", "source": "PRIOR"}]}, {"market": "LU", "position": "accounting", "label": "Luxembourg · Accounting", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "English is the default working language in fund services; state French and German levels separately.", "source": "PRIOR"}, {"text": "Say whether the experience is fund, corporate (Soparfi) or SME: they are different markets.", "source": "PRIOR"}], "vocabulary": {}, "avoid": ["Belgian-specific terms (ITAA, Winbooks, BNB) as selling points in Luxembourg."], "credentials": ["Expert-comptable (OEC Luxembourg)", "Réviseur d'entreprises", "ACCA", "CFA for fund roles"], "software": ["Multifonds", "Sage", "SAP", "Microsoft Dynamics"], "conventions": [{"key": "fund", "label": "Fund accounting (UCITS, AIF, NAV)", "why": "The fund industry is a large share of accounting jobs in Luxembourg.", "source": "PRIOR"}, {"key": "cssf", "label": "CSSF regulatory reporting", "why": "The Luxembourg financial regulator; reporting experience is a strong signal.", "source": "PRIOR"}, {"key": "luxgaap", "label": "Lux GAAP / IFRS", "why": "Clients want to know which standard the candidate has closed under.", "source": "PRIOR"}, {"key": "rcs", "label": "RCS / eCDF filing", "why": "Local filing platforms; proves hands-on Luxembourg closing.", "source": "PRIOR"}]}]}</script>
 <header class="mast">
   <div class="mast-in">
     <div class="brand">
@@ -242,6 +249,11 @@ dialog::backdrop{background:rgba(10,12,16,.55)}
           <div class="field"><label for="client-alias">Client, as shown on CV</label><input type="text" id="client-alias"></div>
           <div class="field"><label for="opp-ref">Opportunity ref</label><input type="text" id="opp-ref" class="mono"></div>
         </div>
+        <div class="row2">
+          <div class="field"><label for="mkt">Market</label><select id="mkt"></select></div>
+          <div class="field"><label for="pos">Position type</label><select id="pos"></select></div>
+        </div>
+        <div class="mrules" id="mrules"></div>
         <div class="field"><label for="jd">Job description</label><textarea id="jd" rows="11"></textarea></div>
       </section>
 
@@ -387,7 +399,7 @@ Running (Brussels 20km), chess, volunteering at CoderDojo`,
 };
 
 const OPPS = [
-  { id:"OPP-2026-117", title:"Senior .NET Developer", client:"Banque Arnould & Cie", alias:"Private bank, Brussels",
+  { id:"OPP-2026-117", title:"Senior .NET Developer", client:"Banque Arnould & Cie", alias:"Private bank, Brussels", market:"BE", pos:"it-dev",
     jd:`Senior .NET Developer — Private banking platform
 Private bank, Brussels (hybrid, 3 days on site)
 
@@ -407,7 +419,7 @@ Nice to have
 - Mentoring junior developers
 
 Start: Q4 2026` },
-  { id:"OPP-2026-124", title:"Azure Platform Engineer", client:"Assurances du Kirchberg", alias:"Insurance group, Luxembourg",
+  { id:"OPP-2026-124", title:"Azure Platform Engineer", client:"Assurances du Kirchberg", alias:"Insurance group, Luxembourg", market:"LU", pos:"it-dev",
     jd:`Azure Platform Engineer — Internal developer platform
 Insurance group, Luxembourg (hybrid, 2 days on site in Kirchberg)
 
@@ -548,6 +560,7 @@ function loadOpp(id){
   state.oppId = id;
   $("#opp").value = id;
   $("#jd").value = o.jd; $("#client-alias").value = o.alias;
+  if (o.market && $("#mkt").options.length) { $("#mkt").value = o.market; $("#pos").value = o.pos; renderRules(); }
   $("#opp-ref").value = id === "OPP-NEW" ? "OPP-2026-" + String(130 + Math.floor(Math.random()*60)) : id;
   if (SAMPLES[id]) {
     setOutput(SAMPLES[id], "sample", null);
@@ -727,6 +740,41 @@ function scrubDeep(obj, extra){
   return { value: walk(obj), hits };
 }
 
+/* ---------- market playbooks: what clients in each market look for ---------- */
+const PLAYBOOKS = (() => { try { return JSON.parse(document.getElementById("playbooks").textContent).playbooks || []; } catch { return []; } })();
+function currentBook(){ return PLAYBOOKS.find(b => b.market === $("#mkt").value && b.position === $("#pos").value); }
+function initMarkets(){
+  const mk = [...new Set(PLAYBOOKS.map(b => b.market))], ps = [...new Set(PLAYBOOKS.map(b => b.position))];
+  const MK = { BE:"Belgium", LU:"Luxembourg", FR:"France", NL:"Netherlands" }, PS = { accounting:"Accounting & finance", "it-dev":"Software development" };
+  $("#mkt").innerHTML = mk.map(m => `<option value="${esc(m)}">${esc(MK[m] || m)}</option>`).join("");
+  $("#pos").innerHTML = ps.map(p => `<option value="${esc(p)}">${esc(PS[p] || p)}</option>`).join("");
+  $("#mkt").value = "BE"; $("#pos").value = "it-dev";
+  ["#mkt", "#pos"].forEach(s => $(s).addEventListener("change", renderRules));
+  renderRules();
+}
+function renderRules(){
+  const b = currentBook(), box = $("#mrules");
+  if (!b) { box.innerHTML = `<div class="mh"><b>No playbook for this market and position yet</b></div><div>The CV follows the general rules. Run the market analysis on past CVs to create one.</div>`; return; }
+  const measured = b.cvs > 0;
+  box.innerHTML = `<div class="mh"><b>${esc(b.label)} playbook</b><span class="pill${measured ? " good" : ""}">${measured ? `Learned from ${b.cvs} CVs` : "Recruiter knowledge, not yet measured"}</span></div>
+    <div class="sub">Clients here look for</div>
+    <ul>${(b.conventions || []).map(c => `<li>${esc(c.label)}${c.share != null ? ` <span class="share">${Math.round(c.share * 100)}% of CVs</span>` : ""}</li>`).join("")}</ul>
+    ${(b.notes || []).length ? `<div class="sub">Notes</div><ul>${b.notes.map(n => `<li>${esc(n.text)}</li>`).join("")}</ul>` : ""}
+    ${(b.avoid || []).length ? `<div class="sub">Avoid</div><ul>${b.avoid.map(a => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}`;
+}
+function marketBlock(){
+  const b = currentBook(); if (!b) return "";
+  const conv = (b.conventions || []).map(c => `- ${c.label}: ${c.why || ""}${c.share != null ? ` (in ${Math.round(c.share * 100)}% of this market's CVs)` : ""}`).join("\n");
+  const vocab = Object.entries(b.vocabulary || {}).map(([k, v]) => `- ${k}: ${Object.entries(v).map(([l, t]) => `${l.toUpperCase()} "${t}"`).join(", ")}`).join("\n");
+  return `
+MARKET PLAYBOOK: ${b.label}
+Clients in this market look for the items below. Surface each one prominently IF AND ONLY IF the profile or notes support it, using the local wording. Never add one the profile does not support.
+${conv}
+${vocab ? `Local vocabulary (use the term in the CV's language):\n${vocab}\n` : ""}${(b.notes || []).map(n => "- " + n.text).join("\n")}
+${(b.avoid || []).length ? `Avoid:\n${b.avoid.map(a => "- " + a).join("\n")}` : ""}
+For every playbook item the profile does not show, add a match entry with strength "gap" and evidence "Not in the profile: ask the candidate." so the recruiter can check it.`;
+}
+
 /* ---------- generation with Claude ---------- */
 function buildPrompt(profile, notes){
   const rules = [
@@ -752,6 +800,7 @@ HOW TO TAILOR
 
 ANONYMISATION RULES
 ${rules.map(r => "- " + r).join("\n")}
+${marketBlock()}
 
 JOB DESCRIPTION
 ${$("#jd").value.trim().slice(0, 12000)}
@@ -876,6 +925,7 @@ $("#copy").onclick = async () => {
 $("#paper").addEventListener("input", () => { if (state.reviewed) { state.reviewed = false; renderReview(); updateChain(); renderLinked(); } });
 
 initForm();
+initMarkets();
 
 (async () => {
   const downloads = await (window.claude?.use ? window.claude.use("downloads") : Promise.resolve(null));

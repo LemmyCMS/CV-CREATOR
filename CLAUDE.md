@@ -291,3 +291,17 @@ band is wide. Targeting the median means missing half the time by construction.
   candidate and client personal data under GDPR.
 - Benchmarks are labelled `[PRIOR]` and tenant-dependent facts `[VERIFY]`. Keep those
   markers — they are the difference between a defensible number and a made-up one.
+
+## CV Studio and market playbooks — `cv-studio/` (2026-09-25)
+
+Zig client CVs: `zig_cv_studio.html` (job description + profile -> anonymised tailored CV via
+the artifact `sample` capability; https://claude.ai/artifact/77isw6Dv1AkKweu2gfaQp3) and
+`zig_presentation.html` (the one-page, newspaper-style presentation sheet that sits in front of
+the candidate's own anonymised CV; three colours, big type; EN/FR/NL chosen from the client
+contact: CRM preference > city > email TLD > English, never from names; stars for tech roles,
+task markers for task-driven roles; https://claude.ai/artifact/BqH7mXKKAd3uabBKwYucxb).
+
+`market/` learns per market and position how CVs are built (ITAA, comptabilité de A à Z,
+fiduciaire vs cabinet, fund accounting in LU) and feeds CV Studio's prompt. Seeds are
+`[PRIOR]` until `measure_markets.py build` runs on a real archive. Comparisons stay within one
+CV language. Real CVs, the redacted Emilie example and `playbooks.json` never go in git.
