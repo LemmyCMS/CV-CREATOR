@@ -1,0 +1,891 @@
+<title>Zig CV Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#eef0f3; --surface:#ffffff; --surface-2:#f6f7f9; --line:#dcdfe5; --line-soft:#e9ebef;
+  --ink:#11151b; --ink-2:#525b68; --ink-3:#7c8594;
+  --zig:#d9501d; --zig-ink:#ffffff; --zig-soft:#fbe9e1;
+  --good:#0f7a53; --warn:#9a5c00; --crit:#b3261e; --neutral:#5f6875;
+  --good-bg:#e4f4ec; --warn-bg:#fbf0dc; --crit-bg:#fbe6e4; --neutral-bg:#eceef1;
+  --focus:#2a78d6; --shadow:0 1px 2px rgba(17,21,27,.06), 0 8px 28px rgba(17,21,27,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#111214; --surface:#1a1b1d; --surface-2:#212326; --line:#33363b; --line-soft:#282a2e;
+    --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+    --zig:#f07a4a; --zig-ink:#1a0d07; --zig-soft:#3a2118;
+    --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+    --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+    --focus:#6da7ec; --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#111214; --surface:#1a1b1d; --surface-2:#212326; --line:#33363b; --line-soft:#282a2e;
+  --ink:#f4f5f6; --ink-2:#b3b8c0; --ink-3:#868d97;
+  --zig:#f07a4a; --zig-ink:#1a0d07; --zig-soft:#3a2118;
+  --good:#4bbd8c; --warn:#e0a13c; --crit:#f08b83; --neutral:#98a0ac;
+  --good-bg:#16302a; --warn-bg:#332711; --crit-bg:#3a1e1c; --neutral-bg:#26282c;
+  --focus:#6da7ec; --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0; background:var(--ground); color:var(--ink); font-family:"Public Sans","Helvetica Neue",Arial,sans-serif; font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Archivo,"Public Sans",Arial,sans-serif; margin:0; text-wrap:balance; letter-spacing:-.015em}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--focus); outline-offset:2px; border-radius:3px}
+button,select,input,textarea{font:inherit; color:inherit}
+
+.mast{background:var(--surface); border-bottom:1px solid var(--line)}
+.mast-in{max-width:1320px; margin:0 auto; padding:22px 20px 18px; display:flex; flex-wrap:wrap; gap:16px 28px; align-items:flex-end; justify-content:space-between}
+.brand{display:flex; gap:14px; align-items:center}
+.brand svg{flex:none}
+.eyebrow{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.mast h1{font-size:26px; font-weight:800}
+.mast p{margin:6px 0 0; color:var(--ink-2); max-width:66ch}
+.pill{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600; padding:3px 9px; border-radius:999px; background:var(--neutral-bg); color:var(--neutral); white-space:nowrap}
+.pill.good{background:var(--good-bg); color:var(--good)}
+.pill.warn{background:var(--warn-bg); color:var(--warn)}
+.pill.crit{background:var(--crit-bg); color:var(--crit)}
+.pill.zig{background:var(--zig-soft); color:var(--zig)}
+
+.wrap{max-width:1320px; margin:0 auto; padding-inline:20px; padding-block:18px 80px}
+
+/* the record chain */
+.chain{display:flex; flex-wrap:wrap; align-items:stretch; gap:6px; margin-bottom:18px}
+.node{flex:1 1 160px; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:9px 12px; text-align:left; cursor:pointer; display:flex; flex-direction:column; gap:1px; min-width:0}
+.node:hover{border-color:var(--ink-3)}
+.node .k{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.node .v{font-weight:600; font-size:13px; overflow-wrap:anywhere}
+.node .s{font-size:12px; color:var(--ink-2); overflow-wrap:anywhere}
+.node.on{border-color:var(--zig); box-shadow:inset 0 0 0 1px var(--zig)}
+.arrow{align-self:center; color:var(--ink-3); flex:none}
+@media (max-width:760px){ .arrow{display:none} .node{flex-basis:44%} }
+
+.grid{display:grid; grid-template-columns:minmax(0,410px) minmax(0,1fr); gap:20px; align-items:start}
+@media (max-width:1040px){ .grid{grid-template-columns:minmax(0,1fr)} }
+
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px}
+.col{display:flex; flex-direction:column; gap:14px}
+.panel h2{font-size:14.5px; font-weight:700; display:flex; align-items:center; gap:8px}
+.step{display:inline-grid; place-items:center; width:20px; height:20px; border-radius:50%; background:var(--ink); color:var(--surface); font-size:11px; font-weight:700; font-family:"IBM Plex Mono",monospace}
+.panel .hint{font-size:12.5px; color:var(--ink-2); margin:4px 0 0}
+.field{display:flex; flex-direction:column; gap:5px; margin-top:12px}
+.field label, .lbl{font-size:12px; font-weight:600; color:var(--ink-2)}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+@media (max-width:420px){ .row2{grid-template-columns:1fr} }
+select,input[type=text],textarea{width:100%; background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-size:13px}
+textarea{resize:vertical; line-height:1.45; font-size:12.5px}
+textarea.cvsrc{font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px}
+details.id{margin-top:12px; border:1px dashed var(--line); border-radius:8px; padding:8px 10px; background:var(--surface-2)}
+details.id summary{cursor:pointer; font-size:12.5px; font-weight:600; color:var(--ink-2)}
+details.id[open] summary{margin-bottom:4px}
+.rules{display:grid; gap:7px; margin-top:12px}
+.rule{display:flex; gap:9px; align-items:flex-start; font-size:13px}
+.rule input{margin-top:3px; accent-color:var(--zig)}
+.rule small{display:block; color:var(--ink-3); font-size:11.5px}
+.rule.locked{color:var(--ink-2)}
+
+.btn{border:1px solid var(--line); background:var(--surface); border-radius:7px; padding:7px 12px; font-size:13px; font-weight:600; cursor:pointer; display:inline-flex; gap:7px; align-items:center}
+.btn:hover{border-color:var(--ink-3)}
+.btn:disabled{opacity:.5; cursor:not-allowed}
+.btn.primary{background:var(--zig); color:var(--zig-ink); border-color:var(--zig); padding:10px 16px; font-size:14px}
+.btn.primary:hover{filter:brightness(1.05)}
+.go{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.status{font-size:12.5px; color:var(--ink-2); min-height:1.4em}
+.status.err{color:var(--crit)}
+
+/* output side */
+.tabs{display:flex; flex-wrap:wrap; gap:4px; border-bottom:1px solid var(--line); margin-bottom:14px}
+.tab{background:none; border:0; border-bottom:2px solid transparent; padding:9px 12px 8px; font-weight:600; font-size:13px; color:var(--ink-2); cursor:pointer; display:inline-flex; gap:6px; align-items:center; margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--zig)}
+.tab .int{font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); border:1px solid var(--line); border-radius:4px; padding:0 4px}
+.toolbar{display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; margin-bottom:12px}
+.toolbar .l, .toolbar .r{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.stage{background:repeating-linear-gradient(135deg, var(--surface-2) 0 10px, var(--ground) 10px 20px); border:1px solid var(--line); border-radius:10px; padding:22px; overflow-x:auto}
+@media (max-width:560px){ .stage{padding:10px} }
+
+table.ev{width:100%; border-collapse:collapse; font-size:13px}
+table.ev th{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); text-align:left; font-weight:600; padding:8px 10px; border-bottom:1px solid var(--line)}
+table.ev td{padding:10px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+table.ev td:first-child{font-weight:600; width:34%}
+.tablewrap{overflow-x:auto}
+.sumrow{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px}
+.orig{text-decoration:line-through; color:var(--ink-3); overflow-wrap:anywhere}
+.chainv{display:grid; gap:0; margin-top:6px}
+.cstep{display:grid; grid-template-columns:28px 1fr; gap:12px}
+.cstep .dot{display:flex; flex-direction:column; align-items:center}
+.cstep .dot i{width:12px; height:12px; border-radius:50%; background:var(--zig); margin-top:5px; flex:none}
+.cstep .dot b{flex:1; width:2px; background:var(--line); margin-block:4px}
+.cstep:last-child .dot b{display:none}
+.cstep .body{padding-bottom:16px}
+.cstep .k{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.cstep .v{font-weight:600}
+.cstep .s{color:var(--ink-2); font-size:12.5px}
+.vers{list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px}
+.vers li{display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; border:1px solid var(--line-soft); border-radius:7px; padding:7px 10px; font-size:12.5px}
+.banner{font-size:12.5px; color:var(--ink-2); background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:9px 12px; margin-bottom:14px; display:flex; gap:10px; align-items:flex-start}
+
+dialog{border:1px solid var(--line); border-radius:12px; padding:0; max-width:min(760px, calc(100vw - 32px)); width:100%; background:var(--surface); color:var(--ink); box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(10,12,16,.55)}
+.dlg-h{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid var(--line)}
+.dlg-b{padding:16px; max-height:70vh; overflow:auto}
+.dlg-b pre{white-space:pre-wrap; margin:0; font-family:"IBM Plex Mono",monospace; font-size:12px; line-height:1.55}
+@media (prefers-reduced-motion:no-preference){ .paper-in{animation:rise .35s ease-out} @keyframes rise{from{transform:translateY(6px)} to{transform:none}} }
+</style>
+
+<style id="cv-css">
+/* Zig client CV. Fixed brand colours: a CV is a printed document, so it keeps its paper look in either theme. */
+.zcv{--z-ink:#16181d; --z-ink2:#4f5663; --z-ink3:#858c98; --z-line:#e3e5ea; --z-orange:#d9501d; --z-tint:#f3f5f8;
+  width:100%; max-width:800px; margin:0 auto; background:#fff; color:var(--z-ink); font-family:"Public Sans","Helvetica Neue",Arial,sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 1px 2px rgba(0,0,0,.08),0 14px 40px rgba(0,0,0,.12); border-radius:3px; overflow:hidden}
+.zcv [contenteditable="true"]:hover{outline:1px dashed #c9ccd3; outline-offset:2px}
+.zcv [contenteditable="true"]:focus{outline:2px solid var(--z-orange); outline-offset:2px}
+.zcv-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 24px; padding:30px 44px 0}
+.zcv-logo{display:flex; align-items:center; gap:10px}
+.zcv-word{font-family:Archivo,Arial,sans-serif; font-weight:800; font-size:22px; letter-spacing:.06em; line-height:1}
+.zcv-word small{display:block; font-family:"Public Sans",Arial,sans-serif; font-size:9px; font-weight:600; letter-spacing:.16em; color:var(--z-ink3); margin-top:4px}
+.zcv-meta{text-align:right; font-size:10.5px; color:var(--z-ink2); line-height:1.6}
+.zcv-meta b{color:var(--z-ink); font-weight:600}
+.zcv-meta .conf{display:inline-block; font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--z-orange); border:1px solid currentColor; border-radius:3px; padding:1px 6px; margin-bottom:4px}
+.zcv-zz{display:block; width:100%; height:12px; margin:20px 0 0}
+.zcv-head{padding:18px 44px 0}
+.zcv-head .for{font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--z-orange)}
+.zcv-head h1{font-family:Archivo,Arial,sans-serif; font-weight:700; font-size:32px; line-height:1.1; letter-spacing:-.02em; margin:4px 0 0; color:var(--z-ink); text-wrap:balance}
+.zcv-head .cref{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--z-ink3); margin-top:6px}
+.zcv-facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); margin:18px 44px 0; border-top:1px solid var(--z-ink); border-bottom:1px solid var(--z-line)}
+.zcv-facts > div{padding:9px 12px 10px 0}
+.zcv-facts .k{font-size:8.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--z-ink3)}
+.zcv-facts .v{font-size:12px; font-weight:600; margin-top:2px; line-height:1.35}
+.zcv-body{display:grid; grid-template-columns:200px minmax(0,1fr); gap:32px; padding:22px 44px 30px}
+.zcv-sec + .zcv-sec{margin-top:20px}
+.zcv .zcv-h{font-size:9.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--z-orange); display:flex; align-items:center; gap:8px; margin:0 0 9px}
+.zcv .zcv-h::after{content:""; flex:1; height:1px; background:var(--z-line)}
+.zcv-sum{font-size:13px; line-height:1.6; margin:0; color:var(--z-ink)}
+.zcv-sk{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+.zcv-sk li{display:grid; gap:3px}
+.zcv-sk .n{font-weight:600; font-size:11.5px; line-height:1.3}
+.zcv-sk .m{display:flex; align-items:center; gap:8px; font-size:10px; color:var(--z-ink3)}
+.zcv-bar{display:flex; gap:3px}
+.zcv-bar i{width:14px; height:4px; border-radius:1px; background:var(--z-line)}
+.zcv-bar i.f{background:var(--z-ink)}
+.zcv-list{list-style:none; margin:0; padding:0; display:grid; gap:6px; font-size:11.5px}
+.zcv-list b{font-weight:600; display:block; line-height:1.3}
+.zcv-list span{color:var(--z-ink2); font-size:10.5px}
+.zcv-job{padding:0 0 14px; margin:0 0 14px; border-bottom:1px solid var(--z-line)}
+.zcv-job:last-child{border-bottom:0; margin-bottom:0; padding-bottom:0}
+.zcv-job .t{display:flex; flex-wrap:wrap; justify-content:space-between; gap:2px 12px; align-items:baseline}
+.zcv-job .role{font-family:Archivo,Arial,sans-serif; font-weight:700; font-size:14px}
+.zcv-job .per{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--z-ink2); white-space:nowrap}
+.zcv-job .emp{font-size:11px; color:var(--z-ink2); margin-top:1px}
+.zcv-job ul{margin:7px 0 0; padding:0 0 0 15px; display:grid; gap:4px}
+.zcv-job li::marker{color:var(--z-orange)}
+.zcv-stack{display:flex; flex-wrap:wrap; gap:4px; margin-top:8px}
+.zcv-stack span{font-family:"IBM Plex Mono",monospace; font-size:9.5px; background:var(--z-tint); color:var(--z-ink2); border-radius:3px; padding:1px 6px}
+.zcv-foot{background:var(--z-ink); color:#fff; display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between; align-items:center; padding:14px 44px; font-size:10.5px}
+.zcv-foot .fl{display:flex; align-items:center; gap:10px; font-weight:600; letter-spacing:.04em}
+.zcv-foot .fr{color:#c3c7cf; max-width:52ch}
+@media (max-width:640px){
+  .zcv-top,.zcv-head{padding-left:22px; padding-right:22px}
+  .zcv-facts{margin-left:22px; margin-right:22px}
+  .zcv-body{grid-template-columns:minmax(0,1fr); padding:20px 22px 24px; gap:20px}
+  .zcv-foot{padding:14px 22px}
+  .zcv-meta{text-align:left}
+  .zcv-head h1{font-size:26px}
+}
+</style>
+
+<header class="mast">
+  <div class="mast-in">
+    <div class="brand">
+      <svg width="44" height="44" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="var(--ink)"/><polyline points="9,12 31,12 9,28 31,28" fill="none" stroke="var(--zig)" stroke-width="4.5" stroke-linejoin="miter" stroke-linecap="square"/></svg>
+      <div>
+        <div class="eyebrow">The Zig · Recruiter workspace</div>
+        <h1>Zig CV Studio</h1>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-start">
+      <p>Candidate + job description in, anonymised client CV out. The vacancy decides what gets emphasised. The recruiter reviews and edits before anything reaches a client, and every CV stays linked to the candidate's original profile.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="banner"><span class="pill warn">Sample data</span><span>The candidate, employers and clients below are fictional, so you can see the flow end to end. Switch between the two opportunities to see the same candidate turned into two different CVs. Paste a real job description and profile, then press <b>Generate tailored CV</b> to have Claude draft a new one.</span></div>
+
+  <nav class="chain" aria-label="Record chain">
+    <button class="node" type="button" data-go="original"><span class="k">Candidate</span><span class="v mono" id="n-cand">ZIG-C-10482</span><span class="s" id="n-cand-s">Full profile, internal</span></button>
+    <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    <button class="node" type="button" data-go="original"><span class="k">Original CV</span><span class="v" id="n-orig">benali_cv_2026.pdf</span><span class="s">Open the full original</span></button>
+    <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    <button class="node on" type="button" data-go="cv"><span class="k">Tailored CV</span><span class="v" id="n-ver">v1 · sample</span><span class="s" id="n-ver-s">Draft, not reviewed</span></button>
+    <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    <button class="node" type="button" data-go="opp"><span class="k">Opportunity</span><span class="v mono" id="n-opp">OPP-2026-117</span><span class="s" id="n-opp-s">Senior .NET Developer</span></button>
+    <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h9M7 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    <button class="node" type="button" data-go="linked"><span class="k">Client</span><span class="v" id="n-client">Banque Arnould &amp; Cie</span><span class="s" id="n-client-s">Shown on CV as “Private bank, Brussels”</span></button>
+  </nav>
+
+  <div class="grid">
+    <!-- inputs -->
+    <div class="col">
+      <section class="panel" id="p-opp">
+        <h2><span class="step">1</span>Opportunity</h2>
+        <p class="hint">The job description is the primary input. It controls what the CV emphasises.</p>
+        <div class="field">
+          <label for="opp">Vacancy</label>
+          <select id="opp"></select>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="client-alias">Client, as shown on CV</label><input type="text" id="client-alias"></div>
+          <div class="field"><label for="opp-ref">Opportunity ref</label><input type="text" id="opp-ref" class="mono"></div>
+        </div>
+        <div class="field"><label for="jd">Job description</label><textarea id="jd" rows="11"></textarea></div>
+      </section>
+
+      <section class="panel">
+        <h2><span class="step">2</span>Candidate profile</h2>
+        <p class="hint">Everything the recruiter knows. Identity fields are stripped on this page before anything is sent to AI.</p>
+        <details class="id">
+          <summary>Identity details · never sent to AI or client</summary>
+          <div class="row2">
+            <div class="field"><label for="id-name">Name</label><input type="text" id="id-name"></div>
+            <div class="field"><label for="id-ref">Candidate ref</label><input type="text" id="id-ref" class="mono"></div>
+            <div class="field"><label for="id-email">Email</label><input type="text" id="id-email"></div>
+            <div class="field"><label for="id-phone">Phone</label><input type="text" id="id-phone"></div>
+          </div>
+          <div class="field"><label for="id-addr">Address</label><input type="text" id="id-addr"></div>
+          <div class="field"><label for="id-urls">LinkedIn and personal URLs</label><input type="text" id="id-urls"></div>
+        </details>
+        <div class="field"><label for="cvsrc">Original CV</label><textarea id="cvsrc" class="cvsrc" rows="12"></textarea></div>
+        <div class="field"><label for="notes">Recruiter notes</label><textarea id="notes" rows="4"></textarea></div>
+      </section>
+
+      <section class="panel">
+        <h2><span class="step">3</span>Anonymisation rules</h2>
+        <div class="rules" id="rules"></div>
+      </section>
+
+      <section class="panel">
+        <div class="go">
+          <button class="btn primary" type="button" id="gen">
+            <svg width="16" height="16" viewBox="0 0 40 40" aria-hidden="true"><polyline points="8,12 32,12 8,28 32,28" fill="none" stroke="currentColor" stroke-width="5"/></svg>
+            Generate tailored CV
+          </button>
+          <button class="btn" type="button" id="stop" hidden>Stop</button>
+        </div>
+        <div class="status" id="status" role="status" aria-live="polite">Showing the pre-generated sample for this opportunity.</div>
+      </section>
+    </div>
+
+    <!-- output -->
+    <section class="panel" aria-label="Output">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-tab="cv" id="t-cv">Client CV</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="ev" id="t-ev">Evidence &amp; gaps <span class="int">Internal</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="red" id="t-red">Redaction log <span class="int">Internal</span></button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="linked" id="t-linked">Linked record <span class="int">Internal</span></button>
+      </div>
+
+      <div data-pane="cv">
+        <div class="toolbar">
+          <div class="l"><span class="pill" id="src-pill">Pre-generated sample</span><span class="pill warn" id="rev-pill">Draft · not reviewed</span><span class="pill" id="scan-pill" hidden></span></div>
+          <div class="r">
+            <button class="btn" type="button" id="review">Mark reviewed</button>
+            <button class="btn" type="button" id="copy">Copy text</button>
+            <button class="btn" type="button" id="dl" hidden>Save .html</button>
+          </div>
+        </div>
+        <p class="hint" style="margin:0 0 10px">Click any line on the CV to edit it. The recruiter has the last word.</p>
+        <div class="stage"><div id="paper"></div></div>
+      </div>
+
+      <div data-pane="ev" hidden>
+        <p class="hint" style="margin:0 0 10px">Each requirement in the job description, and the evidence found for it in the profile. Gaps stay here. They are things to raise with the candidate, not things to put on the CV.</p>
+        <div class="sumrow" id="ev-sum"></div>
+        <div class="tablewrap"><table class="ev"><thead><tr><th>Requirement</th><th>Match</th><th>Evidence from the profile</th></tr></thead><tbody id="ev-body"></tbody></table></div>
+      </div>
+
+      <div data-pane="red" hidden>
+        <p class="hint" style="margin:0 0 10px">Everything removed or generalised on the way to the client. Originals are visible to the recruiter only.</p>
+        <div class="tablewrap"><table class="ev"><thead><tr><th>Field</th><th>Original</th><th>On the client CV</th></tr></thead><tbody id="red-body"></tbody></table></div>
+      </div>
+
+      <div data-pane="linked" hidden>
+        <p class="hint" style="margin:0">The client sees the tailored CV. Internally it stays attached to the full record, so the recruiter can get back to the real profile at any time.</p>
+        <div class="chainv" id="chainv"></div>
+        <div class="lbl" style="margin-top:4px">Versions this session</div>
+        <ul class="vers" id="vers"></ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<dialog id="dlg">
+  <div class="dlg-h"><div><div class="eyebrow">Original CV · internal only</div><h3 id="dlg-t" style="font-size:16px">Original profile</h3></div><button class="btn" type="button" id="dlg-x">Close</button></div>
+  <div class="dlg-b"><pre id="dlg-pre"></pre></div>
+</dialog>
+
+<script>
+/* ---------- sample record (fictional) ---------- */
+const CANDIDATE = {
+  ref: "ZIG-C-10482",
+  name: "Karim Benali",
+  email: "karim.benali@gmail.com",
+  phone: "+32 478 21 55 90",
+  address: "Rue de la Loi 112, 1040 Etterbeek",
+  urls: "linkedin.com/in/karimbenali-dev, github.com/kbenali",
+  file: "benali_cv_2026.pdf",
+  uploaded: "12 Sep 2026",
+  cv: `Karim Benali
+Senior Software Engineer
+karim.benali@gmail.com · +32 478 21 55 90 · Rue de la Loi 112, 1040 Etterbeek
+linkedin.com/in/karimbenali-dev · github.com/kbenali
+
+SUMMARY
+Software engineer with 9 years of experience in .NET, mostly backend, some frontend with React. Worked in banking, logistics and a SaaS start-up. Interested in cloud and distributed systems.
+
+EXPERIENCE
+Meridian Bank Belgium — Senior Backend Engineer (Payments), Brussels | Mar 2022 – present
+- Rebuilt the SEPA instant payments orchestration service from a .NET Framework 4.8 monolith into 14 .NET 8 microservices on Azure Kubernetes Service
+- Introduced event-driven integration with Azure Service Bus; cut end-to-end payment latency from 1.8s to 420ms (p95)
+- Owned PSD2 audit logging and strong customer authentication flows; passed two ECB/NBB audits with no findings
+- Wrote Terraform modules for the team's AKS, Key Vault and Service Bus estate; set up Azure DevOps pipelines with blue/green deploys
+- Mentor to 3 junior developers; runs the chapter's monthly architecture review
+Stack: C#, .NET 8, ASP.NET Core, Azure (AKS, Service Bus, Functions, Key Vault, App Insights), SQL Server, Cosmos DB, Terraform, Azure DevOps
+
+ColisExpress — Software Engineer, Brussels | Sep 2018 – Feb 2022
+- Built parcel tracking APIs handling 2.5M events a day (ASP.NET Core, SQL Server, RabbitMQ)
+- Migrated 6 on-premise services to Azure App Service; reduced hosting cost by 31%
+- Built the internal dispatcher dashboard in React + TypeScript
+- Introduced integration testing with Testcontainers; test coverage 38% -> 74%
+Stack: C#, .NET Core 3.1/.NET 6, React, TypeScript, SQL Server, RabbitMQ, Azure App Service, Docker
+
+Shiftly (SaaS start-up, 12 people) — Full-stack Developer, Ghent | Jul 2016 – Aug 2018
+- Built the scheduling engine and billing module of a staff-rostering SaaS (.NET Framework, Angular)
+- Integrated Stripe and Mollie payments
+- On call for production; wrote the company's first CI pipeline on Jenkins
+Stack: C#, .NET Framework 4.6, Angular 2, PostgreSQL, Jenkins
+
+EDUCATION
+MSc Computer Science, Université libre de Bruxelles (ULB), 2016
+BSc Computer Science, ULB, 2014
+
+CERTIFICATIONS
+Microsoft Certified: Azure Developer Associate (AZ-204), 2021
+Microsoft Certified: Azure Solutions Architect Expert (AZ-305), 2024
+HashiCorp Terraform Associate, 2023
+
+LANGUAGES
+French (native), English (C1, professional), Dutch (B2), Arabic (conversational)
+
+INTERESTS
+Running (Brussels 20km), chess, volunteering at CoderDojo`,
+  notes: `Call 18/09: open to hybrid, up to 3 days in the office in Brussels. Not interested in management, wants to stay hands-on. Notice period 1 month, can start mid-November. Current package ~€78k + car. Very precise on the payments rewrite numbers, strongest when talking architecture. Has not been asked about Luxembourg yet.`
+};
+
+const OPPS = [
+  { id:"OPP-2026-117", title:"Senior .NET Developer", client:"Banque Arnould & Cie", alias:"Private bank, Brussels",
+    jd:`Senior .NET Developer — Private banking platform
+Private bank, Brussels (hybrid, 3 days on site)
+
+We are modernising our client-portfolio platform and moving it to Azure.
+
+Must have
+- 6+ years C# / .NET, current on .NET 8
+- Microservices architecture and event-driven design (Service Bus or Kafka)
+- Azure: AKS or App Service, Functions, Key Vault
+- Experience in a regulated financial-services environment
+- French and English
+
+Nice to have
+- Dutch
+- CI/CD with Azure DevOps
+- Infrastructure as code (Terraform or Bicep)
+- Mentoring junior developers
+
+Start: Q4 2026` },
+  { id:"OPP-2026-124", title:"Azure Platform Engineer", client:"Assurances du Kirchberg", alias:"Insurance group, Luxembourg",
+    jd:`Azure Platform Engineer — Internal developer platform
+Insurance group, Luxembourg (hybrid, 2 days on site in Kirchberg)
+
+You will build and run the internal developer platform that 20 product teams deploy onto.
+
+Must have
+- Terraform in production, including module design
+- Azure Kubernetes Service operations
+- CI/CD pipelines (Azure DevOps or GitHub Actions)
+- Observability: Application Insights, Azure Monitor or Grafana
+- Enough development background to support .NET product teams
+
+Nice to have
+- Azure Solutions Architect certification
+- Security and compliance in a regulated sector (DORA)
+- French or German
+
+Start: January 2027` },
+  { id:"OPP-NEW", title:"New opportunity (paste a job description)", client:"", alias:"", jd:"" }
+];
+
+const RULES = [
+  { id:"identity", label:"Name, email, phone, address", sub:"Always removed. Held by the Zig consultant.", locked:true, on:true },
+  { id:"urls", label:"LinkedIn and personal URLs", sub:"Always removed.", locked:true, on:true },
+  { id:"package", label:"Salary, package and personal notes", sub:"Recruiter notes inform the CV but are never quoted.", locked:true, on:true },
+  { id:"employers", label:"Replace employer names with a description", sub:"“Retail bank, Belgium” instead of the company name.", on:true },
+  { id:"schools", label:"Generalise universities and drop graduation years", sub:"Graduation years are an age proxy.", on:true },
+  { id:"interests", label:"Leave out hobbies and personal interests", sub:"Unless the vacancy makes them relevant.", on:true }
+];
+
+/* Pre-generated output: the same candidate, tailored to two vacancies */
+const SAMPLES = {
+  "OPP-2026-117": {
+    headline:"Senior .NET Developer",
+    summary:"Senior .NET engineer with 9 years of backend experience, the last four in payments at a Belgian retail bank. Led the move of a .NET Framework payments monolith to 14 .NET 8 microservices on Azure Kubernetes Service, with event-driven integration on Azure Service Bus that brought p95 payment latency from 1.8 s to 420 ms. At home under banking regulation: owned PSD2 audit logging and strong customer authentication through two supervisory audits with no findings. Native French, professional English, working Dutch.",
+    keyFacts:[{k:"Experience",v:"9 years C# / .NET"},{k:"Sector",v:"Banking & payments, 4 yrs"},{k:"Location",v:"Brussels · hybrid 3 days"},{k:"Availability",v:"1 month notice · mid-Nov"},{k:"Languages",v:"FR · EN · NL"}],
+    expertise:[{skill:"C# / .NET 8, ASP.NET Core",level:3,years:"9 yrs"},{skill:"Microservices & event-driven design",level:3,years:"4 yrs"},{skill:"Azure: AKS, Service Bus, Functions, Key Vault",level:3,years:"4 yrs"},{skill:"Regulated finance: PSD2, SCA, audit",level:3,years:"4 yrs"},{skill:"Azure DevOps CI/CD",level:2,years:""},{skill:"Terraform",level:2,years:"certified"},{skill:"SQL Server · Cosmos DB",level:2,years:""},{skill:"React / TypeScript",level:1,years:""}],
+    experience:[
+      {role:"Senior Backend Engineer, Payments", employer:"Retail bank, Belgium", period:"2022 – present",
+        bullets:["Rebuilt the SEPA instant payments orchestration service, splitting a .NET Framework 4.8 monolith into 14 .NET 8 microservices on Azure Kubernetes Service.","Introduced event-driven integration on Azure Service Bus, cutting end-to-end payment latency from 1.8 s to 420 ms at p95.","Owned PSD2 audit logging and strong customer authentication flows; passed two ECB/NBB audits with no findings.","Wrote the Terraform modules for the team's AKS, Key Vault and Service Bus estate and set up Azure DevOps pipelines with blue/green deployments.","Mentors three junior developers and runs the chapter's monthly architecture review."],
+        stack:["C#",".NET 8","ASP.NET Core","AKS","Service Bus","Functions","Key Vault","SQL Server","Cosmos DB","Terraform","Azure DevOps"]},
+      {role:"Software Engineer", employer:"National logistics operator, Belgium", period:"2018 – 2022",
+        bullets:["Built parcel-tracking APIs processing 2.5M events a day on ASP.NET Core, SQL Server and RabbitMQ.","Migrated six on-premise services to Azure App Service, reducing hosting cost by 31%.","Introduced integration testing with Testcontainers, raising coverage from 38% to 74%."],
+        stack:[".NET 6","ASP.NET Core","RabbitMQ","SQL Server","Azure App Service","Docker"]},
+      {role:"Full-stack Developer", employer:"SaaS scale-up, 12 staff", period:"2016 – 2018",
+        bullets:["Built the billing module of a staff-rostering platform, including Stripe and Mollie payment integration."],
+        stack:[".NET Framework","Angular","PostgreSQL"]}
+    ],
+    education:[{title:"MSc Computer Science", detail:"Brussels university"}],
+    certifications:[{title:"Azure Solutions Architect Expert (AZ-305)", detail:"Microsoft · 2024"},{title:"Azure Developer Associate (AZ-204)", detail:"Microsoft · 2021"},{title:"Terraform Associate", detail:"HashiCorp · 2023"}],
+    languages:[{lang:"French", level:"Native"},{lang:"English", level:"Professional (C1)"},{lang:"Dutch", level:"Working (B2)"}],
+    match:[
+      {requirement:"6+ years C# / .NET, current on .NET 8", strength:"strong", evidence:"9 years of .NET; running .NET 8 in production since the 2022 payments rewrite."},
+      {requirement:"Microservices and event-driven design", strength:"strong", evidence:"Designed 14 microservices on AKS with Azure Service Bus; RabbitMQ event processing at 2.5M events/day before that."},
+      {requirement:"Azure: AKS or App Service, Functions, Key Vault", strength:"strong", evidence:"All four in the current stack; migrated six services to App Service in the previous role."},
+      {requirement:"Regulated financial services", strength:"strong", evidence:"4 years in bank payments; owned PSD2 and SCA flows through two ECB/NBB audits."},
+      {requirement:"French and English", strength:"strong", evidence:"French native, English C1."},
+      {requirement:"Private banking / portfolio domain", strength:"partial", evidence:"Retail payments, not wealth or portfolio management. Worth raising in the client call as a domain the candidate will learn."},
+      {requirement:"Dutch (nice to have)", strength:"partial", evidence:"B2. Usable in meetings, not native."},
+      {requirement:"CI/CD with Azure DevOps (nice to have)", strength:"strong", evidence:"Set up the team's Azure DevOps pipelines with blue/green deployments."},
+      {requirement:"Infrastructure as code (nice to have)", strength:"strong", evidence:"Wrote the team's Terraform modules; Terraform Associate certified."},
+      {requirement:"Mentoring juniors (nice to have)", strength:"strong", evidence:"Mentors three junior developers. Recruiter note: wants to stay hands-on, so frame as mentoring, not management."},
+      {requirement:"Hybrid, 3 days on site in Brussels", strength:"strong", evidence:"Recruiter note 18/09: open to up to 3 office days in Brussels."}
+    ],
+    redactions:[
+      {field:"Employer", original:"Meridian Bank Belgium", replacement:"Retail bank, Belgium"},
+      {field:"Employer", original:"ColisExpress", replacement:"National logistics operator, Belgium"},
+      {field:"Employer", original:"Shiftly", replacement:"SaaS scale-up, 12 staff"},
+      {field:"University", original:"Université libre de Bruxelles (ULB)", replacement:"Brussels university"},
+      {field:"Graduation years", original:"2014, 2016", replacement:"Removed"},
+      {field:"Recruiter notes", original:"Package ~€78k + car", replacement:"Not included"},
+      {field:"Interests", original:"Running, chess, CoderDojo", replacement:"Not included"},
+      {field:"Irrelevant detail", original:"Arabic (conversational); BSc; Jenkins CI; AZ-204 duplicate skills", replacement:"Left out for this vacancy"}
+    ]
+  },
+  "OPP-2026-124": {
+    headline:"Azure Platform Engineer",
+    summary:"Cloud and platform engineer with a 9-year .NET development background. Wrote the Terraform modules behind a bank's Azure Kubernetes Service, Key Vault and Service Bus estate, and built the Azure DevOps pipelines that ship 14 microservices with blue/green deployments. Certified Azure Solutions Architect Expert and Terraform Associate. Comfortable with regulated delivery, having passed two ECB/NBB audits with no findings, and able to support .NET product teams from real hands-on experience. Native French.",
+    keyFacts:[{k:"Experience",v:"9 yrs engineering, 4 on Azure platform"},{k:"Certified",v:"AZ-305 · Terraform Associate"},{k:"Sector",v:"Regulated banking"},{k:"Availability",v:"1 month notice · mid-Nov"},{k:"Languages",v:"FR · EN · NL"}],
+    expertise:[{skill:"Terraform module design",level:3,years:"certified"},{skill:"Azure Kubernetes Service",level:3,years:"4 yrs"},{skill:"Azure DevOps pipelines, blue/green",level:3,years:""},{skill:"Azure: Key Vault, Service Bus, Functions, App Service",level:3,years:"4 yrs"},{skill:"Containers: Docker, Testcontainers",level:2,years:""},{skill:"Observability: Application Insights",level:2,years:""},{skill:"C# / .NET 8 development",level:3,years:"9 yrs"},{skill:"Audit & compliance: PSD2, ECB/NBB",level:2,years:""}],
+    experience:[
+      {role:"Senior Backend Engineer, Payments", employer:"Retail bank, Belgium", period:"2022 – present",
+        bullets:["Wrote the Terraform modules for the team's Azure Kubernetes Service, Key Vault and Service Bus estate.","Set up Azure DevOps pipelines with blue/green deployments for 14 .NET 8 microservices running on AKS.","Moved a .NET Framework 4.8 payments monolith onto AKS and Azure Service Bus, cutting p95 payment latency from 1.8 s to 420 ms.","Owned PSD2 audit logging; passed two ECB/NBB audits with no findings."],
+        stack:["Terraform","AKS","Azure DevOps","Key Vault","Service Bus","Functions","App Insights",".NET 8"]},
+      {role:"Software Engineer", employer:"National logistics operator, Belgium", period:"2018 – 2022",
+        bullets:["Migrated six on-premise services to Azure App Service, reducing hosting cost by 31%.","Containerised services with Docker and introduced integration testing with Testcontainers, raising coverage from 38% to 74%."],
+        stack:["Azure App Service","Docker","Testcontainers",".NET 6","RabbitMQ"]},
+      {role:"Full-stack Developer", employer:"SaaS scale-up, 12 staff", period:"2016 – 2018",
+        bullets:["Wrote the company's first CI pipeline on Jenkins and was on call for production."],
+        stack:["Jenkins",".NET Framework","PostgreSQL"]}
+    ],
+    education:[{title:"MSc Computer Science", detail:"Brussels university"}],
+    certifications:[{title:"Azure Solutions Architect Expert (AZ-305)", detail:"Microsoft · 2024"},{title:"Terraform Associate", detail:"HashiCorp · 2023"},{title:"Azure Developer Associate (AZ-204)", detail:"Microsoft · 2021"}],
+    languages:[{lang:"French", level:"Native"},{lang:"English", level:"Professional (C1)"},{lang:"Dutch", level:"Working (B2)"}],
+    match:[
+      {requirement:"Terraform in production, module design", strength:"strong", evidence:"Wrote the team's Terraform modules for AKS, Key Vault and Service Bus; certified."},
+      {requirement:"Azure Kubernetes Service operations", strength:"partial", evidence:"Runs 14 services on AKS for one team. Operating AKS as a shared platform for other teams is not shown."},
+      {requirement:"CI/CD pipelines", strength:"strong", evidence:"Azure DevOps pipelines with blue/green deployments; earlier built CI on Jenkins."},
+      {requirement:"Observability", strength:"partial", evidence:"Application Insights is in the current stack. No Azure Monitor or Grafana mentioned. Ask the candidate."},
+      {requirement:"Development background to support .NET teams", strength:"strong", evidence:"9 years of hands-on C# / .NET, up to .NET 8."},
+      {requirement:"Internal platform for 20 product teams", strength:"gap", evidence:"Scope so far is one team's estate. Probe for any platform or enablement work for other teams."},
+      {requirement:"Azure Solutions Architect (nice to have)", strength:"strong", evidence:"AZ-305, 2024."},
+      {requirement:"Regulated-sector compliance, DORA (nice to have)", strength:"partial", evidence:"PSD2 and two ECB/NBB audits. DORA not named."},
+      {requirement:"French or German (nice to have)", strength:"strong", evidence:"French native."},
+      {requirement:"2 days on site in Luxembourg", strength:"gap", evidence:"Not yet discussed: the candidate lives in the Brussels region. Confirm before sending."}
+    ],
+    redactions:[
+      {field:"Employer", original:"Meridian Bank Belgium", replacement:"Retail bank, Belgium"},
+      {field:"Employer", original:"ColisExpress", replacement:"National logistics operator, Belgium"},
+      {field:"Employer", original:"Shiftly", replacement:"SaaS scale-up, 12 staff"},
+      {field:"University", original:"Université libre de Bruxelles (ULB)", replacement:"Brussels university"},
+      {field:"Graduation years", original:"2014, 2016", replacement:"Removed"},
+      {field:"Recruiter notes", original:"Package ~€78k + car", replacement:"Not included"},
+      {field:"Interests", original:"Running, chess, CoderDojo", replacement:"Not included"},
+      {field:"Irrelevant detail", original:"React dashboard; Stripe/Mollie billing; Arabic", replacement:"Left out for this vacancy"}
+    ]
+  }
+};
+
+/* ---------- state ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const state = { oppId:"OPP-2026-117", cv:null, source:"sample", reviewed:false, scan:null, versions:[], ctl:null };
+let verSeq = 0;
+
+function initForm(){
+  $("#opp").innerHTML = OPPS.map(o => `<option value="${esc(o.id)}">${esc(o.id === "OPP-NEW" ? o.title : o.id + " · " + o.title)}</option>`).join("");
+  $("#id-name").value = CANDIDATE.name; $("#id-ref").value = CANDIDATE.ref;
+  $("#id-email").value = CANDIDATE.email; $("#id-phone").value = CANDIDATE.phone;
+  $("#id-addr").value = CANDIDATE.address; $("#id-urls").value = CANDIDATE.urls;
+  $("#cvsrc").value = CANDIDATE.cv; $("#notes").value = CANDIDATE.notes;
+  $("#rules").innerHTML = RULES.map(r => `<label class="rule${r.locked ? " locked" : ""}"><input type="checkbox" id="r-${r.id}" ${r.on ? "checked" : ""} ${r.locked ? "disabled" : ""}><span>${esc(r.label)}<small>${esc(r.sub)}</small></span></label>`).join("");
+  loadOpp("OPP-2026-117");
+}
+
+function loadOpp(id){
+  const o = OPPS.find(x => x.id === id);
+  state.oppId = id;
+  $("#opp").value = id;
+  $("#jd").value = o.jd; $("#client-alias").value = o.alias;
+  $("#opp-ref").value = id === "OPP-NEW" ? "OPP-2026-" + String(130 + Math.floor(Math.random()*60)) : id;
+  if (SAMPLES[id]) {
+    setOutput(SAMPLES[id], "sample", null);
+    setStatus("Showing the pre-generated sample for this opportunity.");
+  } else {
+    setStatus("Paste the client's job description, then press Generate tailored CV.");
+    if (id === "OPP-NEW") $("#jd").focus();
+  }
+  updateChain();
+}
+
+function currentOpp(){
+  const o = OPPS.find(x => x.id === state.oppId) || {};
+  const jd = $("#jd").value.trim();
+  const firstLine = jd.split("\n")[0] || "";
+  return {
+    ref: $("#opp-ref").value.trim() || state.oppId,
+    alias: $("#client-alias").value.trim() || "Client",
+    client: o.client || $("#client-alias").value.trim() || "New client",
+    title: (SAMPLES[o.id] ? o.title : (state.source === "ai" && state.cv?.headline) || firstLine.split("—")[0].trim()) || "New opportunity"
+  };
+}
+
+function rule(id){ const el = $("#r-" + id); return el ? el.checked : true; }
+
+/* ---------- rendering the Zig CV ---------- */
+const ZIG_MARK = (size, bg, fg) => `<svg width="${size}" height="${size}" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="${bg}"/><polyline points="9,12 31,12 9,28 31,28" fill="none" stroke="${fg}" stroke-width="4.5" stroke-linejoin="miter" stroke-linecap="square"/></svg>`;
+const ZIGZAG = `<svg class="zcv-zz" viewBox="0 0 800 12" preserveAspectRatio="none" aria-hidden="true"><polyline points="${Array.from({length:81},(_,i)=>`${i*10},${i%2?2:10}`).join(" ")}" fill="none" stroke="#d9501d" stroke-width="1.6"/></svg>`;
+
+function today(){ return new Date().toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"}); }
+
+function cvHTML(cv, opp, editable){
+  const ce = editable ? ' contenteditable="true" spellcheck="false"' : "";
+  const bar = n => `<span class="zcv-bar">${[1,2,3].map(i => `<i class="${i <= n ? "f" : ""}"></i>`).join("")}</span>`;
+  const lvl = n => ["", "Working", "Strong", "Core"][n] || "";
+  const cand = $("#id-ref").value.trim() || CANDIDATE.ref;
+  return `<article class="zcv">
+  <div class="zcv-top">
+    <div class="zcv-logo">${ZIG_MARK(38, "#16181d", "#d9501d")}<div class="zcv-word">THE ZIG<small>RECRUITMENT · BELGIUM</small></div></div>
+    <div class="zcv-meta"><span class="conf">Confidential</span><br>Prepared for <b${ce}>${esc(opp.alias)}</b><br><span class="mono">${esc(cand)} · ${esc(opp.ref)} · ${esc(today())}</span></div>
+  </div>
+  ${ZIGZAG}
+  <div class="zcv-head">
+    <div class="for">Candidate profile</div>
+    <h1${ce}>${esc(cv.headline)}</h1>
+    <div class="cref">Anonymised candidate · ref ${esc(cand)}</div>
+  </div>
+  <div class="zcv-facts">${(cv.keyFacts||[]).map(f => `<div><div class="k">${esc(f.k)}</div><div class="v"${ce}>${esc(f.v)}</div></div>`).join("")}</div>
+  <div class="zcv-body">
+    <aside>
+      <section class="zcv-sec"><h2 class="zcv-h">Key expertise</h2>
+        <ul class="zcv-sk">${(cv.expertise||[]).map(s => `<li><span class="n"${ce}>${esc(s.skill)}</span><span class="m">${bar(+s.level||1)}${esc(lvl(+s.level||1))}${s.years ? " · " + esc(s.years) : ""}</span></li>`).join("")}</ul>
+      </section>
+      ${(cv.languages||[]).length ? `<section class="zcv-sec"><h2 class="zcv-h">Languages</h2><ul class="zcv-list">${cv.languages.map(l => `<li${ce}><b>${esc(l.lang)}</b><span>${esc(l.level)}</span></li>`).join("")}</ul></section>` : ""}
+      ${(cv.certifications||[]).length ? `<section class="zcv-sec"><h2 class="zcv-h">Certifications</h2><ul class="zcv-list">${cv.certifications.map(c => `<li${ce}><b>${esc(c.title)}</b><span>${esc(c.detail)}</span></li>`).join("")}</ul></section>` : ""}
+      ${(cv.education||[]).length ? `<section class="zcv-sec"><h2 class="zcv-h">Education</h2><ul class="zcv-list">${cv.education.map(c => `<li${ce}><b>${esc(c.title)}</b><span>${esc(c.detail)}</span></li>`).join("")}</ul></section>` : ""}
+    </aside>
+    <div>
+      <section class="zcv-sec"><h2 class="zcv-h">Profile</h2><p class="zcv-sum"${ce}>${esc(cv.summary)}</p></section>
+      <section class="zcv-sec"><h2 class="zcv-h">Relevant experience</h2>
+        ${(cv.experience||[]).map(j => `<div class="zcv-job">
+          <div class="t"><span class="role"${ce}>${esc(j.role)}</span><span class="per"${ce}>${esc(j.period)}</span></div>
+          <div class="emp"${ce}>${esc(j.employer)}</div>
+          <ul>${(j.bullets||[]).map(b => `<li${ce}>${esc(b)}</li>`).join("")}</ul>
+          ${(j.stack||[]).length ? `<div class="zcv-stack">${j.stack.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
+        </div>`).join("")}
+      </section>
+    </div>
+  </div>
+  <footer class="zcv-foot">
+    <div class="fl">${ZIG_MARK(20, "#d9501d", "#16181d")}Presented by The Zig · thezig.io</div>
+    <div class="fr">Identity and contact details are held by your Zig consultant and shared once an interview is agreed.</div>
+  </footer>
+</article>`;
+}
+
+function setOutput(cv, source, scan){
+  state.cv = cv; state.source = source; state.reviewed = false; state.scan = scan;
+  const opp = currentOpp();
+  $("#paper").innerHTML = cvHTML(cv, opp, true);
+  $("#paper").firstElementChild.classList.add("paper-in");
+  $("#src-pill").textContent = source === "sample" ? "Pre-generated sample" : "Drafted by Claude";
+  $("#src-pill").className = "pill" + (source === "ai" ? " zig" : "");
+  const sp = $("#scan-pill");
+  if (scan) { sp.hidden = false; sp.className = "pill " + (scan.hits ? "warn" : "good"); sp.textContent = scan.hits ? `Safety scan removed ${scan.hits} identifier${scan.hits > 1 ? "s" : ""}` : "Safety scan: no identifiers found"; }
+  else sp.hidden = true;
+  verSeq += 1;
+  state.versions.unshift({ n: verSeq, opp: opp.ref, title: cv.headline, source, at: new Date() });
+  renderReview(); renderEvidence(); renderRedactions(); renderLinked(); updateChain();
+}
+
+function renderReview(){
+  const p = $("#rev-pill");
+  p.className = "pill " + (state.reviewed ? "good" : "warn");
+  p.textContent = state.reviewed ? "Reviewed · ready for client" : "Draft · not reviewed";
+  $("#review").textContent = state.reviewed ? "Reopen draft" : "Mark reviewed";
+}
+
+function renderEvidence(){
+  const m = state.cv?.match || [];
+  const c = { strong:0, partial:0, gap:0 };
+  m.forEach(x => c[x.strength] = (c[x.strength]||0) + 1);
+  $("#ev-sum").innerHTML = `<span class="pill good">${c.strong} evidenced</span><span class="pill warn">${c.partial} partial</span><span class="pill crit">${c.gap} to confirm</span>`;
+  const lab = { strong:["good","Evidenced"], partial:["warn","Partial"], gap:["crit","To confirm"] };
+  $("#ev-body").innerHTML = m.map(x => { const [k, t] = lab[x.strength] || lab.partial; return `<tr><td>${esc(x.requirement)}</td><td><span class="pill ${k}">${t}</span></td><td>${esc(x.evidence)}</td></tr>`; }).join("") || `<tr><td colspan="3">No requirements analysed yet.</td></tr>`;
+}
+
+function identityRows(){
+  const rows = [];
+  const add = (f, v) => { if (v.trim()) rows.push({ field:f, original:v.trim(), replacement:"Withheld, held by Zig consultant" }); };
+  add("Name", $("#id-name").value); add("Email", $("#id-email").value); add("Phone", $("#id-phone").value);
+  add("Address", $("#id-addr").value); add("LinkedIn / URLs", $("#id-urls").value);
+  return rows;
+}
+
+function renderRedactions(){
+  const rows = [...identityRows(), ...(state.cv?.redactions || [])];
+  $("#red-body").innerHTML = rows.map(r => `<tr><td>${esc(r.field)}</td><td class="orig">${esc(r.original)}</td><td>${esc(r.replacement)}</td></tr>`).join("");
+}
+
+function renderLinked(){
+  const opp = currentOpp();
+  const steps = [
+    ["Candidate", `${$("#id-name").value || "Unnamed"} · ${$("#id-ref").value || CANDIDATE.ref}`, "Full record with contact details. Internal only."],
+    ["Original CV", CANDIDATE.file, `Uploaded ${CANDIDATE.uploaded}. The tailored CV was built from this, plus recruiter notes.`],
+    ["Tailored CV", `v${verSeq} · ${state.source === "ai" ? "drafted by Claude" : "pre-generated sample"}`, state.reviewed ? "Reviewed by recruiter. Ready to send." : "Draft. Needs recruiter review before sending."],
+    ["Opportunity", `${opp.ref} · ${opp.title}`, "The job description that decided what the CV emphasises."],
+    ["Client", opp.client, `Shown on the CV as “${opp.alias}”.`]
+  ];
+  $("#chainv").innerHTML = steps.map(([k, v, s], i) => `<div class="cstep"><div class="dot"><i></i><b></b></div><div class="body"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div><div class="s">${esc(s)}</div>${i < 2 ? `<button class="btn" type="button" data-go="original" style="margin-top:6px">Open original profile</button>` : ""}</div></div>`).join("");
+  $("#vers").innerHTML = state.versions.map(v => `<li><span><b>v${v.n}</b> · ${esc(v.title)} · <span class="mono">${esc(v.opp)}</span></span><span class="pill${v.source === "ai" ? " zig" : ""}">${v.source === "ai" ? "Claude draft" : "Sample"} · ${v.at.toLocaleTimeString("en-GB", {hour:"2-digit", minute:"2-digit"})}</span></li>`).join("");
+}
+
+function updateChain(){
+  const opp = currentOpp();
+  $("#n-cand").textContent = $("#id-ref").value || CANDIDATE.ref;
+  $("#n-cand-s").textContent = ($("#id-name").value || "Unnamed") + " · internal";
+  $("#n-ver").textContent = `v${verSeq} · ${state.source === "ai" ? "Claude draft" : "sample"}`;
+  $("#n-ver-s").textContent = state.reviewed ? "Reviewed by recruiter" : "Draft, not reviewed";
+  $("#n-opp").textContent = opp.ref;
+  $("#n-opp-s").textContent = opp.title;
+  $("#n-client").textContent = opp.client;
+  $("#n-client-s").textContent = `Shown on CV as “${opp.alias}”`;
+}
+
+/* ---------- anonymisation ---------- */
+const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+function identityTerms(){
+  const terms = [];
+  const name = $("#id-name").value.trim();
+  if (name) { terms.push([name, "[NAME]"]); name.split(/\s+/).filter(t => t.length >= 3).forEach(t => terms.push([t, "[NAME]"])); }
+  [["#id-email","[EMAIL]"],["#id-phone","[PHONE]"],["#id-addr","[ADDRESS]"]].forEach(([s, r]) => { const v = $(s).value.trim(); if (v) terms.push([v, r]); });
+  $("#id-urls").value.split(/[,\s]+/).filter(Boolean).forEach(u => terms.push([u, "[URL]"]));
+  return terms.sort((a, b) => b[0].length - a[0].length);
+}
+function scrub(text, extra){
+  let hits = 0;
+  let out = String(text);
+  const all = [...identityTerms(), ...(extra || [])];
+  for (const [t, r] of all) {
+    const re = new RegExp((/^\w/.test(t) ? "\\b" : "") + reEsc(t) + (/\w$/.test(t) ? "\\b" : ""), "gi");
+    out = out.replace(re, () => { hits++; return r; });
+  }
+  out = out.replace(/[\w.+-]+@[\w-]+\.[\w.-]+/g, () => { hits++; return "[EMAIL]"; });
+  out = out.replace(/\b(?:https?:\/\/|www\.)\S+|\b(?:linkedin|github|gitlab)\.com\/\S+/gi, () => { hits++; return "[URL]"; });
+  out = out.replace(/\+?\d[\d\s().-]{7,}\d/g, m => (m.replace(/\D/g, "").length >= 9 ? (hits++, "[PHONE]") : m));
+  return { text: out, hits };
+}
+function scrubDeep(obj, extra){
+  let hits = 0;
+  const walk = v => {
+    if (typeof v === "string") { const r = scrub(v, extra); hits += r.hits; return r.text; }
+    if (Array.isArray(v)) return v.map(walk);
+    if (v && typeof v === "object") { const o = {}; for (const k in v) o[k] = k === "redactions" ? v[k] : walk(v[k]); return o; }
+    return v;
+  };
+  return { value: walk(obj), hits };
+}
+
+/* ---------- generation with Claude ---------- */
+function buildPrompt(profile, notes){
+  const rules = [
+    "Remove the candidate's name, email, phone, home address, LinkedIn and personal URLs (already replaced by placeholders such as [NAME]; never try to restore them).",
+    "Never mention salary, package, personal circumstances or anything else from the recruiter notes that a client should not see. Use the notes only to inform availability, location preferences and emphasis.",
+    rule("employers") ? "Replace every employer name with a short neutral description of the organisation (sector, size, country), e.g. 'Retail bank, Belgium'." : "Keep employer names.",
+    rule("schools") ? "Replace university names with a generic description (e.g. 'Brussels university') and drop graduation years." : "Keep university names and years.",
+    rule("interests") ? "Leave out hobbies and personal interests unless the vacancy makes them relevant." : "Interests may be included if they help."
+  ];
+  return `You are the CV tailoring engine for The Zig, a recruitment agency in Belgium. Build an anonymised, client-facing CV that sells this candidate for THIS specific vacancy.
+
+HOW TO TAILOR
+- The job description controls emphasis. Lead with what the vacancy asks for. Compress or drop experience that does not serve it.
+- Use only facts present in the candidate profile or recruiter notes. Never invent employers, numbers, technologies, certifications, levels or dates. Rephrase freely; never embellish.
+- Keep concrete numbers from the profile (latency, volumes, percentages, team sizes). They sell.
+- Order bullets inside each role by relevance to the vacancy: 2-5 bullets for relevant roles, 1 for marginal ones. Start bullets with a verb.
+- headline: the job title of the vacancy, adjusted only if the candidate clearly fits a closely related title.
+- summary: 3-4 sentences, no name and no personal pronouns, written as a sales pitch built on evidence.
+- keyFacts: exactly 5 short label/value pairs a hiring manager scans first (experience, sector, location/work model, availability, languages or certification).
+- expertise: 6-8 skills most relevant to the vacancy, level 3=core, 2=strong, 1=working, years as a short string or "".
+- match: one entry per requirement in the job description (must-have and nice-to-have, plus location/on-site terms). strength is "strong", "partial" or "gap". evidence is one sentence citing the profile; for partial or gap, say what the recruiter should confirm. This stays internal.
+- redactions: every item you removed, generalised or left out (field, original, replacement). This stays internal.
+
+ANONYMISATION RULES
+${rules.map(r => "- " + r).join("\n")}
+
+JOB DESCRIPTION
+${$("#jd").value.trim().slice(0, 12000)}
+
+CANDIDATE PROFILE (identifiers already removed)
+${profile.slice(0, 24000)}
+
+RECRUITER NOTES (internal)
+${notes.slice(0, 4000)}
+
+Reply with only one JSON object in exactly this shape:
+{"headline":"","summary":"","keyFacts":[{"k":"","v":""}],"expertise":[{"skill":"","level":3,"years":""}],"experience":[{"role":"","employer":"","period":"","bullets":[""],"stack":[""]}],"education":[{"title":"","detail":""}],"certifications":[{"title":"","detail":""}],"languages":[{"lang":"","level":""}],"match":[{"requirement":"","strength":"strong","evidence":""}],"redactions":[{"field":"","original":"","replacement":""}]}`;
+}
+
+function setStatus(msg, err){ const s = $("#status"); s.textContent = msg; s.className = "status" + (err ? " err" : ""); }
+
+const ERR = {
+  not_granted: "Claude access was not allowed for this page, so generation is off. The samples still work.",
+  sampling_disabled: "Claude is not available for this account. The samples still work.",
+  rate_limited: "Too many requests just now. Wait a minute and try again.",
+  session_expired: "Your Claude session expired. Sign in again, then retry.",
+  refused: "Claude declined this input. Check the profile and job description, then try again.",
+  invalid_json: "The draft came back in the wrong format. Press Generate to try again.",
+  prompt_too_large: "The profile and job description are too long. Trim them and try again.",
+  empty_completion: "Claude returned nothing. Try again with a shorter profile."
+};
+
+async function generate(){
+  if (!$("#jd").value.trim()) { setStatus("Add the job description first. It is what the CV is built around.", true); $("#jd").focus(); return; }
+  if (!$("#cvsrc").value.trim()) { setStatus("Add the candidate's original CV first.", true); return; }
+  const sample = await (window.claude?.use ? window.claude.use("sample") : Promise.resolve(null));
+  if (!sample) { setStatus("AI drafting needs Claude access, which this view does not have. The pre-generated samples still show the output.", true); return; }
+  const pre = scrub($("#cvsrc").value);
+  const notes = scrub($("#notes").value).text;
+  const ctl = new AbortController(); state.ctl = ctl;
+  $("#gen").disabled = true; $("#stop").hidden = false;
+  setStatus(`Removed ${pre.hits} identifier${pre.hits === 1 ? "" : "s"} from the profile on this page. Claude is reading the job description…`);
+  try {
+    const data = await sample.json(buildPrompt(pre.text, notes), {
+      signal: ctl.signal, cache: false,
+      onText: ({ text }) => setStatus(`Drafting the tailored CV… ${text.length.toLocaleString()} characters written`)
+    });
+    if (!data || typeof data !== "object" || !data.headline || !Array.isArray(data.experience)) throw { code: "invalid_json" };
+    const extra = (data.redactions || [])
+      .filter(r => r.original && String(r.original).length > 2 && r.replacement)
+      .filter(r => (rule("employers") && /employer|company|client/i.test(r.field || "")) || (rule("schools") && /university|school/i.test(r.field || "")))
+      .map(r => [String(r.original), String(r.replacement)]);
+    const { value, hits } = scrubDeep(data, extra);
+    setOutput(value, "ai", { hits });
+    selectTab("cv");
+    setStatus(`Draft ready. Review it, edit anything on the page, then mark it reviewed.`);
+  } catch (e) {
+    if (e && e.code === "cancelled") setStatus("Stopped. The previous CV is still shown.");
+    else setStatus(ERR[e && e.code] || "Something went wrong reaching Claude. Try again in a moment.", true);
+  } finally {
+    $("#gen").disabled = false; $("#stop").hidden = true; state.ctl = null;
+  }
+}
+
+/* ---------- export ---------- */
+function standaloneHTML(){
+  const opp = currentOpp();
+  const css = document.getElementById("cv-css").textContent;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Zig · ${esc(opp.title)} · ${esc($("#id-ref").value)}</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap"><style>body{margin:0;padding:24px 16px;background:#eceef1}.mono{font-family:"IBM Plex Mono",monospace}${css}</style></head><body>${cvHTML(currentEdits(), opp, false)}</body></html>`;
+}
+/* read recruiter edits back from the page into the CV object */
+function currentEdits(){
+  const p = $("#paper"); const cv = JSON.parse(JSON.stringify(state.cv));
+  const t = el => el ? el.innerText.trim() : "";
+  cv.headline = t(p.querySelector(".zcv-head h1")) || cv.headline;
+  cv.summary = t(p.querySelector(".zcv-sum")) || cv.summary;
+  p.querySelectorAll(".zcv-facts .v").forEach((el, i) => { if (cv.keyFacts[i]) cv.keyFacts[i].v = t(el); });
+  p.querySelectorAll(".zcv-sk .n").forEach((el, i) => { if (cv.expertise[i]) cv.expertise[i].skill = t(el); });
+  p.querySelectorAll(".zcv-job").forEach((job, i) => {
+    const j = cv.experience[i]; if (!j) return;
+    j.role = t(job.querySelector(".role")); j.period = t(job.querySelector(".per")); j.employer = t(job.querySelector(".emp"));
+    j.bullets = [...job.querySelectorAll("li")].map(t).filter(Boolean);
+  });
+  return cv;
+}
+
+/* ---------- wiring ---------- */
+function selectTab(name){
+  document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === name)));
+  document.querySelectorAll("[data-pane]").forEach(p => p.hidden = p.dataset.pane !== name);
+  document.querySelectorAll(".node").forEach(n => n.classList.toggle("on", (n.dataset.go === "cv" && name === "cv") || (n.dataset.go === "linked" && name === "linked")));
+}
+function openOriginal(){
+  $("#dlg-t").textContent = `${$("#id-name").value || "Candidate"} · ${CANDIDATE.file}`;
+  $("#dlg-pre").textContent = $("#cvsrc").value + "\n\n— Recruiter notes —\n" + $("#notes").value;
+  try { $("#dlg").showModal(); } catch { $("#dlg").setAttribute("open", ""); }
+}
+
+document.addEventListener("click", e => {
+  const go = e.target.closest("[data-go]"); if (go) {
+    const g = go.dataset.go;
+    if (g === "original") openOriginal();
+    else if (g === "cv") selectTab("cv");
+    else if (g === "linked") selectTab("linked");
+    else if (g === "opp") { $("#p-opp").scrollIntoView({ behavior: "smooth", block: "start" }); $("#jd").focus({ preventScroll: true }); }
+  }
+  const tab = e.target.closest(".tab"); if (tab) selectTab(tab.dataset.tab);
+});
+$("#dlg-x").onclick = () => { try { $("#dlg").close(); } catch { $("#dlg").removeAttribute("open"); } };
+$("#opp").onchange = e => loadOpp(e.target.value);
+["#client-alias", "#opp-ref"].forEach(s => $(s).addEventListener("input", () => {
+  const opp = currentOpp();
+  const b = $("#paper .zcv-meta b"); if (b) b.textContent = opp.alias;
+  updateChain(); renderLinked();
+}));
+["#id-name", "#id-ref", "#id-email", "#id-phone", "#id-addr", "#id-urls"].forEach(s => $(s).addEventListener("input", () => { renderRedactions(); updateChain(); renderLinked(); }));
+["#jd", "#cvsrc", "#notes"].forEach(s => $(s).addEventListener("input", () => setStatus("Inputs changed. Press Generate tailored CV to rebuild it.")));
+$("#gen").onclick = generate;
+$("#stop").onclick = () => state.ctl?.abort();
+$("#review").onclick = () => { state.reviewed = !state.reviewed; renderReview(); renderLinked(); updateChain(); };
+$("#copy").onclick = async () => {
+  const txt = $("#paper").innerText;
+  try { await navigator.clipboard.writeText(txt); $("#copy").textContent = "Copied"; }
+  catch { const r = document.createRange(); r.selectNodeContents($("#paper")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("#copy").textContent = "Selected, press Ctrl+C"; }
+  setTimeout(() => $("#copy").textContent = "Copy text", 1800);
+};
+$("#paper").addEventListener("input", () => { if (state.reviewed) { state.reviewed = false; renderReview(); updateChain(); renderLinked(); } });
+
+initForm();
+
+(async () => {
+  const downloads = await (window.claude?.use ? window.claude.use("downloads") : Promise.resolve(null));
+  if (!downloads) return;
+  const b = $("#dl"); b.hidden = false;
+  b.onclick = async () => {
+    const opp = currentOpp();
+    const name = `zig-cv_${($("#id-ref").value || "candidate")}_${opp.ref}.html`.replace(/[^\w.-]+/g, "-");
+    try { const r = await downloads.save({ filename: name, data: new Blob([standaloneHTML()], { type: "text/html" }) }); if (r.status === "saved") { b.textContent = "Saved"; setTimeout(() => b.textContent = "Save .html", 1800); } }
+    catch (e) { if (e && e.code === "unavailable") b.hidden = true; }
+  };
+})();
+</script>
