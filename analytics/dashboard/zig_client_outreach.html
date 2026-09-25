@@ -385,6 +385,10 @@ mark.bad{background:var(--crit-bg);color:var(--crit);border-bottom:2px solid var
 .fx-sug{font-weight:600}
 .fx-g{font-weight:700;color:var(--good);font-size:12.5px}
 
+.dir{font-size:11.5px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;font-family:"IBM Plex Mono",monospace}
+.dir.out{background:var(--info-bg);color:var(--info)}
+.dir.in{background:var(--good-bg);color:var(--good)}
+
 @media (max-width:1180px){
   .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
   .rail{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -615,6 +619,7 @@ const VIEWS = [
  {id:"sequences",nm:"Sequences & AI",step:"4"},
  {id:"sending",nm:"Sending engine",step:"5"},
  {id:"engagement",nm:"Replies & engagement",step:"6"},
+ {id:"emails",nm:"Email history",step:""},
  {id:"opportunities",nm:"Opportunities",step:"7"},
  {id:"tasks",nm:"Tasks & relances",step:"8"},
  {id:"reports",nm:"Progress reports",step:"9"},
@@ -761,6 +766,7 @@ function openCompany(id){
     </dl>
     <div class="sect"><h4>Supplier account · ${acctN(c)}/5</h4><div class="chips" style="margin-bottom:8px">${pill(...acctState(c))} ${pill(...pslState(c))}${c.acct.psl.route?` <span class="chip">${esc(c.acct.psl.route)}</span>`:""}</div>${c.acct.psl.note?`<p class="note" style="margin:0 0 8px">${esc(c.acct.psl.note)}</p>`:""}
       <div class="checks">${ACCT_STEPS.map((s,i)=>`<div><button class="ck ${c.acct.done[i]?"ok":"wa"}" style="border:0;cursor:pointer" data-astep="${c.id}:${i}" aria-label="${c.acct.done[i]?"Mark not done":"Mark done"}: ${s}">${c.acct.done[i]?"✓":i+1}</button><span>${s}</span></div>`).join("")}${c.acct.psl.uses?`<div><button class="ck ${c.acct.psl.member?"ok":"no"}" style="border:0;cursor:pointer" data-psl="${c.id}" aria-label="Toggle preferred-supplier listing">${c.acct.psl.member?"✓":"×"}</button><span>Listed on their ${esc(c.acct.psl.route.toLowerCase())}</span></div>`:""}</div></div>
+    <div class="sect"><h4>Email history · ${mails.filter(m=>m.co===c.id).length}</h4>${mails.some(m=>m.co===c.id)?mailTable(mailSort(mails.filter(m=>m.co===c.id)).slice(0,6),true)+`<button class="btn sm ghost" style="margin-top:6px" data-mailco="${c.id}">All emails with ${esc(c.name)}</button>`:`<p class="muted" style="margin:0">No emails yet.</p>`}</div>
     <div class="sect"><h4>Hiring signals</h4><div class="chips">${c.signals.map(s=>`<span class="chip sig">${esc(s)}</span>`).join("")}</div></div>
     <div class="sect"><h4>FitScore breakdown</h4>${brk.map(([l,v,m])=>`<div class="brk"><span>${l}</span><span class="bar"><i style="width:${100*v/m}%"></i></span><span class="num r">${v}/${m}</span></div>`).join("")}</div>
     <div class="sect"><h4>Decision makers</h4>${c.contacts.length?c.contacts.map(k=>`<div class="person"><span class="av">${initials(k)}</span><div><div style="font-weight:600">${esc(k.first+" "+k.last)}</div><div class="meta muted" style="font-size:12px">${esc(k.role)} · ${esc(k.sen)} · ${k.seq?`in ${k.seq}`:"not enrolled"}</div>${k.addr?`<div class="meta mono" style="font-size:11.5px">${esc(k.addr)}</div>`:""}${k.src?`<span class="pill ai" style="margin-top:3px">${esc(k.src)}</span>`:""}</div><div style="text-align:right">${pill(EMAIL[k.email][0],EMAIL[k.email][1])}<div class="num muted" style="font-size:11.5px;margin-top:3px">score ${k.score}</div></div></div>`).join(""):`<p class="muted">No contacts yet. Discovery searches for: ${roles.join(", ")}.</p>`}</div>
@@ -1010,6 +1016,7 @@ function vModel(){
     ["Task","tasks",[["TaskID","pk","uuid"],["Type","","Reply · Relance · Call · Send · Re-enrol · Re-validate"],["CompanyID","fk","→ Company"],["ContactID","fk","→ Contact"],["SourceReplyID","fk","→ Reply · null"],["DueAt","","date · read from the reply when given"],["Likelihood","","0–0.9 · base × fit × history × engagement × timing"],["ExpectedValue","","eur · likelihood × deal value"],["Status","","open · scheduled · done"],["CreatedBy","","system · user"]]],
     ["Search","briefs",[["BriefID","pk","uuid"],["OpportunityID","fk","→ Opportunity"],["Role","","text · headcount"],["Cadence","","daily · weekly day · custom"],["LastReportAt","","timestamp"],["Research","","mapped · approached · interested · screened (stage entries)"],["MarketNotes[]","","text[] · go into the report"],["Outreach","","per channel: approached, replied · decline reasons"],["MarketBand","","min · median · max vs client budget"],["FlexPoints[]","","lever · today · suggested · evidence · effect · in report"],["Paused","","bool · e.g. not billable"]]],
     ["CV submission","submissions",[["SubmissionID","pk","uuid"],["BriefID","fk","→ Search"],["CandidateRef","","anonymised · C-####"],["Headline","","role · years · city · languages"],["Rate / Salary","","eur"],["ConsentAt","","timestamp · required before sending"],["SentAt","","timestamp"],["Status","","screening · sent · interview · rejected · placed"],["FeedbackAt","","timestamp · chased in report"]]],
+    ["Email","emails",[["EmailID","pk","uuid"],["ContactID","fk","→ Contact"],["CompanyID","fk","→ Company"],["Direction","","out · in"],["Kind","","sequence step · relance · report · reply · auto-reply"],["Subject / Body","","text"],["SentAt","","timestamp · scheduled if future"],["SentBy","","recruiter · system"],["Status","","delivered · opened · clicked · replied · bounced"],["Opens / Clicks","","int"],["TaskID · SequenceStep","fk","what generated it"]]],
     ["Reply","replies",[["ReplyID","pk","uuid"],["ContactID","fk","→ Contact"],["Class","","Interested · Referral · Not now · OOO · Unsubscribe"],["Body","","text"],["HandledAt","","timestamp · SLA"]]],
   ];
   return head("Reference","Data model","The three spec objects, with the fields the workflow above needs added and marked +v1. Every stage change is stored as a timestamped event, because conversion ratios cannot be rebuilt from current status alone.") +
@@ -1079,7 +1086,7 @@ const ACT = {
  "TK-402":{owner:"you",act:"Call Bram Goossens to close margin terms",btn:"Log the call",steps:["Call him (number on the contact card)","Hold the 20% margin floor. Anything lower needs manager approval","Log the outcome here"]},
  "TK-403":{owner:"you",act:"Send an intro to Ines Maes",btn:"Review & send",sla:25,src:"RP-92",steps:["Read the draft. It names Karel, who referred her","Press Send"]},
  "TK-404":{owner:"you",act:"Send the relance to Ann Claes",btn:"Review & send",steps:["Read the draft","Press Send"]},
- "TK-405":{owner:"system",act:"Case-study email to Hélène Dubois sends tomorrow at 09:40",btn:"Stop this send",stoppable:true,autoNote:"Brought forward because she opened 4 times without replying. Nothing to do unless you want to stop it."},
+ "TK-405":{subject:"A validation-engineer example from Wallonia",sendAt:"09:40",owner:"system",act:"Case-study email to Hélène Dubois sends tomorrow at 09:40",btn:"Stop this send",stoppable:true,autoNote:"Brought forward because she opened 4 times without replying. Nothing to do unless you want to stop it."},
  "TK-406":{owner:"you",act:"Book a call with Tom Declercq",btn:"Mark booked",due:"2026-09-29",why:"OP-303 is new and the first contractor started here 18 days ago. He is out of office until 29 September.",steps:["Send a calendar invite for 29 or 30 September","Mark booked"]},
  "TK-407":{owner:"system",act:"SEQ-A resumes for Tom Declercq on 29 Sep",autoNote:"Moved automatically from his out-of-office reply."},
  "TK-408":{owner:"you",act:"Find a working email for Lina Janssens",btn:"Mark found",steps:["Check her LinkedIn for a current role","Paste the new address on the contact card. It is validated before any send"]},
@@ -1119,8 +1126,10 @@ function completeTask(t){
     const [ct] = ctById(t.ct);
     t.status = "scheduled"; t.owner = "system"; t.act = `Relance to ${ct.first} ${ct.last} sends ${fmtD(parseD(t.due))}`;
     t.autoNote = `Approved. Sends on ${fmtD(parseD(t.due))} in the morning window; ${coById(t.co).name} re-enrols on ${fmtD(parseD(t.reenrol))} if there is no answer.`;
+    logMail(t,"scheduled");
     toast(`Approved · sends ${fmtD(parseD(t.due))}. Nothing more to do.`); return;
   }
+  if (/^(Subject:|Dear |Hi )/.test(t.draft||"")) logMail(t,"sent");
   t.status = "done";
   const r = t.src && replies.find(x=>x.id===t.src);
   if (r && !r.handled) { if (r.cls==="Interested") createOpp(r); else { r.handled = true; r.done = "handled via "+t.id; } }
@@ -1150,7 +1159,7 @@ function processAutoReply(r){
     let fu = addDays(f.back,1); while (fu.getDay()===0||fu.getDay()===6) fu = addDays(fu,1);
     const id = "TK-" + (430 + tasks.length);
     tasks.push({id,type:"Send",trigger:"Out of office",co:co.id,ct:ct.id,due:iso(fu),timing:"known",value:FREELANCE_YR,status:"scheduled",by:"system",src:r.id,
-      owner:"system",stoppable:true,btn:"Stop this send",title:"Follow-up generated from an out-of-office reply",
+      owner:"system",stoppable:true,btn:"Stop this send",title:"Follow-up generated from an out-of-office reply",subject:"Welcome back: a second DevOps profile",sendAt:"09:20",
       act:`Follow-up to ${ct.first} ${ct.last} sends ${fmtD(fu)}, the day after he is back`,
       autoNote:`Generated from the auto-reply (back ${fmtD(f.back)}). The sequence resumes after it. Stop it if you would rather call.`,
       why:`Auto-reply: “${r.text}” The follow-up goes out on his first full day back, not the day he returns to a full inbox.`,
@@ -1214,7 +1223,7 @@ function createRelance(r, auto){
   const lost = opps.find(o=>o.co===co.id && o.stage==="Lost");
   const t = {id,type:"Relance",trigger:"Not now",co:co.id,ct:ct.id,cc:peer?peer.id:null,due:iso(relance),timing:"known",value:2*FREELANCE_YR,status:"scheduled",by:auto?"system":"user",src:r.id,
     reopen:iso(reopen),reenrol:iso(reopen),
-    title:`Relance before the panel reopens (${MONTHS[reopen.getMonth()].replace(/^./,c=>c.toUpperCase())})`,
+    subject:"Supplier panel reopening in January",sendAt:"09:15",title:`Relance before the panel reopens (${MONTHS[reopen.getMonth()].replace(/^./,c=>c.toUpperCase())})`,
     why:`${ct.first} ${ct.last} replied “${r.text}” Relance lands three weeks before, so we are registered on day one.`+(peer?` ${peer.first} ${peer.last} (${peer.role}) is copied: she has opened ${peer.ev.o} emails and procurement owns panel registration.`:"")+(lost?` ${lost.id} was lost for this reason: the panel closed before we qualified.`:""),
     draft:`Dear ${ct.first},\n\nIn September you told us the supplier panel reopens in ${MONTHS[reopen.getMonth()].replace(/^./,c=>c.toUpperCase())}. I am writing ahead of that so The Zig can be considered from the first day of registration.\n\n${VALUE[co.segment]}\n\nOne recent example: ${CASES[co.desk]||CASES["Brussels IT Dev"]}.\n\n${peer?`Is ${peer.first} ${peer.last} the right person for the registration documents? I can send them before the holidays.`:"Who should receive our registration documents?"}\n\nKind regards,\nThe Zig\n\nReply "stop" and we will not contact you again.`};
   Object.assign(t,{owner:"you",act:`Approve the relance to ${ct.first} ${ct.last}`,btn:"Approve draft",steps:[...(acctN(co)<5?[`By ${fmtD(addDays(relance,-7))}: prepare the registration pack (${ACCT_STEPS.filter((x,i)=>!co.acct.done[i]).slice(0,3).join(", ").toLowerCase()})`]:[]),"Read the draft below and press Approve draft",`The system sends it on ${fmtD(relance)} and re-enrols ${co.name} on ${fmtD(reopen)}`]});
@@ -1548,6 +1557,7 @@ function vReports(){
         <div class="funnel">${F.map(([l,v],i)=>`<div class="fr"><span>${l}</span><span class="bar"><i style="width:${Math.max(1.5,100*v/b.r.mapped)}%;background:${i>=4?"var(--s3)":`var(--seq-${Math.min(4,1+i)})`}"></i></span><span class="v num">${v} <span>${i?pct(v,F[i-1][1],0):""}</span></span></div>`).join("")}</div>
       </div>
       ${reportPanels(b)}
+      <div class="panel"><div class="panel-head"><h3>Emails to ${esc(c.name)} about this search</h3><span class="sub">from the email history</span></div>${mailTable(mailSort(mails.filter(m=>m.co===c.id && /report|Rates|Profile|Reply/i.test(m.kind))),true)}</div>
       <div class="tbl-wrap"><table><thead><tr><th>CV</th><th>Profile (anonymised)</th><th>Rate</th><th>Available</th><th>Status</th></tr></thead>
         <tbody>${b.cvs.map(v=>`<tr><td class="num">${v.ref}</td><td>${esc(v.h)}</td><td class="num">${esc(v.rate)}</td><td>${esc(v.av)}</td><td>${pill(CV_ST[v.st][0],CV_ST[v.st][1]+(v.d?" · "+v.d:""))}</td></tr>`).join("")}</tbody></table></div>
       ${b.paused?"":`<div class="panel"><div class="panel-head"><h3>Report preview</h3><span class="sub">assembled by the system · ${rt?"your action: review and send":"sent"}</span></div>
@@ -1557,10 +1567,113 @@ function vReports(){
     </div>
   </div>`;
 }
+/* ---------------- email history: every message in and out, one log ---------------- */
+// [d, time, dir, contact, kind, subject, by, status, opens, clicks, body?]
+const MAIL_SEED = [
+ ["2026-08-25","09:14","out","CT-2201","Sequence · SEQ-A step 1","6 open DevOps roles at Nordvel Data Systems","Recruiter 1","replied",4,2],
+ ["2026-08-28","16:02","in","CT-2201","Reply","Re: 6 open DevOps roles at Nordvel Data Systems","Elise Vermeulen","Interested",0,0,"Interesting timing. Can you send one profile this week?"],
+ ["2026-08-29","10:31","out","CT-2201","Profile","DevOps contractor profile for Nordvel","Recruiter 1","opened",3,1],
+ ["2026-09-02","08:52","out","CT-2280","Sequence · SEQ-B step 1","A Belgian infrastructure bench for Helix","Recruiter 2","replied",6,4],
+ ["2026-09-04","11:40","in","CT-2280","Reply","Re: A Belgian infrastructure bench for Helix","Bram Goossens","Interested",0,0,"We have just won a public-sector tender. Can we talk this week?"],
+ ["2026-09-08","09:05","out","CT-2220","Sequence · SEQ-A step 1","Digital transformation staffing at Lumen Grid Energy","Recruiter 1","opened",3,0],
+ ["2026-09-08","09:11","out","CT-2221","Sequence · SEQ-A step 1","SAP consultants for Lumen Grid Energy","Recruiter 1","clicked",3,1],
+ ["2026-09-10","10:22","out","CT-2210","Sequence · SEQ-C step 1","Checking in after last year's placements","Recruiter 2","replied",5,3],
+ ["2026-09-10","14:47","out","CT-2280","Account documents","Supplier set-up: company details, insurance, GDPR agreement","Recruiter 2","opened",2,0],
+ ["2026-09-12","13:18","in","CT-2210","Reply","Re: Checking in after last year's placements","Karel Peeters","Interested",0,0,"Yes, two site engineers for Q1. Same terms as last time?"],
+ ["2026-09-14","09:36","out","CT-2220","Sequence · SEQ-A step 3","A Luxembourg example","Recruiter 1","opened",1,0],
+ ["2026-09-14","10:02","out","CT-2260","Sequence · SEQ-A step 1","11 open roles at Orbis Medical Devices","Recruiter 1","opened",2,1],
+ ["2026-09-15","08:47","out","CT-2230","Sequence · SEQ-B step 1","A Belgian contractor bench for Kestrel","Recruiter 2","opened",2,1],
+ ["2026-09-16","09:28","out","CT-2270","Sequence · SEQ-C step 1","Your Salesforce admin after June","Recruiter 2","opened",2,0],
+ ["2026-09-16","11:03","out","CT-2240","Sequence · SEQ-A step 1","Automation analysts for Fjord Logistics","Recruiter 1","delivered",0,0],
+ ["2026-09-17","09:19","out","CT-2202","Sequence · SEQ-A step 1","DevOps hiring at Nordvel","Recruiter 1","opened",2,0],
+ ["2026-09-18","10:05","out","CT-2210","Progress report","2 site engineers, permanent · progress update 18 Sep","Recruiter 2","opened",2,0],
+ ["2026-09-18","10:44","out","CT-2260","Sequence · SEQ-A step 2","Validation engineers, open 45 days","Recruiter 1","opened",4,0],
+ ["2026-09-18","15:12","out","CT-2280","Rates & terms","Rate card and margin terms for the tender team","Recruiter 2","opened",3,1],
+ ["2026-09-19","09:57","out","CT-2230","Sequence · SEQ-B step 2","Margin and payroll model","Recruiter 2","clicked",1,2],
+ ["2026-09-21","08:41","out","CT-2250","Sequence · SEQ-A step 1","Your first two backend engineers","Recruiter 1","bounced",0,0,"Hard bounce: mailbox does not exist (550 5.1.1)."],
+ ["2026-09-22","09:33","out","CT-2202","Sequence · SEQ-A step 3","A DevOps placement in Brussels","Recruiter 1","auto-reply",0,0],
+ ["2026-09-22","09:34","in","CT-2202","Auto-reply","Out of office: Tom Declercq","Tom Declercq","Out of office",0,0,"Back on 29 September. For anything urgent, please contact Sarah Lambert, Head of Platform, at sarah.lambert@nordvel.example."],
+ ["2026-09-22","17:30","out","CT-2280","Progress report","3 Azure/Citrix infrastructure freelancers · progress update 22 Sep","Recruiter 2","replied",2,0],
+ ["2026-09-22","18:05","in","CT-2280","Reply","Re: progress update 22 Sep","Bram Goossens","Positive",0,0,"Thanks. Interviews on 24 and 25 Sep work."],
+ ["2026-09-23","06:12","in","CT-2220","Reply","Re: A Luxembourg example","Marc Weber","Not now",0,0,"We're locked until the panel reopens in January."],
+ ["2026-09-23","07:31","in","CT-2230","Reply","Re: Margin and payroll model","Julien Moreau","Interested",0,0,"Yes, we have two Brussels roles we can't staff. Can you send rates for an infra profile?"],
+ ["2026-09-23","07:48","in","CT-2210","Reply","Re: progress update 18 Sep","Karel Peeters","Referral",0,0,"Not me, but Ines runs the Q1 project. Copying her in."],
+ ["2026-09-23","08:10","in","CT-2240","Reply","Re: Automation analysts for Fjord Logistics","Pieter Wouters","Unsubscribe",0,0,"Please remove me from your list."],
+];
+let mails = MAIL_SEED.map(([d,t,dir,ct,kind,sub,by,st,o,c,body],i)=>{ const [k,co] = ctById(ct); return {id:"EM-"+(5000+i),d,t,dir,ct,co:co.id,kind,sub,by,st,o,c,body:body||""}; });
+function logMail(t, st){ // called when a task sends or schedules an email
+  const [ct] = ctById(t.ct); const first = (t.draft||"").split("\n")[0];
+  mails.push({id:"EM-"+(5000+mails.length),d:st==="scheduled"?t.due:iso(TODAY),t:st==="scheduled"?(t.sendAt||"09:00"):"09:12",dir:"out",ct:t.ct,co:t.co,
+    kind:t.type==="Report"?"Progress report":t.type==="Relance"?"Relance":t.type==="Reply"?"Reply to client":"Follow-up",
+    sub:first.startsWith("Subject:")?first.slice(9):(t.subject||t.title),by:st==="scheduled"?"System":"You",st,o:0,c:0,body:(t.draft||"").replace(/^Subject:.*\n\n/,"")});
+}
+const MST = {replied:["good","Replied"],opened:["info","Opened"],clicked:["info","Clicked"],delivered:["neutral","Delivered"],bounced:["crit","Bounced"],"auto-reply":["neutral","Auto-reply received"],scheduled:["ai","Scheduled"],sent:["neutral","Sent"]};
+function mailStatus(m){
+  if (m.dir==="in") return pill(CLS[m.st]||(m.st==="Positive"?"good":"neutral"), m.st);
+  const [k,l] = MST[m.st]; return pill(k, l + (m.o&&m.st!=="replied"?` · ${m.o}×`:"") + (m.c?` · ${m.c} click${m.c>1?"s":""}`:""));
+}
+function mailRow(m, compact){
+  const [ct] = ctById(m.ct), co = coById(m.co);
+  return `<tr class="click" data-mail="${m.id}" tabindex="0">
+    <td class="num" style="white-space:nowrap">${fmtD(parseD(m.d))}<div class="meta">${m.t}</div></td>
+    <td><span class="dir ${m.dir}" title="${m.dir==="out"?"Sent":"Received"}">${m.dir==="out"?"↗ Out":"↙ In"}</span></td>
+    ${compact?"":`<td><b style="font-weight:600">${esc(co.name)}</b><div class="meta">${esc(ct.first+" "+ct.last)}</div></td>`}
+    <td><span class="chip">${esc(m.kind)}</span></td>
+    <td style="min-width:200px">${esc(m.sub)}</td>
+    ${compact?"":`<td class="meta" style="color:var(--ink-2);white-space:nowrap">${esc(m.by)}</td>`}
+    <td>${mailStatus(m)}</td></tr>`;
+}
+const mailSort = L => L.slice().sort((a,b)=> (b.d+b.t).localeCompare(a.d+a.t));
+function mailTable(L, compact){
+  return `<div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Dir.</th>${compact?"":"<th>Company · contact</th>"}<th>Type</th><th>Subject</th>${compact?"":"<th>Sent by</th>"}<th>Status</th></tr></thead><tbody>${L.map(m=>mailRow(m,compact)).join("")||`<tr><td colspan="7" class="muted">No emails match.</td></tr>`}</tbody></table></div>`;
+}
+let mf = {dir:"all",co:"all",kind:"all",q:""};
+function vEmails(){
+  let L = mails.slice();
+  if (mf.dir==="out") L = L.filter(m=>m.dir==="out"&&m.st!=="scheduled");
+  if (mf.dir==="in") L = L.filter(m=>m.dir==="in");
+  if (mf.dir==="scheduled") L = L.filter(m=>m.st==="scheduled");
+  if (mf.co!=="all") L = L.filter(m=>m.co===mf.co);
+  if (mf.kind!=="all") L = L.filter(m=>m.kind.startsWith(mf.kind));
+  if (mf.q) { const q = mf.q.toLowerCase(); L = L.filter(m=>(m.sub+" "+m.body+" "+m.by+" "+coById(m.co).name).toLowerCase().includes(q)); }
+  const out = mails.filter(m=>m.dir==="out"&&m.st!=="scheduled"), opened = out.filter(m=>m.o>0||m.st==="replied"), rep = out.filter(m=>m.st==="replied"||m.st==="auto-reply"), bnc = out.filter(m=>m.st==="bounced");
+  const sched = mailSort(mails.filter(m=>m.st==="scheduled")).reverse();
+  const kinds = [...new Set(mails.map(m=>m.kind.split(" · ")[0]))];
+  return head("Every email in and out","Email history",
+    "One log of every email sent to or received from a client contact: sequence steps, relances, progress reports, replies and auto-replies. Click a row to read it and see the whole thread.") +
+  `<div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi info"><div class="k">Emails sent · 30 days</div><div class="v num">${out.length}</div><div class="d">${mails.filter(m=>m.dir==="in").length} received</div></div>
+    <div class="kpi info"><div class="k">Opened</div><div class="v num">${pct(opened.length,out.length,0)}</div><div class="d">${opened.length} of ${out.length}</div></div>
+    <div class="kpi good"><div class="k">Got a reply</div><div class="v num">${pct(rep.length,out.length,0)}</div><div class="d">${rep.length} emails</div></div>
+    <div class="kpi ${bnc.length?"crit":"good"}"><div class="k">Bounced</div><div class="v num">${bnc.length}</div><div class="d">${pct(bnc.length,out.length)} · pause at 3%</div></div>
+  </div>
+  ${sched.length?`<div class="panel" style="margin-bottom:16px"><div class="panel-head"><h3>Scheduled to send</h3><span class="sub">the system sends these · open one to stop it</span></div>${mailTable(sched)}</div>`:""}
+  <div class="toolbar">
+    <div class="seg" role="group" aria-label="Direction">${[["all","All"],["out","Sent"],["in","Received"],["scheduled","Scheduled"]].map(([k,l])=>`<button data-mdir="${k}" aria-pressed="${mf.dir===k}">${l}</button>`).join("")}</div>
+    <select id="mf-co" aria-label="Company"><option value="all">All companies</option>${companies.filter(c=>mails.some(m=>m.co===c.id)).map(c=>`<option value="${c.id}" ${mf.co===c.id?"selected":""}>${esc(c.name)}</option>`).join("")}</select>
+    <select id="mf-kind" aria-label="Type"><option value="all">All types</option>${kinds.map(k=>`<option ${mf.kind===k?"selected":""}>${esc(k)}</option>`).join("")}</select>
+    <input type="text" id="mf-q" placeholder="Search subject or text" value="${esc(mf.q)}" aria-label="Search emails">
+    <span class="note">${L.length} email${L.length===1?"":"s"}</span>
+  </div>
+  ${mailTable(mailSort(L))}`;
+}
+function openMail(id){
+  const m = mails.find(x=>x.id===id), [ct] = ctById(m.ct), co = coById(m.co);
+  const thread = mailSort(mails.filter(x=>x.ct===m.ct)).reverse();
+  drawer(`
+    <div class="eyebrow">${m.id} · ${esc(m.kind)}</div>
+    <h3 style="margin:4px 0 8px">${esc(m.sub)}</h3>
+    <div class="chips" style="margin-bottom:12px"><span class="dir ${m.dir}">${m.dir==="out"?"↗ Sent":"↙ Received"}</span>${mailStatus(m)}</div>
+    <dl class="dl"><dt>${m.dir==="out"?"To":"From"}</dt><dd>${esc(ct.first+" "+ct.last)} · ${esc(ct.role)}, ${esc(co.name)}</dd><dt>${m.dir==="out"?"Sent by":"Received by"}</dt><dd>${esc(m.dir==="out"?m.by:"Recruiter inbox")}</dd><dt>When</dt><dd class="num">${fmtD(parseD(m.d))} ${parseD(m.d).getFullYear()} · ${m.t}</dd>${m.dir==="out"&&m.st!=="scheduled"?`<dt>Engagement</dt><dd>${m.o} open${m.o===1?"":"s"} · ${m.c} click${m.c===1?"":"s"}</dd>`:""}</dl>
+    ${m.body?`<div class="sect"><h4>Message</h4><div class="msg">${esc(m.body)}</div></div>`:""}
+    <div class="sect"><h4>Thread with ${esc(ct.first)} · ${thread.length} emails</h4>
+      <div class="tl">${thread.map(x=>`<button class="tl-i" data-mail="${x.id}" style="border:0;background:${x.id===m.id?"var(--info-bg)":"none"};text-align:left;padding:4px;border-radius:6px;width:100%"><span class="dot ${x.dir==="in"?"good":x.st==="scheduled"?"ai":x.st==="bounced"?"crit":"info"}"></span><span class="num tl-d">${fmtD(parseD(x.d))}</span><div><b style="font-weight:600">${x.dir==="in"?"↙ ":"↗ "}${esc(x.sub)}</b><div class="note">${esc(x.kind)} · ${x.dir==="in"?esc(x.st):esc(MST[x.st][1])}</div></div></button>`).join("")}</div></div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost" data-co="${co.id}">Open company</button><button class="btn ghost" data-mailco="${co.id}">All emails with ${esc(co.name)}</button></div>`);
+}
 /* ---------------- render & events ---------------- */
 function render(){
   renderNav();
-  const m = {reports:vReports,accounts:vAccounts,tasks:vTasks,today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
+  const m = {emails:vEmails,reports:vReports,accounts:vAccounts,tasks:vTasks,today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
   $("#main").innerHTML = m();
   ["#seqgrid","#repgrid"].forEach(id=>{ const sg = $(id); if (sg && innerWidth < 900) sg.style.gridTemplateColumns = "minmax(0,1fr)"; });
 }
@@ -1583,7 +1696,7 @@ function createOpp(r){
 }
 
 document.addEventListener("click", e => {
-  const t = e.target.closest("button,[data-co],[data-close]"); if (!t) return;
+  const t = e.target.closest("button,[data-co],[data-mail],[data-close]"); if (!t) return;
   const d = t.dataset;
   if ("close" in d) return closeDrawer();
   if (d.v) return go(d.v);
@@ -1598,13 +1711,16 @@ document.addEventListener("click", e => {
   if (d.copy) { const txt = $("#"+d.copy).textContent; try { navigator.clipboard.writeText(txt).then(()=>toast("Search copied"),()=>selectText(d.copy)); } catch(err){ selectText(d.copy); } return; }
   if (d.astep) { const [cid,i] = d.astep.split(":"); const c = coById(cid); c.acct.done[+i] = c.acct.done[+i]?0:1; if (!c.acct.since) c.acct.since = iso(TODAY); render(); openCompany(cid); toast(acctN(c)===5?`${c.name}: supplier account open`:`${c.name}: account ${acctN(c)}/5`); return; }
   if (d.psl) { const c = coById(d.psl); c.acct.psl.member = !c.acct.psl.member; if (c.acct.psl.member) c.acct.psl.renew = iso(addDays(TODAY,365)); render(); openCompany(d.psl); toast(c.acct.psl.member?`${c.name}: listed as preferred supplier`:`${c.name}: removed from PSL`); return; }
+  if (d.mail) { return openMail(d.mail); }
+  if (d.mailco) { mf = {dir:"all",co:d.mailco,kind:"all",q:""}; closeDrawer(); return go("emails"); }
+  if (d.mdir) { mf.dir = d.mdir; return render(); }
   if (d.flex) { const [bid,i] = d.flex.split(":"); const b = briefs.find(x=>x.id===bid); b.flex[+i].on = !b.flex[+i].on; const rt = tasks.find(t=>t.brief===bid && t.status!=="done"); if (rt) rt.draft = reportDraft(b); return render(); }
   if (d.brief) { brSel = d.brief; return render(); }
   if (d.task) { return openTask(d.task); }
   if (d.tsort) { tSort = d.tsort; return render(); }
   if (d.relance) { const t = createRelance(replies.find(r=>r.id===d.relance), false); toast(`${t.id}: relance on ${fmtD(parseD(t.due))} · sequence paused`); return render(); }
   if (d.tdo) { completeTask(tasks.find(x=>x.id===d.tdo)); closeDrawer(); return render(); }
-  if (d.tstop) { const t = tasks.find(x=>x.id===d.tstop); t.status = "done"; t.act = "Stopped: "+t.act; closeDrawer(); toast("Stopped. That email will not send."); return render(); }
+  if (d.tstop) { const t = tasks.find(x=>x.id===d.tstop); mails = mails.filter(m=>!(m.st==="scheduled"&&m.ct===t.ct&&m.d===t.due)); t.status = "done"; t.act = "Stopped: "+t.act; closeDrawer(); toast("Stopped. That email will not send."); return render(); }
   if (d.town) { tOwn = d.town; return render(); }
   if (d.tapprove) { const t = tasks.find(x=>x.id===d.tapprove); const fut = daysTo(t.due)>0; if (!fut) t.status="done"; else t.status="scheduled"; t.approved=true; closeDrawer(); toast(fut?`${t.id} approved · sends ${fmtD(parseD(t.due))} in the morning window`:`${t.id} done`); return render(); }
   if (d.tsnooze) { const t = tasks.find(x=>x.id===d.tsnooze); t.due = iso(addDays(parseD(t.due)<TODAY?TODAY:parseD(t.due),7)); closeDrawer(); toast(`${t.id} moved to ${fmtD(parseD(t.due))}`); return render(); }
@@ -1622,14 +1738,18 @@ function selectText(id){ const r = document.createRange(); r.selectNodeContents(
 document.addEventListener("keydown", e => {
   if (e.key==="Escape") closeDrawer();
   if (e.key==="Enter" && e.target.matches("tr[data-co]")) openCompany(e.target.dataset.co);
+  if (e.key==="Enter" && e.target.matches("tr[data-mail]")) openMail(e.target.dataset.mail);
 });
 document.addEventListener("change", e => {
+  if (e.target.id==="mf-co") { mf.co = e.target.value; render(); }
+  if (e.target.id==="mf-kind") { mf.kind = e.target.value; render(); }
   if (e.target.id==="pv-co") { prevCo = e.target.value; draftEdit = null; render(); }
   if (e.target.id==="pv-tone") { prevTone = e.target.value; draftEdit = null; render(); }
   if (e.target.id==="cap") { const v = Math.max(5,Math.min(50,+e.target.value||20)); send.cap = v*2; send.mailboxes.forEach(m=>m.cap=v); toast(`Cap set to ${v} per mailbox · ${v*2} a day`); render(); }
 });
 let draftTimer;
 document.addEventListener("input", e => {
+  if (e.target.id==="mf-q") { mf.q = e.target.value; clearTimeout(draftTimer); draftTimer = setTimeout(()=>{ const pos = e.target.selectionStart; render(); const q = $("#mf-q"); if (q){ q.focus(); q.setSelectionRange(pos,pos);} }, 300); }
   if (e.target.id==="draft") { draftEdit = e.target.value; clearTimeout(draftTimer); draftTimer = setTimeout(()=>{ const pos = e.target.selectionStart; render(); const ta = $("#draft"); if (ta){ ta.focus(); ta.setSelectionRange(pos,pos);} }, 500); }
 });
 /* hover tooltips on chart marks and send dots */
@@ -1644,6 +1764,7 @@ processAutoReply(replies.find(r=>r.id==="RP-94"));
 processAutoReply(replies.find(r=>r.id==="RP-92")); replies.find(r=>r.id==="RP-92").done += " · your task: send her the intro (TK-403)";
 tasks.forEach(t=>{ if (/^(Dear|Hi) /.test(t.draft) && !/stop/i.test(t.draft)) t.draft += "\n\nReply \"stop\" and we will not contact you again."; });
 [["RP-95","contact suppressed and logged for GDPR; never contacted again"]].forEach(([id,txt])=>{ const r = replies.find(x=>x.id===id); r.handled = true; r.auto = true; r.done = txt; const [ct] = ctById(r.ct); ct.seq = null; });
+tasks.filter(t=>t.owner==="system"&&t.status!=="done"&&/^(Dear|Hi) /.test(t.draft||"")).forEach(t=>logMail(t,"scheduled"));
 render();
 })();
 </script>

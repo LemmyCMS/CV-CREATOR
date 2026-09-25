@@ -243,6 +243,11 @@ found on the market** (rate or salary band and median against the client's budge
 competition, availability), **(3) where the client may need to be flexible** — each point is
 lever · today · suggested · evidence · likely effect, derived from decline reasons or pool data,
 and the recruiter ticks which go into the report. Every flex point must cite evidence.
+**v6:** *Email history* — one log of every email in and out (date/time, direction, company ·
+contact, type, subject, sent by, status with opens/clicks), filters by direction, company, type
+and text, a "Scheduled to send" section for system emails, and a drawer with the message and the
+whole thread per contact. Sending from any task logs the email automatically; stopping a system
+send removes it. The same table appears filtered in each company panel and on the progress report.
 
 ## Access constraints discovered (do not re-litigate these)
 
