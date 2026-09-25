@@ -1,7 +1,7 @@
 <title>Zig CV Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
 <style>
 :root{
   color-scheme: light;
@@ -145,63 +145,63 @@ dialog::backdrop{background:rgba(10,12,16,.55)}
 </style>
 
 <style id="cv-css">
-/* Zig client CV. Fixed brand colours: a CV is a printed document, so it keeps its paper look in either theme. */
-.zcv{--z-ink:#16181d; --z-ink2:#4f5663; --z-ink3:#858c98; --z-line:#e3e5ea; --z-orange:#d9501d; --z-tint:#f3f5f8;
-  width:100%; max-width:800px; margin:0 auto; background:#fff; color:var(--z-ink); font-family:"Public Sans","Helvetica Neue",Arial,sans-serif; font-size:12.5px; line-height:1.5; box-shadow:0 1px 2px rgba(0,0,0,.08),0 14px 40px rgba(0,0,0,.12); border-radius:3px; overflow:hidden}
-.zcv [contenteditable="true"]:hover{outline:1px dashed #c9ccd3; outline-offset:2px}
-.zcv [contenteditable="true"]:focus{outline:2px solid var(--z-orange); outline-offset:2px}
-.zcv-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px 24px; padding:30px 44px 0}
-.zcv-logo{display:flex; align-items:center; gap:10px}
-.zcv-word{font-family:Archivo,Arial,sans-serif; font-weight:800; font-size:22px; letter-spacing:.06em; line-height:1}
-.zcv-word small{display:block; font-family:"Public Sans",Arial,sans-serif; font-size:9px; font-weight:600; letter-spacing:.16em; color:var(--z-ink3); margin-top:4px}
-.zcv-meta{text-align:right; font-size:10.5px; color:var(--z-ink2); line-height:1.6}
-.zcv-meta b{color:var(--z-ink); font-weight:600}
-.zcv-meta .conf{display:inline-block; font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--z-orange); border:1px solid currentColor; border-radius:3px; padding:1px 6px; margin-bottom:4px}
-.zcv-zz{display:block; width:100%; height:12px; margin:20px 0 0}
-.zcv-head{padding:18px 44px 0}
-.zcv-head .for{font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--z-orange)}
-.zcv-head h1{font-family:Archivo,Arial,sans-serif; font-weight:700; font-size:32px; line-height:1.1; letter-spacing:-.02em; margin:4px 0 0; color:var(--z-ink); text-wrap:balance}
-.zcv-head .cref{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--z-ink3); margin-top:6px}
-.zcv-facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); margin:18px 44px 0; border-top:1px solid var(--z-ink); border-bottom:1px solid var(--z-line)}
-.zcv-facts > div{padding:9px 12px 10px 0}
-.zcv-facts .k{font-size:8.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--z-ink3)}
-.zcv-facts .v{font-size:12px; font-weight:600; margin-top:2px; line-height:1.35}
-.zcv-body{display:grid; grid-template-columns:200px minmax(0,1fr); gap:32px; padding:22px 44px 30px}
-.zcv-sec + .zcv-sec{margin-top:20px}
-.zcv .zcv-h{font-size:9.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--z-orange); display:flex; align-items:center; gap:8px; margin:0 0 9px}
-.zcv .zcv-h::after{content:""; flex:1; height:1px; background:var(--z-line)}
-.zcv-sum{font-size:13px; line-height:1.6; margin:0; color:var(--z-ink)}
-.zcv-sk{list-style:none; margin:0; padding:0; display:grid; gap:8px}
-.zcv-sk li{display:grid; gap:3px}
-.zcv-sk .n{font-weight:600; font-size:11.5px; line-height:1.3}
-.zcv-sk .m{display:flex; align-items:center; gap:8px; font-size:10px; color:var(--z-ink3)}
-.zcv-bar{display:flex; gap:3px}
-.zcv-bar i{width:14px; height:4px; border-radius:1px; background:var(--z-line)}
-.zcv-bar i.f{background:var(--z-ink)}
-.zcv-list{list-style:none; margin:0; padding:0; display:grid; gap:6px; font-size:11.5px}
-.zcv-list b{font-weight:600; display:block; line-height:1.3}
-.zcv-list span{color:var(--z-ink2); font-size:10.5px}
-.zcv-job{padding:0 0 14px; margin:0 0 14px; border-bottom:1px solid var(--z-line)}
-.zcv-job:last-child{border-bottom:0; margin-bottom:0; padding-bottom:0}
-.zcv-job .t{display:flex; flex-wrap:wrap; justify-content:space-between; gap:2px 12px; align-items:baseline}
-.zcv-job .role{font-family:Archivo,Arial,sans-serif; font-weight:700; font-size:14px}
-.zcv-job .per{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--z-ink2); white-space:nowrap}
-.zcv-job .emp{font-size:11px; color:var(--z-ink2); margin-top:1px}
-.zcv-job ul{margin:7px 0 0; padding:0 0 0 15px; display:grid; gap:4px}
-.zcv-job li::marker{color:var(--z-orange)}
-.zcv-stack{display:flex; flex-wrap:wrap; gap:4px; margin-top:8px}
-.zcv-stack span{font-family:"IBM Plex Mono",monospace; font-size:9.5px; background:var(--z-tint); color:var(--z-ink2); border-radius:3px; padding:1px 6px}
-.zcv-foot{background:var(--z-ink); color:#fff; display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between; align-items:center; padding:14px 44px; font-size:10.5px}
-.zcv-foot .fl{display:flex; align-items:center; gap:10px; font-weight:600; letter-spacing:.04em}
-.zcv-foot .fr{color:#c3c7cf; max-width:52ch}
-@media (max-width:640px){
-  .zcv-top,.zcv-head{padding-left:22px; padding-right:22px}
-  .zcv-facts{margin-left:22px; margin-right:22px}
-  .zcv-body{grid-template-columns:minmax(0,1fr); padding:20px 22px 24px; gap:20px}
-  .zcv-foot{padding:14px 22px}
-  .zcv-meta{text-align:left}
-  .zcv-head h1{font-size:26px}
-}
+/* Zig client CV: newspaper-style, three colours only (ink, Zig orange, one grey). Fixed colours: it is a printed document. */
+.zp{--k:#15171c; --o:#d9501d; --g:#8b8f96; width:210mm; min-height:297mm; margin:0 auto; background:#fff; color:var(--k); position:relative; color-scheme:light;
+  font-family:"Libre Franklin","Helvetica Neue",Arial,sans-serif; font-size:12.5pt; line-height:1.45; display:flex; flex-direction:column; padding:0 16mm;
+  box-shadow:0 1px 3px rgba(0,0,0,.1),0 18px 50px rgba(0,0,0,.14); transform-origin:top left; text-align:left}
+.zp [contenteditable="true"]:hover{outline:1px dashed var(--g); outline-offset:2px}
+.zp [contenteditable="true"]:focus{outline:2px solid var(--o); outline-offset:2px}
+.zp .zm{display:flex; justify-content:space-between; align-items:center; padding:10mm 0 4mm; border-bottom:.6mm solid var(--k)}
+.zp .zl{display:flex; align-items:center; gap:2.6mm; font-family:Archivo,Arial,sans-serif; font-weight:800; font-size:15pt; letter-spacing:.06em}
+.zp .zmeta{font-size:10pt; color:var(--g); text-align:right; line-height:1.5}
+.zp .zmeta b{color:var(--o); font-weight:700}
+.zp .zk{margin-top:6mm; font-size:10.5pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--o)}
+.zp .zhd{font-family:Newsreader,Georgia,"Times New Roman",serif; font-weight:600; font-size:36pt; line-height:1.05; letter-spacing:-.01em; margin:2mm 0 0; text-wrap:balance}
+.zp .zdeck{font-size:14.5pt; line-height:1.4; margin:4mm 0 0; max-width:160mm}
+.zp .zfacts{display:grid; grid-template-columns:repeat(4,1fr); margin-top:7mm; border-top:.3mm solid var(--g)}
+.zp .zfacts > div{padding:3.5mm 3mm 3.5mm 0}
+.zp .zfacts > div + div{padding-left:4mm; border-left:.3mm solid var(--g)}
+.zp .zfacts .l{font-size:9.5pt; color:var(--g); font-weight:600}
+.zp .zfacts .v{font-size:15pt; font-weight:700; line-height:1.2; margin-top:.5mm}
+.zp .zlangs{display:flex; flex-wrap:wrap; align-items:center; gap:3mm 7mm; padding:3.2mm 0; border-top:.3mm solid var(--g); border-bottom:.3mm solid var(--g)}
+.zp .zlangs .t{font-size:9.5pt; color:var(--g); font-weight:600; min-width:18mm}
+.zp .zlang{display:flex; flex-direction:column; gap:1.4mm}
+.zp .zlang .n{font-size:14pt; font-weight:700; line-height:1.1; white-space:nowrap}
+.zp .zlang .lv{font-weight:500; font-size:11pt; margin-left:1.4mm}
+.zp .zmeter{display:flex; gap:.9mm}
+.zp .zmeter i{width:6mm; height:1.8mm; border-radius:.4mm; background:#e4e5e8}
+.zp .zmeter i.on{background:var(--o)}
+.zp .zh{font-family:"Libre Franklin",Arial,sans-serif; font-size:10.5pt; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:6mm 0 2.6mm; color:var(--k); display:block}
+.zp .zcan{list-style:none; margin:0; padding:0; display:grid; gap:1.8mm}
+.zp .zcan li{display:grid; grid-template-columns:6mm 1fr; align-items:baseline}
+.zp .zcan li::before{content:"✓"; color:var(--o); font-weight:800; font-size:13pt}
+.zp .ztwo{display:grid; grid-template-columns:1fr 1fr; gap:12mm}
+.zp .zsk{display:flex; justify-content:space-between; align-items:center; gap:2mm; padding:.9mm 0; border-bottom:.3mm solid #e4e5e8}
+.zp .zsk:last-of-type{border-bottom:0}
+.zp .zsk > span:first-child{font-weight:600}
+.zp .zstars{display:inline-flex; gap:.6mm; cursor:pointer; flex:none}
+.zp .zstars svg{width:14px; height:14px}
+.zp .zstars .on{fill:var(--o)}
+.zp .zstars .off{fill:none; stroke:var(--g); stroke-width:1.4}
+.zp .zmk{width:15px; height:15px; flex:none; display:block; cursor:pointer}
+.zp .zkey{font-size:9pt; color:var(--g); margin-top:2mm}
+.zp .zkey .kk{display:inline-flex; align-items:center; gap:1mm; margin-right:2.4mm; white-space:nowrap}
+.zp .zkey .zmk{width:10px; height:10px; cursor:default}
+.zp .zjob{padding:1.2mm 0 2.2mm; border-bottom:.3mm solid #e4e5e8}
+.zp .zjob:last-of-type{border-bottom:0}
+.zp .zjob .y{font-size:10pt; font-weight:700; color:var(--o)}
+.zp .zjob.prev .y{color:var(--g)}
+.zp .zjob .r{font-weight:700; line-height:1.3}
+.zp .zjob .o{color:var(--g); font-size:11pt}
+.zp .ztools{margin:0; font-size:11pt; line-height:1.5}
+.zp .zline{margin:4.5mm 0 0; font-size:11.5pt}
+.zp .zline b{font-size:10.5pt; letter-spacing:.14em; text-transform:uppercase; margin-right:2mm}
+.zp .zfoot{margin-top:auto; padding:4.5mm 0 8mm; border-top:.6mm solid var(--k); display:flex; justify-content:space-between; gap:6mm; font-size:10.5pt}
+.zp .zfoot .who b{display:block; font-size:12pt}
+.zp .zfoot .who span{color:var(--g)}
+.zp .zfoot .note{color:var(--g); text-align:right; max-width:78mm; font-size:9.5pt}
+.zp .zspacer{height:6mm}
+.zfit{width:100%; max-width:794px; margin:0 auto}
 </style>
 
 <script type="application/json" id="playbooks">{"playbooks": [{"market": "BE", "position": "accounting", "label": "Belgium · Accounting", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "Say whether the experience is in a fiduciaire or in-house: clients hire for one or the other.", "source": "PRIOR"}, {"text": "State the ITAA stage precisely (trainee, certified, tax adviser). Never translate the acronym.", "source": "PRIOR"}, {"text": "If the candidate did the books alone, use the local phrase: comptabilité de A à Z / boekhouding van A tot Z.", "source": "PRIOR"}, {"text": "Name the software. It is often the first filter.", "source": "PRIOR"}, {"text": "Brussels and Wallonia clients read French; Flanders reads Dutch. Bilingual candidates are worth flagging up front.", "source": "PRIOR"}], "vocabulary": {"full-cycle accounting": {"fr": "comptabilité de A à Z", "nl": "boekhouding van A tot Z", "en": "full-cycle accounting"}, "accounting firm": {"fr": "fiduciaire", "nl": "boekhoudkantoor", "en": "accounting firm"}, "VAT return": {"fr": "déclaration TVA", "nl": "btw-aangifte", "en": "VAT return"}, "annual accounts": {"fr": "comptes annuels (dépôt BNB)", "nl": "jaarrekening (neerlegging NBB)", "en": "annual accounts (NBB filing)"}, "social secretariat": {"fr": "secrétariat social", "nl": "sociaal secretariaat", "en": "social secretariat"}}, "avoid": ["Calling a Belgian fiduciaire a 'cabinet': that is French usage.", "French titles such as expert-comptable diplômé or DCG/DSCG unless the candidate really holds them.", "IFRS as a headline unless the role is group or subsidiary reporting."], "credentials": ["ITAA stagiaire / expert-comptable / conseiller fiscal", "Bachelier en comptabilité / Bachelor boekhouden", "Graduaat boekhouden"], "software": ["Winbooks", "BOB 50", "Exact Online", "Octopus", "Yuki", "Horus", "Popsy"], "conventions": [{"key": "itaa", "label": "ITAA status", "why": "The Belgian professional body for accountants and tax advisers (IEC and IPCF merged into ITAA in 2019). Clients read it as a level: trainee, certified accountant, tax adviser.", "source": "PRIOR"}, {"key": "full_cycle", "label": "Full-cycle bookkeeping (\"comptabilité de A à Z\")", "why": "The phrase Belgian clients look for: the person can run the books alone, from entry to annual accounts.", "source": "PRIOR"}, {"key": "fiduciaire", "label": "Accounting-firm experience (fiduciaire / boekhoudkantoor)", "why": "Firm experience means many clients, many sectors and deadline discipline. SMEs value it; it is a different profile from in-house.", "source": "PRIOR"}, {"key": "vat", "label": "VAT returns (TVA / btw), client listing", "why": "Monthly or quarterly VAT is core Belgian work; Intervat is the filing platform.", "source": "PRIOR"}, {"key": "corporate_tax", "label": "Tax returns (ISOC / IPP, vennootschapsbelasting)", "why": "Separates bookkeepers from people who can close and file.", "source": "PRIOR"}, {"key": "nbb", "label": "Annual accounts filed with the National Bank (BNB / NBB)", "why": "Filing the annual accounts is the end of the cycle; mentioning it proves the full cycle.", "source": "PRIOR"}, {"key": "pcmn", "label": "Belgian chart of accounts (PCMN / MAR)", "why": "Signals Belgian GAAP rather than IFRS or French PCG.", "source": "PRIOR"}, {"key": "social_secretariat", "label": "Payroll via a social secretariat", "why": "In Belgium payroll runs through a social secretariat; accountants check it rather than compute it.", "source": "PRIOR"}, {"key": "be_software", "label": "Belgian accounting software", "why": "Clients filter on the package they run. Winbooks, BOB and Exact are the common ones.", "source": "PRIOR"}]}, {"market": "BE", "position": "it-dev", "label": "Belgium · Software development", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "Give the daily rate and whether the candidate invoices through a company.", "source": "PRIOR"}, {"text": "English CVs are normal in IT; the Zig page can still follow the contact's language.", "source": "PRIOR"}], "vocabulary": {}, "avoid": [], "credentials": ["Cloud certifications (Azure, AWS)", "ISTQB for testers", "Scrum certifications"], "software": [], "conventions": [{"key": "freelance_status", "label": "Freelance status (indépendant / zelfstandige, own company)", "why": "Belgian IT contracting often runs through the consultant's own company; clients want to know how to contract.", "source": "PRIOR"}, {"key": "clients_named", "label": "Named end clients", "why": "Belgian consultants list missions per end client; clients read the sector from them.", "source": "PRIOR"}, {"key": "cefr", "label": "Language levels (CEFR)", "why": "Belgian clients expect FR/NL/EN levels, ideally A1-C2.", "source": "PRIOR"}]}, {"market": "FR", "position": "accounting", "label": "France · Accounting", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "French CVs often run to two pages with a longer education section; keep the Zig page to one.", "source": "PRIOR"}], "vocabulary": {}, "avoid": ["Belgian terms (fiduciaire, ITAA, TVA listing) for French clients."], "credentials": ["DCG", "DSCG", "DEC (expert-comptable)"], "software": ["Sage", "Cegid", "Quadratus", "ACD"], "conventions": [{"key": "cabinet", "label": "Firm experience (cabinet d'expertise comptable)", "why": "France says 'cabinet' where Belgium says 'fiduciaire'.", "source": "PRIOR"}, {"key": "diplomas", "label": "DCG / DSCG / DEC", "why": "The French qualification ladder; clients read the level from it.", "source": "PRIOR"}, {"key": "liasse", "label": "Liasse fiscale / bilan", "why": "The French end-of-year deliverable.", "source": "PRIOR"}]}, {"market": "LU", "position": "accounting", "label": "Luxembourg · Accounting", "cvs": 0, "confidence": "none (priors only)", "notes": [{"text": "English is the default working language in fund services; state French and German levels separately.", "source": "PRIOR"}, {"text": "Say whether the experience is fund, corporate (Soparfi) or SME: they are different markets.", "source": "PRIOR"}], "vocabulary": {}, "avoid": ["Belgian-specific terms (ITAA, Winbooks, BNB) as selling points in Luxembourg."], "credentials": ["Expert-comptable (OEC Luxembourg)", "Réviseur d'entreprises", "ACCA", "CFA for fund roles"], "software": ["Multifonds", "Sage", "SAP", "Microsoft Dynamics"], "conventions": [{"key": "fund", "label": "Fund accounting (UCITS, AIF, NAV)", "why": "The fund industry is a large share of accounting jobs in Luxembourg.", "source": "PRIOR"}, {"key": "cssf", "label": "CSSF regulatory reporting", "why": "The Luxembourg financial regulator; reporting experience is a strong signal.", "source": "PRIOR"}, {"key": "luxgaap", "label": "Lux GAAP / IFRS", "why": "Clients want to know which standard the candidate has closed under.", "source": "PRIOR"}, {"key": "rcs", "label": "RCS / eCDF filing", "why": "Local filing platforms; proves hands-on Luxembourg closing.", "source": "PRIOR"}]}]}</script>
@@ -253,6 +253,8 @@ dialog::backdrop{background:rgba(10,12,16,.55)}
           <div class="field"><label for="mkt">Market</label><select id="mkt"></select></div>
           <div class="field"><label for="pos">Position type</label><select id="pos"></select></div>
         </div>
+        <div class="field"><label for="cvlang">CV language</label>
+          <select id="cvlang"><option value="en">English</option><option value="fr">French</option><option value="nl">Dutch</option></select></div>
         <div class="mrules" id="mrules"></div>
         <div class="field"><label for="jd">Job description</label><textarea id="jd" rows="11"></textarea></div>
       </section>
@@ -303,7 +305,7 @@ dialog::backdrop{background:rgba(10,12,16,.55)}
 
       <div data-pane="cv">
         <div class="toolbar">
-          <div class="l"><span class="pill" id="src-pill">Pre-generated sample</span><span class="pill warn" id="rev-pill">Draft · not reviewed</span><span class="pill" id="scan-pill" hidden></span></div>
+          <div class="l"><span class="pill" id="src-pill">Pre-generated sample</span><span class="pill warn" id="rev-pill">Draft · not reviewed</span><span class="pill" id="scan-pill" hidden></span><span class="pill warn" id="long-pill" hidden>Longer than one page: trim it</span></div>
           <div class="r">
             <button class="btn" type="button" id="review">Mark reviewed</button>
             <button class="btn" type="button" id="copy">Copy text</button>
@@ -453,24 +455,14 @@ const RULES = [
 /* Pre-generated output: the same candidate, tailored to two vacancies */
 const SAMPLES = {
   "OPP-2026-117": {
-    headline:"Senior .NET Developer",
-    summary:"Senior .NET engineer with 9 years of backend experience, the last four in payments at a Belgian retail bank. Led the move of a .NET Framework payments monolith to 14 .NET 8 microservices on Azure Kubernetes Service, with event-driven integration on Azure Service Bus that brought p95 payment latency from 1.8 s to 420 ms. At home under banking regulation: owned PSD2 audit logging and strong customer authentication through two supervisory audits with no findings. Native French, professional English, working Dutch.",
-    keyFacts:[{k:"Experience",v:"9 years C# / .NET"},{k:"Sector",v:"Banking & payments, 4 yrs"},{k:"Location",v:"Brussels · hybrid 3 days"},{k:"Availability",v:"1 month notice · mid-Nov"},{k:"Languages",v:"FR · EN · NL"}],
-    expertise:[{skill:"C# / .NET 8, ASP.NET Core",level:3,years:"9 yrs"},{skill:"Microservices & event-driven design",level:3,years:"4 yrs"},{skill:"Azure: AKS, Service Bus, Functions, Key Vault",level:3,years:"4 yrs"},{skill:"Regulated finance: PSD2, SCA, audit",level:3,years:"4 yrs"},{skill:"Azure DevOps CI/CD",level:2,years:""},{skill:"Terraform",level:2,years:"certified"},{skill:"SQL Server · Cosmos DB",level:2,years:""},{skill:"React / TypeScript",level:1,years:""}],
-    experience:[
-      {role:"Senior Backend Engineer, Payments", employer:"Retail bank, Belgium", period:"2022 – present",
-        bullets:["Rebuilt the SEPA instant payments orchestration service, splitting a .NET Framework 4.8 monolith into 14 .NET 8 microservices on Azure Kubernetes Service.","Introduced event-driven integration on Azure Service Bus, cutting end-to-end payment latency from 1.8 s to 420 ms at p95.","Owned PSD2 audit logging and strong customer authentication flows; passed two ECB/NBB audits with no findings.","Wrote the Terraform modules for the team's AKS, Key Vault and Service Bus estate and set up Azure DevOps pipelines with blue/green deployments.","Mentors three junior developers and runs the chapter's monthly architecture review."],
-        stack:["C#",".NET 8","ASP.NET Core","AKS","Service Bus","Functions","Key Vault","SQL Server","Cosmos DB","Terraform","Azure DevOps"]},
-      {role:"Software Engineer", employer:"National logistics operator, Belgium", period:"2018 – 2022",
-        bullets:["Built parcel-tracking APIs processing 2.5M events a day on ASP.NET Core, SQL Server and RabbitMQ.","Migrated six on-premise services to Azure App Service, reducing hosting cost by 31%.","Introduced integration testing with Testcontainers, raising coverage from 38% to 74%."],
-        stack:[".NET 6","ASP.NET Core","RabbitMQ","SQL Server","Azure App Service","Docker"]},
-      {role:"Full-stack Developer", employer:"SaaS scale-up, 12 staff", period:"2016 – 2018",
-        bullets:["Built the billing module of a staff-rostering platform, including Stripe and Mollie payment integration."],
-        stack:[".NET Framework","Angular","PostgreSQL"]}
-    ],
-    education:[{title:"MSc Computer Science", detail:"Brussels university"}],
-    certifications:[{title:"Azure Solutions Architect Expert (AZ-305)", detail:"Microsoft · 2024"},{title:"Azure Developer Associate (AZ-204)", detail:"Microsoft · 2021"},{title:"Terraform Associate", detail:"HashiCorp · 2023"}],
-    languages:[{lang:"French", level:"Native"},{lang:"English", level:"Professional (C1)"},{lang:"Dutch", level:"Working (B2)"}],
+    headline:"Senior .NET Developer", type:"Permanent",
+    deck:"Builds the back-end systems that move money in a bank. Nine years with .NET, the last four rebuilding a Belgian bank's instant-payments service.",
+    facts:[{l:"Experience",v:"9 years"},{l:"Can start",v:"November"},{l:"Work model",v:"Hybrid"},{l:"Sector",v:"Banking"}],
+    languages:[{n:"French",lv:"native",dots:5},{n:"English",lv:"fluent",dots:4},{n:"Dutch",lv:"good",dots:3}],
+    can:["Split an old payments system into 14 modern services on Azure.","Made payments 4 times faster: from 1.8 seconds to 0.42.","Passed two central-bank audits with no findings.","Automates cloud set-up and releases, so deployments are safe and repeatable.","Coaches three junior developers."],
+    skills:[{name:"C# / .NET 8",stars:5},{name:"Microservices",stars:5},{name:"Azure",stars:5},{name:"SQL Server",stars:4},{name:"Terraform",stars:4},{name:"React",stars:2}],
+    experience:[{y:"2022 – now",r:"Senior Back-end Engineer",o:"Retail bank, Belgium"},{y:"2018 – 2022",r:"Software Engineer",o:"Logistics operator, Belgium"},{y:"2016 – 2018",r:"Full-stack Developer",o:"Software scale-up, Ghent"}],
+    education:"MSc Computer Science · Azure Solutions Architect Expert · Terraform Associate",
     match:[
       {requirement:"6+ years C# / .NET, current on .NET 8", strength:"strong", evidence:"9 years of .NET; running .NET 8 in production since the 2022 payments rewrite."},
       {requirement:"Microservices and event-driven design", strength:"strong", evidence:"Designed 14 microservices on AKS with Azure Service Bus; RabbitMQ event processing at 2.5M events/day before that."},
@@ -496,24 +488,14 @@ const SAMPLES = {
     ]
   },
   "OPP-2026-124": {
-    headline:"Azure Platform Engineer",
-    summary:"Cloud and platform engineer with a 9-year .NET development background. Wrote the Terraform modules behind a bank's Azure Kubernetes Service, Key Vault and Service Bus estate, and built the Azure DevOps pipelines that ship 14 microservices with blue/green deployments. Certified Azure Solutions Architect Expert and Terraform Associate. Comfortable with regulated delivery, having passed two ECB/NBB audits with no findings, and able to support .NET product teams from real hands-on experience. Native French.",
-    keyFacts:[{k:"Experience",v:"9 yrs engineering, 4 on Azure platform"},{k:"Certified",v:"AZ-305 · Terraform Associate"},{k:"Sector",v:"Regulated banking"},{k:"Availability",v:"1 month notice · mid-Nov"},{k:"Languages",v:"FR · EN · NL"}],
-    expertise:[{skill:"Terraform module design",level:3,years:"certified"},{skill:"Azure Kubernetes Service",level:3,years:"4 yrs"},{skill:"Azure DevOps pipelines, blue/green",level:3,years:""},{skill:"Azure: Key Vault, Service Bus, Functions, App Service",level:3,years:"4 yrs"},{skill:"Containers: Docker, Testcontainers",level:2,years:""},{skill:"Observability: Application Insights",level:2,years:""},{skill:"C# / .NET 8 development",level:3,years:"9 yrs"},{skill:"Audit & compliance: PSD2, ECB/NBB",level:2,years:""}],
-    experience:[
-      {role:"Senior Backend Engineer, Payments", employer:"Retail bank, Belgium", period:"2022 – present",
-        bullets:["Wrote the Terraform modules for the team's Azure Kubernetes Service, Key Vault and Service Bus estate.","Set up Azure DevOps pipelines with blue/green deployments for 14 .NET 8 microservices running on AKS.","Moved a .NET Framework 4.8 payments monolith onto AKS and Azure Service Bus, cutting p95 payment latency from 1.8 s to 420 ms.","Owned PSD2 audit logging; passed two ECB/NBB audits with no findings."],
-        stack:["Terraform","AKS","Azure DevOps","Key Vault","Service Bus","Functions","App Insights",".NET 8"]},
-      {role:"Software Engineer", employer:"National logistics operator, Belgium", period:"2018 – 2022",
-        bullets:["Migrated six on-premise services to Azure App Service, reducing hosting cost by 31%.","Containerised services with Docker and introduced integration testing with Testcontainers, raising coverage from 38% to 74%."],
-        stack:["Azure App Service","Docker","Testcontainers",".NET 6","RabbitMQ"]},
-      {role:"Full-stack Developer", employer:"SaaS scale-up, 12 staff", period:"2016 – 2018",
-        bullets:["Wrote the company's first CI pipeline on Jenkins and was on call for production."],
-        stack:["Jenkins",".NET Framework","PostgreSQL"]}
-    ],
-    education:[{title:"MSc Computer Science", detail:"Brussels university"}],
-    certifications:[{title:"Azure Solutions Architect Expert (AZ-305)", detail:"Microsoft · 2024"},{title:"Terraform Associate", detail:"HashiCorp · 2023"},{title:"Azure Developer Associate (AZ-204)", detail:"Microsoft · 2021"}],
-    languages:[{lang:"French", level:"Native"},{lang:"English", level:"Professional (C1)"},{lang:"Dutch", level:"Working (B2)"}],
+    headline:"Azure Platform Engineer", type:"Permanent",
+    deck:"Builds the cloud platform that development teams ship their software on. Nine years in engineering, the last four running a bank's Azure set-up.",
+    facts:[{l:"Experience",v:"9 years"},{l:"Can start",v:"November"},{l:"Certified",v:"AZ-305"},{l:"Based in",v:"Brussels"}],
+    languages:[{n:"French",lv:"native",dots:5},{n:"English",lv:"fluent",dots:4},{n:"Dutch",lv:"good",dots:3}],
+    can:["Wrote the code that builds a bank's whole Azure environment (Terraform).","Set up release pipelines that switch versions with no downtime.","Cut hosting costs by 31% by moving six services to Azure.","Nine years of writing .NET: speaks the development teams' language."],
+    skills:[{name:"Terraform",stars:5},{name:"Azure DevOps pipelines",stars:5},{name:"Azure services",stars:5},{name:"Kubernetes (AKS)",stars:4},{name:"Monitoring",stars:3},{name:"C# / .NET",stars:5}],
+    experience:[{y:"2022 – now",r:"Senior Back-end Engineer",o:"Retail bank, Belgium"},{y:"2018 – 2022",r:"Software Engineer",o:"Logistics operator, Belgium"},{y:"2016 – 2018",r:"Full-stack Developer",o:"Software scale-up, Ghent"}],
+    education:"MSc Computer Science · Azure Solutions Architect Expert · Terraform Associate",
     match:[
       {requirement:"Terraform in production, module design", strength:"strong", evidence:"Wrote the team's Terraform modules for AKS, Key Vault and Service Bus; certified."},
       {requirement:"Azure Kubernetes Service operations", strength:"partial", evidence:"Runs 14 services on AKS for one team. Operating AKS as a shared platform for other teams is not shown."},
@@ -586,62 +568,78 @@ function currentOpp(){
 
 function rule(id){ const el = $("#r-" + id); return el ? el.checked : true; }
 
-/* ---------- rendering the Zig CV ---------- */
+/* ---------- rendering the Zig CV: the simple, newspaper-style page ---------- */
 const ZIG_MARK = (size, bg, fg) => `<svg width="${size}" height="${size}" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="${bg}"/><polyline points="9,12 31,12 9,28 31,28" fill="none" stroke="${fg}" stroke-width="4.5" stroke-linejoin="miter" stroke-linecap="square"/></svg>`;
-const ZIGZAG = `<svg class="zcv-zz" viewBox="0 0 800 12" preserveAspectRatio="none" aria-hidden="true"><polyline points="${Array.from({length:81},(_,i)=>`${i*10},${i%2?2:10}`).join(" ")}" fill="none" stroke="#d9501d" stroke-width="1.6"/></svg>`;
-
-function today(){ return new Date().toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"}); }
+const STAR = 'M12 2.6l2.85 6 6.55.8-4.85 4.55 1.28 6.5L12 17.2l-5.83 3.25 1.28-6.5L2.6 9.4l6.55-.8z';
+const starsHTML = n => `<span class="zstars" role="img" aria-label="${n} of 5">${[1,2,3,4,5].map(i => `<svg viewBox="0 0 24 24" data-i="${i}"><path class="${i <= n ? "on" : "off"}" d="${STAR}"/></svg>`).join("")}</span>`;
+const markHTML = n => `<svg class="zmk" viewBox="0 0 16 16" role="img" aria-label="level ${n} of 3"><circle cx="8" cy="8" r="6.2" fill="${n === 3 ? "#d9501d" : "none"}" stroke="${n === 1 ? "#8b8f96" : "#d9501d"}" stroke-width="1.6"/>${n === 2 ? '<path d="M8 1.8a6.2 6.2 0 0 1 0 12.4z" fill="#d9501d"/>' : ""}</svg>`;
+const LT = {
+  en:{ doc:"Candidate presentation", cand:"Candidate", strengths:"Key strengths", skills:"Skills", tasks:"Tasks", exp:"Experience", langs:"Languages", edu:"Education", tools:"Software",
+       key:"5 stars: expert · 3 stars: solid · 1 star: basic", lv:["some exposure","with support","does it alone"], consultant:"Your Zig consultant", prepared:"Prepared for",
+       note:"Contact details are held by The Zig. The candidate's full CV, anonymised, follows." , name:"English" },
+  fr:{ doc:"Présentation de candidat", cand:"Candidat·e", strengths:"Points forts", skills:"Compétences", tasks:"Tâches", exp:"Expérience", langs:"Langues", edu:"Formation", tools:"Logiciels",
+       key:"5 étoiles : expert · 3 : solide · 1 : notions", lv:["notions","avec soutien","en autonomie"], consultant:"Votre consultant Zig", prepared:"Préparé pour",
+       note:"Les coordonnées sont conservées par The Zig. Le CV complet, anonymisé, suit.", name:"French" },
+  nl:{ doc:"Kandidaatvoorstelling", cand:"Kandidaat", strengths:"Sterke punten", skills:"Vaardigheden", tasks:"Taken", exp:"Ervaring", langs:"Talen", edu:"Opleiding", tools:"Software",
+       key:"5 sterren: expert · 3: goed · 1: basis", lv:["basiskennis","met begeleiding","zelfstandig"], consultant:"Uw Zig-consultant", prepared:"Opgesteld voor",
+       note:"Contactgegevens worden bewaard door The Zig. Het volledige, geanonimiseerde cv volgt.", name:"Dutch" }
+};
+function cvLang(){ return ($("#cvlang") && $("#cvlang").value) || "en"; }
+function today(){ return new Date().toLocaleDateString({ en:"en-GB", fr:"fr-BE", nl:"nl-BE" }[cvLang()], { month:"long", year:"numeric" }); }
 
 function cvHTML(cv, opp, editable){
   const ce = editable ? ' contenteditable="true" spellcheck="false"' : "";
-  const bar = n => `<span class="zcv-bar">${[1,2,3].map(i => `<i class="${i <= n ? "f" : ""}"></i>`).join("")}</span>`;
-  const lvl = n => ["", "Working", "Strong", "Core"][n] || "";
+  const t = LT[cvLang()] || LT.en;
   const cand = $("#id-ref").value.trim() || CANDIDATE.ref;
-  return `<article class="zcv">
-  <div class="zcv-top">
-    <div class="zcv-logo">${ZIG_MARK(38, "#16181d", "#d9501d")}<div class="zcv-word">THE ZIG<small>RECRUITMENT · BELGIUM</small></div></div>
-    <div class="zcv-meta"><span class="conf">Confidential</span><br>Prepared for <b${ce}>${esc(opp.alias)}</b><br><span class="mono">${esc(cand)} · ${esc(opp.ref)} · ${esc(today())}</span></div>
+  const skillsBlock = (cv.tasks && cv.tasks.length)
+    ? `<section><h2 class="zh">${esc(t.tasks)}</h2>${cv.tasks.map((x, i) => `<div class="zsk"><span${ce}>${esc(x.name)}</span><span data-t="${i}">${markHTML(+x.level || 1)}</span></div>`).join("")}
+       <div class="zkey">${[3,2,1].map(k => `<span class="kk">${markHTML(k)} ${esc(t.lv[k - 1])}</span>`).join(" ")}</div></section>`
+    : `<section><h2 class="zh">${esc(t.skills)}</h2>${(cv.skills || []).map((x, i) => `<div class="zsk"><span${ce}>${esc(x.name)}</span><span data-s="${i}">${starsHTML(+x.stars || 0)}</span></div>`).join("")}
+       <div class="zkey">${esc(t.key)}</div></section>`;
+  return `<article class="zp" lang="${cvLang()}">
+  <header class="zm">
+    <div class="zl">${ZIG_MARK(30, "#15171c", "#d9501d")}THE ZIG</div>
+    <div class="zmeta">${esc(t.doc)} · <b${ce}>${esc(cv.type || "")}</b><br>${esc(t.prepared)} <span data-alias${ce}>${esc(opp.alias)}</span> · ${esc(today())}</div>
+  </header>
+  <div class="zk">${esc(t.cand)} · ${esc(cand)}</div>
+  <h1 class="zhd"${ce}>${esc(cv.headline)}</h1>
+  <p class="zdeck"${ce}>${esc(cv.deck)}</p>
+  <div class="zfacts">${(cv.facts || []).slice(0, 4).map(f => `<div><div class="l"${ce}>${esc(f.l)}</div><div class="v"${ce}>${esc(f.v)}</div></div>`).join("")}</div>
+  <div class="zlangs"><span class="t">${esc(t.langs)}</span>${(cv.languages || []).map(l => `<div class="zlang"><div class="n"><span${ce}>${esc(l.n)}</span><span class="lv"${ce}>${esc(l.lv)}</span></div><div class="zmeter">${[1,2,3,4,5].map(k => `<i class="${k <= (+l.dots || 0) ? "on" : ""}"></i>`).join("")}</div></div>`).join("")}</div>
+  <h2 class="zh">${esc(t.strengths)}</h2>
+  <ul class="zcan">${(cv.can || []).map(c => `<li${ce}>${esc(c)}</li>`).join("")}</ul>
+  <div class="ztwo">
+    ${skillsBlock}
+    <section><h2 class="zh">${esc(t.exp)}</h2>
+      ${(cv.experience || []).map(j => `<div class="zjob${j.prev ? " prev" : ""}"><div class="y"${ce}>${esc(j.y)}</div><div class="r"${ce}>${esc(j.r)}</div><div class="o"${ce}>${esc(j.o)}</div></div>`).join("")}
+      ${cv.tools ? `<h2 class="zh">${esc(t.tools)}</h2><p class="ztools"${ce}>${esc(cv.tools)}</p>` : ""}
+    </section>
   </div>
-  ${ZIGZAG}
-  <div class="zcv-head">
-    <div class="for">Candidate profile</div>
-    <h1${ce}>${esc(cv.headline)}</h1>
-    <div class="cref">Anonymised candidate · ref ${esc(cand)}</div>
-  </div>
-  <div class="zcv-facts">${(cv.keyFacts||[]).map(f => `<div><div class="k">${esc(f.k)}</div><div class="v"${ce}>${esc(f.v)}</div></div>`).join("")}</div>
-  <div class="zcv-body">
-    <aside>
-      <section class="zcv-sec"><h2 class="zcv-h">Key expertise</h2>
-        <ul class="zcv-sk">${(cv.expertise||[]).map(s => `<li><span class="n"${ce}>${esc(s.skill)}</span><span class="m">${bar(+s.level||1)}${esc(lvl(+s.level||1))}${s.years ? " · " + esc(s.years) : ""}</span></li>`).join("")}</ul>
-      </section>
-      ${(cv.languages||[]).length ? `<section class="zcv-sec"><h2 class="zcv-h">Languages</h2><ul class="zcv-list">${cv.languages.map(l => `<li${ce}><b>${esc(l.lang)}</b><span>${esc(l.level)}</span></li>`).join("")}</ul></section>` : ""}
-      ${(cv.certifications||[]).length ? `<section class="zcv-sec"><h2 class="zcv-h">Certifications</h2><ul class="zcv-list">${cv.certifications.map(c => `<li${ce}><b>${esc(c.title)}</b><span>${esc(c.detail)}</span></li>`).join("")}</ul></section>` : ""}
-      ${(cv.education||[]).length ? `<section class="zcv-sec"><h2 class="zcv-h">Education</h2><ul class="zcv-list">${cv.education.map(c => `<li${ce}><b>${esc(c.title)}</b><span>${esc(c.detail)}</span></li>`).join("")}</ul></section>` : ""}
-    </aside>
-    <div>
-      <section class="zcv-sec"><h2 class="zcv-h">Profile</h2><p class="zcv-sum"${ce}>${esc(cv.summary)}</p></section>
-      <section class="zcv-sec"><h2 class="zcv-h">Relevant experience</h2>
-        ${(cv.experience||[]).map(j => `<div class="zcv-job">
-          <div class="t"><span class="role"${ce}>${esc(j.role)}</span><span class="per"${ce}>${esc(j.period)}</span></div>
-          <div class="emp"${ce}>${esc(j.employer)}</div>
-          <ul>${(j.bullets||[]).map(b => `<li${ce}>${esc(b)}</li>`).join("")}</ul>
-          ${(j.stack||[]).length ? `<div class="zcv-stack">${j.stack.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
-        </div>`).join("")}
-      </section>
-    </div>
-  </div>
-  <footer class="zcv-foot">
-    <div class="fl">${ZIG_MARK(20, "#d9501d", "#16181d")}Presented by The Zig · thezig.io</div>
-    <div class="fr">Identity and contact details are held by your Zig consultant and shared once an interview is agreed.</div>
+  ${cv.education ? `<p class="zline"><b>${esc(t.edu)}</b><span${ce}>${esc(cv.education)}</span></p>` : ""}
+  <div class="zspacer"></div>
+  <footer class="zfoot">
+    <div class="who"><span>${esc(t.consultant)}</span><b${ce}>[Consultant name]</b><span${ce}>[email]@thezig.io · [phone]</span></div>
+    <div class="note">${esc(t.note)}</div>
   </footer>
 </article>`;
 }
+/* scale the A4 page down on narrow screens; warn when it runs past one page */
+function fitPaper(){
+  const wrap = $("#paper"), sheet = wrap.querySelector(".zp"); if (!sheet) return;
+  sheet.style.transform = ""; wrap.style.height = "";
+  const s = Math.min(1, wrap.clientWidth / 793.7);
+  if (s < 1) { sheet.style.transform = `scale(${s})`; wrap.style.height = (sheet.offsetHeight * s) + "px"; }
+  const over = sheet.scrollHeight > 1123 + 4;
+  const w = $("#long-pill"); if (w) w.hidden = !over;
+}
+addEventListener("resize", fitPaper);
 
 function setOutput(cv, source, scan){
   state.cv = cv; state.source = source; state.reviewed = false; state.scan = scan;
   const opp = currentOpp();
   $("#paper").innerHTML = cvHTML(cv, opp, true);
   $("#paper").firstElementChild.classList.add("paper-in");
+  requestAnimationFrame(fitPaper);
   $("#src-pill").textContent = source === "sample" ? "Pre-generated sample" : "Drafted by Claude";
   $("#src-pill").className = "pill" + (source === "ai" ? " zig" : "");
   const sp = $("#scan-pill");
@@ -784,6 +782,7 @@ function buildPrompt(profile, notes){
     rule("schools") ? "Replace university names with a generic description (e.g. 'Brussels university') and drop graduation years." : "Keep university names and years.",
     rule("interests") ? "Leave out hobbies and personal interests unless the vacancy makes them relevant." : "Interests may be included if they help."
   ];
+  const LANGUAGE_NAME = (LT[cvLang()] || LT.en).name;
   return `You are the CV tailoring engine for The Zig, a recruitment agency in Belgium. Build an anonymised, client-facing CV that sells this candidate for THIS specific vacancy.
 
 HOW TO TAILOR
@@ -791,10 +790,18 @@ HOW TO TAILOR
 - Use only facts present in the candidate profile or recruiter notes. Never invent employers, numbers, technologies, certifications, levels or dates. Rephrase freely; never embellish.
 - Keep concrete numbers from the profile (latency, volumes, percentages, team sizes). They sell.
 - Order bullets inside each role by relevance to the vacancy: 2-5 bullets for relevant roles, 1 for marginal ones. Start bullets with a verb.
+- Write for a busy hiring manager, like a good newspaper: short, plain sentences anyone understands in 30 seconds. No jargon unless the client uses it. No adjectives that are not backed by a fact.
+- Write every client-facing field in ${LANGUAGE_NAME}. Keep technology names, product names and credentials (e.g. ITAA, AZ-305) as they are. Use gender-neutral wording; keep a job title in English if the language would force a gendered form.
 - headline: the job title of the vacancy, adjusted only if the candidate clearly fits a closely related title.
-- summary: 3-4 sentences, no name and no personal pronouns, written as a sales pitch built on evidence.
-- keyFacts: exactly 5 short label/value pairs a hiring manager scans first (experience, sector, location/work model, availability, languages or certification).
-- expertise: 6-8 skills most relevant to the vacancy, level 3=core, 2=strong, 1=working, years as a short string or "".
+- type: contract type as the client reads it (e.g. Permanent, Freelance), in ${LANGUAGE_NAME}.
+- deck: two sentences: what the person does, in plain words, then years of experience and the most relevant recent work. No name, no pronouns.
+- facts: exactly 4 short label/value pairs a hiring manager scans first (e.g. experience, start date, work model, daily rate or sector). Values of 1-3 words. Never salary or package unless the recruiter notes say to show it.
+- languages: every language in the profile with a plain level word (native, fluent, good, basic) and dots 1-5. If the profile gives no level, use "level to confirm" and dots 0.
+- can: 3-5 strengths, one short sentence each (max ~12 words), each backed by a fact from the profile, numbers kept.
+- Decide whether the role is judged on tools (e.g. software, engineering) or on tasks (e.g. accounting, payroll, HR, logistics).
+  Tools: skills = 6 items {name, stars 1-5}. Tasks: tasks = 6-8 items {name, level} with level 3 = does it alone, 2 = with support, 1 = some exposure, and tools = one line listing the software. Fill only one of skills or tasks.
+- experience: max 4 roles, newest first: {y: years, r: role, o: employer description and city, prev: true only for an earlier, different career}.
+- education: one line.
 - match: one entry per requirement in the job description (must-have and nice-to-have, plus location/on-site terms). strength is "strong", "partial" or "gap". evidence is one sentence citing the profile; for partial or gap, say what the recruiter should confirm. This stays internal.
 - redactions: every item you removed, generalised or left out (field, original, replacement). This stays internal.
 
@@ -812,7 +819,7 @@ RECRUITER NOTES (internal)
 ${notes.slice(0, 4000)}
 
 Reply with only one JSON object in exactly this shape:
-{"headline":"","summary":"","keyFacts":[{"k":"","v":""}],"expertise":[{"skill":"","level":3,"years":""}],"experience":[{"role":"","employer":"","period":"","bullets":[""],"stack":[""]}],"education":[{"title":"","detail":""}],"certifications":[{"title":"","detail":""}],"languages":[{"lang":"","level":""}],"match":[{"requirement":"","strength":"strong","evidence":""}],"redactions":[{"field":"","original":"","replacement":""}]}`;
+{"headline":"","type":"","deck":"","facts":[{"l":"","v":""}],"languages":[{"n":"","lv":"","dots":5}],"can":[""],"skills":[{"name":"","stars":5}],"tasks":[{"name":"","level":3}],"tools":"","experience":[{"y":"","r":"","o":"","prev":false}],"education":"","match":[{"requirement":"","strength":"strong","evidence":""}],"redactions":[{"field":"","original":"","replacement":""}]}`;
 }
 
 function setStatus(msg, err){ const s = $("#status"); s.textContent = msg; s.className = "status" + (err ? " err" : ""); }
@@ -848,6 +855,7 @@ async function generate(){
       .filter(r => r.original && String(r.original).length > 2 && r.replacement)
       .filter(r => (rule("employers") && /employer|company|client/i.test(r.field || "")) || (rule("schools") && /university|school/i.test(r.field || "")))
       .map(r => [String(r.original), String(r.replacement)]);
+    if (Array.isArray(data.tasks) && data.tasks.filter(t => t && t.name).length) data.skills = []; else data.tasks = [];
     const { value, hits } = scrubDeep(data, extra);
     setOutput(value, "ai", { hits });
     selectTab("cv");
@@ -864,22 +872,8 @@ async function generate(){
 function standaloneHTML(){
   const opp = currentOpp();
   const css = document.getElementById("cv-css").textContent;
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Zig · ${esc(opp.title)} · ${esc($("#id-ref").value)}</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400&display=swap"><style>body{margin:0;padding:24px 16px;background:#eceef1}.mono{font-family:"IBM Plex Mono",monospace}${css}</style></head><body>${cvHTML(currentEdits(), opp, false)}</body></html>`;
-}
-/* read recruiter edits back from the page into the CV object */
-function currentEdits(){
-  const p = $("#paper"); const cv = JSON.parse(JSON.stringify(state.cv));
-  const t = el => el ? el.innerText.trim() : "";
-  cv.headline = t(p.querySelector(".zcv-head h1")) || cv.headline;
-  cv.summary = t(p.querySelector(".zcv-sum")) || cv.summary;
-  p.querySelectorAll(".zcv-facts .v").forEach((el, i) => { if (cv.keyFacts[i]) cv.keyFacts[i].v = t(el); });
-  p.querySelectorAll(".zcv-sk .n").forEach((el, i) => { if (cv.expertise[i]) cv.expertise[i].skill = t(el); });
-  p.querySelectorAll(".zcv-job").forEach((job, i) => {
-    const j = cv.experience[i]; if (!j) return;
-    j.role = t(job.querySelector(".role")); j.period = t(job.querySelector(".per")); j.employer = t(job.querySelector(".emp"));
-    j.bullets = [...job.querySelectorAll("li")].map(t).filter(Boolean);
-  });
-  return cv;
+  const page = $("#paper").innerHTML.replace(/ contenteditable="true" spellcheck="false"/g, "").replace(/ style="transform:[^"]*"/g, "");
+  return `<!doctype html><html lang="${cvLang()}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Zig · ${esc(opp.title)} · ${esc($("#id-ref").value)}</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Libre+Franklin:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"><style>body{margin:0;padding:24px 16px;background:#eceef1}@media print{@page{size:A4;margin:0}body{padding:0;background:#fff}.zp{box-shadow:none}}${css}</style></head><body>${page}</body></html>`;
 }
 
 /* ---------- wiring ---------- */
@@ -908,7 +902,7 @@ $("#dlg-x").onclick = () => { try { $("#dlg").close(); } catch { $("#dlg").remov
 $("#opp").onchange = e => loadOpp(e.target.value);
 ["#client-alias", "#opp-ref"].forEach(s => $(s).addEventListener("input", () => {
   const opp = currentOpp();
-  const b = $("#paper .zcv-meta b"); if (b) b.textContent = opp.alias;
+  const b = $("#paper [data-alias]"); if (b) b.textContent = opp.alias;
   updateChain(); renderLinked();
 }));
 ["#id-name", "#id-ref", "#id-email", "#id-phone", "#id-addr", "#id-urls"].forEach(s => $(s).addEventListener("input", () => { renderRedactions(); updateChain(); renderLinked(); }));
@@ -922,7 +916,18 @@ $("#copy").onclick = async () => {
   catch { const r = document.createRange(); r.selectNodeContents($("#paper")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("#copy").textContent = "Selected, press Ctrl+C"; }
   setTimeout(() => $("#copy").textContent = "Copy text", 1800);
 };
-$("#paper").addEventListener("input", () => { if (state.reviewed) { state.reviewed = false; renderReview(); updateChain(); renderLinked(); } });
+$("#paper").addEventListener("click", e => {
+  const star = e.target.closest("[data-s] .zstars svg");
+  if (star) { const h = star.closest("[data-s]"), i = +h.dataset.s, n = +star.dataset.i, it = state.cv.skills[i]; it.stars = it.stars === n ? n - 1 : n; h.innerHTML = starsHTML(it.stars); return; }
+  const mk = e.target.closest("[data-t] .zmk");
+  if (mk) { const h = mk.closest("[data-t]"), it = state.cv.tasks[+h.dataset.t]; it.level = it.level === 1 ? 3 : it.level - 1; h.innerHTML = markHTML(it.level); }
+});
+$("#cvlang").addEventListener("change", () => {
+  if (state.cv) { $("#paper").innerHTML = cvHTML(state.cv, currentOpp(), true); requestAnimationFrame(fitPaper); }
+  if (state.source === "sample" && cvLang() !== "en") setStatus(`The samples are written in English. Press Generate tailored CV to write it in ${LT[cvLang()].name}; the page labels have switched already.`);
+});
+$("#paper").addEventListener("input", () => {
+  requestAnimationFrame(fitPaper); if (state.reviewed) { state.reviewed = false; renderReview(); updateChain(); renderLinked(); } });
 
 initForm();
 initMarkets();
