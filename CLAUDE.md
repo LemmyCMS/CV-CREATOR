@@ -154,6 +154,50 @@ headcount by month per desk, the desk crosswalk, a job-level export including jo
 never filled, and the Cube19 status→metric map. Pasting pages into chat does not scale —
 ask for the exported files.
 
+## NEW DATA 2026-09-27 — ratio denominator resolved, perm isolated, fee terms
+
+Four Slice & Dice pages and two OneView screens, all for **2 Jan 2023 – 30 Sep 2026**.
+Pages are parsed by `scripts/ingest_pages.py` (full rows → git-ignored `data/raw/*_full.csv`;
+rows with candidate/contact personal fields removed → `data/gentis/*.csv`). The Belgian page
+is rebuilt by `scripts/build_data_room.py` → `dashboard/data_room.html`, published at
+https://claude.ai/artifact/TfqeBNqcadDY9rJ7BH2hV8 (Belgium only — the user asked for that).
+
+**The OneView ratio denominator is now resolved.** Company view (`oneview_company_2023_2026.json`):
+four published ratios agree on ~2,071 funnel placements; perm 1,411 + contract *excluding
+extensions* 700 = 2,111 (98%). **Cube19's ratios divide by perm + new contract placements,
+extensions excluded.** Extensions are 1,693 of 2,393 contract placements (71%).
+
+**Perm can be isolated across the March break.** The "Perm Gentis" hierarchy filter
+(`oneview_perm_group_2023_2026.json`) holds 1,399 of the company's 1,411 perm placements, so
+company minus perm-group ≈ the contract business. Over 2023–26 contract earned €35.3M GP from
+~6,977 client meetings; perm €20.5M from 11,923 — **~2.9× more GP per client meeting on
+contract** (contract GP includes a book running in from before 2023, so an upper bound).
+Perm-group conversion: CV→1st interview 37%, CV→placement 3.9%, avg fee €14.7k.
+
+**Leak, company-wide:** 1,252 contract finishers with no extension/CV/interview/placement,
+€763k of weekly GP finishing with no action logged.
+
+**Targets are internally inconsistent**: company "Total Jobs Added" target 4,875 is below its
+own perm-jobs target 25,863; the perm group's client-call target (62,510) exceeds the
+company's (24,375). Targets were set per user/group without reconciling.
+
+**Belgian row-level additions:** contract length median **23 weeks** before extension (37 new
+contracts, Mar–Jul 2025); client fee agreements median **25%** (range 20–30%, 28–30% on most
+construction clients, a few flat fees €6k–€25k); payment terms mostly 14 days, then 30.
+Ghost owners on Belgian contract: 0% → 16% → 37% across the three batches.
+
+**Data faults found:** a perm fee stored as 60000% (placement 10412); start dates months before
+approval (10510, 10432); do-not-contact rules typed into company/contact name fields ("DNC op
+donderdagen", "DO NOT CALL OR EMAIL SPOC …") — the new CRM needs a DNC flag and account owner
+field; `[deleted]` candidates on live placements (GDPR erasure leaves the billing); a "Contract
+Extension 2" row inside the "excluding extensions" report; "Wiggli Intelligence" already a
+source in 2025.
+
+**Personal data:** the pastes now include candidate names/emails and client contact
+names/emails. They stay in `data/raw/` only. The user was told once that using Gentis's
+candidate and contact data for The Zig may breach GDPR purpose limitation and confidentiality
+terms; do not re-litigate, but never publish those fields.
+
 ## THE ZIG — the actual operating context (2026-09-04)
 
 **This is The Zig's business, not Gentis's.** Gentis is the benchmark being mined; The Zig is

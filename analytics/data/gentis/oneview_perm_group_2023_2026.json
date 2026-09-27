@@ -1,0 +1,78 @@
+{
+  "_source": "Cube19 OneView, hierarchy filter 'Gentis Consultancy > Perm Gentis', pasted by mutale@thezig.io 2026-09-27",
+  "_period": "2023-01-02 to 2026-09-30 (3.75 years)",
+  "_scope": "The Perm Gentis group only, across the whole period - NOT company-wide and NOT Belgium-only. Includes Luxembourg, Canada, Middle-East and Africa perm desks. Cube19 filters by today's hierarchy, so consultants who left before being assigned to this group may be missing [VERIFY].",
+  "_warning": "Screen shows '1 Active User' - per-head figures are meaningless on this view. Only 'N more' rows were visible for live, leaks, activity and revenue; the hidden rows were not pasted.",
+  "period_start": "2023-01-02",
+  "period_end": "2026-09-30",
+  "years": 3.75,
+  "active_users": 1,
+  "activity": {
+    "new_candidates": 50821,
+    "new_client_contacts": 53024,
+    "perm_jobs_added": 13420,
+    "contract_jobs_added": 270,
+    "total_jobs_added": 13767,
+    "total_a_jobs_added": 1289,
+    "total_cvs_sent": 354279,
+    "unique_cv_sends_by_candidate": 18455,
+    "client_calls": 98852,
+    "client_meetings": 11923,
+    "candidate_meetings": 14172,
+    "reference_checks": 2290,
+    "total_first_interviews": 12741,
+    "total_interviews": 16294
+  },
+  "revenue": {
+    "contract_billing": 116410,
+    "perm_billing": 20537601,
+    "contract_placements": 6,
+    "perm_placements": 1399,
+    "contract_gp_value": 240400
+  },
+  "live": {
+    "live_jobs": 5066,
+    "perm_starters": 1439,
+    "contractors_out": 0,
+    "contractors_finishing": 15,
+    "cm_ref_passed": 2511
+  },
+  "leaks": {
+    "finishers_no_ext_cv_int_or_placement": 11,
+    "weekly_gp_finishing_no_action": 7017,
+    "live_jobs_60d_under_3_interviews": 0,
+    "live_jobs_14d_no_cv_sent": 0
+  },
+  "targets": {
+    "cm_ref_passed": 26790,
+    "new_client_contacts": 26790,
+    "contract_jobs_added": 1640,
+    "total_jobs_added": 16074,
+    "reference_checks": 3572,
+    "client_calls": 62510,
+    "client_meetings": 33500,
+    "perm_jobs_added": 25795.01,
+    "total_first_interviews": 4107.8,
+    "perm_billing": 50468379,
+    "new_candidates": 26790,
+    "candidate_meetings": 33800,
+    "unique_cv_sends_by_candidate": 115100,
+    "total_cvs_sent": 239100,
+    "perm_placements": 3074.53,
+    "contract_placements": 82,
+    "contract_gp_value": 3120000,
+    "total_interviews": 52500,
+    "total_a_jobs_added": 10500
+  },
+  "cube19_published_ratios": {
+    "cv_sent_to_first_interview": 2.69,
+    "cv_sent_to_placements": 25.58,
+    "first_interview_to_placements": 9.52,
+    "candidate_calls_to_cvs_sent": 4.03,
+    "client_calls_to_a_jobs_added": 76.69,
+    "client_call_to_client_meetings": 8.29,
+    "client_meetings_to_jobs_added_inverse": 1.15,
+    "total_jobs_added_to_total_placements": 10.28,
+    "total_a_jobs_to_total_placements_inverse": 1.04
+  }
+}
