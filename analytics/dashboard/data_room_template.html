@@ -105,6 +105,7 @@ code{font:12.5px var(--mono);background:var(--chip);padding:1px 5px;border-radiu
 <nav class="tabs" role="tablist" aria-label="Sections">
   <button role="tab" data-t="summary" aria-selected="true" id="tab-summary">Summary</button>
   <button role="tab" data-t="clients" aria-selected="false" id="tab-clients">Clients</button>
+  <button role="tab" data-t="contacts" aria-selected="false" id="tab-contacts" hidden>Hiring managers</button>
   <button role="tab" data-t="recruiters" aria-selected="false" id="tab-recruiters">Recruiters</button>
   <button role="tab" data-t="desks" aria-selected="false" id="tab-desks">Desks</button>
   <button role="tab" data-t="perm" aria-selected="false" id="tab-perm">Perm placements</button>
@@ -131,6 +132,7 @@ const tip = $('#tip');
 document.addEventListener('mousemove', e => { const t = e.target.closest('[data-tip]'); if (!t) { tip.hidden = true; return; } tip.innerHTML = t.dataset.tip; tip.hidden = false; tip.style.left = Math.min(e.clientX+14, innerWidth-tip.offsetWidth-8)+'px'; tip.style.top = (e.clientY+14)+'px'; });
 const P = D.permst, C = D.cst, T = D.termst, Z = D.zig;
 $('#chips').innerHTML = `<span class="chip">${P.placements} perm placements</span><span class="chip">${C.rows} contract placements</span><span class="chip">${D.interviews.length} interviews</span><span class="chip">${D.meetings.length} client meetings</span><span class="chip">${D.clients.length} clients</span><span class="chip">${D.recruiters.length} recruiters</span><span class="chip warn">Sample pages, not the full export</span>`;
+if (D.full) $('#chips').insertAdjacentHTML('beforeend', `<span class="chip bad">Contains personal data · keep private</span>`);
 const ownerCell = v => String(v).startsWith('Ghost') ? `<span class="chip warn" data-tip="Placeholder account. No real consultant is credited.">${esc(v)}</span>` : esc(v);
 
 /* ---------- SUMMARY ---------- */
@@ -220,6 +222,29 @@ function fillClients(){
   $('#c-clients').textContent = `${rows.length} of ${D.clients.length} clients`;
 }
 
+/* ---------- HIRING MANAGERS ---------- */
+const KCOLS = [['name','Name'],['position','Role'],['email','Email'],['client','Client'],['desks','Desks'],['recruiters','Gentis recruiter'],['placements','Placements','n'],['interviews','Interviews','n'],['meetings','Meetings','n'],['last_seen','Last seen']];
+function contacts(){
+  const withMail = D.contacts.filter(c=>c.email).length, dncN = D.contacts.filter(c=>c.dnc).length;
+  return `<div class="block"><h2>Hiring managers and client contacts · ${D.contacts.length}</h2>
+  <p class="note">Everyone on the client side who appears in the Belgian placements, interviews or meetings. ${withMail} have an email address on record; the rest need one found. <b>${dncN} are marked do-not-contact</b> in Gentis's own notes (the rule was typed into the name field). Hover a desk list to see which Gentis recruiter owned the relationship.</p>
+  ${controls('contacts','Filter by name, client, role, recruiter…')}
+  <div class="tw" style="max-height:72vh"><table><thead>${head('contacts',KCOLS)}</thead><tbody id="b-contacts"></tbody></table></div></div>`;
+}
+function copyText(btn, text){ const done = () => { btn.textContent = 'Copied'; setTimeout(()=>btn.textContent='Copy', 1200); };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, ()=>{}); }
+function fillContacts(){
+  const st = tableState('contacts'), q = st.q.toLowerCase();
+  const rows = sortRows(D.contacts.filter(c=>match(c,q,['name','client','position','recruiters','desks','email'])), st, KCOLS);
+  $('#b-contacts').innerHTML = rows.map(c=>`<tr><td style="white-space:normal;min-width:170px;max-width:240px"><b>${esc(c.name)}</b>${c.dnc?' <span class="chip bad" data-tip="Gentis marked this contact or client do-not-contact">do not contact</span>':''}</td>
+  <td style="white-space:normal;min-width:160px">${c.position?esc(c.position):dash}</td>
+  <td>${c.email?`<span style="font:12.5px var(--mono);user-select:all">${esc(c.email)}</span> <button class="cp" data-copy="${esc(c.email)}" style="font:11px var(--sans);border:1px solid var(--line);background:var(--panel);color:var(--ink-2);border-radius:5px;padding:1px 6px;cursor:pointer">Copy</button>`:dash}</td>
+  <td><b>${esc(c.client)}</b></td><td style="white-space:normal;min-width:180px;font-size:12.5px;color:var(--ink-2)">${c.desks.map(esc).join(' · ')}</td>
+  <td style="white-space:normal;font-size:12.5px">${c.recruiters.map(ownerCell).join(', ')}</td>
+  <td class="n">${c.placements||dash}</td><td class="n">${c.interviews||dash}</td><td class="n">${c.meetings||dash}</td><td>${esc(c.last_seen)}</td></tr>`).join('');
+  $('#c-contacts').textContent = `${rows.length} of ${D.contacts.length} contacts`;
+}
+
 /* ---------- RECRUITERS ---------- */
 const RCOLS = [['owner','Recruiter'],['desks','Desks'],['perm_n','Perm','n'],['perm_bill','Perm billed','n'],['con_n','Contract','n'],['con_gp','Contract value','n'],['iv','Interviews','n'],['mt','Meetings','n'],['clients','Clients','n'],['value','Total','n']];
 function recruiters(){
@@ -274,13 +299,24 @@ function fillRows(kind){
     if (c[0]==='client') return `<td><b>${esc(v)}</b>${r.is_retainer==='true'?' <span class="chip warn">retainer</span>':''}${r.flag?` <span class="chip bad" data-tip="${esc(r.flag)}">check</span>`:''}</td>`;
     if (c[0]==='owner'||c[0]==='job_owner') return `<td>${ownerCell(v)}</td>`;
     if (c[0]==='period') return `<td class="muted">${esc(v)}</td>`;
+    if (c[0]==='candidate_email') return `<td style="font:12.5px var(--mono)">${v?esc(v):dash}</td>`;
+    if (c[0]==='hiring_manager') return `<td>${v?esc(v):dash}${r.dnc?' <span class="chip bad">do not contact</span>':''}</td>`;
     return `<td class="${c[2]||''}">${c[2]&&v!==''&&v!=null?nf(v,c[0]==='fee_pct'?2:c[0]==='weeks'?1:0):esc(v)}</td>`; }).join('')}</tr>`).join('');
   $('#c-'+kind).textContent = `${rows.length} of ${D[kind].length} rows`;
+}
+
+if (D.full) {
+  COLS.perm.splice(4, 0, ['hiring_manager','Hiring manager'], ['candidate','Candidate'], ['candidate_email','Candidate email']);
+  COLS.contract.splice(3, 0, ['candidate','Candidate'], ['candidate_email','Candidate email']);
 }
 
 /* ---------- ACTIVITY ---------- */
 const ICOLS = [['interview_date','Date'],['client','Client'],['client_contact_position','Contact role'],['job_title','Role'],['market','Desk'],['owner','Recruiter'],['priority','Priority'],['job_type','Job type'],['interview_type','Stage'],['source','Source']];
 const MCOLS = [['meeting_date','Date'],['client','Client'],['client_contact_position','Contact role'],['market','Desk'],['owner','Recruiter'],['meeting_type','Type']];
+if (D.full) {
+  ICOLS.splice(2, 0, ['client_contact','Hiring manager'], ['client_contact_email','Contact email'], ['candidate','Candidate']);
+  MCOLS.splice(2, 0, ['client_contact','Contact']);
+}
 function activity(){
   return `<div class="block"><h2>Interviews · Feb 2023 · ${D.interviews.length}</h2>
   <p class="note">One page of the interview report, Belgian desks only. Most are first interviews on permanent roles. Three are Gentis interviewing for its own Talent Acquisition role.</p>
@@ -366,13 +402,15 @@ function gaps(){
 }
 
 /* ---------- ROUTER ---------- */
-const PANES = {summary, clients, recruiters, desks, perm:()=>rowPane('perm'), contract:()=>rowPane('contract'), activity, zig, gaps};
+const PANES = {summary, clients, contacts, recruiters, desks, perm:()=>rowPane('perm'), contract:()=>rowPane('contract'), activity, zig, gaps};
+if (D.full) { $('#tab-contacts').hidden = false; } else { delete PANES.contacts; }
 let cur = 'summary';
 try { const h = location.hash.slice(1); if (PANES[h]) cur = h; else { const s = localStorage.getItem('be-tab'); if (PANES[s]) cur = s; } } catch(e){}
 function fill(){
   if (cur==='perm'||cur==='contract') fillRows(cur);
   if (cur==='clients') fillClients();
   if (cur==='recruiters') fillRecruiters();
+  if (cur==='contacts') fillContacts();
   if (cur==='activity'){ fillAct('interviews',ICOLS); fillAct('meetings',MCOLS); }
 }
 function render(){
@@ -383,6 +421,7 @@ function render(){
 document.querySelector('nav.tabs').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; cur=b.dataset.t; try{localStorage.setItem('be-tab',cur)}catch(e){} render(); });
 document.addEventListener('click', e=>{
   const t = e.target.closest('button,th.sort'); if(!t) return;
+  if (t.dataset.copy){ copyText(t, t.dataset.copy); return; }
   if (t.id==='z-perm'||t.id==='z-free'){ zigMode = t.id==='z-perm'?'perm':'free'; render(); }
   if (t.matches('th.sort')){ const st=tableState(t.dataset.kind); if(st.sort===t.dataset.k) st.dir*=-1; else {st.sort=t.dataset.k; st.dir=-1;} render(); }
 });

@@ -27,9 +27,25 @@ def is_be(m: str) -> bool:
     return bool(BE.search(m or ""))
 
 
+FULL = False  # set by --full: read data/raw/*_full.csv, which keep candidate and contact fields
+RAW = ROOT / "data" / "raw"
+BAD_EMAIL = {"", "na", "n/a", "[deleted]", "0", "/", "dnc"}
+
+
 def rows(name: str) -> list[dict]:
     p = G / name
+    if FULL and (RAW / name.replace(".csv", "_full.csv")).exists():
+        p = RAW / name.replace(".csv", "_full.csv")
     return list(csv.DictReader(p.open(encoding="utf-8"))) if p.exists() else []
+
+
+def email(s: str) -> str:
+    s = (s or "").strip()
+    return s if "@" in s and s.lower() not in BAD_EMAIL else ""
+
+
+def dnc(*vals: str) -> bool:
+    return any(re.search(r"\bDNC\b|DO NOT|NIET ZOMAAR", v or "", re.I) for v in vals)
 
 
 def f(x, default=None):
@@ -82,6 +98,10 @@ def perm_rows() -> list[dict]:
             "priority": r["priority"], "salary_eur": "", "fee_pct": "" if (f(r["fee_pct"]) or 0) > 100 else r["fee_pct"],
             "split": r["split"], "billing_eur": r["billing_eur"], "time_to_fill": r["time_to_fill"], "source": r["source"],
             "period": "Nov 2025 – Mar 2026", "is_retainer": r["is_retainer"], "flag": "; ".join(flag),
+            "hiring_manager": r.get("client_contact", ""),
+            "candidate": "" if r.get("candidate") in ("[deleted]", "Candidate Retainer") else r.get("candidate", ""),
+            "candidate_email": email(r.get("candidate_email", "")),
+            "dnc": dnc(r["client"], r.get("client_contact", "")),
         })
     return [r for r in out if is_be(r["market"])]
 
@@ -105,6 +125,8 @@ def contract_rows() -> list[dict]:
             "end_date": r["end_date"], "weeks": round((e - s).days / 7, 1) if s and e else "",
             "contract_type": r["contract_type"], "job_type": r["job_type"], "source": r["source"],
             "time_to_fill": r["time_to_fill"], "period": "Mar – Jul 2025 (new, excl. extensions)",
+            "candidate": r.get("candidate", ""), "candidate_email": email(r.get("candidate_email", "")),
+            "dnc": dnc(r["client"]),
         })
     return [r for r in out if is_be(r["market"])]
 
@@ -234,9 +256,47 @@ def build() -> dict:
               "freelance_yes": sum(t["org_freelance"] == "YES" for t in terms.values()),
               "freelance_known": sum(bool(t["org_freelance"]) for t in terms.values())}
 
-    ivrows = [{k: r[k] for k in ("created", "interview_date", "owner", "market", "client", "client_contact_position",
-                                 "job_title", "priority", "job_type", "interview_type", "source")} for r in iv]
-    mtrows = [{k: r[k] for k in ("meeting_date", "owner", "market", "client", "client_contact_position", "meeting_type")} for r in mt]
+    ivk = ("created", "interview_date", "owner", "market", "client", "client_contact_position",
+           "job_title", "priority", "job_type", "interview_type", "source")
+    mtk = ("meeting_date", "owner", "market", "client", "client_contact_position", "meeting_type")
+    if FULL:
+        ivk += ("candidate", "client_contact", "client_contact_email")
+        mtk += ("client_contact",)
+    ivrows = [{k: r.get(k, "") for k in ivk} for r in iv]
+    mtrows = [{k: r.get(k, "") for k in mtk} for r in mt]
+    for r in ivrows:
+        r["client_contact_email"] = email(r.get("client_contact_email", "")) if FULL else ""
+
+    # hiring managers: one row per client contact, from placements, interviews and meetings
+    contacts = {}
+    def add(name, client, position, mail, desk, owner, when, kind, note_src=""):
+        name = (name or "").strip()
+        if not name or name.startswith("*"):
+            return
+        k = (name.lower(), client.lower())
+        c = contacts.setdefault(k, {"name": name, "client": client, "position": "", "email": "", "desks": set(),
+                                    "recruiters": set(), "placements": 0, "interviews": 0, "meetings": 0,
+                                    "last_seen": "", "dnc": False})
+        c["position"] = c["position"] or position or ""
+        c["email"] = c["email"] or mail or ""
+        c["desks"].add(desk); c["recruiters"].add(owner)
+        c[kind] += 1
+        d = day(when)
+        if d and (not c["last_seen"] or d > day(c["last_seen"])):
+            c["last_seen"] = when
+        c["dnc"] = c["dnc"] or dnc(name, client, note_src)
+    if FULL:
+        for r in perm:
+            if r.get("hiring_manager"):
+                add(r["hiring_manager"], r["client"], "", "", r["market"], r["owner"], r["date_approved"], "placements")
+        for r in iv:
+            add(r.get("client_contact"), r["client"], r["client_contact_position"], email(r.get("client_contact_email", "")),
+                r["market"], r["owner"], r["interview_date"], "interviews")
+        for r in mt:
+            add(r.get("client_contact"), r["client"], r["client_contact_position"], "", r["market"], r["owner"],
+                r["meeting_date"], "meetings")
+    contactrows = sorted(({**c, "desks": sorted(c["desks"]), "recruiters": sorted(c["recruiters"])} for c in contacts.values()),
+                         key=lambda c: (c["client"].lower(), c["name"].lower()))
 
     z = json.loads((DASH / "zig_year1.json").read_text())
     z["perm"] = [d for d in z["perm"] if is_be(d["desk"])]
@@ -245,6 +305,7 @@ def build() -> dict:
     allp = rows("perm_placements_sample.csv") + rows("perm_placements_page2.csv")
     allc = rows("contract_placements_sample.csv") + rows("contract_placements_page2.csv")
     return {
+        "full": FULL, "contacts": contactrows,
         "perm": perm, "contract": con, "interviews": ivrows, "meetings": mtrows,
         "permst": permst, "cst": cst, "termst": termst, "desks": deskrows, "clients": clients, "recruiters": recruiters,
         "zig": z, "excluded": {"perm": len(allp) - len(perm), "contract": len(allc) - len(con),
@@ -253,9 +314,12 @@ def build() -> dict:
 
 
 if __name__ == "__main__":
+    import sys
+    FULL = "--full" in sys.argv
     data = build()
     tpl = (DASH / "data_room_template.html").read_text(encoding="utf-8")
-    out = DASH / "data_room.html"
+    # The full page carries candidate and contact personal data: it goes to the git-ignored raw/ folder only.
+    out = RAW / "data_room_full.html" if FULL else DASH / "data_room.html"
     out.write_text(tpl.replace("__DATA__", json.dumps(data, separators=(",", ":"), default=list)), encoding="utf-8")
     print(f"wrote {out.relative_to(ROOT)}: {data['permst']['placements']} perm, {data['cst']['rows']} contract, "
           f"{len(data['interviews'])} interviews, {len(data['meetings'])} meetings, {len(data['clients'])} clients, "
