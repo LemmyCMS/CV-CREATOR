@@ -248,6 +248,16 @@ contact, type, subject, sent by, status with opens/clicks), filters by direction
 and text, a "Scheduled to send" section for system emails, and a drawer with the message and the
 whole thread per contact. Sending from any task logs the email automatically; stopping a system
 send removes it. The same table appears filtered in each company panel and on the progress report.
+**v7 — Simple mode (default):** the user asked for it to be simple enough for a child. A
+"Simple / Show everything" switch (remembered per browser) shows five plain pages: *My day*
+(three big numbers, a traffic-light key, one card per job: sentence + one-line reason + time
+left + one button, then "coming up later" and "the computer did these for you"), *Clients*
+(cards: match as 1–5 dots, status and paperwork in plain sentences), *Searches & reports* (four
+big numbers, market price vs budget in one sentence, the most common reason people said no, what
+we will ask the client to flex on, one send button), *Emails*, *Deals*. A glossary pass swaps
+trade words everywhere except inside outgoing emails (opportunity→deal, relance→follow-up,
+FitScore→match score, PSL→supplier list, MSP→hiring portal, placement likelihood→chance of
+success). Keep new UI copy at this reading level.
 
 ## Access constraints discovered (do not re-litigate these)
 

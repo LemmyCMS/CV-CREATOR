@@ -389,6 +389,62 @@ mark.bad{background:var(--crit-bg);color:var(--crit);border-bottom:2px solid var
 .dir.out{background:var(--info-bg);color:var(--info)}
 .dir.in{background:var(--good-bg);color:var(--good)}
 
+/* simple mode */
+.mode{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:0 4px 12px}
+.mode button{flex:1;border:0;background:none;padding:7px 6px;font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.mode button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+body.simple .legend-box{display:none}
+body.simple .main{font-size:15px}
+.s-hello{margin-bottom:18px}.s-hello h2{font-size:28px;font-weight:700}.s-hello p{margin:6px 0 0;color:var(--ink-2);max-width:60ch;font-size:15.5px}
+.s-big{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.s-num{border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:2px;background:var(--surface);border:2px solid var(--line)}
+.s-num b{font-family:Archivo,sans-serif;font-size:36px;line-height:1.1}
+.s-num span{font-size:14.5px;color:var(--ink-2)}
+.s-num.red{border-color:var(--crit-mk)}.s-num.amber{border-color:var(--warn-mk)}.s-num.green{border-color:var(--good-mk)}.s-num.blue{border-color:var(--info-mk)}
+.s-key{display:flex;flex-wrap:wrap;gap:16px;font-size:13.5px;color:var(--ink-2);margin:4px 0 20px}
+.s-key span,.s-line,.s-mini button{display:flex;align-items:center;gap:8px}
+.s-key i,.s-line i,.s-mini i{width:12px;height:12px;border-radius:50%;flex:none}
+i.red{background:var(--crit-mk)}i.amber{background:var(--warn-mk)}i.green{background:var(--good-mk)}i.blue{background:var(--info-mk)}
+.s-h{font-size:19px;margin:22px 0 10px}
+.s-list{display:flex;flex-direction:column;gap:10px}
+.s-card{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:8px solid var(--info-mk);border-radius:14px;padding:16px 18px}
+.s-card.red{border-left-color:var(--crit-mk)}.s-card.amber{border-left-color:var(--warn-mk)}
+.s-n{width:40px;height:40px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font-family:Archivo,sans-serif;font-weight:700;font-size:18px}
+.s-what{font-family:Archivo,sans-serif;font-size:19px;font-weight:700;line-height:1.3}
+.s-why{font-size:15px;color:var(--ink-2);margin-top:3px}
+.s-who{font-size:13.5px;color:var(--ink-3);margin-top:2px}
+.s-side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.s-time{font-weight:700;font-size:14px;padding:4px 12px;border-radius:14px;white-space:nowrap}
+.s-time.red{background:var(--crit-bg);color:var(--crit)}.s-time.amber{background:var(--warn-bg);color:var(--warn)}.s-time.blue{background:var(--info-bg);color:var(--info)}.s-time.green{background:var(--good-bg);color:var(--good)}
+.btn.s-go{font-size:15px;padding:10px 18px;border-radius:10px}
+.s-done{border:0;background:none;color:var(--ink-3);font-size:13px;text-decoration:underline;padding:0}
+.s-mini{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 16px}
+.s-mini button{border:0;border-bottom:1px solid var(--line-soft);background:none;padding:11px 0;text-align:left;font-size:15px}
+.s-mini button:last-child{border-bottom:0}
+.s-mini button:hover{color:var(--info)}
+.s-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.s-client{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:left;display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+.s-client:hover{border-color:var(--info-mk)}
+.s-cn{font-family:Archivo,sans-serif;font-size:18px;font-weight:700}
+.s-city{font-size:13.5px;color:var(--ink-3)}
+.s-dots{display:flex;align-items:center;gap:4px;font-size:12.5px;color:var(--ink-3)}
+.s-dots i{width:14px;height:14px;border-radius:50%;background:var(--line)}
+.s-dots i.on{background:var(--good-mk)}
+.s-dots span{margin-left:4px}
+.s-search{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.s-sh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.s-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.s-steps div{background:var(--surface-2);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column}
+.s-steps b{font-family:Archivo,sans-serif;font-size:26px}
+.s-steps span{font-size:13px;color:var(--ink-2)}
+.s-acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:4px}
+@media (max-width:700px){
+  .s-big{grid-template-columns:minmax(0,1fr)}
+  .s-card{grid-template-columns:36px minmax(0,1fr)}
+  .s-side{grid-column:2;align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .s-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 @media (max-width:1180px){
   .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
   .rail{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -630,7 +686,7 @@ const VIEWS = [
  {id:"model",nm:"Data model",step:""},
 ];
 let view = "today";
-try { const h = location.hash.slice(1); if (VIEWS.some(v=>v.id===h)) view = h; } catch(e){}
+try { const h = location.hash.slice(1); if (VIEWS.some(v=>v.id===h) || ["clients","searches"].includes(h)) view = h; } catch(e){}
 
 function navCounts(){
   const r = replies.filter(x=>!x.handled && (x.cls==="Interested"||x.cls==="Referral"));
@@ -646,7 +702,10 @@ function navCounts(){
 }
 function renderNav(){
   const n = navCounts();
-  $("#nav").innerHTML = VIEWS.map(v => v.sep ? `<div class="nav-sep">${v.sep}</div>` :
+  document.body.classList.toggle("simple", simple);
+  const modeSw = `<div class="mode" role="group" aria-label="How much to show"><button data-mode="simple" aria-pressed="${simple}">Simple</button><button data-mode="full" aria-pressed="${!simple}">Show everything</button></div>`;
+  if (simple) { const sc = {today:n.today, clients:[0,""], searches:n.reports, emails:[0,""], opportunities:n.opportunities}; $("#nav").innerHTML = modeSw + VIEWS_SIMPLE.map(v=>`<button data-v="${v.id}" ${v.id===view?'aria-current="page"':""}><span>${v.nm}</span>${sc[v.id]&&sc[v.id][0]?`<span class="cnt ${sc[v.id][1]}">${sc[v.id][0]}</span>`:""}</button>`).join(""); return; }
+  $("#nav").innerHTML = modeSw + VIEWS.map(v => v.sep ? `<div class="nav-sep">${v.sep}</div>` :
     `<button data-v="${v.id}" ${v.id===view?'aria-current="page"':''}><span><span class="step">${v.step}</span>${v.nm}</span>${n[v.id]&&n[v.id][0]?`<span class="cnt ${n[v.id][1]}">${n[v.id][0]}</span>`:""}</button>`).join("");
 }
 function go(v){ view = v; try{ history.replaceState(null,"","#"+v);}catch(e){} render(); window.scrollTo(0,0); }
@@ -1116,9 +1175,9 @@ function actionBar(){
   if (!next) return `<div class="actbar"><div class="ab-l"><span class="ab-n">0</span><div><b>actions for you today</b><span>The system is handling ${auto} items. ${later} due later.</span></div></div></div>`;
   const c = coById(next.co), d = deadline(next);
   return `<div class="actbar ${urgent?"hot":""}" role="region" aria-label="Your actions">
-    <div class="ab-l"><span class="ab-n">${now.length}</span><div><b>action${now.length>1?"s":""} for you today</b><span>${urgent} urgent · ${later} later · ${auto} handled by the system</span></div></div>
-    <div class="ab-next"><span class="ab-k">Do next</span><b>${esc(next.act)}</b><span>${esc(c.name)} · <span class="ab-d ${d[0]}">${esc(d[1])}</span></span></div>
-    <div class="ab-b"><button class="btn primary" data-task="${next.id}">${esc(next.btn)}</button><button class="btn ab-all" data-go="today">All my actions</button></div>
+    <div class="ab-l"><span class="ab-n">${now.length}</span><div><b>${simple?`thing${now.length>1?"s":""} to do today`:`action${now.length>1?"s":""} for you today`}</b><span>${simple?`${urgent} are urgent · the computer is doing ${auto} for you`:`${urgent} urgent · ${later} later · ${auto} handled by the system`}</span></div></div>
+    <div class="ab-next"><span class="ab-k">${simple?"Start with":"Do next"}</span><b>${esc(next.act)}</b><span>${esc(c.name)} · <span class="ab-d ${d[0]}">${esc(d[1])}</span></span></div>
+    <div class="ab-b"><button class="btn primary" data-task="${next.id}">${esc(next.btn)}</button><button class="btn ab-all" data-go="today">${simple?"See my day":"All my actions"}</button></div>
   </div>`;
 }
 function completeTask(t){
@@ -1670,15 +1729,93 @@ function openMail(id){
       <div class="tl">${thread.map(x=>`<button class="tl-i" data-mail="${x.id}" style="border:0;background:${x.id===m.id?"var(--info-bg)":"none"};text-align:left;padding:4px;border-radius:6px;width:100%"><span class="dot ${x.dir==="in"?"good":x.st==="scheduled"?"ai":x.st==="bounced"?"crit":"info"}"></span><span class="num tl-d">${fmtD(parseD(x.d))}</span><div><b style="font-weight:600">${x.dir==="in"?"↙ ":"↗ "}${esc(x.sub)}</b><div class="note">${esc(x.kind)} · ${x.dir==="in"?esc(x.st):esc(MST[x.st][1])}</div></div></button>`).join("")}</div></div>
     <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost" data-co="${co.id}">Open company</button><button class="btn ghost" data-mailco="${co.id}">All emails with ${esc(co.name)}</button></div>`);
 }
+/* ---------------- simple mode: the same tool in plain words ---------------- */
+let simple = true;
+try { const v = localStorage.getItem("zig-simple"); if (v === "0") simple = false; } catch(e){}
+const VIEWS_SIMPLE = [
+ {id:"today",nm:"My day"},{id:"clients",nm:"Clients"},{id:"searches",nm:"Searches & reports"},{id:"emails",nm:"Emails"},{id:"opportunities",nm:"Deals"}];
+// Swap trade words for everyday ones, everywhere except inside emails we send and form fields.
+const GLOSS = [
+ [/\bOpen pipeline\b/g,"Deals in progress"],[/\bpipeline\b/g,"deals"],
+ [/\bOpportunities\b/g,"Deals"],[/\bopportunities\b/g,"deals"],[/\bOpportunity\b/g,"Deal"],[/\bopportunity\b/g,"deal"],
+ [/\bPlacement likelihood\b/g,"Chance of success"],[/\bplacement likelihood\b/g,"chance of success"],
+ [/\bFitScore\b/g,"Match score"],[/\bRelances\b/g,"Follow-ups"],[/\bRelance\b/g,"Follow-up"],[/\brelances\b/g,"follow-ups"],[/\brelance\b/g,"follow-up"],
+ [/\bNegotiation\b/g,"Agreeing terms"],[/\bQualified\b/g,"Serious"],[/\bBounced\b/g,"Didn't arrive"],[/\bbounced\b/g,"didn't arrive"],
+ [/\bCatch-all\b/g,"Can't be checked"],[/\bcatch-all\b/g,"can't be checked"],[/\bPSL\b/g,"supplier list"],[/\bMSP vendor portal\b/gi,"hiring portal"],[/\bMSP portal\b/gi,"hiring portal"],[/\bhiring portal portal\b/g,"hiring portal"],[/\bMSP\b/g,"hiring portal"],
+ [/\bSequences\b/g,"Email series"],[/\bSequence\b/g,"Email series"],[/\bsequence\b/g,"email series"],[/\bexpected\b/g,"likely"],[/\bExpected value\b/g,"Likely value"],
+ [/\bSLA\b/g,"deadline"],[/\bEngagement\b/g,"Interest"],[/\bNot billable\b/g,"Can't invoice yet"],[/\bnot billable\b/g,"can't invoice yet"],
+];
+function gloss(root){
+  if (!simple || !root) return;
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n => n.parentElement.closest(".msg,textarea,input,.boolean,script,style") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+  const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+  nodes.forEach(n => { let t = n.nodeValue, o = t; GLOSS.forEach(([re,to]) => { t = t.replace(re,to); }); if (t !== o) n.nodeValue = t; });
+}
+const SWHY = {"TK-401":"He asked for our prices 38 minutes ago.","TK-402":"They want to agree the price for their big project.","TK-403":"Karel told us she is the right person to talk to.","TK-404":"Our worker there left in June. Ask if they need someone new.","TK-408":"Our email to her came back. Find her new address.","TK-409":"They must sign this before we can start work.","TK-411":"Orbis only hires through this website. We must sign up first.","TK-413":"The CRM did not save a change. Press Retry.","TK-414":"We cannot check this email address. Look her up on LinkedIn."};
+const simpleWhy = t => SWHY[t.id] || (t.type==="Report" ? "Tell the client how their search is going." : t.trigger==="Delegate" ? `Tom is away. He said to write to her if it is urgent.` : firstSentence(t.why));
+const firstSentence = s => (s||"").split(/(?<=[.!?”])\s/)[0];
+const sTone = t => { const d = deadline(t)[0]; return d==="crit"?"red":d==="warn"?"amber":"blue"; };
+function sWhen(t){
+  if (t.sla!=null && daysTo(t.due)<=0) return `${slaTxt(t.sla)} left to reply`;
+  const n = daysTo(t.due);
+  if (n<0) return `${-n} day${n<-1?"s":""} late`;
+  if (n===0) return "Today";
+  return n===1 ? "Tomorrow" : "By " + fmtD(parseD(t.due));
+}
+function vTodaySimple(){
+  const now = mineNow().sort(byUrgency), later = mine().filter(t=>daysTo(t.due)>0).sort((a,b)=>daysTo(a.due)-daysTo(b.due));
+  const auto = tasks.filter(t=>t.status!=="done"&&t.owner==="system");
+  const good = replies.filter(r=>["Interested","Referral"].includes(r.cls)).length;
+  const deals = opps.filter(o=>!["Won","Lost"].includes(o.stage)).reduce((s,o)=>s+o.value,0);
+  return `<div class="s-hello"><div class="eyebrow">Wednesday 23 September</div><h2>Good morning. Here is your day.</h2></div>
+  <div class="s-big">
+    <div class="s-num ${now.some(t=>sTone(t)==="red")?"red":"amber"}"><b class="num">${now.length}</b><span>things for you to do today</span></div>
+    <div class="s-num green"><b class="num">${good}</b><span>clients said yes or sent us a name</span></div>
+    <div class="s-num blue"><b class="num">${eurk(deals)}</b><span>in deals we are working on</span></div>
+  </div>
+  <div class="s-key"><span><i class="red"></i>Do first</span><span><i class="amber"></i>Do today</span><span><i class="green"></i>Good news</span><span><i class="blue"></i>Later</span></div>
+  <h3 class="s-h">Do these, top one first</h3>
+  <div class="s-list">${now.map((t,i)=>{const c=coById(t.co),tn=sTone(t);return `<div class="s-card ${tn}">
+    <span class="s-n">${i+1}</span>
+    <div class="s-body"><div class="s-what">${esc(t.act)}</div><div class="s-why">${esc(simpleWhy(t))}</div><div class="s-who">${esc(c.name)}</div></div>
+    <div class="s-side"><span class="s-time ${tn}">${esc(sWhen(t))}</span><button class="btn primary s-go" data-task="${t.id}">${esc(t.btn)}</button><button class="s-done" data-tdo="${t.id}">Mark done</button></div></div>`}).join("")||`<p>Nothing to do right now.</p>`}</div>
+  ${later.length?`<h3 class="s-h">Coming up later</h3><div class="s-mini">${later.map(t=>`<button data-task="${t.id}"><i class="blue"></i><b>${esc(sWhen(t))}</b> ${esc(t.act)}</button>`).join("")}</div>`:""}
+  <h3 class="s-h">The computer did these for you</h3>
+  <div class="s-mini">${auto.map(t=>`<button data-task="${t.id}"><i class="green"></i>${esc(t.act)}</button>`).join("")}${replies.filter(r=>r.auto).map(r=>{const [,co]=ctById(r.ct);return `<button data-mail="${(mails.find(m=>m.dir==="in"&&m.ct===r.ct)||{}).id||""}"><i class="green"></i>Read the reply from ${esc(co.name)} and ${esc(r.cls==="Unsubscribe"?"stopped emailing them":r.cls==="Out of office"?"planned the next email":r.cls==="Referral"?"linked the person they named":"planned the follow-up")}</button>`}).join("")}</div>`;
+}
+const OUT_S = {"Not started":["blue","Not contacted yet"],"In sequence":["blue","We are emailing them"],"Replied":["green","They answered us"],"Follow-up due":["amber","Time to write to them again"],"Bounced":["red","Our email didn't arrive"],"Paused":["blue","Waiting until later"],"Stopped":["green","Talking with us now"]};
+function vClientsSimple(){
+  const L = companies.slice().sort((a,b)=>b.fit-a.fit);
+  return `<div class="s-hello"><h2>Clients</h2><p>Every company we are talking to. More dots means a better match for us.</p></div>
+  <div class="s-grid">${L.map(c=>{const st=OUT_S[c.outreach]||["blue",c.outreach],dots=Math.max(1,Math.round(c.fit/20));
+    const money = canBill(c) ? ["green","Ready to work with"] : c.acct.psl.uses&&!c.acct.psl.member ? ["amber","We must join their supplier list first"] : acctN(c)>0 ? ["amber","Paperwork not finished"] : ["blue","No paperwork needed yet"];
+    return `<button class="s-client" data-co="${c.id}"><div class="s-cn">${esc(c.name)}</div><div class="s-city">${esc(c.city)} · ${esc(c.industry)}</div>
+    <div class="s-dots" aria-label="Match ${dots} out of 5">${[1,2,3,4,5].map(i=>`<i class="${i<=dots?"on":""}"></i>`).join("")}<span>match</span></div>
+    <div class="s-line"><i class="${st[0]}"></i>${esc(st[1])}</div><div class="s-line"><i class="${money[0]}"></i>${esc(money[1])}</div>
+    ${c.opp?`<div class="s-line"><i class="green"></i>Deal: ${esc(c.opp)}</div>`:""}</button>`}).join("")}</div>`;
+}
+function vSearchesSimple(){
+  return `<div class="s-hello"><h2>Searches & reports</h2><p>For each client, who we contacted, what the market says, and what we will ask them to change. Send the report when it is due.</p></div>
+  <div class="s-list">${briefs.map(b=>{const o=opps.find(x=>x.id===b.opp),c=coById(o.co),m=b.market,rt=tasks.find(t=>t.brief===b.id&&t.status!=="done");
+    const appr=b.outreach.channels.reduce((s,x)=>s+x[1],0),top=b.outreach.reasons.slice().sort((x,y)=>y[1]-x[1])[0],f=v=>m.unit.startsWith("€/")?`€${v} a day`:`€${v}k a year`,low=m.budget<m.median,flex=b.flex.filter(x=>x.on);
+    return `<div class="s-search"><div class="s-sh"><div><div class="s-cn">${esc(c.name)}</div><div class="s-city">is looking for ${esc(b.role)}</div></div>${b.paused?`<span class="s-time red">On hold</span>`:rt?`<span class="s-time ${daysTo(rt.due)<=0?"amber":"blue"}">Report ${daysTo(rt.due)<=0?"due today":"due "+fmtD(parseD(rt.due))}</span>`:`<span class="s-time green">Report sent</span>`}</div>
+      <div class="s-steps"><div><b class="num">${appr}</b><span>people we contacted</span></div><div><b class="num">${b.r.interested}</b><span>are interested</span></div><div><b class="num">${b.r.cvs}</b><span>CVs sent to the client</span></div><div><b class="num">${b.r.interviews}</b><span>interviews</span></div></div>
+      <div class="s-line"><i class="${low?"amber":"green"}"></i>People ask ${f(m.band[0])} to ${f(m.band[1])}. The client pays ${f(m.budget)}: ${low?"a bit low":"that is fine"}.</div>
+      ${top?`<div class="s-line"><i class="amber"></i>Most people who said no said: “${esc(top[0].toLowerCase())}” (${top[1]} people).</div>`:""}
+      <div class="s-line"><i class="${flex.length?"amber":"green"}"></i><span>${flex.length?`We will ask the client to be flexible on: <b>${flex.map(x=>esc(x.lever.toLowerCase())).join(", ")}</b>.`:"Nothing to ask the client to change yet."}</span></div>
+      <div class="s-acts">${b.paused?`<span class="note">${esc(cap(billBlocker(c)))}.</span>`:rt?`<button class="btn primary s-go" data-task="${rt.id}">Check and send the report</button>`:""}<button class="btn" data-bfull="${b.id}">See the full report</button></div></div>`}).join("")}</div>`;
+}
 /* ---------------- render & events ---------------- */
 function render(){
   renderNav();
-  const m = {emails:vEmails,reports:vReports,accounts:vAccounts,tasks:vTasks,today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
-  $("#main").innerHTML = m();
+  const m = {clients:vClientsSimple,searches:vSearchesSimple,emails:vEmails,reports:vReports,accounts:vAccounts,tasks:vTasks,today:vToday,companies:vCompanies,sequences:vSequences,sending:vSending,engagement:vEngagement,opportunities:vOpps,analytics:vAnalytics,workflow:vWorkflow,model:vModel}[view];
+  $("#main").innerHTML = (simple && view==="today") ? vTodaySimple() : m();
+  gloss($("#main")); gloss($("#nav"));
   ["#seqgrid","#repgrid"].forEach(id=>{ const sg = $(id); if (sg && innerWidth < 900) sg.style.gridTemplateColumns = "minmax(0,1fr)"; });
 }
 function drawer(html){
   $("#layer").innerHTML = `<div class="scrim" data-close></div><aside class="drawer" role="dialog" aria-modal="true" aria-label="Details"><button class="x" data-close aria-label="Close">×</button>${html}</aside>`;
+  gloss($("#layer"));
   $(".drawer .x").focus();
 }
 function closeDrawer(){ $("#layer").innerHTML = ""; }
@@ -1711,6 +1848,8 @@ document.addEventListener("click", e => {
   if (d.copy) { const txt = $("#"+d.copy).textContent; try { navigator.clipboard.writeText(txt).then(()=>toast("Search copied"),()=>selectText(d.copy)); } catch(err){ selectText(d.copy); } return; }
   if (d.astep) { const [cid,i] = d.astep.split(":"); const c = coById(cid); c.acct.done[+i] = c.acct.done[+i]?0:1; if (!c.acct.since) c.acct.since = iso(TODAY); render(); openCompany(cid); toast(acctN(c)===5?`${c.name}: supplier account open`:`${c.name}: account ${acctN(c)}/5`); return; }
   if (d.psl) { const c = coById(d.psl); c.acct.psl.member = !c.acct.psl.member; if (c.acct.psl.member) c.acct.psl.renew = iso(addDays(TODAY,365)); render(); openCompany(d.psl); toast(c.acct.psl.member?`${c.name}: listed as preferred supplier`:`${c.name}: removed from PSL`); return; }
+  if (d.mode) { simple = d.mode==="simple"; try { localStorage.setItem("zig-simple", simple?"1":"0"); } catch(err){} if (simple && !VIEWS_SIMPLE.some(v=>v.id===view)) view = "today"; if (!simple && ["clients","searches"].includes(view)) view = view==="clients"?"companies":"reports"; return render(); }
+  if (d.bfull) { brSel = d.bfull; return go("reports"); }
   if (d.mail) { return openMail(d.mail); }
   if (d.mailco) { mf = {dir:"all",co:d.mailco,kind:"all",q:""}; closeDrawer(); return go("emails"); }
   if (d.mdir) { mf.dir = d.mdir; return render(); }
