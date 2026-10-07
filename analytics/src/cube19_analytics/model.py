@@ -113,6 +113,7 @@ class Job:
     exclusive: bool = False
     seniority: str = "mid"
     placement_type: PlacementType = PlacementType.PERM
+    profile: str = ""   # profile type within the market (e.g. "network/cloud"); talent_pool.py
 
     @property
     def year(self) -> int:

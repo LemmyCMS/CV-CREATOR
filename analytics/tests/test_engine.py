@@ -364,5 +364,68 @@ class TestScoringDecisions(unittest.TestCase):
                                       msg=f"{market} appears to be compared against itself")
 
 
+class TestTalentPool(unittest.TestCase):
+    """Pool sizing, and the Gentis failure: warm candidates who are never sent."""
+
+    def setUp(self):
+        from cube19_analytics.talent_pool import Candidate, PoolAssumptions
+        self.Candidate, self.a = Candidate, PoolAssumptions()
+        self.today = date(2026, 11, 2)
+
+    def _cand(self, cid, **kw):
+        base = dict(market="BXL IT Infra", profile="network", added=date(2026, 9, 1),
+                    placement_type=PlacementType.CONTRACT, last_contact=date(2026, 10, 20),
+                    available_from=date(2026, 11, 15), cv_on_file=True, consent=True)
+        base.update(kw)
+        return self.Candidate(cid, **base)
+
+    def test_targets_follow_the_arithmetic(self):
+        from cube19_analytics.talent_pool import warm_target
+        self.assertEqual(warm_target(PlacementType.CONTRACT)["warm_needed"], 30)
+        self.assertEqual(warm_target(PlacementType.PERM)["warm_needed"], 50)
+        # A second simultaneous job reuses half the shortlist - 1.5x, not 2x.
+        self.assertEqual(warm_target(PlacementType.CONTRACT, 2)["warm_needed"], 45)
+
+    def test_plan_flags_over_capacity(self):
+        from cube19_analytics.talent_pool import pool_plan
+        profiles = [{"market": f"M{i}", "profile": "p", "placement_type": "perm"}
+                    for i in range(8)]
+        plan = pool_plan(profiles, fte=1.0)
+        self.assertEqual(plan["total_warm_needed"], 400)
+        self.assertFalse(plan["fits_capacity"])
+
+    def test_warm_requires_consent_cv_and_recent_contact(self):
+        self.assertTrue(self._cand("a").is_warm(self.today, self.a))
+        self.assertFalse(self._cand("b", consent=False).is_warm(self.today, self.a))
+        self.assertFalse(self._cand("c", cv_on_file=False).is_warm(self.today, self.a))
+        self.assertFalse(self._cand("d", last_contact=date(2026, 6, 1)).is_warm(self.today, self.a))
+
+    def test_contract_ready_only_inside_the_start_window(self):
+        self.assertTrue(self._cand("a").is_ready(self.today, self.a))
+        late = self._cand("b", available_from=date(2027, 3, 1))
+        self.assertFalse(late.is_ready(self.today, self.a))
+
+    def test_ready_unsent_candidate_is_surfaced_by_name(self):
+        from cube19_analytics.talent_pool import send_leaks
+        job = Job("j1", "c1", "k1", "BXL IT Infra", date(2026, 10, 28),
+                  placement_type=PlacementType.CONTRACT, profile="network")
+        sent = StageEvent("s1", "j1", "a", "c1", "k1", "BXL IT Infra", Stage.CV_SENT,
+                          date(2026, 10, 29), PlacementType.CONTRACT)
+        cands = [self._cand("a"), self._cand("b")]
+        leaks = send_leaks(cands, [sent], [job], self.today, self.a)
+        self.assertEqual([r["candidate_id"] for r in leaks["ready_not_sent"]], ["b"])
+        # Opened 5 days ago with one CV: past the 48h SLA.
+        self.assertEqual(leaks["sla_breaches"][0]["cvs_sent"], 1)
+
+    def test_never_sent_rate_alarms_at_gentis_levels(self):
+        from cube19_analytics.talent_pool import send_leaks
+        cands = [self._cand(str(i)) for i in range(10)]
+        events = [StageEvent("s", "j", "0", "c", "k", "BXL IT Infra", Stage.CV_SENT,
+                             date(2026, 10, 1), PlacementType.CONTRACT)]
+        leaks = send_leaks(cands, events, [], self.today, self.a)
+        self.assertAlmostEqual(leaks["never_sent_rate"], 0.9)
+        self.assertTrue(leaks["never_sent_alarm"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

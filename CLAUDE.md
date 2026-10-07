@@ -205,6 +205,34 @@ downstream forecast live. Persist the team's chosen values with the artifact `db
 same targets and they can be read back here. The forecast maths already exists in
 `dashboard/zig_year1.json` and `oneview.py: scenario()` — this is a UI layer over it.
 
+## ⚑ COMMITTED — the user is adamant these get built into the Zig system (do not drop)
+
+Raise this list at the start of any session that touches the CRM, targets or the plan.
+Status as of 2026-10-07. Tick only when it is live in the CRM, not when it is designed.
+
+1. **Warm talent pool targets per market and profile type** — BUILT (engine) 2026-10-07,
+   `analytics/src/cube19_analytics/talent_pool.py`, doc `analytics/docs/07-warm-talent-pool.md`.
+   Goal: 3 strong CVs within 48h of a job landing. Needs ~30 warm per profile type
+   (contract) and ~50 (perm); a 2nd simultaneous same-profile job adds 50%, not 100%.
+   Warm = contacted ≤90 days + CV on file + GDPR consent. Team capacity ~220 warm per FTE
+   — over that, open fewer markets, never build a bigger cold database.
+   Fit 50% / availability 20% contract, 12% perm are **[PRIOR]** — measure them in the
+   first two months and replace. NOT YET: CRM fields, dashboard tile.
+2. **Never repeat Gentis's "never sent" failure** (85% of new candidates never sent) —
+   BUILT (engine) in `send_leaks()`: never-sent rate with alarm above 50%, the named list
+   of warm+ready candidates matching an open job who were not sent, open jobs past the
+   48h SLA with <3 CVs, median days to 3rd CV. NOT YET: a daily queue in the CRM.
+3. **Editable KPI targets with suggested values** — designed, not built (section above).
+4. **Two anchor numbers**: CVs sent per recruiter per day, extension rate on finishers.
+5. **CRM data rules from Gentis's failures**: no `Ghost_*`/unassigned owners (100%
+   attribution); a margin floor validation on contract placements (26% of Gentis's sat
+   under 12%); every contract finisher gets an extension conversation logged; every
+   submission records stage entries with timestamps, never just current status.
+6. **CRM fields required** for 1–2: candidate `market`, `profile`, `placement_type`,
+   `last_contact`, `available_from` (contract mission end), `open_to_move` (perm),
+   `cv_on_file`, `consent`; job `profile`. Without `profile` on both sides the matching
+   cannot run.
+
 ## Access constraints discovered (do not re-litigate these)
 
 - `app.cube19.io` is **blocked by the container's egress proxy** (403 on CONNECT), and
