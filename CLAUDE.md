@@ -174,6 +174,14 @@ or leavers vanish from history. Needs a CV-sent export with **sending user + dat
 grouped by consultant is enough). The placement samples are too thin for it: 17→21 distinct
 contract owners and 23→21 perm owners, which counts closers, not senders.
 
+**Safe headcount ESTIMATE (2026-10-08, user asked for one pending the export)** — CVs on jobs per
+year: Jan21–Sep22 ≈15.8k, Sep22–Sep25 21.3k, Sep25–Sep26 7.0k. Assuming today's 28 users hold
+~20–28 producing recruiters (250–350 CVs on jobs/head/yr) and per-head output was the same or up
+to 1.5× higher before: **2021–22 ≈ 40–60 heads, 2022–25 ≈ 45–85 (central ~60), now ~20–28.**
+Cross-check: ≥16 distinct senders in just 2 days of Jan 2021. Reading: team roughly −55–65%,
+CV volume −67%, so **most of the decline is fewer people**; per-head output down ~0–25%.
+[VERIFY] with the Owner×month export — replace, don't average.
+
 ### Still needed
 
 Full Slice & Dice exports (1,493 perm + 2,136 contract placements, not single pages),
