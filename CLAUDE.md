@@ -139,6 +139,23 @@ appear inside a *contract* export (mis-grouped).
 - **Contract Type** distinguishes "Original" from "Contract Extension 1" — that is the
   extension flag, and it resolves the extensions/placements partition.
 
+### Long window Jan 2021 – Oct 2026 (pasted 2026-10-08) — `data/gentis/oneview_2021_2026.json`
+
+- **Unique CVs per placement ≈ 12** (39,949 unique / 3,307 funnel placements; funnel count
+  recovered from 2 published ratios agreeing to 0.1%). A floor: uniques dedupe across the whole
+  5.8 years. CVs on jobs per placement 29.4; total CVs 783,949 of which only 12.4% on jobs and
+  5.1% unique.
+- **Re-derived anchor target (unique CVs per recruiter-day, 264 recruiter-days/yr for 2×half-time):**
+  6 placements → 0.27, 10 → 0.46, 16 → 0.73. In plain CVs-on-jobs: 0.67 / 1.11 / 1.78. The old
+  "2.2 CVs/day" sat above even the high case; replace it with ~0.5 unique (≈1.1 on jobs) base.
+- **50% of contract finishers had no extension, CV, interview or placement** (1,587 of 3,160);
+  €960,733 of weekly GP walked out unworked. Contractors out today: 178.
+- The CV-sent Slice & Dice has **Owner** (the sender, current name e.g. "Ornella Scarpino (Wiggli)")
+  separate from **Job Owner** — Owner is the field for `inferred_headcount()`. It also carries
+  organisation rate agreements (min/max %), "Freelance Contract?" and payment terms — use the
+  min % as the CRM margin floor per client. Only one page (~40 rows, Jan 2021) was pasted; it
+  holds candidate names, so it is NOT stored. Ask for the full export as a file.
+
 ### The unresolved confound — get this first
 
 OneView shows **today's** 28 users on every period. Historical headcount is simply not in
@@ -238,7 +255,7 @@ Status as of 2026-10-07. Tick only when it is live in the CRM, not when it is de
    a *unique CV sent* is a candidate sent to a **qualified** job, and a candidate counts
    once however many qualified jobs or companies they go to. Gentis 12m: 24,885 total
    CVs, 17,901 spec, 6,984 on jobs, 3,920 unique = 16%. `talent_pool.cv_counts()`; Job has
-   a `qualified` flag. The 2.2/day target was derived on CVs sent - re-derive it on unique.
+   a `qualified` flag. Re-derived 2026-10-08: ~0.5 unique/recruiter-day base (0.27 low, 0.73 high) - see long-window section.
 5. **CRM data rules from Gentis's failures**: no `Ghost_*`/unassigned owners (100%
    attribution); a margin floor validation on contract placements (26% of Gentis's sat
    under 12%); every contract finisher gets an extension conversation logged; every
