@@ -426,6 +426,20 @@ class TestTalentPool(unittest.TestCase):
         self.assertAlmostEqual(leaks["never_sent_rate"], 0.9)
         self.assertTrue(leaks["never_sent_alarm"])
 
+    def test_unique_cvs_count_each_candidate_once_on_qualified_jobs(self):
+        from cube19_analytics.talent_pool import cv_counts
+        jobs = [Job("q1", "acme", "k", "M", date(2026, 10, 1), qualified=True),
+                Job("q2", "acme", "k", "M", date(2026, 10, 1), qualified=True),
+                Job("q3", "beta", "k", "M", date(2026, 10, 1), qualified=True),
+                Job("spray", "gamma", "k", "M", date(2026, 10, 1))]
+        def cv(cand, job):
+            return StageEvent("s", job, cand, "c", "k", "M", Stage.CV_SENT, date(2026, 10, 5))
+        events = [cv("a", "q1"), cv("a", "q2"), cv("a", "q3"), cv("b", "q1"), cv("c", "spray")]
+        out = cv_counts(events, jobs, date(2026, 10, 1), date(2026, 10, 31))
+        self.assertEqual(out["cvs_sent"], 5)
+        self.assertEqual(out["cvs_on_qualified"], 4)
+        self.assertEqual(out["unique_cvs_sent"], 2)   # a once, b once; c was unqualified
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

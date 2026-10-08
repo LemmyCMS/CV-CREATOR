@@ -114,6 +114,7 @@ class Job:
     seniority: str = "mid"
     placement_type: PlacementType = PlacementType.PERM
     profile: str = ""   # profile type within the market (e.g. "network/cloud"); talent_pool.py
+    qualified: bool = False  # confirmed role, real budget, client engaged - see talent_pool.cv_counts
 
     @property
     def year(self) -> int:

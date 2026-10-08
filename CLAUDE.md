@@ -223,7 +223,12 @@ Status as of 2026-10-07. Tick only when it is live in the CRM, not when it is de
    of warm+ready candidates matching an open job who were not sent, open jobs past the
    48h SLA with <3 CVs, median days to 3rd CV. NOT YET: a daily queue in the CRM.
 3. **Editable KPI targets with suggested values** — designed, not built (section above).
-4. **Two anchor numbers**: CVs sent per recruiter per day, extension rate on finishers.
+4. **Two anchor numbers**: **UNIQUE** CVs sent per recruiter per day, extension rate on finishers.
+   User's definition (2026-10-08): a *CV sent* is any CV out the door (spray and pray);
+   a *unique CV sent* is a candidate sent to a **qualified** job, and a candidate counts
+   once however many qualified jobs or companies they go to. Gentis 12m: 24,885 total
+   CVs, 17,901 spec, 6,984 on jobs, 3,920 unique = 16%. `talent_pool.cv_counts()`; Job has
+   a `qualified` flag. The 2.2/day target was derived on CVs sent - re-derive it on unique.
 5. **CRM data rules from Gentis's failures**: no `Ghost_*`/unassigned owners (100%
    attribution); a margin floor validation on contract placements (26% of Gentis's sat
    under 12%); every contract finisher gets an extension conversation logged; every
@@ -242,6 +247,11 @@ Status as of 2026-10-07. Tick only when it is live in the CRM, not when it is de
    missions, then cold targets. Build notes: prefer public ATS job feeds (Workday,
    Greenhouse, Lever, SmartRecruiters, Teamtailor) over HTML scraping; respect robots.txt
    and site terms; store company data, not personal data, from scrapes (GDPR).
+   **Gentis clients are potential business, NOT access.** Equans, AG Insurance etc. were
+   Gentis's accounts/PSLs, not The Zig's. Every company carries an account status:
+   target -> opening (first contact/meeting) -> active (first job) -> PSL (on the supplier
+   list). Suggested lists show Gentis history as "why this company", never as a relationship.
+   Only `active`/`PSL` companies are watched automatically.
 
 ## Access constraints discovered (do not re-litigate these)
 

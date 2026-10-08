@@ -38,6 +38,7 @@ __all__ = [
     "pool_plan",
     "pool_health",
     "send_leaks",
+    "cv_counts",
 ]
 
 GENTIS_NEVER_SENT_12M = 0.85   # 10,104 of 11,876 new candidates, Sep 2025-Sep 2026
@@ -239,4 +240,27 @@ def send_leaks(candidates: list[Candidate], events: list[StageEvent], jobs: list
         "ready_not_sent": idle,
         "sla_breaches": breaches,
         "median_days_to_third_cv": ttn[len(ttn) // 2] if ttn else None,
+    }
+
+
+def cv_counts(events: list[StageEvent], jobs: list[Job], start: date, end: date) -> dict:
+    """CVs sent vs unique CVs sent - the anchor number is the second one.
+
+    * ``cvs_sent``: every CV that went out, qualified job or not. Spray-and-pray counts here.
+    * ``cvs_on_qualified``: CVs sent to qualified jobs only.
+    * ``unique_cvs_sent``: distinct candidates sent to a qualified job in the window. A
+      candidate sent to three qualified jobs counts once - at the same company or another.
+
+    Gentis, Sep 2025-Sep 2026: 24,885 total CVs (17,901 of them spec), 6,984 on jobs,
+    3,920 unique by candidate - 16% of everything sent.
+    """
+    qualified = {j.job_id for j in jobs if j.qualified}
+    sends = [e for e in events if e.stage == Stage.CV_SENT and start <= e.event_date <= end]
+    on_q = [e for e in sends if e.job_id in qualified]
+    unique = {e.candidate_id for e in on_q}
+    return {
+        "cvs_sent": len(sends),
+        "cvs_on_qualified": len(on_q),
+        "unique_cvs_sent": len(unique),
+        "unique_share": len(unique) / len(sends) if sends else None,
     }
