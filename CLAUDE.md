@@ -233,6 +233,16 @@ Status as of 2026-10-07. Tick only when it is live in the CRM, not when it is de
    `cv_on_file`, `consent`; job `profile`. Without `profile` on both sides the matching
    cannot run.
 
+7. **Focus companies + job-signal watcher + generated call list** — requested 2026-10-08,
+   NOT BUILT. Recruiter picks focus companies by market/industry in the UI. The system
+   checks their careers pages daily (plus companies already committed to) and notifies
+   on each new job; every incoming job auto-resolves its client's website/domain. The
+   daily call list is generated from the focus + goals: yesterday's call-backs first
+   (with reminders), then new-job signals at focus companies, then freelancers ending
+   missions, then cold targets. Build notes: prefer public ATS job feeds (Workday,
+   Greenhouse, Lever, SmartRecruiters, Teamtailor) over HTML scraping; respect robots.txt
+   and site terms; store company data, not personal data, from scrapes (GDPR).
+
 ## Access constraints discovered (do not re-litigate these)
 
 - `app.cube19.io` is **blocked by the container's egress proxy** (403 on CONNECT), and
