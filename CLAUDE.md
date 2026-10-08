@@ -288,6 +288,21 @@ Status as of 2026-10-07. Tick only when it is live in the CRM, not when it is de
    list). Suggested lists show Gentis history as "why this company", never as a relationship.
    Only `active`/`PSL` companies are watched automatically.
 
+8. **Job intake → qualification → automated multi-send** — stated 2026-10-08, NOT BUILT.
+   ~30 jobs/day come in today (job boards, scrapes, prospection), potentially hundreds/day.
+   They are UNQUALIFIED until a client conversation confirms role, budget, timing. Prospection
+   emailing + client calls work the unqualified pile to convert it. Goal: **≥10 qualified jobs
+   open at all times.** Once a job is qualified the system auto-matches warm candidates and
+   prepares the send; one candidate can go to several qualified jobs (counts once as unique).
+   **Manager target: 3 UNIQUE CVs per recruiter per day** (user confirmed "unique"). That is
+   ~6.5× the Gentis-derived base (0.46) and needs ~15–20 new qualified jobs a month, i.e. a
+   2–3% qualification rate on ~660 incoming jobs/month. Automation raises total CVs; only new
+   distinct candidates raise unique CVs. Guardrail: candidate consent before any CV goes to a
+   client (GDPR + double-submission fee disputes) - automate matching and drafting, keep
+   per-candidate consent ("right to represent") before sending.
+   **Speculative CVs are prospection, not waste** (user): keep them, count them separately, and
+   measure spec CV -> client reply -> job opened, so their value is visible.
+
 ## Access constraints discovered (do not re-litigate these)
 
 - `app.cube19.io` is **blocked by the container's egress proxy** (403 on CONNECT), and
