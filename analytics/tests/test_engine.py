@@ -441,5 +441,19 @@ class TestTalentPool(unittest.TestCase):
         self.assertEqual(out["unique_cvs_sent"], 2)   # a once, b once; c was unqualified
 
 
+
+class TestInferredHeadcount(unittest.TestCase):
+    def test_counts_people_who_sent_cvs_each_month(self):
+        from cube19_analytics.quality import inferred_headcount
+        def cv(k, d):
+            return StageEvent("s", "j", "c", "cl", k, "M", Stage.CV_SENT, d)
+        ev = ([cv("ann", date(2025, 1, i)) for i in (2, 3, 4)]
+              + [cv("bob", date(2025, 1, 5))]                        # 1 send: not active
+              + [cv("Ghost_Bxl-IT", date(2025, 1, i)) for i in range(1, 9)]
+              + [cv("bob", date(2025, 2, i)) for i in (1, 2, 3)])
+        heads = inferred_headcount(Dataset(stage_events=ev))
+        self.assertEqual(heads, {"2025-01": 1, "2025-02": 1})
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

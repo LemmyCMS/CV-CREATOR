@@ -17,7 +17,7 @@ from datetime import date
 
 from .model import Dataset, Stage
 
-__all__ = ["QualityFinding", "assess", "reliable_metrics"]
+__all__ = ["QualityFinding", "assess", "reliable_metrics", "inferred_headcount"]
 
 _ACTIVITY_ACTIONS = {"call": "calls", "connect": "connects",
                      "email": "emails", "client_meeting": "client_meetings"}
@@ -186,3 +186,31 @@ def reliable_metrics(ds: Dataset, min_coverage: float = 0.80) -> set[str]:
         "cvs_sent", "first_interviews", "further_interviews", "offers", "placements", "gp",
     }
     return everything - unreliable
+
+
+def inferred_headcount(ds: Dataset, min_sends: int = 3,
+                       exclude_prefixes: tuple[str, ...] = ("Ghost",)) -> dict[str, int]:
+    """Active recruiters per month, read from who actually sent CVs.
+
+    When no HR headcount exists (Gentis: OneView shows today's 28 users on every period),
+    the CV log still records who did the work. A consultant counts as active in a month
+    when they sent at least ``min_sends`` CVs - enough to exclude a manager forwarding one
+    CV, not so many that a part-timer disappears. Placeholder owners (``Ghost_*``) are
+    pools, not people, and are excluded.
+
+    It measures *producing* heads, not employed ones: a new starter still ramping, or
+    a pure business developer who never sends CVs, is not counted. Use it as the per-head
+    denominator for delivery ratios, not as payroll.
+    """
+    sends: dict[tuple[str, str], int] = defaultdict(int)
+    for e in ds.stage_events:
+        if e.stage != Stage.CV_SENT or not e.consultant_id:
+            continue
+        if e.consultant_id.startswith(exclude_prefixes):
+            continue
+        sends[(e.month, e.consultant_id)] += 1
+    heads: dict[str, int] = defaultdict(int)
+    for (month, _), n in sends.items():
+        if n >= min_sends:
+            heads[month] += 1
+    return dict(sorted(heads.items()))

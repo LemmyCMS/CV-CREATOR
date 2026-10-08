@@ -147,6 +147,12 @@ Until headcount by month exists, "the business shrank" and "the team shrank" are
 indistinguishable, and every per-head conclusion is unsafe. This is the single highest-value
 missing field.
 
+**Workaround (user's idea, 2026-10-08): infer it from who sent CVs.** `quality.inferred_headcount()`
+counts consultants with ≥3 CV sends in a month (Ghost_* excluded) = producing heads per month.
+Needs a CV-sent export with **sender/owner + date per row** (Slice & Dice, CVs sent, monthly,
+grouped by consultant is enough). The placement samples are too thin for it: 17→21 distinct
+contract owners and 23→21 perm owners, which counts closers, not senders.
+
 ### Still needed
 
 Full Slice & Dice exports (1,493 perm + 2,136 contract placements, not single pages),
