@@ -195,8 +195,12 @@ def inferred_headcount(ds: Dataset, min_sends: int = 3,
     When no HR headcount exists (Gentis: OneView shows today's 28 users on every period),
     the CV log still records who did the work. A consultant counts as active in a month
     when they sent at least ``min_sends`` CVs - enough to exclude a manager forwarding one
-    CV, not so many that a part-timer disappears. Placeholder owners (``Ghost_*``) are
-    pools, not people, and are excluded.
+    CV, not so many that a part-timer disappears.
+
+    ``Ghost_*`` owners are where a leaver's records are parked after they go, so they are
+    excluded as "not a person" - but that means the field must be who *sent* the CV at
+    the time (Bullhorn's sending user), not the record's current owner. Read from current
+    owner, every leaver's past CVs show as Ghost and past headcount is undercounted.
 
     It measures *producing* heads, not employed ones: a new starter still ramping, or
     a pure business developer who never sends CVs, is not counted. Use it as the per-head

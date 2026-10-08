@@ -149,7 +149,11 @@ missing field.
 
 **Workaround (user's idea, 2026-10-08): infer it from who sent CVs.** `quality.inferred_headcount()`
 counts consultants with ≥3 CV sends in a month (Ghost_* excluded) = producing heads per month.
-Needs a CV-sent export with **sender/owner + date per row** (Slice & Dice, CVs sent, monthly,
+**`Ghost_*` = recruiters who have LEFT Gentis (their records reassigned to a placeholder), or
+candidates/records with no owner any more** (user, 2026-10-08). So the Ghost rise 2%→36% of
+contract placements is also a leaver signal: a lot of the book was built by people now gone.
+For headcount, use the user who *sent* the CV at the time, never the record's current owner,
+or leavers vanish from history. Needs a CV-sent export with **sending user + date per row** (Slice & Dice, CVs sent, monthly,
 grouped by consultant is enough). The placement samples are too thin for it: 17→21 distinct
 contract owners and 23→21 perm owners, which counts closers, not senders.
 
